@@ -81,9 +81,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\albumDAO.vb" />
-    <Compile Include="Domain\artistDAO.vb" />
-    <Compile Include="Domain\concertDAO.vb" />
+    <Compile Include="Domain\AlbumDAO.vb" />
+    <Compile Include="Domain\ArtistDAO.vb" />
+    <Compile Include="Domain\ConcertDAO.vb" />
     <Compile Include="Persistence\DBBroker.vb" />
     <Compile Include="Presentation\Form1.vb">
       <SubType>Form</SubType>
