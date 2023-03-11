@@ -1,3 +1,3 @@
-﻿Public Class artistDAO
+﻿Public Class ArtistDAO
 
 End Class
