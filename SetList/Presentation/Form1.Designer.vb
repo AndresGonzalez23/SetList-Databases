@@ -23,22 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btn_connection = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Snow
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(225, 399)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(572, 77)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Connect to database"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -52,6 +39,19 @@ Partial Class Form1
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "WELCOME TO OUR APLICATION"
         '
+        'btn_connection
+        '
+        Me.btn_connection.BackColor = System.Drawing.Color.Transparent
+        Me.btn_connection.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_connection.ForeColor = System.Drawing.Color.Snow
+        Me.btn_connection.Image = CType(resources.GetObject("btn_connection.Image"), System.Drawing.Image)
+        Me.btn_connection.Location = New System.Drawing.Point(225, 399)
+        Me.btn_connection.Name = "btn_connection"
+        Me.btn_connection.Size = New System.Drawing.Size(572, 77)
+        Me.btn_connection.TabIndex = 0
+        Me.btn_connection.Text = "Connect to database"
+        Me.btn_connection.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -59,7 +59,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1023, 680)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_connection)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
@@ -69,6 +69,6 @@ Partial Class Form1
 
     End Sub
 
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents btn_connection As Button
 End Class
