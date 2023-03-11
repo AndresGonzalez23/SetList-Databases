@@ -81,7 +81,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\DBBroker.vb" />
+    <Compile Include="Domain\albumDAO.vb" />
+    <Compile Include="Domain\artistDAO.vb" />
+    <Compile Include="Domain\concertDAO.vb" />
+    <Compile Include="Persistence\DBBroker.vb" />
     <Compile Include="Presentation\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -137,9 +140,7 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Persistence\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Five-Simple-Editing-Tips-That-Will-Make-Your-Photos-Stand-Out.jpg" />
   </ItemGroup>
