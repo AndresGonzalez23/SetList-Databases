@@ -5,7 +5,7 @@
         Me.Albums = New Collection
     End Sub
 
-    Public Function ReadAll()
+    Public Function ReadAll() As Object
         Dim alb As Album
         Dim col, aux As Collection
         col = DBBroker.GetBroker().Read("SELECT * FROM Albums ORDER BY IdAlbum")

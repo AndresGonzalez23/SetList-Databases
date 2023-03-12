@@ -8,6 +8,4 @@ Public Class Form1
         main.Show() 'Muestra Form2
 
     End Sub
-
-
 End Class
