@@ -89,6 +89,8 @@
     <Compile Include="Domain\ConcertDAO.vb" />
     <Compile Include="Domain\Song.vb" />
     <Compile Include="Domain\SongDAO.vb" />
+    <Compile Include="Domain\Venue.vb" />
+    <Compile Include="Domain\VenueDAO.vb" />
     <Compile Include="Persistence\DBBroker.vb" />
     <Compile Include="Presentation\Form1.vb">
       <SubType>Form</SubType>

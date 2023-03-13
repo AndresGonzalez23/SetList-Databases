@@ -32,8 +32,8 @@
     Public Function setIdConcert(id As Integer) As Integer
         idConcert = id
     End Function
-    Public Function setDate(concertDate As Date) As Date
-        concertDate = concertDate
+    Public Function setDate(conDate As Date) As Date
+        concertDate = conDate
     End Function
     Public Function setArtist(artist As Integer) As Integer
         Me.Artist = artist
