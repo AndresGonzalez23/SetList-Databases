@@ -147,12 +147,20 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\etapa.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Five-Simple-Editing-Tips-That-Will-Make-Your-Photos-Stand-Out.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\musica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

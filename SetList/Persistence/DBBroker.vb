@@ -4,8 +4,16 @@
     Private Shared connectionString As String
 
     Private Sub New()
-        DBBroker.connectionString = "server=localhost;database=mydb;uid=root;pwd=Leviathan2304"
-        DBBroker.connection = New MySql.Data.MySqlClient.MySqlConnection(DBBroker.connectionString)
+        Try
+            DBBroker.connectionString = "server=localhost;database=setlist;uid=root;pwd=1234"
+            DBBroker.connection = New MySql.Data.MySqlClient.MySqlConnection(DBBroker.connectionString)
+
+
+        Catch ex As Exception
+            MessageBox.Show("CAN NOT CONNECT WITH THE DATABASE", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
+
     End Sub
 
     Public Shared Function GetBroker() As DBBroker

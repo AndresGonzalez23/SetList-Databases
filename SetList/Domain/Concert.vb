@@ -41,5 +41,9 @@
     Public Function setVenue(venue As Integer) As Integer
         Me.Venue = venue
     End Function
+    Public Function ReadAllConcert(path As String) As Object
+        Return Me.cDao.ReadAll()
+    End Function
+
 
 End Class

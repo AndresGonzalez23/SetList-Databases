@@ -25,4 +25,7 @@
             c.setVenue(CInt(aux(4).ToString))
         Next
     End Sub
+
+
 End Class
+
