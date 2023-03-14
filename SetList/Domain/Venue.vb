@@ -41,4 +41,16 @@
     Public Function setVenueType(vType As String) As String
         venueType = vType
     End Function
+    Public Function ReadAllVenues(path As String) As Object
+        Return Me.vDao.ReadAll()
+    End Function
+    Public Function InsertVenue() As Integer
+        Return Me.vDao.Insert(Me)
+    End Function
+    Public Function DeleteVenue() As Integer
+        Return Me.vDao.Delete(Me)
+    End Function
+    Public Function UpdateVenue() As Integer
+        Return Me.vDao.Update(Me)
+    End Function
 End Class

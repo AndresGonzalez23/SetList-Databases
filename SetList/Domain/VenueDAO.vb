@@ -25,4 +25,14 @@
             v.setVenueType(aux(4).ToString)
         Next
     End Sub
+
+    Public Function Insert(ByVal v As Venue) As Integer
+        Return DBBroker.GetBroker.Change("INSERT INTO Venues ([venueName],[venueCountry],[venueType]) VALUES ('" & v.getVenueName() & "','" & v.getVenueCountry() & "','" & v.getVenueType() & "','" & "');")
+    End Function
+    Public Function Update(ByVal v As Venue) As Integer
+        Return DBBroker.GetBroker.Change("UPDATE Venues SET [venueName]='" & v.getVenueName() & "' ,[venueCountry]='" & v.getVenueCountry() & "' ,[venueType]='" & v.getVenueType() & "'WHERE idVenue=" & v.getidVenue & ";")
+    End Function
+    Public Function Delete(ByVal v As Venue) As Integer
+        Return DBBroker.GetBroker.Change("DELETE FROM Venues WHERE idVenue=" & v.getidVenue() & ";")
+    End Function
 End Class

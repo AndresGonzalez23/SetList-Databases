@@ -26,6 +26,14 @@
         Next
     End Sub
 
-
+    Public Function Insert(ByVal c As Concert) As Integer
+        Return DBBroker.GetBroker.Change("INSERT INTO Concerts ([concertDate],[Artist],[Venue]) VALUES ('" & c.getDate() & "','" & c.getArtist & "','" & c.getVenue & "','" & "');")
+    End Function
+    Public Function Update(ByVal c As Concert) As Integer
+        Return DBBroker.GetBroker.Change("UPDATE Concerts SET [concertDate]='" & c.getDate & "' ,[Artist]='" & c.getArtist() & "' ,[Venue]='" & c.getVenue() & "'WHERE idConcert=" & c.getConcert() & ";")
+    End Function
+    Public Function Delete(ByVal c As Concert) As Integer
+        Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idVenue=" & c.getArtist() & ";")
+    End Function
 End Class
 
