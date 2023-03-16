@@ -6,13 +6,13 @@
     End Sub
 
     Public Function ReadAll() As Object
-        Dim cou As Country
+        Dim country As Country
         Dim col, aux As Collection
-        col = DBBroker.GetBroker().Read("SELECT * FROM Concerts ORDER BY idConcert")
+        col = DBBroker.GetBroker().Read("SELECT * FROM Country ORDER BY idCountry")
         For Each aux In col
-            c = New Concert(CInt(aux(1).ToString), CDate(aux(2).ToString), CInt(aux(3).ToString), CInt(aux(4).ToString))
-            Me.Concerts.Add(c)
+            country = New Country(aux(1).ToString, aux(2).ToString)
+            Me.Countries.Add(country)
         Next
-        Return Concerts
+        Return Countries
     End Function
 End Class

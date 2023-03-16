@@ -18,21 +18,21 @@
 
     Public Sub Read(ByRef v As Venue)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Venues WHERE idVenue='" & v.getidVenue() & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Venues WHERE idVenue='" & v.GetidVenue() & "';")
         For Each aux In col
-            v.setVenueName(aux(2).ToString)
-            v.setVenueCountry(aux(3).ToString)
-            v.setVenueType(aux(4).ToString)
+            v.SetVenueName(aux(2).ToString)
+            v.SetVenueCountry(aux(3).ToString)
+            v.SetVenueType(aux(4).ToString)
         Next
     End Sub
 
     Public Function Insert(ByVal v As Venue) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Venues ([venueName],[venueCountry],[venueType]) VALUES ('" & v.getVenueName() & "','" & v.getVenueCountry() & "','" & v.getVenueType() & "','" & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Venues ([venueName],[venueCountry],[venueType]) VALUES ('" & v.GetVenueName() & "','" & v.GetVenueCountry() & "','" & v.GetVenueType() & "','" & "');")
     End Function
     Public Function Update(ByVal v As Venue) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Venues SET [venueName]='" & v.getVenueName() & "' ,[venueCountry]='" & v.getVenueCountry() & "' ,[venueType]='" & v.getVenueType() & "'WHERE idVenue=" & v.getidVenue & ";")
+        Return DBBroker.GetBroker.Change("UPDATE Venues SET [venueName]='" & v.GetVenueName() & "' ,[venueCountry]='" & v.GetVenueCountry() & "' ,[venueType]='" & v.GetVenueType() & "'WHERE idVenue=" & v.GetidVenue & ";")
     End Function
     Public Function Delete(ByVal v As Venue) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Venues WHERE idVenue=" & v.getidVenue() & ";")
+        Return DBBroker.GetBroker.Change("DELETE FROM Venues WHERE idVenue=" & v.GetidVenue() & ";")
     End Function
 End Class

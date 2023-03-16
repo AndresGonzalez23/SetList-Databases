@@ -17,28 +17,28 @@
         venueType = vType
     End Sub
 
-    Public Function getidVenue() As Integer
+    Public Function GetidVenue() As Integer
         Return idVenue
     End Function
-    Public Function getVenueName() As String
+    Public Function GetVenueName() As String
         Return venueName
     End Function
-    Public Function getVenueCountry() As String
+    Public Function GetVenueCountry() As String
         Return venueCountry
     End Function
-    Public Function getVenueType() As String
+    Public Function GetVenueType() As String
         Return venueType
     End Function
-    Public Function setidVenue(id As Integer) As Integer
+    Public Function SetidVenue(id As Integer) As Integer
         idVenue = id
     End Function
-    Public Function setVenueName(vName As String) As String
+    Public Function SetVenueName(vName As String) As String
         venueName = vName
     End Function
-    Public Function setVenueCountry(vCountry As String) As String
+    Public Function SetVenueCountry(vCountry As String) As String
         venueCountry = vCountry
     End Function
-    Public Function setVenueType(vType As String) As String
+    Public Function SetVenueType(vType As String) As String
         venueType = vType
     End Function
     Public Function ReadAllVenues(path As String) As Object

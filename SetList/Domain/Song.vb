@@ -20,13 +20,13 @@
     Public Function GetSLength() As Integer
         Return length
     End Function
-    Public Function getIdSong() As Integer
+    Public Function GetIdSong() As Integer
         Return IdSong
     End Function
-    Public Function getLength() As Integer
+    Public Function GetLength() As Integer
         Return length
     End Function
-    Public Function setIdSong(id As Integer) As Integer
+    Public Function SetIdSong(id As Integer) As Integer
         IdSong = id
     End Function
     Public Function SetName(name As String) As String
