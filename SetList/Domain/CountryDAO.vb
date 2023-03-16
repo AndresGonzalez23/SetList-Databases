@@ -24,5 +24,4 @@
         Next
     End Sub
 
-    End Function
 End Class
