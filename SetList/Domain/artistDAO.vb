@@ -13,7 +13,6 @@
             ar = New Artist(CInt(aux(1).ToString))
             ar.SetName(aux(2).ToString)
             ar.SetCountry(aux(3).ToString)
-            ar.SetImage(aux(4).ToString)
             Me.Artists.Add(ar)
         Next
         Return Artists
@@ -40,7 +39,6 @@
         For Each aux In col
             ar.SetName(aux(2).ToString)
             ar.SetCountry(aux(3).ToString)
-            ar.SetImage(aux(4).ToString)
         Next
     End Sub
 
@@ -48,10 +46,10 @@
         Return DBBroker.GetBroker.Change("INSERT INTO Fav_Artists VALUES ('" & s.GetUser() & "', '" & s.GetIdArtist() & "', '" & s.GetFavDate() & "');")
     End Function
     Public Function Insert(ByVal ar As Artist) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Artists ([aName],country,[image]) VALUES ('" & ar.GetName() & "','" & ar.GetCountry() & "','" & ar.GetImage() & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Artists ([aName],country,[image]) VALUES ('" & ar.GetName() & "','" & ar.GetCountry() & "',);")
     End Function
     Public Function Update(ByVal ar As Artist) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Artists SET aName='" & ar.GetName() & "' ,country='" & ar.GetCountry() & "' ,[image]='" & ar.GetImage() & "'WHERE IdArtist=" & ar.GetIdArtist() & ";")
+        Return DBBroker.GetBroker.Change("UPDATE Artists SET aName='" & ar.GetName() & "' ,country='" & ar.GetCountry() & "' ,[image]='" & "'WHERE IdArtist=" & ar.GetIdArtist() & ";")
     End Function
     Public Function Delete(ByVal ar As Artist) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM Artists WHERE IdArtist=" & ar.GetIdArtist() & ";")

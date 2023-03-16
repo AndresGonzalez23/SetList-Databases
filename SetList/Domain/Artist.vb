@@ -2,7 +2,6 @@
     Private Property IdArtist As Integer
     Private Property aName As String
     Private Property country As String
-    Private Property image As String
     Private ReadOnly Property artistsDAO As ArtistDAO
     Private User As String
     Private favDate As Date
@@ -13,12 +12,12 @@
         Me.artistsDAO = New ArtistDAO
         Me.IdArtist = id
     End Sub
-    Public Sub New(id As Integer, name As String, country As String, image As String)
+    Public Sub New(id As Integer, name As String, country As String)
         Me.artistsDAO = New ArtistDAO
         IdArtist = id
         aName = name
         Me.country = country
-        Me.image = image
+
     End Sub
     Public Sub New(user As String, IdArtist As Integer, favDate As Date)
         Me.artistsDAO = artistsDAO
@@ -32,9 +31,7 @@
     Public Function GetIdArtist() As Integer
         Return IdArtist
     End Function
-    Public Function GetImage() As String
-        Return image
-    End Function
+
     Public Function GetCountry() As String
         Return country
     End Function
@@ -59,9 +56,7 @@
     Public Function SetName(name As String) As String
         aName = name
     End Function
-    Public Function SetImage(image As String) As String
-        Me.image = image
-    End Function
+
     Public Function SetCountry(country As String) As String
         Me.country = country
     End Function
