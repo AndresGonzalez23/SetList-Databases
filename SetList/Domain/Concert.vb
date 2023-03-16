@@ -17,28 +17,28 @@
         Me.Venue = venue
     End Sub
 
-    Public Function getArtist() As Integer
+    Public Function GetArtist() As Integer
         Return Artist
     End Function
-    Public Function getConcert() As Integer
+    Public Function GetConcert() As Integer
         Return idConcert
     End Function
-    Public Function getDate() As Date
+    Public Function GetDate() As Date
         Return concertDate
     End Function
-    Public Function getVenue() As Integer
+    Public Function GetVenue() As Integer
         Return Venue
     End Function
-    Public Function setIdConcert(id As Integer) As Integer
+    Public Function SetIdConcert(id As Integer) As Integer
         idConcert = id
     End Function
-    Public Function setDate(conDate As Date) As Date
+    Public Function SetDate(conDate As Date) As Date
         concertDate = conDate
     End Function
-    Public Function setArtist(artist As Integer) As Integer
+    Public Function SetArtist(artist As Integer) As Integer
         Me.Artist = artist
     End Function
-    Public Function setVenue(venue As Integer) As Integer
+    Public Function SetVenue(venue As Integer) As Integer
         Me.Venue = venue
     End Function
     Public Function ReadAllConcert(path As String) As Object

@@ -53,7 +53,7 @@
     Public Function SetFavDate(favDate As Date) As Date
         Me.favDate = favDate
     End Function
-    Public Function setIdArtist(idArtsit As Integer) As Integer
+    Public Function SetIdArtist(idArtsit As Integer) As Integer
         IdArtist = idArtsit
     End Function
     Public Function SetName(name As String) As String

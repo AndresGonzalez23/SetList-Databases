@@ -24,20 +24,20 @@
         Public Function GetIdAlbum() As Integer
             Return IdAlbum
         End Function
-        Public Function getArtist() As Integer
-            Return artist
-        End Function
-        Public Function getReleaseDate() As Date
-            Return releaseDate
-        End Function
-        Public Function GetName() As String
+    Public Function GetArtist() As Integer
+        Return artist
+    End Function
+    Public Function GetReleaseDate() As Date
+        Return releaseDate
+    End Function
+    Public Function GetName() As String
             Return aName
         End Function
 
-        Public Function setIdAlbum(Id As Integer) As Integer
-            IdAlbum = Id
-        End Function
-        Public Function SetName(name As String) As String
+    Public Function SetIdAlbum(Id As Integer) As Integer
+        IdAlbum = Id
+    End Function
+    Public Function SetName(name As String) As String
             aName = name
         End Function
         Public Function SetDate(RDate As Date) As Date

@@ -20,20 +20,20 @@
         Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT * FROM Concerts WHERE idConcert='" & c.getConcert() & "';")
         For Each aux In col
-            c.setDate(CDate(aux(2).ToString))
-            c.setArtist(CInt(aux(3).ToString))
-            c.setVenue(CInt(aux(4).ToString))
+            c.SetDate(CDate(aux(2).ToString))
+            c.SetArtist(CInt(aux(3).ToString))
+            c.SetVenue(CInt(aux(4).ToString))
         Next
     End Sub
 
     Public Function Insert(ByVal c As Concert) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Concerts ([concertDate],[Artist],[Venue]) VALUES ('" & c.getDate() & "','" & c.getArtist & "','" & c.getVenue & "','" & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Concerts ([concertDate],[Artist],[Venue]) VALUES ('" & c.GetDate() & "','" & c.GetArtist & "','" & c.GetVenue & "','" & "');")
     End Function
     Public Function Update(ByVal c As Concert) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Concerts SET [concertDate]='" & c.getDate & "' ,[Artist]='" & c.getArtist() & "' ,[Venue]='" & c.getVenue() & "'WHERE idConcert=" & c.getConcert() & ";")
+        Return DBBroker.GetBroker.Change("UPDATE Concerts SET [concertDate]='" & c.GetDate & "' ,[Artist]='" & c.GetArtist() & "' ,[Venue]='" & c.GetVenue() & "'WHERE idConcert=" & c.GetConcert() & ";")
     End Function
     Public Function Delete(ByVal c As Concert) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idVenue=" & c.getArtist() & ";")
+        Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idVenue=" & c.GetArtist() & ";")
     End Function
 End Class
 
