@@ -33,7 +33,7 @@
         Return DBBroker.GetBroker.Change("UPDATE Concerts SET [concertDate]='" & concert.GetDate & "' ,[Artist]='" & concert.GetArtist() & "' ,[Venue]='" & concert.GetVenue() & "'WHERE idConcert=" & concert.GetConcert() & ";")
     End Function
     Public Function Delete(ByVal concert As Concert) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idVenue=" & concert.GetArtist() & ";")
+        Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idConcert=" & concert.GetConcert() & ";")
     End Function
 End Class
 

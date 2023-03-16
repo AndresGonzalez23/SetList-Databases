@@ -37,30 +37,37 @@
     Public Function SetIdAlbum(Id As Integer) As Integer
         IdAlbum = Id
     End Function
-    Public Function SetName(name As String) As String
-            aName = name
-        End Function
-        Public Function SetDate(RDate As Date) As Date
-            releaseDate = RDate
-        End Function
-        Public Function SetArtist(nartist As Integer) As Integer
-            artist = nartist
-        End Function
 
-        Public Function ReadAllAlbums(path As String) As Object
+    Public Function SetName(name As String) As String
+        aName = name
+    End Function
+
+    Public Function SetDate(RDate As Date) As Date
+        releaseDate = RDate
+    End Function
+
+    Public Function SetArtist(nartist As Integer) As Integer
+        artist = nartist
+    End Function
+
+    Public Function ReadAllAlbums(path As String) As Object
         Return Me.AlbDAO.ReadAll()
     End Function
-        Public Sub ReadAlbum()
-            Me.AlbDAO.Read(Me)
-        End Sub
-        Public Function InsertAlbum() As Integer
-            Return Me.AlbDAO.Insert(Me)
-        End Function
-        Public Function UpdateAlbum() As Integer
-            Return Me.AlbDAO.Update(Me)
-        End Function
-        Public Function DeleteAlbum() As Integer
-            Return Me.AlbDAO.Delete(Me)
-        End Function
+
+    Public Sub ReadAlbum()
+        Me.AlbDAO.Read(Me)
+    End Sub
+
+    Public Function InsertAlbum() As Integer
+        Return Me.AlbDAO.Insert(Me)
+    End Function
+
+    Public Function UpdateAlbum() As Integer
+        Return Me.AlbDAO.Update(Me)
+    End Function
+
+    Public Function DeleteAlbum() As Integer
+        Return Me.AlbDAO.Delete(Me)
+    End Function
 
 End Class
