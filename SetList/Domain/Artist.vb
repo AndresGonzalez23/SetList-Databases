@@ -4,7 +4,7 @@
     Private Property country As String
     Private ReadOnly Property artistsDAO As ArtistDAO
     Private User As String
-    Private favDate As Date
+
     Public Sub New()
         Me.artistsDAO = New ArtistDAO
     End Sub
@@ -19,12 +19,7 @@
         Me.country = country
 
     End Sub
-    Public Sub New(user As String, IdArtist As Integer, favDate As Date)
-        Me.artistsDAO = artistsDAO
-        Me.User = user
-        Me.IdArtist = IdArtist
-        Me.favDate = favDate
-    End Sub
+
     Public Sub ReadArtist()
         Me.artistsDAO.Read(Me)
     End Sub
@@ -41,15 +36,11 @@
     Public Function GetUser() As String
         Return User
     End Function
-    Public Function GetFavDate() As Date
-        Return favDate
-    End Function
+
     Public Function SetUser(user As String) As String
         Me.User = user
     End Function
-    Public Function SetFavDate(favDate As Date) As Date
-        Me.favDate = favDate
-    End Function
+
     Public Function SetIdArtist(idArtsit As Integer) As Integer
         IdArtist = idArtsit
     End Function
@@ -60,9 +51,7 @@
     Public Function SetCountry(country As String) As String
         Me.country = country
     End Function
-    Public Function ReadAllFavArtists(path As String) As Object
-        Return Me.artistsDAO.ReadAllFavArtists(path)
-    End Function
+
     Public Function ReadAllArtists(path As String) As Object
         Return Me.artistsDAO.ReadAll(path)
     End Function
@@ -72,12 +61,7 @@
     Public Function InsertArtist() As Integer
         Return Me.artistsDAO.Insert(Me)
     End Function
-    Public Function InsertFav_Artist() As Integer
-        Return Me.artistsDAO.InsertFav(Me)
-    End Function
-    Public Function DeleteFav_Artist() As Integer
-        Return Me.artistsDAO.DeleteFav_Artist(Me)
-    End Function
+
     Public Function UpdateArtist() As Integer
         Return Me.artistsDAO.Update(Me)
     End Function
