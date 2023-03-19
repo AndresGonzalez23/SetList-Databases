@@ -1,15 +1,14 @@
 ﻿Public Class Country
-    Private Property idCountry As String
-    Private Property countryName As String
-
-    Private couDao As CountryDAO
+    Public ReadOnly Property counDAO As CountryDAO
+    Public Property idCountry As String
+    Public Property countryName As String
 
     Public Sub New()
-        Me.couDao = New CountryDAO
+        Me.counDAO = New CountryDAO
     End Sub
 
     Public Sub New(idCou As String, couName As String)
-        Me.couDao = New CountryDAO
+        Me.counDAO = New CountryDAO
         idCountry = idCou
         countryName = couName
     End Sub
@@ -30,4 +29,19 @@
         countryName = couName
     End Function
 
+    Public Function ReadAllCountries() As Object
+        Return Me.counDAO.ReadAll()
+    End Function
+
+    Public Sub ReadCountry()
+        Me.counDAO.Read(Me)
+    End Sub
+
+    Public Function InsertCountry() As Integer
+        Return Me.counDAO.Insert(Me)
+    End Function
+
+    Public Function UpdateCountry() As Integer
+        Return Me.counDAO.Update(Me)
+    End Function
 End Class

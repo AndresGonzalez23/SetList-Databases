@@ -24,4 +24,16 @@
         Next
     End Sub
 
+    Public Function Insert(ByVal country As Country) As Integer
+        Return DBBroker.GetBroker.Change("INSERT INTO Country (idCountry,countryName) VALUES ('" & country.GetIdCountry() & "','" & country.GetCountryName() & "');")
+    End Function
+
+    Public Function Update(ByVal country As Country) As Integer
+        Return DBBroker.GetBroker.Change("UPDATE Country SET idCountry='" & country.GetIdCountry() & "',countryName='" & country.GetCountryName() & "'WHERE idCountry=" & country.GetIdCountry() & ";")
+    End Function
+
+    Public Function Delete(ByVal country As Country) As Integer
+        Return DBBroker.GetBroker.Change("DELETE FROM Country WHERE idCountry=" & country.GetIdCountry() & ";")
+    End Function
+
 End Class
