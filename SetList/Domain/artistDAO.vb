@@ -5,7 +5,7 @@
         Me.Artists = New Collection
     End Sub
 
-    Public Function ReadAll(path As String) As Object
+    Public Function ReadAll() As Object
         Dim ar As Artist
         Dim col, aux As Collection
         col = DBBroker.GetBroker().Read("SELECT * FROM Artists ORDER BY IdArtist")
@@ -18,8 +18,6 @@
         Return Artists
     End Function
 
-
-
     Public Sub Read(ByRef ar As Artist)
         Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT * FROM Artists WHERE IdArtist='" & ar.GetIdArtist() & "';")
@@ -30,15 +28,14 @@
     End Sub
 
     Public Function Insert(ByVal ar As Artist) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Artists ([aName],country,[image]) VALUES ('" & ar.GetName() & "','" & ar.GetCountry() & "',);")
+        Return DBBroker.GetBroker.Change("INSERT INTO artists (artistName, artistCountry) VALUES ('" & ar.GetName() & "' ,(SELECT idCountry FROM country WHERE countryName = '" & ar.artistCountry & "');")
     End Function
+
     Public Function Update(ByVal ar As Artist) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Artists SET aName='" & ar.GetName() & "' ,country='" & ar.GetCountry() & "' ,);")
+        Return DBBroker.GetBroker.Change("UPDATE Artists Set aName='" & ar.GetName() & "' ,country='" & ar.GetCountry() & "' ,);")
     End Function
     Public Function Delete(ByVal ar As Artist) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM Artists WHERE IdArtist=" & ar.GetIdArtist() & ";")
     End Function
-
-
 
 End Class

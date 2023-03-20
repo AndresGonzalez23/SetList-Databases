@@ -1,9 +1,8 @@
 ﻿Public Class Artist
-    Private Property IdArtist As Integer
-    Private Property aName As String
-    Private Property country As String
-    Private ReadOnly Property artistsDAO As ArtistDAO
-    Private User As String
+    Public Property IdArtist As Integer
+    Public Property artistName As String
+    Public Property artistCountry As String
+    Public ReadOnly Property artistsDAO As ArtistDAO
 
     Public Sub New()
         Me.artistsDAO = New ArtistDAO
@@ -12,12 +11,11 @@
         Me.artistsDAO = New ArtistDAO
         Me.IdArtist = id
     End Sub
-    Public Sub New(id As Integer, name As String, country As String)
+    Public Sub New(name As String, country As String)
         Me.artistsDAO = New ArtistDAO
-        IdArtist = id
-        aName = name
-        Me.country = country
-
+        ' IdArtist = id
+        artistName = name
+        Me.artistCountry = country
     End Sub
 
     Public Sub ReadArtist()
@@ -28,33 +26,27 @@
     End Function
 
     Public Function GetCountry() As String
-        Return country
+        Return artistCountry
     End Function
     Public Function GetName() As String
-        Return aName
-    End Function
-    Public Function GetUser() As String
-        Return User
-    End Function
-
-    Public Function SetUser(user As String) As String
-        Me.User = user
+        Return artistName
     End Function
 
     Public Function SetIdArtist(idArtsit As Integer) As Integer
         IdArtist = idArtsit
+        Return idArtsit
     End Function
     Public Function SetName(name As String) As String
-        aName = name
+        artistName = name
     End Function
 
     Public Function SetCountry(country As String) As String
-        Me.country = country
+        Me.artistCountry = country
     End Function
 
-    Public Function ReadAllArtists(path As String) As Object
-        Return Me.artistsDAO.ReadAll(path)
-    End Function
+    Public Sub ReadAllArtists()
+        Me.artistsDAO.ReadAll()
+    End Sub
     Public Sub ReadAll()
         Me.artistsDAO.Read(Me)
     End Sub
@@ -68,6 +60,5 @@
     Public Function DeleteArtist() As Integer
         Return Me.artistsDAO.Delete(Me)
     End Function
-
 
 End Class
