@@ -95,11 +95,10 @@ Public Class Form1
                     MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
                 End If
             Catch ex As Exception
-                MessageBox.Show("Person deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Country deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
-
             Me.lst_Countries.Items.Remove(country.idCountry)
-            country.DeleteCountry()
+
 
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
