@@ -2,27 +2,27 @@
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 
 Public Class Form1
-    Private c As Country
+    Private country As Country
+    Private artist As Artist
 
     Public countries As Collection
 
     Private Sub btn_connection_Click(sender As Object, e As EventArgs) Handles btn_connection.Click
         Dim cAux As Country
-        Me.c = New Country
+        Me.country = New Country
 
         Try
-            Me.c.ReadAllCountries()
+            Me.country.ReadAllCountries()
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-        For Each cAux In Me.c.counDAO.Countries
+        For Each cAux In Me.country.counDAO.Countries
             Me.lst_Countries.Items.Add(cAux.countryName)
         Next
         btn_insert_country.Enabled = True
         btn_delete_country.Enabled = True
         btn_update_country.Enabled = True
-
     End Sub
 
     Private Sub btn_insert_country_Click(sender As Object, e As EventArgs) Handles btn_insert_country.Click
@@ -43,7 +43,6 @@ Public Class Form1
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
-
     End Sub
 
     Private Sub btn_update_country_Click(sender As Object, e As EventArgs) Handles btn_update_country.Click

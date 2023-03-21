@@ -81,18 +81,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\AlbumDAO.vb" />
     <Compile Include="Domain\Artist.vb" />
     <Compile Include="Domain\ArtistDAO.vb" />
-    <Compile Include="Domain\Album.vb" />
-    <Compile Include="Domain\Concert.vb" />
-    <Compile Include="Domain\ConcertDAO.vb" />
     <Compile Include="Domain\Country.vb" />
     <Compile Include="Domain\CountryDAO.vb" />
-    <Compile Include="Domain\Song.vb" />
-    <Compile Include="Domain\SongDAO.vb" />
-    <Compile Include="Domain\Venue.vb" />
-    <Compile Include="Domain\VenueDAO.vb" />
     <Compile Include="Persistence\DBBroker.vb" />
     <Compile Include="Presentation\Form1.vb">
       <SubType>Form</SubType>
