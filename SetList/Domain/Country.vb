@@ -44,4 +44,7 @@
     Public Function UpdateCountry() As Integer
         Return Me.counDAO.Update(Me)
     End Function
+    Public Function DeleteCountry() As Integer
+        Return Me.counDAO.Delete(Me)
+    End Function
 End Class
