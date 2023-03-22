@@ -29,7 +29,7 @@
     End Function
 
     Public Function Update(ByVal country As Country) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Country SET idCountry='" & country.GetIdCountry() & "',countryName='" & country.GetCountryName() & "'WHERE idCountry=" & country.GetIdCountry() & ";")
+        Return DBBroker.GetBroker.Change("UPDATE Country SET idCountry='" & country.GetIdCountry() & "' ,countryName='" & country.GetCountryName() & "'WHERE idCountry='" & country.GetIdCountry() & "';")
     End Function
 
     Public Function Delete(ByVal country As Country) As Integer

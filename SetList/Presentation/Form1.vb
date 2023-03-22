@@ -64,15 +64,33 @@ Public Class Form1
 
     Private Sub btn_update_country_Click(sender As Object, e As EventArgs) Handles btn_update_country.Click
         Me.country = New Country
-        country.idCountry = lst_Countries.SelectedItem.ToString
-        country.ReadCountry()
-        If country.countryName = txtName.Text Then
-            MessageBox.Show("You're not changing a thing", "Custom Error", MessageBoxButtons.OK)
-        Else
-            country.countryName = txtName.Text
+        Dim CountryUpdate = New Country
+
+        If MessageBox.Show("Are you sure? Do you want to update this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
         End If
-        country.UpdateCountry()
-        MessageBox.Show("UPDATE!!! Stop clicking, please", "Custom Error", MessageBoxButtons.OK)
+
+        Try
+            country.idCountry = txtID.Text
+            country.countryName = txtName.Text
+
+            If txtID.Text <> String.Empty And txtName.Text <> String.Empty Then
+                CountryUpdate.SetIdCountry(country.GetIdCountry)
+                CountryUpdate.SetCountryName(country.GetCountryName)
+                Try
+                    CountryUpdate.UpdateCountry()
+                    MsgBox("Country Updated succesfully")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
+            Else
+                MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
 
