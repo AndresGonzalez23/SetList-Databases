@@ -53,7 +53,7 @@ Partial Class Form1
         Me.Label1.Location = New System.Drawing.Point(291, 32)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(577, 42)
+        Me.Label1.Size = New System.Drawing.Size(726, 53)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "WELCOME TO OUR APLICATION"
         '
@@ -133,7 +133,7 @@ Partial Class Form1
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label2.Location = New System.Drawing.Point(14, 93)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(95, 25)
+        Me.Label2.Size = New System.Drawing.Size(123, 32)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Country"
         '
@@ -195,7 +195,7 @@ Partial Class Form1
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label3.Location = New System.Drawing.Point(19, 435)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 25)
+        Me.Label3.Size = New System.Drawing.Size(102, 32)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Artists"
         '
@@ -207,7 +207,7 @@ Partial Class Form1
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label4.Location = New System.Drawing.Point(226, 137)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(75, 25)
+        Me.Label4.Size = New System.Drawing.Size(94, 32)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Siglas"
         '
@@ -217,9 +217,9 @@ Partial Class Form1
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(226, 212)
+        Me.Label5.Location = New System.Drawing.Point(226, 207)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(161, 25)
+        Me.Label5.Size = New System.Drawing.Size(208, 32)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Country name"
         '
@@ -229,9 +229,9 @@ Partial Class Form1
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(234, 552)
+        Me.Label6.Location = New System.Drawing.Point(226, 450)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(134, 25)
+        Me.Label6.Size = New System.Drawing.Size(173, 32)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Artist name"
         '

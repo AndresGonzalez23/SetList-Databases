@@ -123,5 +123,24 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub btn_insertArtist_Click(sender As Object, e As EventArgs) Handles btn_insertArtist.Click
+        Dim artistNew As New Artist
+        If txt_artistName.Text <> String.Empty And txt_artistCountry.Text <> String.Empty Then
+            artistNew = New Artist
+            artistNew.artistName = txt_artistName.Text
+            artistNew.artistCountry = txt_artistName.Text
+            Try
+                If artistNew.InsertArtist() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                End If
 
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+            lst_Countries.Items.Add(artistNew.artistName)
+        Else
+            MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+        End If
+
+    End Sub
 End Class
