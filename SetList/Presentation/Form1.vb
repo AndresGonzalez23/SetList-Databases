@@ -9,21 +9,29 @@ Public Class Form1
 
     Private Sub btn_connection_Click(sender As Object, e As EventArgs) Handles btn_connection.Click
         Dim cAux As Country
+        Dim aAux As Artist
         Me.country = New Country
-
+        Me.artist = New Artist
         Try
             Me.country.ReadAllCountries()
-
+            Me.artist.ReadAllArtists()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
         For Each cAux In Me.country.counDAO.Countries
             Me.lst_Countries.Items.Add(cAux.idCountry)
+
             Me.cb_ArtistCountry.Items.Add(cAux.idCountry)
+        Next
+        For Each aAux In Me.artist.artistsDAO.Artists
+            Me.lst_artits.Items.Add(aAux.artistName)
         Next
         btn_insert_country.Enabled = True
         btn_delete_country.Enabled = True
         btn_update_country.Enabled = True
+        btn_insertArtist.Enabled = True
+        btn_deleteArtist.Enabled = True
+        btn_updateArtist.Enabled = True
     End Sub
 
 
@@ -41,6 +49,10 @@ Public Class Form1
                 lst_Countries.SelectedIndex = -1
             End Try
         End If
+    End Sub
+
+    Private Sub lst_artits_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_artits.SelectedIndexChanged
+
     End Sub
 
     Private Sub btn_insert_country_Click(sender As Object, e As EventArgs) Handles btn_insert_country.Click
@@ -146,7 +158,9 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btn_deleteArtist_Click(sender As Object, e As EventArgs) Handles btn_deleteArtist.Click
+    Private Sub btn_updateArtist_Click(sender As Object, e As EventArgs) Handles btn_updateArtist.Click
 
     End Sub
+
+
 End Class
