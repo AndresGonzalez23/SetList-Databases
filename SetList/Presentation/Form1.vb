@@ -52,7 +52,20 @@ Public Class Form1
     End Sub
 
     Private Sub lst_artits_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_artits.SelectedIndexChanged
+        btn_deleteArtist.Enabled = True
+        btn_updateArtist.Enabled = True
 
+        If lst_artits.SelectedItem IsNot Nothing Then
+            Try
+                Me.artist = New Artist
+                artist.artistName = lst_artits.SelectedItem.ToString
+                artist.ReadArtist()
+                txt_artistName.Text = artist.artistName
+
+            Catch ex As Exception
+                lst_artits.SelectedIndex = -1
+            End Try
+        End If
     End Sub
 
     Private Sub btn_insert_country_Click(sender As Object, e As EventArgs) Handles btn_insert_country.Click

@@ -155,6 +155,7 @@ Partial Class Form1
         '
         'btn_insertArtist
         '
+        Me.btn_insertArtist.Enabled = False
         Me.btn_insertArtist.Location = New System.Drawing.Point(19, 661)
         Me.btn_insertArtist.Name = "btn_insertArtist"
         Me.btn_insertArtist.Size = New System.Drawing.Size(95, 43)
@@ -164,6 +165,7 @@ Partial Class Form1
         '
         'btn_updateArtist
         '
+        Me.btn_updateArtist.Enabled = False
         Me.btn_updateArtist.Location = New System.Drawing.Point(186, 661)
         Me.btn_updateArtist.Name = "btn_updateArtist"
         Me.btn_updateArtist.Size = New System.Drawing.Size(95, 43)
@@ -173,6 +175,7 @@ Partial Class Form1
         '
         'btn_deleteArtist
         '
+        Me.btn_deleteArtist.Enabled = False
         Me.btn_deleteArtist.Location = New System.Drawing.Point(367, 661)
         Me.btn_deleteArtist.Name = "btn_deleteArtist"
         Me.btn_deleteArtist.Size = New System.Drawing.Size(95, 43)
