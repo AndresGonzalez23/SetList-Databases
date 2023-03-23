@@ -19,6 +19,7 @@ Public Class Form1
         End Try
         For Each cAux In Me.country.counDAO.Countries
             Me.lst_Countries.Items.Add(cAux.idCountry)
+            Me.cb_ArtistCountry.Items.Add(cAux.idCountry)
         Next
         btn_insert_country.Enabled = True
         btn_delete_country.Enabled = True
@@ -57,6 +58,7 @@ Public Class Form1
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
             lst_Countries.Items.Add(countryNew.idCountry)
+            cb_ArtistCountry.Items.Add(countryNew.idCountry)
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
@@ -116,7 +118,7 @@ Public Class Form1
                 MessageBox.Show("Country deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
             Me.lst_Countries.Items.Remove(country.idCountry)
-
+            Me.cb_ArtistCountry.Items.Remove(country.idCountry)
 
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -124,23 +126,27 @@ Public Class Form1
     End Sub
 
     Private Sub btn_insertArtist_Click(sender As Object, e As EventArgs) Handles btn_insertArtist.Click
-        Dim artistNew As New Artist
-        If txt_artistName.Text <> String.Empty And txt_artistCountry.Text <> String.Empty Then
+        Dim artistNew As Artist
+        If txt_artistName.Text <> String.Empty And cb_ArtistCountry.SelectedIndex.ToString <> String.Empty Then
             artistNew = New Artist
             artistNew.artistName = txt_artistName.Text
-            artistNew.artistCountry = txt_artistName.Text
+            artistNew.artistCountry = cb_ArtistCountry.Text
+
             Try
                 If artistNew.InsertArtist() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
                 End If
-
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_Countries.Items.Add(artistNew.artistName)
+            lst_artits.Items.Add(artistNew.GetName)
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
+
+    End Sub
+
+    Private Sub btn_deleteArtist_Click(sender As Object, e As EventArgs) Handles btn_deleteArtist.Click
 
     End Sub
 End Class

@@ -34,7 +34,6 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lst_artits = New System.Windows.Forms.ListBox()
         Me.txt_artistName = New System.Windows.Forms.TextBox()
-        Me.txt_artistCountry = New System.Windows.Forms.TextBox()
         Me.btn_insertArtist = New System.Windows.Forms.Button()
         Me.btn_updateArtist = New System.Windows.Forms.Button()
         Me.btn_deleteArtist = New System.Windows.Forms.Button()
@@ -42,6 +41,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.cb_ArtistCountry = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -153,13 +153,6 @@ Partial Class Form1
         Me.txt_artistName.Size = New System.Drawing.Size(231, 22)
         Me.txt_artistName.TabIndex = 10
         '
-        'txt_artistCountry
-        '
-        Me.txt_artistCountry.Location = New System.Drawing.Point(231, 581)
-        Me.txt_artistCountry.Name = "txt_artistCountry"
-        Me.txt_artistCountry.Size = New System.Drawing.Size(231, 22)
-        Me.txt_artistCountry.TabIndex = 11
-        '
         'btn_insertArtist
         '
         Me.btn_insertArtist.Location = New System.Drawing.Point(19, 661)
@@ -235,6 +228,14 @@ Partial Class Form1
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Artist name"
         '
+        'cb_ArtistCountry
+        '
+        Me.cb_ArtistCountry.FormattingEnabled = True
+        Me.cb_ArtistCountry.Location = New System.Drawing.Point(232, 550)
+        Me.cb_ArtistCountry.Name = "cb_ArtistCountry"
+        Me.cb_ArtistCountry.Size = New System.Drawing.Size(230, 24)
+        Me.cb_ArtistCountry.TabIndex = 19
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -242,6 +243,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1364, 837)
+        Me.Controls.Add(Me.cb_ArtistCountry)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -249,7 +251,6 @@ Partial Class Form1
         Me.Controls.Add(Me.btn_deleteArtist)
         Me.Controls.Add(Me.btn_updateArtist)
         Me.Controls.Add(Me.btn_insertArtist)
-        Me.Controls.Add(Me.txt_artistCountry)
         Me.Controls.Add(Me.txt_artistName)
         Me.Controls.Add(Me.lst_artits)
         Me.Controls.Add(Me.Label2)
@@ -282,7 +283,6 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents lst_artits As ListBox
     Friend WithEvents txt_artistName As TextBox
-    Friend WithEvents txt_artistCountry As TextBox
     Friend WithEvents btn_insertArtist As Button
     Friend WithEvents btn_updateArtist As Button
     Friend WithEvents btn_deleteArtist As Button
@@ -290,4 +290,5 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents cb_ArtistCountry As ComboBox
 End Class

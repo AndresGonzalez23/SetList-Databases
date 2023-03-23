@@ -11,10 +11,10 @@
         Me.artistsDAO = New ArtistDAO
         Me.IdArtist = id
     End Sub
-    Public Sub New(name As String, country As String)
+    Public Sub New(id As Integer, name As String, country As String)
         Me.artistsDAO = New ArtistDAO
-        ' IdArtist = id
-        artistName = name
+        Me.IdArtist = id
+        Me.artistName = name
         Me.artistCountry = country
     End Sub
 

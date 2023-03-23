@@ -28,11 +28,11 @@
     End Sub
 
     Public Function Insert(ByVal ar As Artist) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO artists (artistName, artistCountry) VALUES ('" & ar.GetName() & "' ,(SELECT idCountry FROM country WHERE countryName = '" & ar.artistCountry & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Artists (artistName, artistCountry) VALUES ('" & ar.GetName() & "' ,(SELECT idCountry FROM country WHERE idCountry='" & ar.GetCountry & "'));")
     End Function
 
     Public Function Update(ByVal ar As Artist) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Artists Set aName='" & ar.GetName() & "' ,country='" & ar.GetCountry() & "' ,);")
+        Return DBBroker.GetBroker.Change("UPDATE Artists SET ArtistName='" & ar.GetName() & "', ArtistCountry=" & ar.artistCountry & " " & "WHERE idArtist=" & ar.GetIdArtist() & ";")
     End Function
     Public Function Delete(ByVal ar As Artist) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM Artists WHERE IdArtist=" & ar.GetIdArtist() & ";")
