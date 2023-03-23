@@ -25,7 +25,6 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_connection = New System.Windows.Forms.Button()
-        Me.txtID = New System.Windows.Forms.TextBox()
         Me.btn_insert_country = New System.Windows.Forms.Button()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.lst_Countries = New System.Windows.Forms.ListBox()
@@ -38,7 +37,6 @@ Partial Class Form1
         Me.btn_updateArtist = New System.Windows.Forms.Button()
         Me.btn_deleteArtist = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_artistCountry = New System.Windows.Forms.TextBox()
@@ -72,13 +70,6 @@ Partial Class Form1
         Me.btn_connection.Text = "Connect to database"
         Me.btn_connection.UseVisualStyleBackColor = False
         '
-        'txtID
-        '
-        Me.txtID.Location = New System.Drawing.Point(231, 165)
-        Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(231, 22)
-        Me.txtID.TabIndex = 2
-        '
         'btn_insert_country
         '
         Me.btn_insert_country.Enabled = False
@@ -91,7 +82,7 @@ Partial Class Form1
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(231, 240)
+        Me.txtName.Location = New System.Drawing.Point(230, 180)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(231, 22)
         Me.txtName.TabIndex = 4
@@ -195,25 +186,13 @@ Partial Class Form1
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Artists"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(226, 137)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(94, 32)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "Siglas"
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(226, 207)
+        Me.Label5.Location = New System.Drawing.Point(225, 145)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(208, 32)
         Me.Label5.TabIndex = 17
@@ -248,7 +227,6 @@ Partial Class Form1
         Me.Controls.Add(Me.txt_artistCountry)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btn_deleteArtist)
         Me.Controls.Add(Me.btn_updateArtist)
@@ -261,7 +239,6 @@ Partial Class Form1
         Me.Controls.Add(Me.lst_Countries)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.btn_insert_country)
-        Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_connection)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -276,7 +253,6 @@ Partial Class Form1
 
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_connection As Button
-    Friend WithEvents txtID As TextBox
     Friend WithEvents btn_insert_country As Button
     Friend WithEvents txtName As TextBox
     Friend WithEvents lst_Countries As ListBox
@@ -289,7 +265,6 @@ Partial Class Form1
     Friend WithEvents btn_updateArtist As Button
     Friend WithEvents btn_deleteArtist As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents txt_artistCountry As TextBox

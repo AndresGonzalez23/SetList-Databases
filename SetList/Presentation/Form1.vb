@@ -42,7 +42,6 @@ Public Class Form1
                 Me.country = New Country
                 country.idCountry = lst_Countries.SelectedItem.ToString
                 country.ReadCountry()
-                txtID.Text = country.idCountry
                 txtName.Text = country.countryName
                 txt_artistCountry.Text = lst_Countries.SelectedItem.ToString()
             Catch ex As Exception
@@ -69,12 +68,17 @@ Public Class Form1
         End If
     End Sub
 
+
     Private Sub btn_insert_country_Click(sender As Object, e As EventArgs) Handles btn_insert_country.Click
         Dim countryNew As New Country
-        If txtID.Text <> String.Empty And txtName.Text <> String.Empty Then
+        Dim thirdChar As String
+        Dim auxCountryName As String
+        If txtName.Text <> String.Empty Then
             countryNew = New Country
-            countryNew.idCountry = txtID.Text
             countryNew.countryName = txtName.Text
+            auxCountryName = txtName.Text
+            thirdChar = auxCountryName.Substring(0, 3)
+            countryNew.idCountry = thirdChar
             Try
                 If countryNew.InsertCountry() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
@@ -83,7 +87,7 @@ Public Class Form1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_Countries.Items.Add(countryNew.idCountry)
+            lst_Countries.Items.Add(countryNew.countryName)
 
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
@@ -99,10 +103,10 @@ Public Class Form1
         End If
 
         Try
-            country.idCountry = txtID.Text
+
             country.countryName = txtName.Text
 
-            If txtID.Text <> String.Empty And txtName.Text <> String.Empty Then
+            If txtName.Text <> String.Empty Then
                 CountryUpdate.SetIdCountry(country.GetIdCountry)
                 CountryUpdate.SetCountryName(country.GetCountryName)
                 Try
@@ -127,9 +131,9 @@ Public Class Form1
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
-        If txtID.Text <> String.Empty And txtName.Text <> String.Empty Then
+        If txtName.Text <> String.Empty Then
             Me.country = New Country
-            country.idCountry = txtID.Text
+
             country.countryName = txtName.Text
             country.ReadCountry()
             If country.countryName <> txtName.Text.Trim() Then
