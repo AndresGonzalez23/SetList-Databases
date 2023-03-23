@@ -43,7 +43,9 @@ Public Class Form1
                 country.idCountry = lst_Countries.SelectedItem.ToString
                 country.ReadCountry()
                 txtName.Text = country.countryName
-                txt_artistCountry.Text = lst_Countries.SelectedItem.ToString()
+                If txt_artistName.Text <> String.Empty Then
+                    txt_artistCountry.Text = lst_Countries.SelectedItem.ToString()
+                End If
             Catch ex As Exception
                 lst_Countries.SelectedIndex = -1
             End Try
@@ -155,11 +157,12 @@ Public Class Form1
     End Sub
 
     Private Sub btn_insertArtist_Click(sender As Object, e As EventArgs) Handles btn_insertArtist.Click
-        Dim artistNew As Artist
+        Dim artistNew As Artist : Dim countryNameNew As String
         If txt_artistName.Text <> String.Empty And txt_artistCountry.Text <> String.Empty Then
             artistNew = New Artist
             artistNew.artistName = txt_artistName.Text
-            artistNew.artistCountry = txt_artistCountry.Text
+            countryNameNew = txt_artistCountry.Text
+            artistNew.artistCountry = countryNameNew.Substring(0, 3)
 
             Try
                 If artistNew.InsertArtist() <> 1 Then
