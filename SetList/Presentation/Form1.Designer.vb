@@ -41,7 +41,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.cb_ArtistCountry = New System.Windows.Forms.ComboBox()
+        Me.txt_artistCountry = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -231,13 +231,12 @@ Partial Class Form1
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Artist name"
         '
-        'cb_ArtistCountry
+        'txt_artistCountry
         '
-        Me.cb_ArtistCountry.FormattingEnabled = True
-        Me.cb_ArtistCountry.Location = New System.Drawing.Point(232, 550)
-        Me.cb_ArtistCountry.Name = "cb_ArtistCountry"
-        Me.cb_ArtistCountry.Size = New System.Drawing.Size(230, 24)
-        Me.cb_ArtistCountry.TabIndex = 19
+        Me.txt_artistCountry.Location = New System.Drawing.Point(231, 551)
+        Me.txt_artistCountry.Name = "txt_artistCountry"
+        Me.txt_artistCountry.Size = New System.Drawing.Size(230, 22)
+        Me.txt_artistCountry.TabIndex = 19
         '
         'Form1
         '
@@ -246,7 +245,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1364, 837)
-        Me.Controls.Add(Me.cb_ArtistCountry)
+        Me.Controls.Add(Me.txt_artistCountry)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -293,5 +292,5 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents cb_ArtistCountry As ComboBox
+    Friend WithEvents txt_artistCountry As TextBox
 End Class

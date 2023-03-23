@@ -20,10 +20,9 @@ Public Class Form1
         End Try
         For Each cAux In Me.country.counDAO.Countries
             Me.lst_Countries.Items.Add(cAux.idCountry)
-
-            Me.cb_ArtistCountry.Items.Add(cAux.idCountry)
         Next
         For Each aAux In Me.artist.artistsDAO.Artists
+
             Me.lst_artits.Items.Add(aAux.artistName)
         Next
         btn_insert_country.Enabled = True
@@ -45,6 +44,7 @@ Public Class Form1
                 country.ReadCountry()
                 txtID.Text = country.idCountry
                 txtName.Text = country.countryName
+                txt_artistCountry.Text = lst_Countries.SelectedItem.ToString()
             Catch ex As Exception
                 lst_Countries.SelectedIndex = -1
             End Try
@@ -61,6 +61,7 @@ Public Class Form1
                 artist.artistName = lst_artits.SelectedItem.ToString
                 artist.ReadArtist()
                 txt_artistName.Text = artist.artistName
+                txt_artistCountry.Text = artist.artistCountry
 
             Catch ex As Exception
                 lst_artits.SelectedIndex = -1
@@ -83,7 +84,7 @@ Public Class Form1
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
             lst_Countries.Items.Add(countryNew.idCountry)
-            cb_ArtistCountry.Items.Add(countryNew.idCountry)
+
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
@@ -143,7 +144,6 @@ Public Class Form1
                 MessageBox.Show("Country deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
             Me.lst_Countries.Items.Remove(country.idCountry)
-            Me.cb_ArtistCountry.Items.Remove(country.idCountry)
 
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -152,10 +152,10 @@ Public Class Form1
 
     Private Sub btn_insertArtist_Click(sender As Object, e As EventArgs) Handles btn_insertArtist.Click
         Dim artistNew As Artist
-        If txt_artistName.Text <> String.Empty And cb_ArtistCountry.SelectedIndex.ToString <> String.Empty Then
+        If txt_artistName.Text <> String.Empty And txt_artistCountry.Text <> String.Empty Then
             artistNew = New Artist
             artistNew.artistName = txt_artistName.Text
-            artistNew.artistCountry = cb_ArtistCountry.Text
+            artistNew.artistCountry = txt_artistCountry.Text
 
             Try
                 If artistNew.InsertArtist() <> 1 Then
