@@ -57,6 +57,7 @@
     Public Function UpdateArtist() As Integer
         Return Me.artistsDAO.Update(Me)
     End Function
+
     Public Function DeleteArtist() As Integer
         Return Me.artistsDAO.Delete(Me)
     End Function

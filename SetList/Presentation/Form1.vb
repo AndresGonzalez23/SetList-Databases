@@ -19,7 +19,7 @@ Public Class Form1
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
         For Each cAux In Me.country.counDAO.Countries
-            Me.lst_Countries.Items.Add(cAux.idCountry)
+            Me.lst_Countries.Items.Add(cAux.countryName)
         Next
         For Each aAux In Me.artist.artistsDAO.Artists
 
@@ -40,7 +40,7 @@ Public Class Form1
         If lst_Countries.SelectedItem IsNot Nothing Then
             Try
                 Me.country = New Country
-                country.idCountry = lst_Countries.SelectedItem.ToString
+                country.idCountry = lst_Countries.SelectedItem.ToString.Substring(0, 3)
                 country.ReadCountry()
                 txtName.Text = country.countryName
                 If txt_artistName.Text <> String.Empty Then
@@ -62,7 +62,7 @@ Public Class Form1
                 artist.artistName = lst_artits.SelectedItem.ToString
                 artist.ReadArtist()
                 txt_artistName.Text = artist.artistName
-                txt_artistCountry.Text = artist.artistCountry
+                txt_artistCountry.Text = artist.GetCountry()
 
             Catch ex As Exception
                 lst_artits.SelectedIndex = -1
@@ -149,7 +149,7 @@ Public Class Form1
             Catch ex As Exception
                 MessageBox.Show("Country deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
-            Me.lst_Countries.Items.Remove(country.idCountry)
+            Me.lst_Countries.Items.Remove(country.countryName)
 
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -179,8 +179,58 @@ Public Class Form1
     End Sub
 
     Private Sub btn_updateArtist_Click(sender As Object, e As EventArgs) Handles btn_updateArtist.Click
+        Me.artist = New Artist
+        Dim UpdateArtist = New Artist : Dim countryNameNew As String
+
+        If MessageBox.Show("Are you sure? Do you want to update this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Try
+            artist.artistName = txt_artistName.Text
+            countryNameNew = txt_artistCountry.Text
+            artist.artistCountry = countryNameNew.Substring(0, 3)
+
+            If txt_artistName.Text <> String.Empty Then
+                UpdateArtist.SetName(artist.artistName)
+                UpdateArtist.SetCountry(artist.artistCountry)
+                Try
+                    UpdateArtist.UpdateArtist()
+                    MsgBox("Artist Update Succesfully")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
+            Else
+                MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+            End If
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 
-
+    Private Sub btn_deleteArtist_Click(sender As Object, e As EventArgs) Handles btn_deleteArtist.Click
+        If MessageBox.Show("Are you sure? Do you want to delete permanetly this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+        If txt_artistName.Text <> String.Empty Then
+            Me.artist = New Artist
+            artist.artistName = txt_artistName.Text
+            artist.ReadArtist()
+            If artist.artistName <> txt_artistName.Text.Trim() Then
+                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+                Exit Sub
+            End If
+            Try
+                If artist.DeleteArtist() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Artist deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Try
+            Me.lst_artits.Items.Remove(artist.artistName)
+        Else
+            MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+        End If
+    End Sub
 End Class

@@ -33,7 +33,7 @@
     End Function
 
     Public Function Delete(ByVal country As Country) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Country WHERE idCountry='" & country.GetIdCountry() & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Country WHERE CountryName='" & country.countryName() & "';")
     End Function
 
 
