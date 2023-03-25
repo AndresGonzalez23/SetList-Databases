@@ -4,7 +4,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 Public Class Form1
     Private country As Country
     Private artist As Artist
-
+    Private Venue As Venue
     Public countries As Collection
 
     Private Sub btn_connection_Click(sender As Object, e As EventArgs) Handles btn_connection.Click
@@ -31,6 +31,7 @@ Public Class Form1
         btn_insertArtist.Enabled = True
         btn_deleteArtist.Enabled = True
         btn_updateArtist.Enabled = True
+        btn_insertVenue.Enabled = True
     End Sub
 
 
@@ -46,6 +47,11 @@ Public Class Form1
                 If txt_artistName.Text <> String.Empty Then
                     txt_artistCountry.Text = lst_Countries.SelectedItem.ToString()
                 End If
+
+                If txt_venueName.Text <> String.Empty Then
+                    txt_venueCountry.Text = lst_Countries.SelectedItem.ToString()
+                End If
+
             Catch ex As Exception
                 lst_Countries.SelectedIndex = -1
             End Try
@@ -229,4 +235,46 @@ Public Class Form1
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If
     End Sub
+
+    Private Sub btn_venueInsertar_Click(sender As Object, e As EventArgs) Handles btn_insertVenue.Click
+        Dim venueNew As Venue : Dim countryVenueNew As String
+        If txt_venueName.Text <> String.Empty And txt_venueType.Text <> String.Empty Then
+            venueNew = New Venue
+            venueNew.venueName = txt_venueName.Text
+            venueNew.venueCountry = txt_venueCountry.Text
+            venueNew.venueType = txt_venueType.Text
+
+            Try
+                If venueNew.InsertVenue() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+            lst_venues.Items.Add(venueNew.GetVenueName)
+        Else
+            MessageBox.Show("name, country or type are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+        End If
+    End Sub
+    Private Sub lst_venues_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_artits.SelectedIndexChanged
+        btn_deleteArtist.Enabled = True
+        btn_updateArtist.Enabled = True
+
+        If lst_venues.SelectedItem IsNot Nothing Then
+            Try
+                Me.Venue = New Venue
+                Venue.venueName = lst_venues.SelectedItem.ToString
+                Venue.ReadAllVenues()
+                txt_venueName.Text = Venue.venueName
+                txt_venueCountry.Text = Venue.GetVenueCountry()
+                txt_venueType.Text = Venue.GetVenueCountry()
+
+
+            Catch ex As Exception
+                lst_venues.SelectedIndex = -1
+            End Try
+        End If
+    End Sub
+
+
 End Class

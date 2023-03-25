@@ -1,8 +1,8 @@
 ﻿Public Class Venue
-    Private Property idVenue As Integer
-    Private Property venueName As String
-    Private Property venueCountry As String
-    Private Property venueType As String
+    Public Property idVenue As Integer
+    Public Property venueName As String
+    Public Property venueCountry As String
+    Public Property venueType As String
     Private vDao As VenueDAO
 
     Public Sub New()
@@ -41,7 +41,7 @@
     Public Function SetVenueType(vType As String) As String
         venueType = vType
     End Function
-    Public Function ReadAllVenues(path As String) As Object
+    Public Function ReadAllVenues() As Object
         Return Me.vDao.ReadAll()
     End Function
     Public Function InsertVenue() As Integer

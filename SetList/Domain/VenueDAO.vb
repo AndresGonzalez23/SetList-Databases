@@ -27,8 +27,9 @@
     End Sub
 
     Public Function Insert(ByVal v As Venue) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Venues ([venueName],[venueCountry],[venueType]) VALUES ('" & v.GetVenueName() & "','" & v.GetVenueCountry() & "','" & v.GetVenueType() & "','" & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO venues (VenueName, VenueCountry, VenueType) VALUES ('" & v.GetVenueName() & "', (SELECT idCountry FROM Country WHERE idCountry='" & v.GetVenueCountry() & "'), '" & v.GetVenueType() & "');")
     End Function
+
     Public Function Update(ByVal v As Venue) As Integer
         Return DBBroker.GetBroker.Change("UPDATE Venues SET [venueName]='" & v.GetVenueName() & "' ,[venueCountry]='" & v.GetVenueCountry() & "' ,[venueType]='" & v.GetVenueType() & "'WHERE idVenue=" & v.GetidVenue & ";")
     End Function
