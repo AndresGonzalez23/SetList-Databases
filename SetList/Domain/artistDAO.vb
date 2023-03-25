@@ -34,6 +34,7 @@
     Public Function Update(ByVal ar As Artist) As Integer
         Return DBBroker.GetBroker.Change("UPDATE Artists SET ArtistName='" & ar.GetName() & "', (SELECT idCountry FROM Country WHERE idCountry='" & ar.GetCountry() & "') WHERE idArtist=" & ar.GetIdArtist & ";")
     End Function
+
     Public Function Delete(ByVal ar As Artist) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM Artists WHERE ArtistName='" & ar.artistName() & "';")
     End Function

@@ -99,17 +99,13 @@ Public Class Form1
     Private Sub btn_update_country_Click(sender As Object, e As EventArgs) Handles btn_update_country.Click
         Me.country = New Country
         Dim CountryUpdate = New Country
-
         If MessageBox.Show("Are you sure? Do you want to update this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
-
         Try
-
             country.countryName = txtName.Text
-
             If txtName.Text <> String.Empty Then
-                CountryUpdate.SetIdCountry(country.GetIdCountry)
+                CountryUpdate.SetIdCountry(country.countryName.Substring(0, 3))
                 CountryUpdate.SetCountryName(country.GetCountryName)
                 Try
                     CountryUpdate.UpdateCountry()
