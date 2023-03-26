@@ -77,11 +77,14 @@ Partial Class Form1
         'btn_insert_country
         '
         Me.btn_insert_country.Enabled = False
-        Me.btn_insert_country.Location = New System.Drawing.Point(15, 240)
+        Me.btn_insert_country.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insert_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_insert_country.Location = New System.Drawing.Point(18, 224)
         Me.btn_insert_country.Name = "btn_insert_country"
-        Me.btn_insert_country.Size = New System.Drawing.Size(108, 35)
+        Me.btn_insert_country.Size = New System.Drawing.Size(108, 51)
         Me.btn_insert_country.TabIndex = 3
-        Me.btn_insert_country.Text = "Insert Country"
+        Me.btn_insert_country.Text = "Add country"
+        Me.btn_insert_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insert_country.UseVisualStyleBackColor = True
         '
         'txtName
@@ -103,21 +106,27 @@ Partial Class Form1
         'btn_update_country
         '
         Me.btn_update_country.Enabled = False
-        Me.btn_update_country.Location = New System.Drawing.Point(141, 240)
+        Me.btn_update_country.Image = Global.SetList.My.Resources.Resources.update__1_
+        Me.btn_update_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_update_country.Location = New System.Drawing.Point(130, 224)
         Me.btn_update_country.Name = "btn_update_country"
-        Me.btn_update_country.Size = New System.Drawing.Size(117, 35)
+        Me.btn_update_country.Size = New System.Drawing.Size(125, 51)
         Me.btn_update_country.TabIndex = 6
         Me.btn_update_country.Text = "Update Country"
+        Me.btn_update_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_update_country.UseVisualStyleBackColor = True
         '
         'btn_delete_country
         '
         Me.btn_delete_country.Enabled = False
-        Me.btn_delete_country.Location = New System.Drawing.Point(264, 240)
+        Me.btn_delete_country.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_delete_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_delete_country.Location = New System.Drawing.Point(261, 224)
         Me.btn_delete_country.Name = "btn_delete_country"
-        Me.btn_delete_country.Size = New System.Drawing.Size(108, 35)
+        Me.btn_delete_country.Size = New System.Drawing.Size(132, 51)
         Me.btn_delete_country.TabIndex = 7
         Me.btn_delete_country.Text = "Delete Country"
+        Me.btn_delete_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_delete_country.UseVisualStyleBackColor = True
         '
         'Label2
@@ -151,19 +160,22 @@ Partial Class Form1
         'btn_insertArtist
         '
         Me.btn_insertArtist.Enabled = False
-        Me.btn_insertArtist.Location = New System.Drawing.Point(18, 242)
+        Me.btn_insertArtist.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insertArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_insertArtist.Location = New System.Drawing.Point(18, 236)
         Me.btn_insertArtist.Name = "btn_insertArtist"
-        Me.btn_insertArtist.Size = New System.Drawing.Size(95, 43)
+        Me.btn_insertArtist.Size = New System.Drawing.Size(106, 49)
         Me.btn_insertArtist.TabIndex = 12
         Me.btn_insertArtist.Text = "Insert artist"
+        Me.btn_insertArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insertArtist.UseVisualStyleBackColor = True
         '
         'btn_updateArtist
         '
         Me.btn_updateArtist.Enabled = False
-        Me.btn_updateArtist.Location = New System.Drawing.Point(138, 242)
+        Me.btn_updateArtist.Location = New System.Drawing.Point(130, 236)
         Me.btn_updateArtist.Name = "btn_updateArtist"
-        Me.btn_updateArtist.Size = New System.Drawing.Size(95, 43)
+        Me.btn_updateArtist.Size = New System.Drawing.Size(125, 49)
         Me.btn_updateArtist.TabIndex = 13
         Me.btn_updateArtist.Text = "Update Artist"
         Me.btn_updateArtist.UseVisualStyleBackColor = True
@@ -171,9 +183,9 @@ Partial Class Form1
         'btn_deleteArtist
         '
         Me.btn_deleteArtist.Enabled = False
-        Me.btn_deleteArtist.Location = New System.Drawing.Point(239, 242)
+        Me.btn_deleteArtist.Location = New System.Drawing.Point(261, 236)
         Me.btn_deleteArtist.Name = "btn_deleteArtist"
-        Me.btn_deleteArtist.Size = New System.Drawing.Size(95, 43)
+        Me.btn_deleteArtist.Size = New System.Drawing.Size(132, 49)
         Me.btn_deleteArtist.TabIndex = 14
         Me.btn_deleteArtist.Text = "Delete Artist"
         Me.btn_deleteArtist.UseVisualStyleBackColor = True
@@ -265,7 +277,7 @@ Partial Class Form1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.setlist
-        Me.PictureBox1.Location = New System.Drawing.Point(596, -2)
+        Me.PictureBox1.Location = New System.Drawing.Point(599, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(263, 95)
         Me.PictureBox1.TabIndex = 25
@@ -273,7 +285,7 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Gray
+        Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
@@ -284,7 +296,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.btn_insertVenue)
         Me.Panel1.Controls.Add(Me.txt_venueCountry)
         Me.Panel1.Controls.Add(Me.txt_venueType)
-        Me.Panel1.Location = New System.Drawing.Point(526, 138)
+        Me.Panel1.Location = New System.Drawing.Point(693, 147)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(461, 294)
         Me.Panel1.TabIndex = 26
@@ -339,7 +351,7 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Gray
+        Me.Panel2.BackColor = System.Drawing.Color.Silver
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.lst_Countries)
         Me.Panel2.Controls.Add(Me.Label5)
@@ -350,12 +362,12 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(25, 138)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(461, 294)
+        Me.Panel2.Size = New System.Drawing.Size(522, 294)
         Me.Panel2.TabIndex = 27
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.Gray
+        Me.Panel3.BackColor = System.Drawing.Color.Silver
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.lst_artits)
@@ -368,7 +380,7 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Location = New System.Drawing.Point(25, 464)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(461, 294)
+        Me.Panel3.Size = New System.Drawing.Size(522, 294)
         Me.Panel3.TabIndex = 27
         '
         'Label4
