@@ -46,6 +46,7 @@ Partial Class Form1
         Me.btn_insertVenue = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btn_deleteVenue = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -53,7 +54,6 @@ Partial Class Form1
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_deleteVenue = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -312,6 +312,19 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(461, 294)
         Me.Panel1.TabIndex = 26
         '
+        'btn_deleteVenue
+        '
+        Me.btn_deleteVenue.Enabled = False
+        Me.btn_deleteVenue.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_deleteVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_deleteVenue.Location = New System.Drawing.Point(255, 236)
+        Me.btn_deleteVenue.Name = "btn_deleteVenue"
+        Me.btn_deleteVenue.Size = New System.Drawing.Size(120, 44)
+        Me.btn_deleteVenue.TabIndex = 26
+        Me.btn_deleteVenue.Text = "Delete venue"
+        Me.btn_deleteVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_deleteVenue.UseVisualStyleBackColor = True
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -405,18 +418,6 @@ Partial Class Form1
         Me.Label4.Size = New System.Drawing.Size(123, 32)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Country"
-        '
-        'btn_deleteVenue
-        '
-        Me.btn_deleteVenue.Image = Global.SetList.My.Resources.Resources.delete__1_
-        Me.btn_deleteVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteVenue.Location = New System.Drawing.Point(255, 236)
-        Me.btn_deleteVenue.Name = "btn_deleteVenue"
-        Me.btn_deleteVenue.Size = New System.Drawing.Size(120, 44)
-        Me.btn_deleteVenue.TabIndex = 26
-        Me.btn_deleteVenue.Text = "Delete venue"
-        Me.btn_deleteVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_deleteVenue.UseVisualStyleBackColor = True
         '
         'Form1
         '

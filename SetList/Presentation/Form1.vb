@@ -40,6 +40,7 @@ Public Class Form1
         btn_deleteArtist.Enabled = True
         btn_updateArtist.Enabled = True
         btn_insertVenue.Enabled = True
+        btn_deleteVenue.Enabled = True
     End Sub
 
 
@@ -84,6 +85,23 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub lst_venues_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_venues.SelectedIndexChanged
+
+        If lst_venues.SelectedItem IsNot Nothing Then
+            Try
+                Me.Venue = New Venue
+                Venue.venueName = lst_venues.SelectedItem.ToString
+                Venue.ReadVenue()
+                txt_venueName.Text = Venue.venueName
+                txt_venueCountry.Text = Venue.GetVenueCountry()
+                txt_venueType.Text = Venue.GetVenueType()
+
+
+            Catch ex As Exception
+                lst_venues.SelectedIndex = -1
+            End Try
+        End If
+    End Sub
 
     Private Sub btn_insert_country_Click(sender As Object, e As EventArgs) Handles btn_insert_country.Click
         Dim countryNew As New Country
@@ -265,24 +283,6 @@ Public Class Form1
             MessageBox.Show("name, country or type are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
     End Sub
-    Private Sub lst_venues_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_venues.SelectedIndexChanged
-
-
-        If lst_venues.SelectedItem IsNot Nothing Then
-            Try
-                Me.Venue = New Venue
-                Venue.venueName = lst_venues.SelectedItem.ToString
-                Venue.ReadAllVenues()
-                txt_venueName.Text = Venue.venueName
-                txt_venueCountry.Text = Venue.GetVenueCountry()
-                txt_venueType.Text = Venue.GetVenueType()
-
-
-            Catch ex As Exception
-                lst_venues.SelectedIndex = -1
-            End Try
-        End If
-    End Sub
 
     Private Sub btn_deleteVenue_Click(sender As Object, e As EventArgs) Handles btn_deleteVenue.Click
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
@@ -291,7 +291,7 @@ Public Class Form1
         If txt_venueName.Text <> String.Empty Then
             Me.Venue = New Venue
             Venue.venueName = txt_venueName.Text
-            Venue.ReadAll()
+            Venue.ReadVenue()
             If Venue.venueName <> txt_venueName.Text.Trim() Then
                 MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
@@ -303,6 +303,7 @@ Public Class Form1
             Catch ex As Exception
                 MessageBox.Show("Venue deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
+
             Me.lst_venues.Items.Remove(Venue.venueName)
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)

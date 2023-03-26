@@ -44,7 +44,7 @@
     Public Function ReadAllVenues() As Object
         Return Me.vDao.ReadAll()
     End Function
-    Public Sub ReadAll()
+    Public Sub ReadVenue()
         Me.vDao.Read(Me)
     End Sub
     Public Function InsertVenue() As Integer
