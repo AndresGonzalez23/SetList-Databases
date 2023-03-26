@@ -3,7 +3,7 @@
     Public Property venueName As String
     Public Property venueCountry As String
     Public Property venueType As String
-    Private vDao As VenueDAO
+    Public vDao As VenueDAO
 
     Public Sub New()
         Me.vDao = New VenueDAO
@@ -44,6 +44,9 @@
     Public Function ReadAllVenues() As Object
         Return Me.vDao.ReadAll()
     End Function
+    Public Sub ReadAll()
+        Me.vDao.Read(Me)
+    End Sub
     Public Function InsertVenue() As Integer
         Return Me.vDao.Insert(Me)
     End Function

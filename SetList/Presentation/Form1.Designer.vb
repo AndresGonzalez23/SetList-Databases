@@ -53,6 +53,7 @@ Partial Class Form1
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btn_deleteVenue = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -66,7 +67,7 @@ Partial Class Form1
         Me.btn_connection.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_connection.ForeColor = System.Drawing.Color.Transparent
         Me.btn_connection.Image = CType(resources.GetObject("btn_connection.Image"), System.Drawing.Image)
-        Me.btn_connection.Location = New System.Drawing.Point(18, 870)
+        Me.btn_connection.Location = New System.Drawing.Point(588, 709)
         Me.btn_connection.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_connection.Name = "btn_connection"
         Me.btn_connection.Size = New System.Drawing.Size(443, 49)
@@ -173,21 +174,27 @@ Partial Class Form1
         'btn_updateArtist
         '
         Me.btn_updateArtist.Enabled = False
+        Me.btn_updateArtist.Image = Global.SetList.My.Resources.Resources.update__1_
+        Me.btn_updateArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_updateArtist.Location = New System.Drawing.Point(130, 236)
         Me.btn_updateArtist.Name = "btn_updateArtist"
         Me.btn_updateArtist.Size = New System.Drawing.Size(125, 49)
         Me.btn_updateArtist.TabIndex = 13
         Me.btn_updateArtist.Text = "Update Artist"
+        Me.btn_updateArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_updateArtist.UseVisualStyleBackColor = True
         '
         'btn_deleteArtist
         '
         Me.btn_deleteArtist.Enabled = False
+        Me.btn_deleteArtist.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_deleteArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_deleteArtist.Location = New System.Drawing.Point(261, 236)
         Me.btn_deleteArtist.Name = "btn_deleteArtist"
         Me.btn_deleteArtist.Size = New System.Drawing.Size(132, 49)
         Me.btn_deleteArtist.TabIndex = 14
         Me.btn_deleteArtist.Text = "Delete Artist"
+        Me.btn_deleteArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_deleteArtist.UseVisualStyleBackColor = True
         '
         'Label3
@@ -266,11 +273,14 @@ Partial Class Form1
         'btn_insertVenue
         '
         Me.btn_insertVenue.Enabled = False
+        Me.btn_insertVenue.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insertVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_insertVenue.Location = New System.Drawing.Point(18, 236)
         Me.btn_insertVenue.Name = "btn_insertVenue"
         Me.btn_insertVenue.Size = New System.Drawing.Size(109, 44)
         Me.btn_insertVenue.TabIndex = 24
         Me.btn_insertVenue.Text = "Insertar venue" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btn_insertVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insertVenue.UseVisualStyleBackColor = True
         '
         'PictureBox1
@@ -287,6 +297,7 @@ Partial Class Form1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.btn_deleteVenue)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label7)
@@ -296,7 +307,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.btn_insertVenue)
         Me.Panel1.Controls.Add(Me.txt_venueCountry)
         Me.Panel1.Controls.Add(Me.txt_venueType)
-        Me.Panel1.Location = New System.Drawing.Point(693, 147)
+        Me.Panel1.Location = New System.Drawing.Point(570, 138)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(461, 294)
         Me.Panel1.TabIndex = 26
@@ -395,13 +406,26 @@ Partial Class Form1
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Country"
         '
+        'btn_deleteVenue
+        '
+        Me.btn_deleteVenue.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_deleteVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_deleteVenue.Location = New System.Drawing.Point(255, 236)
+        Me.btn_deleteVenue.Name = "btn_deleteVenue"
+        Me.btn_deleteVenue.Size = New System.Drawing.Size(120, 44)
+        Me.btn_deleteVenue.TabIndex = 26
+        Me.btn_deleteVenue.Text = "Delete venue"
+        Me.btn_deleteVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_deleteVenue.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1698, 932)
+        Me.ClientSize = New System.Drawing.Size(1782, 953)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -452,4 +476,5 @@ Partial Class Form1
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents btn_deleteVenue As Button
 End Class

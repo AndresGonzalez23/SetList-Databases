@@ -164,5 +164,8 @@
   <ItemGroup>
     <None Include="Resources\update %281%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

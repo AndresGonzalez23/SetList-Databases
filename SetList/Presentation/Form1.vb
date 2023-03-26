@@ -10,8 +10,10 @@ Public Class Form1
     Private Sub btn_connection_Click(sender As Object, e As EventArgs) Handles btn_connection.Click
         Dim cAux As Country
         Dim aAux As Artist
+        Dim vAux As Venue
         Me.country = New Country
         Me.artist = New Artist
+        Me.Venue = New Venue
         Try
             Me.country.ReadAllCountries()
             Me.artist.ReadAllArtists()
@@ -24,6 +26,10 @@ Public Class Form1
         For Each aAux In Me.artist.artistsDAO.Artists
 
             Me.lst_artits.Items.Add(aAux.artistName)
+        Next
+        For Each vAux In Me.Venue.vDao.Venues
+
+            Me.lst_venues.Items.Add(vAux.venueName)
         Next
         btn_insert_country.Enabled = True
         btn_delete_country.Enabled = True
@@ -241,7 +247,8 @@ Public Class Form1
         If txt_venueName.Text <> String.Empty And txt_venueType.Text <> String.Empty Then
             venueNew = New Venue
             venueNew.venueName = txt_venueName.Text
-            venueNew.venueCountry = txt_venueCountry.Text
+            countryVenueNew = txt_venueCountry.Text
+            venueNew.venueCountry = countryVenueNew.Substring(0, 3)
             venueNew.venueType = txt_venueType.Text
 
             Try
@@ -273,6 +280,31 @@ Public Class Form1
             Catch ex As Exception
                 lst_venues.SelectedIndex = -1
             End Try
+        End If
+    End Sub
+
+    Private Sub btn_deleteVenue_Click(sender As Object, e As EventArgs) Handles btn_deleteVenue.Click
+        If MessageBox.Show("Are you sure? Do you want to delete permanetly this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+        If txt_venueName.Text <> String.Empty Then
+            Me.Venue = New Venue
+            Venue.venueName = txt_venueName.Text
+            Venue.ReadAllVenues()
+            If Venue.venueName <> txt_venueName.Text.Trim() Then
+                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+                Exit Sub
+            End If
+            Try
+                If Venue.DeleteVenue() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Venue deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Try
+            Me.lst_venues.Items.Remove(Venue.venueName)
+        Else
+            MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If
     End Sub
 
