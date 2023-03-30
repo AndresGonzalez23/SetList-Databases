@@ -81,6 +81,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Album.vb" />
+    <Compile Include="Domain\AlbumDAO.vb" />
     <Compile Include="Domain\Artist.vb" />
     <Compile Include="Domain\ArtistDAO.vb" />
     <Compile Include="Domain\Country.vb" />
