@@ -4,6 +4,8 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 Public Class Form1
     Private country As Country
     Private artist As Artist
+    Private previousArtist As Artist
+    Private previousVenue As Venue
     Private Venue As Venue
     Public countries As Collection
     Public venues As Collection
@@ -75,9 +77,12 @@ Public Class Form1
             Try
                 Me.artist = New Artist
                 artist.artistName = lst_artits.SelectedItem.ToString
-                artist.ReadArtist()
+                artist.ReadArtistByName()
                 txt_artistName.Text = artist.artistName
                 txt_artistCountry.Text = artist.GetCountry()
+                Me.previousArtist = New Artist
+                previousArtist.artistName = txt_artistName.Text
+                previousArtist.ReadArtistByName()
 
             Catch ex As Exception
                 lst_artits.SelectedIndex = -1
@@ -91,11 +96,13 @@ Public Class Form1
             Try
                 Me.Venue = New Venue
                 Venue.venueName = lst_venues.SelectedItem.ToString
-                Venue.ReadVenue()
+                Venue.ReadVenuebyName()
                 txt_venueName.Text = Venue.venueName
                 txt_venueCountry.Text = Venue.GetVenueCountry()
                 txt_venueType.Text = Venue.GetVenueType()
-
+                Me.previousVenue = New Venue
+                previousVenue.venueName = txt_venueName.Text
+                previousVenue.ReadVenueByName()
 
             Catch ex As Exception
                 lst_venues.SelectedIndex = -1
@@ -215,13 +222,12 @@ Public Class Form1
         End If
 
         Try
-            artist.artistName = txt_artistName.Text
+            UpdateArtist.artistName = txt_artistName.Text
             countryNameNew = txt_artistCountry.Text
-            artist.artistCountry = countryNameNew.Substring(0, 3)
+            UpdateArtist.artistCountry = countryNameNew.Substring(0, 3)
+            UpdateArtist.IdArtist = previousArtist.GetIdArtist()
 
             If txt_artistName.Text <> String.Empty Then
-                UpdateArtist.SetName(artist.artistName)
-                UpdateArtist.SetCountry(artist.artistCountry)
                 Try
                     UpdateArtist.UpdateArtist()
                     MsgBox("Artist Update Succesfully")
@@ -284,12 +290,45 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub btn_updateVenue_Click(sender As Object, e As EventArgs) Handles btn_updateVenue.Click
+        Me.Venue = New Venue
+        Dim UpdateVenue = New Venue : Dim countryNameNew As String
+
+        If MessageBox.Show("Are you sure? Do you want to update this venue?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Try
+            UpdateVenue.venueName = txt_venueName.Text
+            countryNameNew = txt_venueCountry.Text
+            UpdateVenue.venueCountry = countryNameNew.Substring(0, 3)
+            UpdateVenue.venueType = txt_venueType.Text
+            UpdateVenue.idVenue = previousVenue.GetidVenue()
+
+
+            If txt_venueName.Text <> String.Empty Then
+                Try
+                    UpdateVenue.UpdateVenue()
+                    MsgBox("Venue Update Succesfully")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
+            Else
+                MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+            End If
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
     Private Sub btn_deleteVenue_Click(sender As Object, e As EventArgs) Handles btn_deleteVenue.Click
+
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
         If txt_venueName.Text <> String.Empty Then
-            Me.Venue = New Venue
+
             Venue.venueName = txt_venueName.Text
             Venue.ReadVenue()
             If Venue.venueName <> txt_venueName.Text.Trim() Then

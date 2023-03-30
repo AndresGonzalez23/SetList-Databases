@@ -54,6 +54,8 @@ Partial Class Form1
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btn_updateVenue = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -297,6 +299,7 @@ Partial Class Form1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.btn_updateVenue)
         Me.Panel1.Controls.Add(Me.btn_deleteVenue)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
@@ -419,6 +422,23 @@ Partial Class Form1
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Country"
         '
+        'btn_updateVenue
+        '
+        Me.btn_updateVenue.Location = New System.Drawing.Point(160, 236)
+        Me.btn_updateVenue.Name = "btn_updateVenue"
+        Me.btn_updateVenue.Size = New System.Drawing.Size(75, 23)
+        Me.btn_updateVenue.TabIndex = 28
+        Me.btn_updateVenue.Text = "Button1"
+        Me.btn_updateVenue.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(1083, 160)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
+        Me.ComboBox1.TabIndex = 28
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -427,6 +447,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1782, 953)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -478,4 +499,6 @@ Partial Class Form1
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents btn_deleteVenue As Button
+    Friend WithEvents btn_updateVenue As Button
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

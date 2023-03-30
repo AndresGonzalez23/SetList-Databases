@@ -21,6 +21,11 @@
     Public Sub ReadArtist()
         Me.artistsDAO.Read(Me)
     End Sub
+
+    Public Sub ReadArtistByName()
+        Me.artistsDAO.ReadByName(Me)
+    End Sub
+
     Public Function GetIdArtist() As Integer
         Return IdArtist
     End Function

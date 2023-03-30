@@ -10,7 +10,7 @@
         Dim col, aux As Collection
         col = DBBroker.GetBroker().Read("SELECT * FROM Artists ORDER BY IdArtist")
         For Each aux In col
-            ar = New Artist(CInt(aux(1).ToString))
+            ar = New Artist(Convert.ToInt32(aux(1).ToString))
             ar.SetName(aux(2).ToString)
             ar.SetCountry(aux(3).ToString)
             Me.Artists.Add(ar)
@@ -20,8 +20,18 @@
 
     Public Sub Read(ByRef ar As Artist)
         Dim col As Collection : Dim aux As Collection
+        col = DBBroker.GetBroker.Read("SELECT * FROM Artists WHERE ArtistID='" & ar.GetIdArtist() & "';")
+        For Each aux In col
+            ar.SetName(aux(2).ToString)
+            ar.SetCountry(aux(3).ToString)
+        Next
+    End Sub
+
+    Public Sub ReadByName(ByRef ar As Artist)
+        Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT * FROM Artists WHERE ArtistName='" & ar.GetName() & "';")
         For Each aux In col
+            ar.IdArtist = Convert.ToInt32(aux(1).ToString)
             ar.SetName(aux(2).ToString)
             ar.SetCountry(aux(3).ToString)
         Next
@@ -32,7 +42,7 @@
     End Function
 
     Public Function Update(ByVal ar As Artist) As Integer
-        'Return DBBroker.GetBroker.Change("UPDATE Artists SET ArtistName='" & ar.GetName() & "', ArtistCountry = (SELECT idCountry FROM Country WHERE CountryName = '" & countryName & "') WHERE idArtist=" & ar.GetIdArtist & ";")
+        Return DBBroker.GetBroker.Change("UPDATE artists SET ArtistName='" & ar.GetName() & "' ,ArtistCountry='" & ar.GetCountry() & "' WHERE idArtist=" & ar.GetIdArtist() & ";")
 
     End Function
 
