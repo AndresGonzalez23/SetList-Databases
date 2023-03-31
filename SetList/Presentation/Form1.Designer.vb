@@ -46,7 +46,6 @@ Partial Class Form1
         Me.btn_insertVenue = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btn_updateVenue = New System.Windows.Forms.Button()
         Me.btn_deleteVenue = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -55,24 +54,12 @@ Partial Class Form1
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btn_updateVenue = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.btn_update_album = New System.Windows.Forms.Button()
-        Me.btn_delete_album = New System.Windows.Forms.Button()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.lst_albums = New System.Windows.Forms.ListBox()
-        Me.txt_albumName = New System.Windows.Forms.TextBox()
-        Me.btn_insert_album = New System.Windows.Forms.Button()
-        Me.txt_albumYear = New System.Windows.Forms.TextBox()
-        Me.txt_albumArtist = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'btn_connection
@@ -153,7 +140,7 @@ Partial Class Form1
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label2.Location = New System.Drawing.Point(67, 19)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(122, 32)
+        Me.Label2.Size = New System.Drawing.Size(123, 32)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Country"
         '
@@ -220,7 +207,7 @@ Partial Class Form1
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label3.Location = New System.Drawing.Point(91, 21)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(101, 32)
+        Me.Label3.Size = New System.Drawing.Size(102, 32)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Artists"
         '
@@ -232,7 +219,7 @@ Partial Class Form1
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label5.Location = New System.Drawing.Point(217, 32)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(92, 32)
+        Me.Label5.Size = New System.Drawing.Size(93, 32)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Name"
         '
@@ -244,7 +231,7 @@ Partial Class Form1
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label6.Location = New System.Drawing.Point(217, 48)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(92, 32)
+        Me.Label6.Size = New System.Drawing.Size(93, 32)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Name"
         '
@@ -328,15 +315,6 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(461, 294)
         Me.Panel1.TabIndex = 26
         '
-        'btn_updateVenue
-        '
-        Me.btn_updateVenue.Location = New System.Drawing.Point(160, 236)
-        Me.btn_updateVenue.Name = "btn_updateVenue"
-        Me.btn_updateVenue.Size = New System.Drawing.Size(75, 23)
-        Me.btn_updateVenue.TabIndex = 28
-        Me.btn_updateVenue.Text = "Button1"
-        Me.btn_updateVenue.UseVisualStyleBackColor = True
-        '
         'btn_deleteVenue
         '
         Me.btn_deleteVenue.Enabled = False
@@ -358,7 +336,7 @@ Partial Class Form1
         Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label9.Location = New System.Drawing.Point(212, 161)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(77, 32)
+        Me.Label9.Size = New System.Drawing.Size(78, 32)
         Me.Label9.TabIndex = 25
         Me.Label9.Text = "Type"
         '
@@ -370,7 +348,7 @@ Partial Class Form1
         Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label8.Location = New System.Drawing.Point(212, 96)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(122, 32)
+        Me.Label8.Size = New System.Drawing.Size(123, 32)
         Me.Label8.TabIndex = 20
         Me.Label8.Text = "Country"
         '
@@ -382,7 +360,7 @@ Partial Class Form1
         Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label7.Location = New System.Drawing.Point(212, 32)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(92, 32)
+        Me.Label7.Size = New System.Drawing.Size(93, 32)
         Me.Label7.TabIndex = 20
         Me.Label7.Text = "Name"
         '
@@ -394,7 +372,7 @@ Partial Class Form1
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(81, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(111, 32)
+        Me.Label1.Size = New System.Drawing.Size(112, 32)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Venues"
         '
@@ -440,9 +418,18 @@ Partial Class Form1
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label4.Location = New System.Drawing.Point(222, 137)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(122, 32)
+        Me.Label4.Size = New System.Drawing.Size(123, 32)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Country"
+        '
+        'btn_updateVenue
+        '
+        Me.btn_updateVenue.Location = New System.Drawing.Point(160, 236)
+        Me.btn_updateVenue.Name = "btn_updateVenue"
+        Me.btn_updateVenue.Size = New System.Drawing.Size(75, 23)
+        Me.btn_updateVenue.TabIndex = 28
+        Me.btn_updateVenue.Text = "Button1"
+        Me.btn_updateVenue.UseVisualStyleBackColor = True
         '
         'ComboBox1
         '
@@ -452,143 +439,6 @@ Partial Class Form1
         Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
         Me.ComboBox1.TabIndex = 28
         '
-        'Panel4
-        '
-        Me.Panel4.BackColor = System.Drawing.Color.Silver
-        Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel4.Controls.Add(Me.btn_update_album)
-        Me.Panel4.Controls.Add(Me.btn_delete_album)
-        Me.Panel4.Controls.Add(Me.Label10)
-        Me.Panel4.Controls.Add(Me.Label11)
-        Me.Panel4.Controls.Add(Me.Label12)
-        Me.Panel4.Controls.Add(Me.Label13)
-        Me.Panel4.Controls.Add(Me.lst_albums)
-        Me.Panel4.Controls.Add(Me.txt_albumName)
-        Me.Panel4.Controls.Add(Me.btn_insert_album)
-        Me.Panel4.Controls.Add(Me.txt_albumYear)
-        Me.Panel4.Controls.Add(Me.txt_albumArtist)
-        Me.Panel4.Location = New System.Drawing.Point(1267, 153)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(461, 294)
-        Me.Panel4.TabIndex = 29
-        '
-        'btn_update_album
-        '
-        Me.btn_update_album.Enabled = False
-        Me.btn_update_album.Image = Global.SetList.My.Resources.Resources.update__1_
-        Me.btn_update_album.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_update_album.Location = New System.Drawing.Point(160, 236)
-        Me.btn_update_album.Name = "btn_update_album"
-        Me.btn_update_album.Size = New System.Drawing.Size(125, 44)
-        Me.btn_update_album.TabIndex = 27
-        Me.btn_update_album.Text = "Update album"
-        Me.btn_update_album.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_update_album.UseVisualStyleBackColor = True
-        '
-        'btn_delete_album
-        '
-        Me.btn_delete_album.Enabled = False
-        Me.btn_delete_album.Image = Global.SetList.My.Resources.Resources.delete__1_
-        Me.btn_delete_album.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_delete_album.Location = New System.Drawing.Point(309, 231)
-        Me.btn_delete_album.Name = "btn_delete_album"
-        Me.btn_delete_album.Size = New System.Drawing.Size(120, 44)
-        Me.btn_delete_album.TabIndex = 26
-        Me.btn_delete_album.Text = "Delete album"
-        Me.btn_delete_album.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_delete_album.UseVisualStyleBackColor = True
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label10.Location = New System.Drawing.Point(212, 161)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(97, 32)
-        Me.Label10.TabIndex = 25
-        Me.Label10.Text = "Artist "
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(212, 96)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(73, 32)
-        Me.Label11.TabIndex = 20
-        Me.Label11.Text = "Year"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label12.Location = New System.Drawing.Point(212, 32)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(92, 32)
-        Me.Label12.TabIndex = 20
-        Me.Label12.Text = "Name"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label13.Location = New System.Drawing.Point(81, 14)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(113, 32)
-        Me.Label13.TabIndex = 18
-        Me.Label13.Text = "Albums"
-        '
-        'lst_albums
-        '
-        Me.lst_albums.FormattingEnabled = True
-        Me.lst_albums.ItemHeight = 16
-        Me.lst_albums.Location = New System.Drawing.Point(18, 50)
-        Me.lst_albums.Name = "lst_albums"
-        Me.lst_albums.Size = New System.Drawing.Size(175, 164)
-        Me.lst_albums.TabIndex = 20
-        '
-        'txt_albumName
-        '
-        Me.txt_albumName.Location = New System.Drawing.Point(218, 67)
-        Me.txt_albumName.Name = "txt_albumName"
-        Me.txt_albumName.Size = New System.Drawing.Size(211, 22)
-        Me.txt_albumName.TabIndex = 21
-        '
-        'btn_insert_album
-        '
-        Me.btn_insert_album.Enabled = False
-        Me.btn_insert_album.Image = Global.SetList.My.Resources.Resources.plus__1_
-        Me.btn_insert_album.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insert_album.Location = New System.Drawing.Point(18, 236)
-        Me.btn_insert_album.Name = "btn_insert_album"
-        Me.btn_insert_album.Size = New System.Drawing.Size(109, 44)
-        Me.btn_insert_album.TabIndex = 24
-        Me.btn_insert_album.Text = "Insert album"
-        Me.btn_insert_album.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_insert_album.UseVisualStyleBackColor = True
-        '
-        'txt_albumYear
-        '
-        Me.txt_albumYear.Location = New System.Drawing.Point(218, 129)
-        Me.txt_albumYear.Name = "txt_albumYear"
-        Me.txt_albumYear.Size = New System.Drawing.Size(211, 22)
-        Me.txt_albumYear.TabIndex = 22
-        '
-        'txt_albumArtist
-        '
-        Me.txt_albumArtist.Location = New System.Drawing.Point(218, 196)
-        Me.txt_albumArtist.Name = "txt_albumArtist"
-        Me.txt_albumArtist.Size = New System.Drawing.Size(211, 22)
-        Me.txt_albumArtist.TabIndex = 23
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -597,7 +447,6 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1782, 953)
-        Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
@@ -616,8 +465,6 @@ Partial Class Form1
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.Panel4.ResumeLayout(False)
-        Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -654,16 +501,4 @@ Partial Class Form1
     Friend WithEvents btn_deleteVenue As Button
     Friend WithEvents btn_updateVenue As Button
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents btn_update_album As Button
-    Friend WithEvents btn_delete_album As Button
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents lst_albums As ListBox
-    Friend WithEvents txt_albumName As TextBox
-    Friend WithEvents btn_insert_album As Button
-    Friend WithEvents txt_albumYear As TextBox
-    Friend WithEvents txt_albumArtist As TextBox
 End Class
