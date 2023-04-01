@@ -471,4 +471,25 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub btn_insertConcert_Click(sender As Object, e As EventArgs) Handles btn_insertConcert.Click
+        Dim concertNew As Concert : Dim concertNameNew As String
+        If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty And txt_dateConcert.Value.ToString <> String.Empty Then
+
+            concertNew = New Concert
+            concertNew.ArtistName = txt_artistConcert.Text
+            countryNameNew = txt_artistCountry.Text
+            artistNew.artistCountry = countryNameNew.Substring(0, 3)
+
+            Try
+                If artistNew.InsertArtist() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+            lst_artits.Items.Add(artistNew.GetName)
+        Else
+            MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+        End If
+    End Sub
 End Class

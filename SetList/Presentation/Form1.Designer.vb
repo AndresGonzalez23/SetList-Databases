@@ -59,6 +59,7 @@ Partial Class Form1
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.txt_albumArtist = New System.Windows.Forms.TextBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.btn_updateAlbum = New System.Windows.Forms.Button()
         Me.btn_deleteAlbum = New System.Windows.Forms.Button()
@@ -70,7 +71,15 @@ Partial Class Form1
         Me.txt_albumName = New System.Windows.Forms.TextBox()
         Me.btn_insertAlbum = New System.Windows.Forms.Button()
         Me.txt_albumYear = New System.Windows.Forms.TextBox()
-        Me.txt_albumArtist = New System.Windows.Forms.TextBox()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.lst_concerts = New System.Windows.Forms.ListBox()
+        Me.txt_artistConcert = New System.Windows.Forms.TextBox()
+        Me.txt_venueConcert = New System.Windows.Forms.TextBox()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.txt_dateConcert = New System.Windows.Forms.DateTimePicker()
+        Me.btn_insertConcert = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,6 +89,8 @@ Partial Class Form1
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_connection
@@ -89,7 +100,7 @@ Partial Class Form1
         Me.btn_connection.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_connection.ForeColor = System.Drawing.Color.Transparent
         Me.btn_connection.Image = CType(resources.GetObject("btn_connection.Image"), System.Drawing.Image)
-        Me.btn_connection.Location = New System.Drawing.Point(981, 759)
+        Me.btn_connection.Location = New System.Drawing.Point(499, 787)
         Me.btn_connection.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_connection.Name = "btn_connection"
         Me.btn_connection.Size = New System.Drawing.Size(443, 49)
@@ -324,9 +335,9 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.txt_venueName)
         Me.Panel1.Controls.Add(Me.btn_insertVenue)
         Me.Panel1.Controls.Add(Me.txt_venueCountry)
-        Me.Panel1.Location = New System.Drawing.Point(570, 138)
+        Me.Panel1.Location = New System.Drawing.Point(499, 138)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(522, 294)
+        Me.Panel1.Size = New System.Drawing.Size(442, 294)
         Me.Panel1.TabIndex = 26
         '
         'PictureBox4
@@ -435,7 +446,7 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(25, 138)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(522, 294)
+        Me.Panel2.Size = New System.Drawing.Size(441, 294)
         Me.Panel2.TabIndex = 27
         '
         'PictureBox2
@@ -464,7 +475,7 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Location = New System.Drawing.Point(25, 464)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(522, 294)
+        Me.Panel3.Size = New System.Drawing.Size(441, 294)
         Me.Panel3.TabIndex = 27
         '
         'PictureBox3
@@ -505,16 +516,23 @@ Partial Class Form1
         Me.Panel4.Controls.Add(Me.txt_albumName)
         Me.Panel4.Controls.Add(Me.btn_insertAlbum)
         Me.Panel4.Controls.Add(Me.txt_albumYear)
-        Me.Panel4.Location = New System.Drawing.Point(570, 464)
+        Me.Panel4.Location = New System.Drawing.Point(499, 464)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(522, 294)
+        Me.Panel4.Size = New System.Drawing.Size(442, 294)
         Me.Panel4.TabIndex = 30
+        '
+        'txt_albumArtist
+        '
+        Me.txt_albumArtist.Location = New System.Drawing.Point(217, 196)
+        Me.txt_albumArtist.Name = "txt_albumArtist"
+        Me.txt_albumArtist.Size = New System.Drawing.Size(211, 22)
+        Me.txt_albumArtist.TabIndex = 29
         '
         'PictureBox5
         '
         Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox5.Image = Global.SetList.My.Resources.Resources.puntero_del_mapa
-        Me.PictureBox5.Location = New System.Drawing.Point(28, 6)
+        Me.PictureBox5.Image = Global.SetList.My.Resources.Resources.album
+        Me.PictureBox5.Location = New System.Drawing.Point(28, 12)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(39, 38)
         Me.PictureBox5.TabIndex = 28
@@ -629,12 +647,82 @@ Partial Class Form1
         Me.txt_albumYear.Size = New System.Drawing.Size(211, 22)
         Me.txt_albumYear.TabIndex = 22
         '
-        'txt_albumArtist
+        'Panel5
         '
-        Me.txt_albumArtist.Location = New System.Drawing.Point(217, 196)
-        Me.txt_albumArtist.Name = "txt_albumArtist"
-        Me.txt_albumArtist.Size = New System.Drawing.Size(211, 22)
-        Me.txt_albumArtist.TabIndex = 29
+        Me.Panel5.BackColor = System.Drawing.Color.Silver
+        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.btn_insertConcert)
+        Me.Panel5.Controls.Add(Me.txt_dateConcert)
+        Me.Panel5.Controls.Add(Me.txt_venueConcert)
+        Me.Panel5.Controls.Add(Me.txt_artistConcert)
+        Me.Panel5.Controls.Add(Me.lst_concerts)
+        Me.Panel5.Controls.Add(Me.PictureBox6)
+        Me.Panel5.Controls.Add(Me.Label17)
+        Me.Panel5.Location = New System.Drawing.Point(981, 138)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(440, 294)
+        Me.Panel5.TabIndex = 31
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox6.Image = Global.SetList.My.Resources.Resources.concierto
+        Me.PictureBox6.Location = New System.Drawing.Point(28, 12)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(39, 38)
+        Me.PictureBox6.TabIndex = 28
+        Me.PictureBox6.TabStop = False
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.BackColor = System.Drawing.Color.Transparent
+        Me.Label17.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label17.Location = New System.Drawing.Point(81, 10)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(134, 32)
+        Me.Label17.TabIndex = 18
+        Me.Label17.Text = "Concerts"
+        '
+        'lst_concerts
+        '
+        Me.lst_concerts.FormattingEnabled = True
+        Me.lst_concerts.ItemHeight = 16
+        Me.lst_concerts.Location = New System.Drawing.Point(31, 69)
+        Me.lst_concerts.Name = "lst_concerts"
+        Me.lst_concerts.Size = New System.Drawing.Size(151, 148)
+        Me.lst_concerts.TabIndex = 29
+        '
+        'txt_artistConcert
+        '
+        Me.txt_artistConcert.Location = New System.Drawing.Point(196, 74)
+        Me.txt_artistConcert.Name = "txt_artistConcert"
+        Me.txt_artistConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_artistConcert.TabIndex = 30
+        '
+        'txt_venueConcert
+        '
+        Me.txt_venueConcert.Location = New System.Drawing.Point(196, 129)
+        Me.txt_venueConcert.Name = "txt_venueConcert"
+        Me.txt_venueConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_venueConcert.TabIndex = 31
+        '
+        'txt_dateConcert
+        '
+        Me.txt_dateConcert.Location = New System.Drawing.Point(196, 195)
+        Me.txt_dateConcert.Name = "txt_dateConcert"
+        Me.txt_dateConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_dateConcert.TabIndex = 32
+        '
+        'btn_insertConcert
+        '
+        Me.btn_insertConcert.Location = New System.Drawing.Point(28, 236)
+        Me.btn_insertConcert.Name = "btn_insertConcert"
+        Me.btn_insertConcert.Size = New System.Drawing.Size(94, 44)
+        Me.btn_insertConcert.TabIndex = 33
+        Me.btn_insertConcert.Text = "btn_insertConcert"
+        Me.btn_insertConcert.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -643,7 +731,8 @@ Partial Class Form1
         Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1782, 953)
+        Me.ClientSize = New System.Drawing.Size(1924, 953)
+        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
@@ -668,6 +757,9 @@ Partial Class Form1
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -719,4 +811,13 @@ Partial Class Form1
     Friend WithEvents txt_albumName As TextBox
     Friend WithEvents btn_insertAlbum As Button
     Friend WithEvents txt_albumYear As TextBox
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents txt_dateConcert As DateTimePicker
+    Friend WithEvents txt_venueConcert As TextBox
+    Friend WithEvents txt_artistConcert As TextBox
+    Friend WithEvents lst_concerts As ListBox
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents btn_insertConcert As Button
 End Class
