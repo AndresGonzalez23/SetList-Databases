@@ -250,7 +250,7 @@ Public Class Form1
         If txt_artistName.Text <> String.Empty Then
             Me.artist = New Artist
             artist.artistName = txt_artistName.Text
-            artist.ReadArtist()
+            artist.ReadArtistByName()
             If artist.artistName <> txt_artistName.Text.Trim() Then
                 MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
