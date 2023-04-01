@@ -99,7 +99,7 @@ Public Class Form1
                 Venue.ReadVenuebyName()
                 txt_venueName.Text = Venue.venueName
                 txt_venueCountry.Text = Venue.GetVenueCountry()
-                txt_venueType.Text = Venue.GetVenueType()
+                cmb_venuesType.Text = Venue.GetVenueType()
                 Me.previousVenue = New Venue
                 previousVenue.venueName = txt_venueName.Text
                 previousVenue.ReadVenueByName()
@@ -270,12 +270,15 @@ Public Class Form1
 
     Private Sub btn_venueInsertar_Click(sender As Object, e As EventArgs) Handles btn_insertVenue.Click
         Dim venueNew As Venue : Dim countryVenueNew As String
-        If txt_venueName.Text <> String.Empty And txt_venueType.Text <> String.Empty Then
+        If txt_venueName.Text <> String.Empty And cmb_venuesType.SelectedItem.ToString <> String.Empty Then
             venueNew = New Venue
             venueNew.venueName = txt_venueName.Text
             countryVenueNew = txt_venueCountry.Text
             venueNew.venueCountry = countryVenueNew.Substring(0, 3)
-            venueNew.venueType = txt_venueType.Text
+            venueNew.venueType = cmb_venuesType.SelectedItem.ToString
+
+
+            'venueNew.venueType = txt_venueType.Text
 
             Try
                 If venueNew.InsertVenue() <> 1 Then
@@ -302,7 +305,7 @@ Public Class Form1
             UpdateVenue.venueName = txt_venueName.Text
             countryNameNew = txt_venueCountry.Text
             UpdateVenue.venueCountry = countryNameNew.Substring(0, 3)
-            UpdateVenue.venueType = txt_venueType.Text
+            UpdateVenue.venueType = cmb_venuesType.SelectedItem.ToString
             UpdateVenue.idVenue = previousVenue.GetidVenue()
 
 

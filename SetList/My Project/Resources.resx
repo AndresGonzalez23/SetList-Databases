@@ -124,8 +124,11 @@
   <data name="plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="update (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="delete (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cantante" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cantante.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="etapa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\etapa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,13 +142,19 @@
   <data name="setlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="countries" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\countries.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Five-Simple-Editing-Tips-That-Will-Make-Your-Photos-Stand-Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Five-Simple-Editing-Tips-That-Will-Make-Your-Photos-Stand-Out.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="trash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="update (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="puntero-del-mapa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\puntero-del-mapa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

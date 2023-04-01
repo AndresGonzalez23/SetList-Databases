@@ -42,24 +42,29 @@ Partial Class Form1
         Me.lst_venues = New System.Windows.Forms.ListBox()
         Me.txt_venueName = New System.Windows.Forms.TextBox()
         Me.txt_venueCountry = New System.Windows.Forms.TextBox()
-        Me.txt_venueType = New System.Windows.Forms.TextBox()
         Me.btn_insertVenue = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmb_venuesType = New System.Windows.Forms.ComboBox()
+        Me.btn_updateVenue = New System.Windows.Forms.Button()
         Me.btn_deleteVenue = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.btn_updateVenue = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_connection
@@ -138,7 +143,7 @@ Partial Class Form1
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(67, 19)
+        Me.Label2.Location = New System.Drawing.Point(67, 14)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(123, 32)
         Me.Label2.TabIndex = 8
@@ -205,7 +210,7 @@ Partial Class Form1
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(91, 21)
+        Me.Label3.Location = New System.Drawing.Point(91, 19)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(102, 32)
         Me.Label3.TabIndex = 15
@@ -265,13 +270,6 @@ Partial Class Form1
         Me.txt_venueCountry.Size = New System.Drawing.Size(211, 22)
         Me.txt_venueCountry.TabIndex = 22
         '
-        'txt_venueType
-        '
-        Me.txt_venueType.Location = New System.Drawing.Point(218, 196)
-        Me.txt_venueType.Name = "txt_venueType"
-        Me.txt_venueType.Size = New System.Drawing.Size(211, 22)
-        Me.txt_venueType.TabIndex = 23
-        '
         'btn_insertVenue
         '
         Me.btn_insertVenue.Enabled = False
@@ -291,7 +289,7 @@ Partial Class Form1
         Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.setlist
         Me.PictureBox1.Location = New System.Drawing.Point(599, 12)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(263, 95)
+        Me.PictureBox1.Size = New System.Drawing.Size(357, 95)
         Me.PictureBox1.TabIndex = 25
         Me.PictureBox1.TabStop = False
         '
@@ -299,6 +297,8 @@ Partial Class Form1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.PictureBox4)
+        Me.Panel1.Controls.Add(Me.cmb_venuesType)
         Me.Panel1.Controls.Add(Me.btn_updateVenue)
         Me.Panel1.Controls.Add(Me.btn_deleteVenue)
         Me.Panel1.Controls.Add(Me.Label9)
@@ -309,18 +309,38 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.txt_venueName)
         Me.Panel1.Controls.Add(Me.btn_insertVenue)
         Me.Panel1.Controls.Add(Me.txt_venueCountry)
-        Me.Panel1.Controls.Add(Me.txt_venueType)
         Me.Panel1.Location = New System.Drawing.Point(570, 138)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(461, 294)
+        Me.Panel1.Size = New System.Drawing.Size(522, 294)
         Me.Panel1.TabIndex = 26
+        '
+        'cmb_venuesType
+        '
+        Me.cmb_venuesType.FormattingEnabled = True
+        Me.cmb_venuesType.Items.AddRange(New Object() {"HALL", "PAVILION", "STADIUM", "FESTIVAL"})
+        Me.cmb_venuesType.Location = New System.Drawing.Point(218, 196)
+        Me.cmb_venuesType.Name = "cmb_venuesType"
+        Me.cmb_venuesType.Size = New System.Drawing.Size(211, 24)
+        Me.cmb_venuesType.TabIndex = 29
+        '
+        'btn_updateVenue
+        '
+        Me.btn_updateVenue.Image = Global.SetList.My.Resources.Resources.update__1_
+        Me.btn_updateVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_updateVenue.Location = New System.Drawing.Point(133, 236)
+        Me.btn_updateVenue.Name = "btn_updateVenue"
+        Me.btn_updateVenue.Size = New System.Drawing.Size(111, 44)
+        Me.btn_updateVenue.TabIndex = 28
+        Me.btn_updateVenue.Text = "Update venue"
+        Me.btn_updateVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_updateVenue.UseVisualStyleBackColor = True
         '
         'btn_deleteVenue
         '
         Me.btn_deleteVenue.Enabled = False
         Me.btn_deleteVenue.Image = Global.SetList.My.Resources.Resources.delete__1_
         Me.btn_deleteVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteVenue.Location = New System.Drawing.Point(255, 236)
+        Me.btn_deleteVenue.Location = New System.Drawing.Point(250, 236)
         Me.btn_deleteVenue.Name = "btn_deleteVenue"
         Me.btn_deleteVenue.Size = New System.Drawing.Size(120, 44)
         Me.btn_deleteVenue.TabIndex = 26
@@ -370,7 +390,7 @@ Partial Class Form1
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(81, 14)
+        Me.Label1.Location = New System.Drawing.Point(81, 10)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(112, 32)
         Me.Label1.TabIndex = 18
@@ -380,6 +400,7 @@ Partial Class Form1
         '
         Me.Panel2.BackColor = System.Drawing.Color.Silver
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Controls.Add(Me.lst_Countries)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.txtName)
@@ -392,10 +413,21 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(522, 294)
         Me.Panel2.TabIndex = 27
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.SetList.My.Resources.Resources.countries
+        Me.PictureBox2.Location = New System.Drawing.Point(30, 14)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(31, 33)
+        Me.PictureBox2.TabIndex = 28
+        Me.PictureBox2.TabStop = False
+        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.Silver
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.PictureBox3)
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.lst_artits)
         Me.Panel3.Controls.Add(Me.btn_insertArtist)
@@ -410,6 +442,16 @@ Partial Class Form1
         Me.Panel3.Size = New System.Drawing.Size(522, 294)
         Me.Panel3.TabIndex = 27
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = Global.SetList.My.Resources.Resources.cantante
+        Me.PictureBox3.Location = New System.Drawing.Point(30, 19)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(40, 31)
+        Me.PictureBox3.TabIndex = 28
+        Me.PictureBox3.TabStop = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -422,22 +464,15 @@ Partial Class Form1
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Country"
         '
-        'btn_updateVenue
+        'PictureBox4
         '
-        Me.btn_updateVenue.Location = New System.Drawing.Point(160, 236)
-        Me.btn_updateVenue.Name = "btn_updateVenue"
-        Me.btn_updateVenue.Size = New System.Drawing.Size(75, 23)
-        Me.btn_updateVenue.TabIndex = 28
-        Me.btn_updateVenue.Text = "Button1"
-        Me.btn_updateVenue.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(1083, 160)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 24)
-        Me.ComboBox1.TabIndex = 28
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.Image = Global.SetList.My.Resources.Resources.puntero_del_mapa
+        Me.PictureBox4.Location = New System.Drawing.Point(28, 6)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(39, 38)
+        Me.PictureBox4.TabIndex = 28
+        Me.PictureBox4.TabStop = False
         '
         'Form1
         '
@@ -447,7 +482,6 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1782, 953)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -463,8 +497,11 @@ Partial Class Form1
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -487,7 +524,6 @@ Partial Class Form1
     Friend WithEvents lst_venues As ListBox
     Friend WithEvents txt_venueName As TextBox
     Friend WithEvents txt_venueCountry As TextBox
-    Friend WithEvents txt_venueType As TextBox
     Friend WithEvents btn_insertVenue As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
@@ -500,5 +536,8 @@ Partial Class Form1
     Friend WithEvents Label7 As Label
     Friend WithEvents btn_deleteVenue As Button
     Friend WithEvents btn_updateVenue As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmb_venuesType As ComboBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
 End Class

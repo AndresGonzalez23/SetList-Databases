@@ -63,6 +63,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property cantante() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("cantante", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property countries() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("countries", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property delete__1_() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("delete (1)", resourceCulture)
@@ -116,6 +136,16 @@ Namespace My.Resources
         Friend ReadOnly Property plus__1_() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("plus (1)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property puntero_del_mapa() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("puntero-del-mapa", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
