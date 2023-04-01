@@ -7,6 +7,9 @@ Public Class Form1
     Private previousArtist As Artist
     Private previousVenue As Venue
     Private Venue As Venue
+    Public album As Album
+    Public albumArtist As Integer
+    Public previousAlbum As Album
     Public countries As Collection
     Public venues As Collection
 
@@ -14,13 +17,16 @@ Public Class Form1
         Dim cAux As Country
         Dim aAux As Artist
         Dim vAux As Venue
+        Dim albAux As Album
         Me.country = New Country
         Me.artist = New Artist
         Me.Venue = New Venue
+        Me.album = New Album
         Try
             Me.country.ReadAllCountries()
             Me.artist.ReadAllArtists()
             Me.Venue.ReadAllVenues()
+            Me.album.ReadAllAlbums()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
@@ -35,6 +41,9 @@ Public Class Form1
 
             Me.lst_venues.Items.Add(vAux.venueName)
         Next
+        For Each albAux In Me.album.albDAO.Albums
+            Me.lst_albums.Items.Add(albAux.albumName)
+        Next
         btn_insert_country.Enabled = True
         btn_delete_country.Enabled = True
         btn_update_country.Enabled = True
@@ -43,6 +52,10 @@ Public Class Form1
         btn_updateArtist.Enabled = True
         btn_insertVenue.Enabled = True
         btn_deleteVenue.Enabled = True
+        btn_updateVenue.Enabled = True
+        btn_insertAlbum.Enabled = True
+        btn_updateAlbum.Enabled = True
+        btn_deleteAlbum.Enabled = True
     End Sub
 
 
@@ -78,14 +91,41 @@ Public Class Form1
                 Me.artist = New Artist
                 artist.artistName = lst_artits.SelectedItem.ToString
                 artist.ReadArtistByName()
+                albumArtist = artist.IdArtist
                 txt_artistName.Text = artist.artistName
                 txt_artistCountry.Text = artist.GetCountry()
                 Me.previousArtist = New Artist
                 previousArtist.artistName = txt_artistName.Text
                 previousArtist.ReadArtistByName()
 
+
+                If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty Then
+                    txt_albumArtist.Text = lst_artits.SelectedItem.ToString()
+                End If
+
             Catch ex As Exception
                 lst_artits.SelectedIndex = -1
+            End Try
+        End If
+    End Sub
+
+    Private Sub lst_albums_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_albums.SelectedIndexChanged
+        btn_deleteAlbum.Enabled = True
+        btn_updateAlbum.Enabled = True
+        If lst_albums.SelectedItem IsNot Nothing Then
+            Try
+                Me.album = New Album
+                album.albumName = lst_albums.SelectedItem.ToString
+                album.ReadAlbum()
+                txt_albumName.Text = album.albumName
+                txt_albumYear.Text = album.albumYear.ToString()
+                txt_albumArtist.Text = album.albumArtist.ToString()
+                Me.previousAlbum = New Album
+                previousAlbum.albumName = txt_albumName.Text
+                previousAlbum.ReadAlbumByName()
+
+            Catch ex As Exception
+                lst_albums.SelectedIndex = -1
             End Try
         End If
     End Sub
@@ -352,5 +392,83 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub btn_insertAlbum_Click(sender As Object, e As EventArgs) Handles btn_insertAlbum.Click
+        Dim albumNew As Album
+        If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty Then
+            albumNew = New Album
+            albumNew.albumName = txt_albumName.Text
+            albumNew.albumYear = Convert.ToInt32(txt_albumYear.Text)
+            albumNew.albumArtist = albumArtist
+
+            Try
+                If albumNew.InsertAlbum() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+            lst_albums.Items.Add(albumNew.GetAlbumName)
+        Else
+            MessageBox.Show("name, year or artist are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+        End If
+    End Sub
+
+    Private Sub btn_updateAlbum_Click(sender As Object, e As EventArgs) Handles btn_updateAlbum.Click
+        Me.album = New Album
+        Dim UpdateAlbum = New Album
+
+        If MessageBox.Show("Are you sure? Do you want to update this album?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Try
+            UpdateAlbum.albumName = txt_albumName.Text
+            UpdateAlbum.albumYear = Convert.ToInt32(txt_albumYear.Text)
+            UpdateAlbum.albumArtist = albumArtist
+            UpdateAlbum.idAlbum = previousAlbum.GetIdAlbum()
+
+
+            If txt_albumName.Text <> String.Empty Then
+                Try
+                    UpdateAlbum.UpdateAlbum()
+                    MsgBox("Album Update Succesfully")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
+            Else
+                MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub btn_deleteAlbum_Click(sender As Object, e As EventArgs) Handles btn_deleteAlbum.Click
+        If MessageBox.Show("Are you sure? Do you want to delete permanetly this album?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        If txt_albumName.Text <> String.Empty Then
+
+            album.albumName = txt_albumName.Text
+            album.ReadAlbumByName()
+
+            If album.albumName <> txt_albumName.Text.Trim() Then
+                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+                Exit Sub
+            End If
+            Try
+                If album.DeleteAlbum() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Album deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Try
+
+            Me.lst_albums.Items.Remove(album.albumName)
+        Else
+            MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+        End If
+    End Sub
 
 End Class
