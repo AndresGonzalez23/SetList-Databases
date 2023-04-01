@@ -476,9 +476,9 @@ Public Class Form1
         If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty And txt_dateConcert.Value.ToString <> String.Empty Then
 
             concertNew = New Concert
-            concertNew.ArtistName = txt_artistConcert.Text
-            concertNew.VenueName = txt_venueConcert.Text
-            concertNew.concertDate = txt_dateConcert.Value.ToString
+            concertNew.ArtistName = Convert.ToInt32(txt_artistConcert.Text)
+            concertNew.VenueName = Convert.ToInt32(txt_venueConcert.Text)
+            concertNew.concertDate = DateTime.Parse(txt_dateConcert.Value.ToShortDateString)
 
 
             Try
@@ -488,7 +488,7 @@ Public Class Form1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_artits.Items.Add(artistNew.GetName)
+            lst_artits.Items.Add(concertNew.GetName)
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
