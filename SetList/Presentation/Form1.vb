@@ -472,16 +472,17 @@ Public Class Form1
     End Sub
 
     Private Sub btn_insertConcert_Click(sender As Object, e As EventArgs) Handles btn_insertConcert.Click
-        Dim concertNew As Concert : Dim concertNameNew As String
+        Dim concertNew As Concert
         If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty And txt_dateConcert.Value.ToString <> String.Empty Then
 
             concertNew = New Concert
             concertNew.ArtistName = txt_artistConcert.Text
-            countryNameNew = txt_artistCountry.Text
-            artistNew.artistCountry = countryNameNew.Substring(0, 3)
+            concertNew.VenueName = txt_venueConcert.Text
+            concertNew.concertDate = txt_dateConcert.Value.ToString
+
 
             Try
-                If artistNew.InsertArtist() <> 1 Then
+                If concertNew.InsertConcert() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
                 End If
             Catch ex As Exception
