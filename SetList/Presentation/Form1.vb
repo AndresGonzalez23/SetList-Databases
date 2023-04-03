@@ -1,4 +1,5 @@
 ﻿Imports System.Windows
+Imports System.Globalization
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 
 Public Class Form1
@@ -9,6 +10,7 @@ Public Class Form1
     Private Venue As Venue
     Public album As Album
     Public albumArtist As Integer
+    Public idVenue As Integer
     Public previousAlbum As Album
     Public countries As Collection
     Public venues As Collection
@@ -56,6 +58,8 @@ Public Class Form1
         btn_insertAlbum.Enabled = True
         btn_updateAlbum.Enabled = True
         btn_deleteAlbum.Enabled = True
+        btn_insertConcert.Enabled = True
+        btn_connection.Enabled = False
     End Sub
 
 
@@ -103,6 +107,10 @@ Public Class Form1
                     txt_albumArtist.Text = lst_artits.SelectedItem.ToString()
                 End If
 
+                If txt_venueConcert.Text <> String.Empty Then
+                    txt_artistConcert.Text = lst_artits.SelectedItem.ToString()
+                End If
+
             Catch ex As Exception
                 lst_artits.SelectedIndex = -1
             End Try
@@ -136,13 +144,16 @@ Public Class Form1
             Try
                 Me.Venue = New Venue
                 Venue.venueName = lst_venues.SelectedItem.ToString
-                Venue.ReadVenuebyName()
+                Venue.ReadVenueByName()
+                idVenue = Venue.idVenue
                 txt_venueName.Text = Venue.venueName
                 txt_venueCountry.Text = Venue.GetVenueCountry()
                 cmb_venuesType.Text = Venue.GetVenueType()
                 Me.previousVenue = New Venue
                 previousVenue.venueName = txt_venueName.Text
                 previousVenue.ReadVenueByName()
+
+                txt_venueConcert.Text = lst_venues.SelectedItem.ToString()
 
             Catch ex As Exception
                 lst_venues.SelectedIndex = -1
@@ -317,9 +328,6 @@ Public Class Form1
             venueNew.venueCountry = countryVenueNew.Substring(0, 3)
             venueNew.venueType = cmb_venuesType.SelectedItem.ToString
 
-
-            'venueNew.venueType = txt_venueType.Text
-
             Try
                 If venueNew.InsertVenue() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
@@ -472,14 +480,17 @@ Public Class Form1
     End Sub
 
     Private Sub btn_insertConcert_Click(sender As Object, e As EventArgs) Handles btn_insertConcert.Click
-        Dim concertNew As Concert
+        Dim concertNew As Concert : Dim selectedDate As DateTime : Dim convertedDate As Date : Dim fecha As String
         If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty And txt_dateConcert.Value.ToString <> String.Empty Then
-
             concertNew = New Concert
-            concertNew.ArtistName = Convert.ToInt32(txt_artistConcert.Text)
-            concertNew.VenueName = Convert.ToInt32(txt_venueConcert.Text)
-            concertNew.concertDate = DateTime.Parse(txt_dateConcert.Value.ToShortDateString)
+            concertNew.ArtistName = albumArtist
+            concertNew.VenueName = idVenue
 
+            selectedDate = txt_dateConcert.Value
+            convertedDate = selectedDate.Date
+            fecha = convertedDate.ToString()
+            fecha = convertedDate.ToString("yyyy/MM/dd")
+            concertNew.concertDate = Date.Parse(fecha)
 
             Try
                 If concertNew.InsertConcert() <> 1 Then
@@ -488,7 +499,7 @@ Public Class Form1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_artits.Items.Add(concertNew.GetName)
+            lst_concerts.Items.Add(concertNew.GetDate())
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If

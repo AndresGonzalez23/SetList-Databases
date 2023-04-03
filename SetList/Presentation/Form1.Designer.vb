@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.btn_connection = New System.Windows.Forms.Button()
@@ -72,14 +72,14 @@ Partial Class Form1
         Me.btn_insertAlbum = New System.Windows.Forms.Button()
         Me.txt_albumYear = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btn_insertConcert = New System.Windows.Forms.Button()
+        Me.txt_dateConcert = New System.Windows.Forms.DateTimePicker()
+        Me.txt_venueConcert = New System.Windows.Forms.TextBox()
+        Me.txt_artistConcert = New System.Windows.Forms.TextBox()
+        Me.lst_concerts = New System.Windows.Forms.ListBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.lst_concerts = New System.Windows.Forms.ListBox()
-        Me.txt_artistConcert = New System.Windows.Forms.TextBox()
-        Me.txt_venueConcert = New System.Windows.Forms.TextBox()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.txt_dateConcert = New System.Windows.Forms.DateTimePicker()
-        Me.btn_insertConcert = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +111,7 @@ Partial Class Form1
         'btn_insert_country
         '
         Me.btn_insert_country.Enabled = False
-        Me.btn_insert_country.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insert_country.Image = CType(resources.GetObject("btn_insert_country.Image"), System.Drawing.Image)
         Me.btn_insert_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_insert_country.Location = New System.Drawing.Point(18, 224)
         Me.btn_insert_country.Name = "btn_insert_country"
@@ -140,7 +140,7 @@ Partial Class Form1
         'btn_update_country
         '
         Me.btn_update_country.Enabled = False
-        Me.btn_update_country.Image = Global.SetList.My.Resources.Resources.update__1_
+        Me.btn_update_country.Image = CType(resources.GetObject("btn_update_country.Image"), System.Drawing.Image)
         Me.btn_update_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_update_country.Location = New System.Drawing.Point(130, 224)
         Me.btn_update_country.Name = "btn_update_country"
@@ -153,7 +153,7 @@ Partial Class Form1
         'btn_delete_country
         '
         Me.btn_delete_country.Enabled = False
-        Me.btn_delete_country.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_delete_country.Image = CType(resources.GetObject("btn_delete_country.Image"), System.Drawing.Image)
         Me.btn_delete_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_delete_country.Location = New System.Drawing.Point(261, 224)
         Me.btn_delete_country.Name = "btn_delete_country"
@@ -194,7 +194,7 @@ Partial Class Form1
         'btn_insertArtist
         '
         Me.btn_insertArtist.Enabled = False
-        Me.btn_insertArtist.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insertArtist.Image = CType(resources.GetObject("btn_insertArtist.Image"), System.Drawing.Image)
         Me.btn_insertArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_insertArtist.Location = New System.Drawing.Point(18, 236)
         Me.btn_insertArtist.Name = "btn_insertArtist"
@@ -207,7 +207,7 @@ Partial Class Form1
         'btn_updateArtist
         '
         Me.btn_updateArtist.Enabled = False
-        Me.btn_updateArtist.Image = Global.SetList.My.Resources.Resources.update__1_
+        Me.btn_updateArtist.Image = CType(resources.GetObject("btn_updateArtist.Image"), System.Drawing.Image)
         Me.btn_updateArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_updateArtist.Location = New System.Drawing.Point(130, 236)
         Me.btn_updateArtist.Name = "btn_updateArtist"
@@ -220,7 +220,7 @@ Partial Class Form1
         'btn_deleteArtist
         '
         Me.btn_deleteArtist.Enabled = False
-        Me.btn_deleteArtist.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_deleteArtist.Image = CType(resources.GetObject("btn_deleteArtist.Image"), System.Drawing.Image)
         Me.btn_deleteArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_deleteArtist.Location = New System.Drawing.Point(261, 236)
         Me.btn_deleteArtist.Name = "btn_deleteArtist"
@@ -299,7 +299,7 @@ Partial Class Form1
         'btn_insertVenue
         '
         Me.btn_insertVenue.Enabled = False
-        Me.btn_insertVenue.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insertVenue.Image = CType(resources.GetObject("btn_insertVenue.Image"), System.Drawing.Image)
         Me.btn_insertVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_insertVenue.Location = New System.Drawing.Point(18, 236)
         Me.btn_insertVenue.Name = "btn_insertVenue"
@@ -312,7 +312,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.setlist
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(599, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(357, 95)
@@ -343,7 +343,7 @@ Partial Class Form1
         'PictureBox4
         '
         Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox4.Image = Global.SetList.My.Resources.Resources.puntero_del_mapa
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
         Me.PictureBox4.Location = New System.Drawing.Point(28, 6)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(39, 38)
@@ -361,7 +361,8 @@ Partial Class Form1
         '
         'btn_updateVenue
         '
-        Me.btn_updateVenue.Image = Global.SetList.My.Resources.Resources.update__1_
+        Me.btn_updateVenue.Enabled = False
+        Me.btn_updateVenue.Image = CType(resources.GetObject("btn_updateVenue.Image"), System.Drawing.Image)
         Me.btn_updateVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_updateVenue.Location = New System.Drawing.Point(133, 236)
         Me.btn_updateVenue.Name = "btn_updateVenue"
@@ -374,7 +375,7 @@ Partial Class Form1
         'btn_deleteVenue
         '
         Me.btn_deleteVenue.Enabled = False
-        Me.btn_deleteVenue.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_deleteVenue.Image = CType(resources.GetObject("btn_deleteVenue.Image"), System.Drawing.Image)
         Me.btn_deleteVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_deleteVenue.Location = New System.Drawing.Point(250, 236)
         Me.btn_deleteVenue.Name = "btn_deleteVenue"
@@ -452,7 +453,7 @@ Partial Class Form1
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.SetList.My.Resources.Resources.countries
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.Location = New System.Drawing.Point(30, 14)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(31, 33)
@@ -481,7 +482,7 @@ Partial Class Form1
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.Image = Global.SetList.My.Resources.Resources.cantante
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
         Me.PictureBox3.Location = New System.Drawing.Point(30, 19)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(40, 31)
@@ -531,7 +532,7 @@ Partial Class Form1
         'PictureBox5
         '
         Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox5.Image = Global.SetList.My.Resources.Resources.album
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
         Me.PictureBox5.Location = New System.Drawing.Point(28, 12)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(39, 38)
@@ -540,7 +541,8 @@ Partial Class Form1
         '
         'btn_updateAlbum
         '
-        Me.btn_updateAlbum.Image = Global.SetList.My.Resources.Resources.update__1_
+        Me.btn_updateAlbum.Enabled = False
+        Me.btn_updateAlbum.Image = CType(resources.GetObject("btn_updateAlbum.Image"), System.Drawing.Image)
         Me.btn_updateAlbum.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_updateAlbum.Location = New System.Drawing.Point(133, 236)
         Me.btn_updateAlbum.Name = "btn_updateAlbum"
@@ -553,7 +555,7 @@ Partial Class Form1
         'btn_deleteAlbum
         '
         Me.btn_deleteAlbum.Enabled = False
-        Me.btn_deleteAlbum.Image = Global.SetList.My.Resources.Resources.delete__1_
+        Me.btn_deleteAlbum.Image = CType(resources.GetObject("btn_deleteAlbum.Image"), System.Drawing.Image)
         Me.btn_deleteAlbum.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_deleteAlbum.Location = New System.Drawing.Point(250, 236)
         Me.btn_deleteAlbum.Name = "btn_deleteAlbum"
@@ -630,7 +632,7 @@ Partial Class Form1
         'btn_insertAlbum
         '
         Me.btn_insertAlbum.Enabled = False
-        Me.btn_insertAlbum.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insertAlbum.Image = CType(resources.GetObject("btn_insertAlbum.Image"), System.Drawing.Image)
         Me.btn_insertAlbum.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_insertAlbum.Location = New System.Drawing.Point(18, 236)
         Me.btn_insertAlbum.Name = "btn_insertAlbum"
@@ -663,10 +665,50 @@ Partial Class Form1
         Me.Panel5.Size = New System.Drawing.Size(440, 294)
         Me.Panel5.TabIndex = 31
         '
+        'btn_insertConcert
+        '
+        Me.btn_insertConcert.Enabled = False
+        Me.btn_insertConcert.Location = New System.Drawing.Point(28, 236)
+        Me.btn_insertConcert.Name = "btn_insertConcert"
+        Me.btn_insertConcert.Size = New System.Drawing.Size(94, 44)
+        Me.btn_insertConcert.TabIndex = 33
+        Me.btn_insertConcert.Text = "btn_insertConcert"
+        Me.btn_insertConcert.UseVisualStyleBackColor = True
+        '
+        'txt_dateConcert
+        '
+        Me.txt_dateConcert.Location = New System.Drawing.Point(196, 69)
+        Me.txt_dateConcert.Name = "txt_dateConcert"
+        Me.txt_dateConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_dateConcert.TabIndex = 32
+        '
+        'txt_venueConcert
+        '
+        Me.txt_venueConcert.Location = New System.Drawing.Point(196, 129)
+        Me.txt_venueConcert.Name = "txt_venueConcert"
+        Me.txt_venueConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_venueConcert.TabIndex = 31
+        '
+        'txt_artistConcert
+        '
+        Me.txt_artistConcert.Location = New System.Drawing.Point(196, 198)
+        Me.txt_artistConcert.Name = "txt_artistConcert"
+        Me.txt_artistConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_artistConcert.TabIndex = 30
+        '
+        'lst_concerts
+        '
+        Me.lst_concerts.FormattingEnabled = True
+        Me.lst_concerts.ItemHeight = 16
+        Me.lst_concerts.Location = New System.Drawing.Point(31, 69)
+        Me.lst_concerts.Name = "lst_concerts"
+        Me.lst_concerts.Size = New System.Drawing.Size(151, 148)
+        Me.lst_concerts.TabIndex = 29
+        '
         'PictureBox6
         '
         Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox6.Image = Global.SetList.My.Resources.Resources.concierto
+        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
         Me.PictureBox6.Location = New System.Drawing.Point(28, 12)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(39, 38)
@@ -684,45 +726,6 @@ Partial Class Form1
         Me.Label17.Size = New System.Drawing.Size(134, 32)
         Me.Label17.TabIndex = 18
         Me.Label17.Text = "Concerts"
-        '
-        'lst_concerts
-        '
-        Me.lst_concerts.FormattingEnabled = True
-        Me.lst_concerts.ItemHeight = 16
-        Me.lst_concerts.Location = New System.Drawing.Point(31, 69)
-        Me.lst_concerts.Name = "lst_concerts"
-        Me.lst_concerts.Size = New System.Drawing.Size(151, 148)
-        Me.lst_concerts.TabIndex = 29
-        '
-        'txt_artistConcert
-        '
-        Me.txt_artistConcert.Location = New System.Drawing.Point(196, 74)
-        Me.txt_artistConcert.Name = "txt_artistConcert"
-        Me.txt_artistConcert.Size = New System.Drawing.Size(206, 22)
-        Me.txt_artistConcert.TabIndex = 30
-        '
-        'txt_venueConcert
-        '
-        Me.txt_venueConcert.Location = New System.Drawing.Point(196, 129)
-        Me.txt_venueConcert.Name = "txt_venueConcert"
-        Me.txt_venueConcert.Size = New System.Drawing.Size(206, 22)
-        Me.txt_venueConcert.TabIndex = 31
-        '
-        'txt_dateConcert
-        '
-        Me.txt_dateConcert.Location = New System.Drawing.Point(196, 195)
-        Me.txt_dateConcert.Name = "txt_dateConcert"
-        Me.txt_dateConcert.Size = New System.Drawing.Size(206, 22)
-        Me.txt_dateConcert.TabIndex = 32
-        '
-        'btn_insertConcert
-        '
-        Me.btn_insertConcert.Location = New System.Drawing.Point(28, 236)
-        Me.btn_insertConcert.Name = "btn_insertConcert"
-        Me.btn_insertConcert.Size = New System.Drawing.Size(94, 44)
-        Me.btn_insertConcert.TabIndex = 33
-        Me.btn_insertConcert.Text = "btn_insertConcert"
-        Me.btn_insertConcert.UseVisualStyleBackColor = True
         '
         'Form1
         '

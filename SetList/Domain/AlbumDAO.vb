@@ -42,7 +42,6 @@
 
     Public Function Insert(ByVal ar As Album) As Integer
         Return DBBroker.GetBroker.Change("INSERT INTO Albums (AlbumName, YearAlbum, Artist) VALUES ('" & ar.GetAlbumName() & "' ," & ar.GetAlbumYear() & "," & ar.GetAlbumArtist() & ");")
-
     End Function
 
     Public Function Update(ByVal ar As Album) As Integer

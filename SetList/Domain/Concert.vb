@@ -46,13 +46,13 @@
     Public Function ReadAllConcert(path As String) As Object
         Return Me.cDao.ReadAll()
     End Function
-    Public Function InsertVenue() As Integer
+    Public Function InsertConcert() As Integer
         Return Me.cDao.Insert(Me)
     End Function
-    Public Function DeleteVenue() As Integer
+    Public Function DeleteConcert() As Integer
         Return Me.cDao.Delete(Me)
     End Function
-    Public Function UpdateVenue() As Integer
+    Public Function UpdateConcert() As Integer
         Return Me.cDao.Update(Me)
     End Function
 End Class
