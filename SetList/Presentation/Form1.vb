@@ -67,6 +67,8 @@ Public Class Form1
         btn_deleteAlbum.Enabled = True
         btn_insertConcert.Enabled = True
         btn_connection.Enabled = False
+        btn_updateConcert.Enabled = True
+        btn_deleteConcert.Enabled = True
     End Sub
 
 
@@ -535,7 +537,29 @@ Public Class Form1
     End Sub
 
     Private Sub btn_deleteConcert_Click(sender As Object, e As EventArgs) Handles btn_deleteConcert.Click
+        If MessageBox.Show("Are you sure? Do you want to delete permanetly this concert?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+        If txt_dateConcert.Text <> String.Empty Then
 
+            concert.concertDate = txt_dateConcert.Value.Date
+            concert.ReadAllConcert()
+            If concert.ReadAllConcert Is txt_dateConcert.Value.ToString Then
+                MessageBox.Show("This is not the same date", "Custom Error", MessageBoxButtons.OK)
+                Exit Sub
+            End If
+            Try
+                If concert.DeleteConcert() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Concert deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Try
+
+            Me.lst_concerts.Items.Remove(concert.GetArtist() & "-" & concert.GetVenue())
+        Else
+            MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+        End If
     End Sub
 
 
