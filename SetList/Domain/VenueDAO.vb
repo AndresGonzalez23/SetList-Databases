@@ -10,7 +10,7 @@
         Dim col, aux As Collection
         col = DBBroker.GetBroker().Read("SELECT * FROM Venues ORDER BY idVenue")
         For Each aux In col
-            v = New Venue(CInt(aux(1).ToString), aux(2).ToString, aux(3).ToString, aux(4).ToString)
+            v = New Venue(Convert.ToInt32(aux(1).ToString), aux(2).ToString, aux(3).ToString, aux(4).ToString)
             Me.Venues.Add(v)
         Next
         Return Venues

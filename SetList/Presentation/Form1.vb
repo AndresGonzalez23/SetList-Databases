@@ -8,15 +8,17 @@ Public Class Form1
     Private previousArtist As Artist
     Private previousVenue As Venue
     Private Venue As Venue
+    Private concert As Concert
+    Private previousConcert As Concert
     Public album As Album
     Public albumArtist As Integer
     Public idVenue As Integer
     Public previousAlbum As Album
-    Public countries As Collection
-    Public venues As Collection
+
 
     Private Sub btn_connection_Click(sender As Object, e As EventArgs) Handles btn_connection.Click
         Dim cAux As Country
+        Dim coAux As Concert
         Dim aAux As Artist
         Dim vAux As Venue
         Dim albAux As Album
@@ -24,11 +26,13 @@ Public Class Form1
         Me.artist = New Artist
         Me.Venue = New Venue
         Me.album = New Album
+        Me.concert = New Concert
         Try
             Me.country.ReadAllCountries()
             Me.artist.ReadAllArtists()
             Me.Venue.ReadAllVenues()
             Me.album.ReadAllAlbums()
+            Me.concert.ReadAllConcert()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
@@ -45,6 +49,9 @@ Public Class Form1
         Next
         For Each albAux In Me.album.albDAO.Albums
             Me.lst_albums.Items.Add(albAux.albumName)
+        Next
+        For Each coAux In Me.concert.cDao.Concerts
+            Me.lst_concerts.Items.Add(coAux.ArtistName.ToString() & "-" & coAux.VenueName.ToString())
         Next
         btn_insert_country.Enabled = True
         btn_delete_country.Enabled = True
@@ -124,7 +131,7 @@ Public Class Form1
             Try
                 Me.album = New Album
                 album.albumName = lst_albums.SelectedItem.ToString
-                album.ReadAlbum()
+                album.ReadAlbumByName()
                 txt_albumName.Text = album.albumName
                 txt_albumYear.Text = album.albumYear.ToString()
                 txt_albumArtist.Text = album.albumArtist.ToString()
@@ -158,6 +165,29 @@ Public Class Form1
             Catch ex As Exception
                 lst_venues.SelectedIndex = -1
             End Try
+        End If
+    End Sub
+
+    Private Sub lst_concerts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_concerts.SelectedIndexChanged
+        Dim data As String : Dim separatedData() As String
+
+        If lst_concerts.SelectedItem IsNot Nothing Then
+            Me.concert = New Concert
+            data = lst_concerts.SelectedItem.ToString()
+            separatedData = data.Split("-"c)
+            concert.ArtistName = Convert.ToInt32(separatedData(0))
+            concert.VenueName = Convert.ToInt32(separatedData(1))
+            concert.ReadConcertbyArtistAndVenue()
+            txt_dateConcert.Value = concert.GetDate()
+            txt_artistConcert.Text = concert.GetArtist().ToString()
+            txt_venueConcert.Text = concert.GetVenue().ToString()
+            Me.previousConcert = New Concert
+            data = lst_concerts.SelectedItem.ToString()
+            separatedData = data.Split("-"c)
+            previousConcert.ArtistName = Convert.ToInt32(separatedData(0))
+            previousConcert.VenueName = Convert.ToInt32(separatedData(1))
+            previousConcert.ReadConcertbyArtistAndVenue()
+
         End If
     End Sub
 
@@ -480,17 +510,12 @@ Public Class Form1
     End Sub
 
     Private Sub btn_insertConcert_Click(sender As Object, e As EventArgs) Handles btn_insertConcert.Click
-        Dim concertNew As Concert : Dim selectedDate As DateTime : Dim convertedDate As Date : Dim fecha As String
+        Dim concertNew As Concert
         If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty And txt_dateConcert.Value.ToString <> String.Empty Then
             concertNew = New Concert
             concertNew.ArtistName = albumArtist
             concertNew.VenueName = idVenue
-
-            selectedDate = txt_dateConcert.Value
-            convertedDate = selectedDate.Date
-            fecha = convertedDate.ToString()
-            fecha = convertedDate.ToString("yyyy/MM/dd")
-            concertNew.concertDate = Date.Parse(fecha)
+            concertNew.concertDate = txt_dateConcert.Value.Date
 
             Try
                 If concertNew.InsertConcert() <> 1 Then
@@ -499,9 +524,19 @@ Public Class Form1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_concerts.Items.Add(concertNew.GetDate())
+            lst_concerts.Items.Add(concertNew.GetArtist() & "-" & concertNew.GetVenue)
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
     End Sub
+
+    Private Sub btn_updateConcert_Click(sender As Object, e As EventArgs) Handles btn_updateConcert.Click
+
+    End Sub
+
+    Private Sub btn_deleteConcert_Click(sender As Object, e As EventArgs) Handles btn_deleteConcert.Click
+
+    End Sub
+
+
 End Class

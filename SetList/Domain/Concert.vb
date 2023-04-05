@@ -3,55 +3,71 @@
     Public Property concertDate As Date
     Public Property ArtistName As Integer
     Public Property VenueName As Integer
-    Private cDao As ConcertDAO
+    Public ReadOnly Property cDao As ConcertDAO
 
     Public Sub New()
         Me.cDao = New ConcertDAO
     End Sub
-
-    Public Sub New(id As Integer, conDate As Date, artist As Integer, venue As Integer)
+    Public Sub New(id As Integer)
+        Me.cDao = New ConcertDAO
+        Me.idConcert = id
+    End Sub
+    Public Sub New(id As Integer, artist As Integer, venue As Integer, conDate As Date)
         Me.cDao = New ConcertDAO
         idConcert = id
-        concertDate = conDate
         Me.ArtistName = artist
         Me.VenueName = venue
+        concertDate = conDate
     End Sub
-
-
 
     Public Function GetArtist() As Integer
         Return ArtistName
     End Function
+
     Public Function GetConcert() As Integer
         Return idConcert
     End Function
+
     Public Function GetDate() As Date
         Return concertDate
     End Function
+
     Public Function GetVenue() As Integer
         Return VenueName
     End Function
+
     Public Function SetIdConcert(id As Integer) As Integer
         idConcert = id
     End Function
+
     Public Function SetDate(conDate As Date) As Date
         concertDate = conDate
     End Function
+
     Public Function SetArtist(artist As Integer) As Integer
         Me.ArtistName = artist
     End Function
+
     Public Function SetVenue(venue As Integer) As Integer
         Me.VenueName = venue
     End Function
-    Public Function ReadAllConcert(path As String) As Object
+
+    Public Function ReadAllConcert() As Object
         Return Me.cDao.ReadAll()
     End Function
+
+    Public Sub ReadConcertbyArtistAndVenue()
+        Me.cDao.ReadByArtistAndVenue(Me)
+    End Sub
+
     Public Function InsertConcert() As Integer
         Return Me.cDao.Insert(Me)
     End Function
+
     Public Function DeleteConcert() As Integer
         Return Me.cDao.Delete(Me)
     End Function
+
     Public Function UpdateConcert() As Integer
         Return Me.cDao.Update(Me)
     End Function

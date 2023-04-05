@@ -72,6 +72,8 @@ Partial Class Form1
         Me.btn_insertAlbum = New System.Windows.Forms.Button()
         Me.txt_albumYear = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btn_deleteConcert = New System.Windows.Forms.Button()
+        Me.btn_updateConcert = New System.Windows.Forms.Button()
         Me.btn_insertConcert = New System.Windows.Forms.Button()
         Me.txt_dateConcert = New System.Windows.Forms.DateTimePicker()
         Me.txt_venueConcert = New System.Windows.Forms.TextBox()
@@ -653,6 +655,8 @@ Partial Class Form1
         '
         Me.Panel5.BackColor = System.Drawing.Color.Silver
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.btn_deleteConcert)
+        Me.Panel5.Controls.Add(Me.btn_updateConcert)
         Me.Panel5.Controls.Add(Me.btn_insertConcert)
         Me.Panel5.Controls.Add(Me.txt_dateConcert)
         Me.Panel5.Controls.Add(Me.txt_venueConcert)
@@ -665,14 +669,43 @@ Partial Class Form1
         Me.Panel5.Size = New System.Drawing.Size(440, 294)
         Me.Panel5.TabIndex = 31
         '
+        'btn_deleteConcert
+        '
+        Me.btn_deleteConcert.Enabled = False
+        Me.btn_deleteConcert.Image = CType(resources.GetObject("btn_deleteConcert.Image"), System.Drawing.Image)
+        Me.btn_deleteConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_deleteConcert.Location = New System.Drawing.Point(289, 236)
+        Me.btn_deleteConcert.Name = "btn_deleteConcert"
+        Me.btn_deleteConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_deleteConcert.TabIndex = 30
+        Me.btn_deleteConcert.Text = "Delete concert"
+        Me.btn_deleteConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_deleteConcert.UseVisualStyleBackColor = True
+        '
+        'btn_updateConcert
+        '
+        Me.btn_updateConcert.Enabled = False
+        Me.btn_updateConcert.Image = CType(resources.GetObject("btn_updateConcert.Image"), System.Drawing.Image)
+        Me.btn_updateConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_updateConcert.Location = New System.Drawing.Point(160, 236)
+        Me.btn_updateConcert.Name = "btn_updateConcert"
+        Me.btn_updateConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_updateConcert.TabIndex = 30
+        Me.btn_updateConcert.Text = "Update Concert"
+        Me.btn_updateConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_updateConcert.UseVisualStyleBackColor = True
+        '
         'btn_insertConcert
         '
         Me.btn_insertConcert.Enabled = False
-        Me.btn_insertConcert.Location = New System.Drawing.Point(28, 236)
+        Me.btn_insertConcert.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insertConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_insertConcert.Location = New System.Drawing.Point(31, 236)
         Me.btn_insertConcert.Name = "btn_insertConcert"
-        Me.btn_insertConcert.Size = New System.Drawing.Size(94, 44)
+        Me.btn_insertConcert.Size = New System.Drawing.Size(123, 44)
         Me.btn_insertConcert.TabIndex = 33
-        Me.btn_insertConcert.Text = "btn_insertConcert"
+        Me.btn_insertConcert.Text = "Insert Concert"
+        Me.btn_insertConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insertConcert.UseVisualStyleBackColor = True
         '
         'txt_dateConcert
@@ -823,4 +856,6 @@ Partial Class Form1
     Friend WithEvents lst_concerts As ListBox
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents btn_insertConcert As Button
+    Friend WithEvents btn_deleteConcert As Button
+    Friend WithEvents btn_updateConcert As Button
 End Class
