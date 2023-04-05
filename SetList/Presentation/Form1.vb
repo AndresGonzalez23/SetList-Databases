@@ -12,8 +12,11 @@ Public Class Form1
     Private previousConcert As Concert
     Public album As Album
     Public albumArtist As Integer
+    Public songAlbum As Integer
     Public idVenue As Integer
     Public previousAlbum As Album
+    Private song As Song
+    Private previousSong As Song
 
 
     Private Sub btn_connection_Click(sender As Object, e As EventArgs) Handles btn_connection.Click
@@ -22,17 +25,20 @@ Public Class Form1
         Dim aAux As Artist
         Dim vAux As Venue
         Dim albAux As Album
+        Dim sonAux As Song
         Me.country = New Country
         Me.artist = New Artist
         Me.Venue = New Venue
         Me.album = New Album
         Me.concert = New Concert
+        Me.song = New Song
         Try
             Me.country.ReadAllCountries()
             Me.artist.ReadAllArtists()
             Me.Venue.ReadAllVenues()
             Me.album.ReadAllAlbums()
             Me.concert.ReadAllConcert()
+            Me.song.ReadAllSongs()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
@@ -53,6 +59,9 @@ Public Class Form1
         For Each coAux In Me.concert.cDao.Concerts
             Me.lst_concerts.Items.Add(coAux.ArtistName.ToString() & "-" & coAux.VenueName.ToString())
         Next
+        For Each sonAux In Me.song.sonDAO.Songs
+            Me.lst_songs.Items.Add(sonAux.songName)
+        Next
         btn_insert_country.Enabled = True
         btn_delete_country.Enabled = True
         btn_update_country.Enabled = True
@@ -69,6 +78,9 @@ Public Class Form1
         btn_connection.Enabled = False
         btn_updateConcert.Enabled = True
         btn_deleteConcert.Enabled = True
+        btn_insertSong.Enabled = True
+        btn_updateSong.Enabled = True
+        btn_deleteSong.Enabled = True
     End Sub
 
 
@@ -134,6 +146,7 @@ Public Class Form1
                 Me.album = New Album
                 album.albumName = lst_albums.SelectedItem.ToString
                 album.ReadAlbumByName()
+                songAlbum = album.idAlbum
                 txt_albumName.Text = album.albumName
                 txt_albumYear.Text = album.albumYear.ToString()
                 txt_albumArtist.Text = album.albumArtist.ToString()
@@ -190,6 +203,28 @@ Public Class Form1
             previousConcert.VenueName = Convert.ToInt32(separatedData(1))
             previousConcert.ReadConcertbyArtistAndVenue()
 
+        End If
+    End Sub
+
+    Private Sub lst_songs_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_songs.SelectedIndexChanged
+        btn_deleteSong.Enabled = True
+        btn_updateSong.Enabled = True
+        If lst_songs.SelectedItem IsNot Nothing Then
+            Try
+                Me.song = New Song
+                song.songName = lst_songs.SelectedItem.ToString
+                song.ReadSongByName()
+                txt_songName.Text = song.songName
+                txt_songLength.Text = song.songLength.ToString()
+                txt_songAlbum.Text = song.songAlbum.ToString()
+                txt_songOrder.Text = song.songOrder.ToString()
+                Me.previousSong = New Song
+                previousSong.songName = txt_songName.Text
+                previousSong.ReadSongByName()
+
+            Catch ex As Exception
+                lst_songs.SelectedIndex = -1
+            End Try
         End If
     End Sub
 
@@ -562,5 +597,82 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub btn_insertSong_Click(sender As Object, e As EventArgs) Handles btn_insertSong.Click
+        Dim songNew As Song
+        If txt_songName.Text <> String.Empty And txt_songLength.Text <> String.Empty And txt_songOrder.Text <> String.Empty Then
+            songNew = New Song
+            songNew.songName = txt_songName.Text
+            songNew.songLength = Convert.ToInt32(txt_songLength.Text)
+            songNew.songAlbum = songAlbum
+            songNew.songOrder = Convert.ToInt32(txt_songOrder.Text)
 
+            Try
+                If songNew.InsertSong() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+            lst_songs.Items.Add(songNew.GetSongName)
+        Else
+            MessageBox.Show("name, length, album or order is empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+        End If
+    End Sub
+
+    Private Sub btn_updateSong_Click(sender As Object, e As EventArgs) Handles btn_updateSong.Click
+        Me.song = New Song
+        Dim UpdateSong = New Song
+
+        If MessageBox.Show("Are you sure? Do you want to update this song?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Try
+            UpdateSong.songName = txt_songName.Text
+            UpdateSong.songLength = Convert.ToInt32(txt_songLength.Text)
+            UpdateSong.songAlbum = songAlbum
+            UpdateSong.songOrder = Convert.ToInt32(txt_songOrder.Text)
+            UpdateSong.idSong = previousSong.GetIdSong()
+
+            If txt_songName.Text <> String.Empty Then
+                Try
+                    UpdateSong.UpdateSong()
+                    MsgBox("Song Update Succesfull")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
+            Else
+                MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub btn_deleteSong_Click(sender As Object, e As EventArgs) Handles btn_deleteSong.Click
+        If MessageBox.Show("Are you sure? Do you want to delete permanetly this song?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        If txt_songName.Text <> String.Empty Then
+            song.songName = txt_songName.Text
+            song.ReadSongByName()
+
+            If song.songName <> txt_songName.Text.Trim() Then
+                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+                Exit Sub
+            End If
+            Try
+                If song.DeleteSong() <> 1 Then
+                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Song deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Try
+
+            Me.lst_songs.Items.Remove(song.songName)
+        Else
+            MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+        End If
+    End Sub
 End Class

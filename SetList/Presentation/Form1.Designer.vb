@@ -82,6 +82,17 @@ Partial Class Form1
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.btn_deleteSong = New System.Windows.Forms.Button()
+        Me.btn_updateSong = New System.Windows.Forms.Button()
+        Me.btn_insertSong = New System.Windows.Forms.Button()
+        Me.txt_songAlbum = New System.Windows.Forms.TextBox()
+        Me.txt_songOrder = New System.Windows.Forms.TextBox()
+        Me.lst_songs = New System.Windows.Forms.ListBox()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.txt_songName = New System.Windows.Forms.TextBox()
+        Me.txt_songLength = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,6 +104,8 @@ Partial Class Form1
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_connection
@@ -760,6 +773,123 @@ Partial Class Form1
         Me.Label17.TabIndex = 18
         Me.Label17.Text = "Concerts"
         '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.Silver
+        Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel6.Controls.Add(Me.txt_songLength)
+        Me.Panel6.Controls.Add(Me.txt_songName)
+        Me.Panel6.Controls.Add(Me.btn_deleteSong)
+        Me.Panel6.Controls.Add(Me.btn_updateSong)
+        Me.Panel6.Controls.Add(Me.btn_insertSong)
+        Me.Panel6.Controls.Add(Me.txt_songAlbum)
+        Me.Panel6.Controls.Add(Me.txt_songOrder)
+        Me.Panel6.Controls.Add(Me.lst_songs)
+        Me.Panel6.Controls.Add(Me.PictureBox7)
+        Me.Panel6.Controls.Add(Me.Label14)
+        Me.Panel6.Location = New System.Drawing.Point(981, 464)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(440, 294)
+        Me.Panel6.TabIndex = 34
+        '
+        'btn_deleteSong
+        '
+        Me.btn_deleteSong.Enabled = False
+        Me.btn_deleteSong.Image = CType(resources.GetObject("btn_deleteSong.Image"), System.Drawing.Image)
+        Me.btn_deleteSong.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_deleteSong.Location = New System.Drawing.Point(289, 236)
+        Me.btn_deleteSong.Name = "btn_deleteSong"
+        Me.btn_deleteSong.Size = New System.Drawing.Size(123, 44)
+        Me.btn_deleteSong.TabIndex = 30
+        Me.btn_deleteSong.Text = "Delete Song"
+        Me.btn_deleteSong.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_deleteSong.UseVisualStyleBackColor = True
+        '
+        'btn_updateSong
+        '
+        Me.btn_updateSong.Enabled = False
+        Me.btn_updateSong.Image = CType(resources.GetObject("btn_updateSong.Image"), System.Drawing.Image)
+        Me.btn_updateSong.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_updateSong.Location = New System.Drawing.Point(160, 236)
+        Me.btn_updateSong.Name = "btn_updateSong"
+        Me.btn_updateSong.Size = New System.Drawing.Size(123, 44)
+        Me.btn_updateSong.TabIndex = 30
+        Me.btn_updateSong.Text = "Update Song"
+        Me.btn_updateSong.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_updateSong.UseVisualStyleBackColor = True
+        '
+        'btn_insertSong
+        '
+        Me.btn_insertSong.Enabled = False
+        Me.btn_insertSong.Image = Global.SetList.My.Resources.Resources.plus__1_
+        Me.btn_insertSong.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_insertSong.Location = New System.Drawing.Point(31, 236)
+        Me.btn_insertSong.Name = "btn_insertSong"
+        Me.btn_insertSong.Size = New System.Drawing.Size(123, 44)
+        Me.btn_insertSong.TabIndex = 33
+        Me.btn_insertSong.Text = "Insert Song"
+        Me.btn_insertSong.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_insertSong.UseVisualStyleBackColor = True
+        '
+        'txt_songAlbum
+        '
+        Me.txt_songAlbum.Location = New System.Drawing.Point(206, 148)
+        Me.txt_songAlbum.Name = "txt_songAlbum"
+        Me.txt_songAlbum.Size = New System.Drawing.Size(206, 22)
+        Me.txt_songAlbum.TabIndex = 31
+        '
+        'txt_songOrder
+        '
+        Me.txt_songOrder.Location = New System.Drawing.Point(206, 196)
+        Me.txt_songOrder.Name = "txt_songOrder"
+        Me.txt_songOrder.Size = New System.Drawing.Size(206, 22)
+        Me.txt_songOrder.TabIndex = 30
+        '
+        'lst_songs
+        '
+        Me.lst_songs.FormattingEnabled = True
+        Me.lst_songs.ItemHeight = 16
+        Me.lst_songs.Location = New System.Drawing.Point(31, 69)
+        Me.lst_songs.Name = "lst_songs"
+        Me.lst_songs.Size = New System.Drawing.Size(151, 148)
+        Me.lst_songs.TabIndex = 29
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
+        Me.PictureBox7.Location = New System.Drawing.Point(28, 12)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(39, 38)
+        Me.PictureBox7.TabIndex = 28
+        Me.PictureBox7.TabStop = False
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label14.Location = New System.Drawing.Point(81, 10)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(97, 32)
+        Me.Label14.TabIndex = 18
+        Me.Label14.Text = "Songs"
+        '
+        'txt_songName
+        '
+        Me.txt_songName.Location = New System.Drawing.Point(206, 48)
+        Me.txt_songName.Name = "txt_songName"
+        Me.txt_songName.Size = New System.Drawing.Size(206, 22)
+        Me.txt_songName.TabIndex = 34
+        '
+        'txt_songLength
+        '
+        Me.txt_songLength.Location = New System.Drawing.Point(206, 96)
+        Me.txt_songLength.Name = "txt_songLength"
+        Me.txt_songLength.Size = New System.Drawing.Size(206, 22)
+        Me.txt_songLength.TabIndex = 35
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -768,6 +898,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1924, 953)
+        Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
@@ -796,6 +927,9 @@ Partial Class Form1
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -858,4 +992,15 @@ Partial Class Form1
     Friend WithEvents btn_insertConcert As Button
     Friend WithEvents btn_deleteConcert As Button
     Friend WithEvents btn_updateConcert As Button
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents txt_songLength As TextBox
+    Friend WithEvents txt_songName As TextBox
+    Friend WithEvents btn_deleteSong As Button
+    Friend WithEvents btn_updateSong As Button
+    Friend WithEvents btn_insertSong As Button
+    Friend WithEvents txt_songAlbum As TextBox
+    Friend WithEvents txt_songOrder As TextBox
+    Friend WithEvents lst_songs As ListBox
+    Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents Label14 As Label
 End Class
