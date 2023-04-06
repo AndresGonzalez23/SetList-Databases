@@ -4,10 +4,15 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 
 Public Class Form1
     Private country As Country
+    Private artistCountry As Country
+    Private venueCountry As Country
     Private artist As Artist
+    Private albumCreator As Artist
+    Private concertArtist As Artist
     Private previousArtist As Artist
     Private previousVenue As Venue
     Private Venue As Venue
+    Private concertVenue As Venue
     Private concert As Concert
     Private previousConcert As Concert
     Public album As Album
@@ -57,7 +62,13 @@ Public Class Form1
             Me.lst_albums.Items.Add(albAux.albumName)
         Next
         For Each coAux In Me.concert.cDao.Concerts
-            Me.lst_concerts.Items.Add(coAux.ArtistName.ToString() & "-" & coAux.VenueName.ToString())
+            Me.artist = New Artist
+            Me.Venue = New Venue
+            artist.IdArtist = coAux.ArtistName
+            artist.ReadArtist()
+            Venue.idVenue = coAux.VenueName
+            Venue.ReadVenue()
+            Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
         Next
         For Each sonAux In Me.song.sonDAO.Songs
             Me.lst_songs.Items.Add(sonAux.songName)
@@ -118,11 +129,13 @@ Public Class Form1
                 artist.ReadArtistByName()
                 albumArtist = artist.IdArtist
                 txt_artistName.Text = artist.artistName
-                txt_artistCountry.Text = artist.GetCountry()
+                Me.artistCountry = New Country
+                artistCountry.idCountry = artist.artistCountry
+                artistCountry.ReadCountry()
+                txt_artistCountry.Text = artistCountry.countryName
                 Me.previousArtist = New Artist
                 previousArtist.artistName = txt_artistName.Text
                 previousArtist.ReadArtistByName()
-
 
                 If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty Then
                     txt_albumArtist.Text = lst_artits.SelectedItem.ToString()
@@ -149,10 +162,17 @@ Public Class Form1
                 songAlbum = album.idAlbum
                 txt_albumName.Text = album.albumName
                 txt_albumYear.Text = album.albumYear.ToString()
-                txt_albumArtist.Text = album.albumArtist.ToString()
+                Me.albumCreator = New Artist
+                albumCreator.IdArtist = album.GetAlbumArtist()
+                albumCreator.ReadArtist()
+                txt_albumArtist.Text = albumCreator.artistName
                 Me.previousAlbum = New Album
                 previousAlbum.albumName = txt_albumName.Text
                 previousAlbum.ReadAlbumByName()
+
+                If txt_songName.Text <> String.Empty And txt_songLength.Text <> String.Empty Then
+                    txt_songAlbum.Text = lst_albums.SelectedItem.ToString()
+                End If
 
             Catch ex As Exception
                 lst_albums.SelectedIndex = -1
@@ -169,7 +189,10 @@ Public Class Form1
                 Venue.ReadVenueByName()
                 idVenue = Venue.idVenue
                 txt_venueName.Text = Venue.venueName
-                txt_venueCountry.Text = Venue.GetVenueCountry()
+                Me.venueCountry = New Country
+                venueCountry.idCountry = Venue.venueCountry
+                venueCountry.ReadCountry()
+                txt_venueCountry.Text = venueCountry.countryName
                 cmb_venuesType.Text = Venue.GetVenueType()
                 Me.previousVenue = New Venue
                 previousVenue.venueName = txt_venueName.Text
@@ -188,19 +211,35 @@ Public Class Form1
 
         If lst_concerts.SelectedItem IsNot Nothing Then
             Me.concert = New Concert
+            Me.artist = New Artist
+            Me.Venue = New Venue
             data = lst_concerts.SelectedItem.ToString()
             separatedData = data.Split("-"c)
-            concert.ArtistName = Convert.ToInt32(separatedData(0))
-            concert.VenueName = Convert.ToInt32(separatedData(1))
+            artist.artistName = separatedData(0)
+            artist.ReadArtistByName()
+            Venue.venueName = separatedData(1)
+            Venue.ReadVenueByName()
+            concert.ArtistName = artist.IdArtist
+            concert.VenueName = Venue.idVenue
             concert.ReadConcertbyArtistAndVenue()
             txt_dateConcert.Value = concert.GetDate()
-            txt_artistConcert.Text = concert.GetArtist().ToString()
-            txt_venueConcert.Text = concert.GetVenue().ToString()
+            Me.concertArtist = New Artist
+            concertArtist.IdArtist = concert.ArtistName
+            concertArtist.ReadArtist()
+            txt_artistConcert.Text = concertArtist.artistName
+            Me.concertVenue = New Venue
+            concertVenue.idVenue = concert.VenueName
+            concertVenue.ReadVenue()
+            txt_venueConcert.Text = concertVenue.venueName
             Me.previousConcert = New Concert
             data = lst_concerts.SelectedItem.ToString()
             separatedData = data.Split("-"c)
-            previousConcert.ArtistName = Convert.ToInt32(separatedData(0))
-            previousConcert.VenueName = Convert.ToInt32(separatedData(1))
+            artist.artistName = separatedData(0)
+            artist.ReadArtistByName()
+            Venue.venueName = separatedData(1)
+            Venue.ReadVenueByName()
+            previousConcert.ArtistName = artist.IdArtist
+            previousConcert.VenueName = Venue.idVenue
             previousConcert.ReadConcertbyArtistAndVenue()
 
         End If
@@ -216,7 +255,10 @@ Public Class Form1
                 song.ReadSongByName()
                 txt_songName.Text = song.songName
                 txt_songLength.Text = song.songLength.ToString()
-                txt_songAlbum.Text = song.songAlbum.ToString()
+                Me.album = New Album
+                album.idAlbum = song.songAlbum
+                album.ReadAlbum()
+                txt_songAlbum.Text = album.albumName
                 txt_songOrder.Text = song.songOrder.ToString()
                 Me.previousSong = New Song
                 previousSong.songName = txt_songName.Text
@@ -279,7 +321,6 @@ Public Class Form1
         End Try
 
     End Sub
-
 
     Private Sub btn_delete_country_Click(sender As Object, e As EventArgs) Handles btn_delete_country.Click
 
@@ -550,8 +591,14 @@ Public Class Form1
         Dim concertNew As Concert
         If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty And txt_dateConcert.Value.ToString <> String.Empty Then
             concertNew = New Concert
+            Me.artist = New Artist
+            Me.Venue = New Venue
             concertNew.ArtistName = albumArtist
+            artist.IdArtist = concertNew.ArtistName
+            artist.ReadArtist()
             concertNew.VenueName = idVenue
+            Venue.idVenue = concertNew.VenueName
+            Venue.ReadVenue()
             concertNew.concertDate = txt_dateConcert.Value.Date
 
             Try
@@ -561,7 +608,7 @@ Public Class Form1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_concerts.Items.Add(concertNew.GetArtist() & "-" & concertNew.GetVenue)
+            lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
@@ -575,11 +622,18 @@ Public Class Form1
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this concert?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
-        If txt_dateConcert.Text <> String.Empty Then
-
-            concert.concertDate = txt_dateConcert.Value.Date
-            concert.ReadAllConcert()
-            If concert.ReadAllConcert Is txt_dateConcert.Value.ToString Then
+        If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty Then
+            Me.concert = New Concert
+            Me.artist = New Artist
+            artist.artistName = txt_artistConcert.Text
+            artist.ReadArtistByName()
+            Me.Venue = New Venue
+            Venue.venueName = txt_venueConcert.Text
+            Venue.ReadVenueByName()
+            concert.ArtistName = artist.IdArtist
+            concert.VenueName = Venue.idVenue
+            concert.ReadConcertbyArtistAndVenue()
+            If artist.artistName <> txt_artistConcert.Text And Venue.venueName <> txt_venueConcert.Text Then
                 MessageBox.Show("This is not the same date", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
             End If
@@ -591,7 +645,7 @@ Public Class Form1
                 MessageBox.Show("Concert deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
 
-            Me.lst_concerts.Items.Remove(concert.GetArtist() & "-" & concert.GetVenue())
+            Me.lst_concerts.Items.Remove(artist.artistName & "-" & Venue.venueName)
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If

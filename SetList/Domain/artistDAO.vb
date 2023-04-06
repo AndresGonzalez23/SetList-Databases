@@ -20,7 +20,7 @@
 
     Public Sub Read(ByRef ar As Artist)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Artists WHERE ArtistID='" & ar.GetIdArtist() & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Artists WHERE idArtist='" & ar.GetIdArtist() & "';")
         For Each aux In col
             ar.SetName(aux(2).ToString)
             ar.SetCountry(aux(3).ToString)
