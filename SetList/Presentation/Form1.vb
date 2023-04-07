@@ -615,7 +615,39 @@ Public Class Form1
     End Sub
 
     Private Sub btn_updateConcert_Click(sender As Object, e As EventArgs) Handles btn_updateConcert.Click
+        Me.concert = New Concert
+        Dim UpdateConcert = New Concert
+        Me.artist = New Artist
+        Me.Venue = New Venue
 
+        If MessageBox.Show("Are you sure? Do you want to update this concert?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Try
+            UpdateConcert = New Concert
+            UpdateConcert.concertDate = txt_dateConcert.Value.Date
+            Venue.venueName = txt_venueConcert.Text
+            Venue.ReadVenueByName()
+            UpdateConcert.VenueName = Venue.idVenue
+            artist.artistName = txt_artistConcert.Text
+            artist.ReadArtistByName()
+            UpdateConcert.ArtistName = artist.IdArtist
+            UpdateConcert.idConcert = previousConcert.idConcert
+
+            If txt_artistConcert.Text <> String.Empty And txt_venueConcert.Text <> String.Empty Then
+                Try
+                    UpdateConcert.UpdateConcert()
+                    MsgBox("Album Update Succesfully")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End Try
+            Else
+                MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub btn_deleteConcert_Click(sender As Object, e As EventArgs) Handles btn_deleteConcert.Click

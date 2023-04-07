@@ -42,7 +42,7 @@
         Return DBBroker.GetBroker.Change("INSERT INTO Concerts (Artist, Venue, ConcertDate) VALUES (" & concert.GetArtist() & " ," & concert.GetVenue & ",'" & concert.GetDate.ToString("yyyy/MM/dd") & "');")
     End Function
     Public Function Update(ByVal concert As Concert) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Concerts SET [concertDate]='" & concert.GetDate & "' ,[Artist]='" & concert.GetArtist() & "' ,[Venue]='" & concert.GetVenue() & "'WHERE idConcert=" & concert.GetConcert() & ";")
+        Return DBBroker.GetBroker.Change("UPDATE Concerts SET ConcertDate='" & concert.GetDate.ToString("yyyy/MM/dd") & "' ,Artist='" & concert.GetArtist() & "' ,Venue='" & concert.GetVenue() & "'WHERE idConcert=" & concert.GetConcert() & ";")
     End Function
     Public Function Delete(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idConcert=" & concert.GetConcert() & ";")

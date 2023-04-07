@@ -1,5 +1,5 @@
 ﻿Public Class Concert
-    Private Property idConcert As Integer
+    Public Property idConcert As Integer
     Public Property concertDate As Date
     Public Property ArtistName As Integer
     Public Property VenueName As Integer
