@@ -133,6 +133,9 @@
     <EmbeddedResource Include="Presentation\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig">
@@ -184,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\concierto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\music.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

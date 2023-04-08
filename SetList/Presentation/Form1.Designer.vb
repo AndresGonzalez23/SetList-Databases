@@ -72,6 +72,10 @@ Partial Class Form1
         Me.btn_insertAlbum = New System.Windows.Forms.Button()
         Me.txt_albumYear = New System.Windows.Forms.TextBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.btn_deleteConcert = New System.Windows.Forms.Button()
         Me.btn_updateConcert = New System.Windows.Forms.Button()
         Me.btn_insertConcert = New System.Windows.Forms.Button()
@@ -83,16 +87,22 @@ Partial Class Form1
         Me.Label17 = New System.Windows.Forms.Label()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.txt_songOrder = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.txt_songAlbum = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txt_songLength = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.txt_songName = New System.Windows.Forms.TextBox()
         Me.btn_deleteSong = New System.Windows.Forms.Button()
         Me.btn_updateSong = New System.Windows.Forms.Button()
         Me.btn_insertSong = New System.Windows.Forms.Button()
-        Me.txt_songAlbum = New System.Windows.Forms.TextBox()
-        Me.txt_songOrder = New System.Windows.Forms.TextBox()
         Me.lst_songs = New System.Windows.Forms.ListBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.txt_songName = New System.Windows.Forms.TextBox()
-        Me.txt_songLength = New System.Windows.Forms.TextBox()
+        Me.btn_setlist = New System.Windows.Forms.Button()
+        Me.btn_Statistics = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,10 +125,9 @@ Partial Class Form1
         Me.btn_connection.Font = New System.Drawing.Font("Verdana", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_connection.ForeColor = System.Drawing.Color.Transparent
         Me.btn_connection.Image = CType(resources.GetObject("btn_connection.Image"), System.Drawing.Image)
-        Me.btn_connection.Location = New System.Drawing.Point(499, 787)
-        Me.btn_connection.Margin = New System.Windows.Forms.Padding(4)
+        Me.btn_connection.Location = New System.Drawing.Point(736, 634)
         Me.btn_connection.Name = "btn_connection"
-        Me.btn_connection.Size = New System.Drawing.Size(443, 49)
+        Me.btn_connection.Size = New System.Drawing.Size(332, 40)
         Me.btn_connection.TabIndex = 0
         Me.btn_connection.Text = "Connect to database"
         Me.btn_connection.UseVisualStyleBackColor = False
@@ -128,9 +137,10 @@ Partial Class Form1
         Me.btn_insert_country.Enabled = False
         Me.btn_insert_country.Image = CType(resources.GetObject("btn_insert_country.Image"), System.Drawing.Image)
         Me.btn_insert_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insert_country.Location = New System.Drawing.Point(18, 224)
+        Me.btn_insert_country.Location = New System.Drawing.Point(14, 182)
+        Me.btn_insert_country.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_insert_country.Name = "btn_insert_country"
-        Me.btn_insert_country.Size = New System.Drawing.Size(108, 51)
+        Me.btn_insert_country.Size = New System.Drawing.Size(81, 41)
         Me.btn_insert_country.TabIndex = 3
         Me.btn_insert_country.Text = "Add country"
         Me.btn_insert_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -138,18 +148,19 @@ Partial Class Form1
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(218, 67)
+        Me.txtName.Location = New System.Drawing.Point(164, 54)
+        Me.txtName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(202, 22)
+        Me.txtName.Size = New System.Drawing.Size(152, 20)
         Me.txtName.TabIndex = 4
         '
         'lst_Countries
         '
         Me.lst_Countries.FormattingEnabled = True
-        Me.lst_Countries.ItemHeight = 16
-        Me.lst_Countries.Location = New System.Drawing.Point(15, 54)
+        Me.lst_Countries.Location = New System.Drawing.Point(14, 54)
+        Me.lst_Countries.Margin = New System.Windows.Forms.Padding(2)
         Me.lst_Countries.Name = "lst_Countries"
-        Me.lst_Countries.Size = New System.Drawing.Size(175, 164)
+        Me.lst_Countries.Size = New System.Drawing.Size(132, 108)
         Me.lst_Countries.TabIndex = 5
         '
         'btn_update_country
@@ -157,9 +168,10 @@ Partial Class Form1
         Me.btn_update_country.Enabled = False
         Me.btn_update_country.Image = CType(resources.GetObject("btn_update_country.Image"), System.Drawing.Image)
         Me.btn_update_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_update_country.Location = New System.Drawing.Point(130, 224)
+        Me.btn_update_country.Location = New System.Drawing.Point(109, 182)
+        Me.btn_update_country.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_update_country.Name = "btn_update_country"
-        Me.btn_update_country.Size = New System.Drawing.Size(125, 51)
+        Me.btn_update_country.Size = New System.Drawing.Size(94, 41)
         Me.btn_update_country.TabIndex = 6
         Me.btn_update_country.Text = "Update Country"
         Me.btn_update_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -170,9 +182,10 @@ Partial Class Form1
         Me.btn_delete_country.Enabled = False
         Me.btn_delete_country.Image = CType(resources.GetObject("btn_delete_country.Image"), System.Drawing.Image)
         Me.btn_delete_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_delete_country.Location = New System.Drawing.Point(261, 224)
+        Me.btn_delete_country.Location = New System.Drawing.Point(217, 182)
+        Me.btn_delete_country.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_delete_country.Name = "btn_delete_country"
-        Me.btn_delete_country.Size = New System.Drawing.Size(132, 51)
+        Me.btn_delete_country.Size = New System.Drawing.Size(99, 41)
         Me.btn_delete_country.TabIndex = 7
         Me.btn_delete_country.Text = "Delete Country"
         Me.btn_delete_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -182,28 +195,30 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(67, 14)
+        Me.Label2.Location = New System.Drawing.Point(50, 11)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(123, 32)
+        Me.Label2.Size = New System.Drawing.Size(85, 23)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Country"
         '
         'lst_artits
         '
         Me.lst_artits.FormattingEnabled = True
-        Me.lst_artits.ItemHeight = 16
-        Me.lst_artits.Location = New System.Drawing.Point(18, 56)
+        Me.lst_artits.Location = New System.Drawing.Point(14, 46)
+        Me.lst_artits.Margin = New System.Windows.Forms.Padding(2)
         Me.lst_artits.Name = "lst_artits"
-        Me.lst_artits.Size = New System.Drawing.Size(175, 148)
+        Me.lst_artits.Size = New System.Drawing.Size(132, 121)
         Me.lst_artits.TabIndex = 9
         '
         'txt_artistName
         '
-        Me.txt_artistName.Location = New System.Drawing.Point(218, 83)
+        Me.txt_artistName.Location = New System.Drawing.Point(164, 67)
+        Me.txt_artistName.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_artistName.Name = "txt_artistName"
-        Me.txt_artistName.Size = New System.Drawing.Size(211, 22)
+        Me.txt_artistName.Size = New System.Drawing.Size(159, 20)
         Me.txt_artistName.TabIndex = 10
         '
         'btn_insertArtist
@@ -211,9 +226,10 @@ Partial Class Form1
         Me.btn_insertArtist.Enabled = False
         Me.btn_insertArtist.Image = CType(resources.GetObject("btn_insertArtist.Image"), System.Drawing.Image)
         Me.btn_insertArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insertArtist.Location = New System.Drawing.Point(18, 236)
+        Me.btn_insertArtist.Location = New System.Drawing.Point(14, 192)
+        Me.btn_insertArtist.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_insertArtist.Name = "btn_insertArtist"
-        Me.btn_insertArtist.Size = New System.Drawing.Size(106, 49)
+        Me.btn_insertArtist.Size = New System.Drawing.Size(80, 40)
         Me.btn_insertArtist.TabIndex = 12
         Me.btn_insertArtist.Text = "Insert artist"
         Me.btn_insertArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -224,9 +240,10 @@ Partial Class Form1
         Me.btn_updateArtist.Enabled = False
         Me.btn_updateArtist.Image = CType(resources.GetObject("btn_updateArtist.Image"), System.Drawing.Image)
         Me.btn_updateArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_updateArtist.Location = New System.Drawing.Point(130, 236)
+        Me.btn_updateArtist.Location = New System.Drawing.Point(98, 192)
+        Me.btn_updateArtist.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_updateArtist.Name = "btn_updateArtist"
-        Me.btn_updateArtist.Size = New System.Drawing.Size(125, 49)
+        Me.btn_updateArtist.Size = New System.Drawing.Size(94, 40)
         Me.btn_updateArtist.TabIndex = 13
         Me.btn_updateArtist.Text = "Update Artist"
         Me.btn_updateArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -237,9 +254,10 @@ Partial Class Form1
         Me.btn_deleteArtist.Enabled = False
         Me.btn_deleteArtist.Image = CType(resources.GetObject("btn_deleteArtist.Image"), System.Drawing.Image)
         Me.btn_deleteArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteArtist.Location = New System.Drawing.Point(261, 236)
+        Me.btn_deleteArtist.Location = New System.Drawing.Point(196, 192)
+        Me.btn_deleteArtist.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_deleteArtist.Name = "btn_deleteArtist"
-        Me.btn_deleteArtist.Size = New System.Drawing.Size(132, 49)
+        Me.btn_deleteArtist.Size = New System.Drawing.Size(99, 40)
         Me.btn_deleteArtist.TabIndex = 14
         Me.btn_deleteArtist.Text = "Delete Artist"
         Me.btn_deleteArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -249,11 +267,12 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(91, 19)
+        Me.Label3.Location = New System.Drawing.Point(68, 15)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(102, 32)
+        Me.Label3.Size = New System.Drawing.Size(71, 23)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Artists"
         '
@@ -261,11 +280,12 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(217, 32)
+        Me.Label5.Location = New System.Drawing.Point(163, 26)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(93, 32)
+        Me.Label5.Size = New System.Drawing.Size(64, 23)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Name"
         '
@@ -273,42 +293,46 @@ Partial Class Form1
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(217, 48)
+        Me.Label6.Location = New System.Drawing.Point(163, 39)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(93, 32)
+        Me.Label6.Size = New System.Drawing.Size(64, 23)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Name"
         '
         'txt_artistCountry
         '
-        Me.txt_artistCountry.Location = New System.Drawing.Point(218, 174)
+        Me.txt_artistCountry.Location = New System.Drawing.Point(164, 141)
+        Me.txt_artistCountry.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_artistCountry.Name = "txt_artistCountry"
-        Me.txt_artistCountry.Size = New System.Drawing.Size(211, 22)
+        Me.txt_artistCountry.Size = New System.Drawing.Size(159, 20)
         Me.txt_artistCountry.TabIndex = 19
         '
         'lst_venues
         '
         Me.lst_venues.FormattingEnabled = True
-        Me.lst_venues.ItemHeight = 16
-        Me.lst_venues.Location = New System.Drawing.Point(18, 50)
+        Me.lst_venues.Location = New System.Drawing.Point(14, 54)
+        Me.lst_venues.Margin = New System.Windows.Forms.Padding(2)
         Me.lst_venues.Name = "lst_venues"
-        Me.lst_venues.Size = New System.Drawing.Size(175, 164)
+        Me.lst_venues.Size = New System.Drawing.Size(132, 108)
         Me.lst_venues.TabIndex = 20
         '
         'txt_venueName
         '
-        Me.txt_venueName.Location = New System.Drawing.Point(218, 67)
+        Me.txt_venueName.Location = New System.Drawing.Point(164, 54)
+        Me.txt_venueName.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_venueName.Name = "txt_venueName"
-        Me.txt_venueName.Size = New System.Drawing.Size(211, 22)
+        Me.txt_venueName.Size = New System.Drawing.Size(159, 20)
         Me.txt_venueName.TabIndex = 21
         '
         'txt_venueCountry
         '
-        Me.txt_venueCountry.Location = New System.Drawing.Point(218, 129)
+        Me.txt_venueCountry.Location = New System.Drawing.Point(164, 105)
+        Me.txt_venueCountry.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_venueCountry.Name = "txt_venueCountry"
-        Me.txt_venueCountry.Size = New System.Drawing.Size(211, 22)
+        Me.txt_venueCountry.Size = New System.Drawing.Size(159, 20)
         Me.txt_venueCountry.TabIndex = 22
         '
         'btn_insertVenue
@@ -316,9 +340,10 @@ Partial Class Form1
         Me.btn_insertVenue.Enabled = False
         Me.btn_insertVenue.Image = CType(resources.GetObject("btn_insertVenue.Image"), System.Drawing.Image)
         Me.btn_insertVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insertVenue.Location = New System.Drawing.Point(18, 236)
+        Me.btn_insertVenue.Location = New System.Drawing.Point(14, 192)
+        Me.btn_insertVenue.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_insertVenue.Name = "btn_insertVenue"
-        Me.btn_insertVenue.Size = New System.Drawing.Size(109, 44)
+        Me.btn_insertVenue.Size = New System.Drawing.Size(82, 36)
         Me.btn_insertVenue.TabIndex = 24
         Me.btn_insertVenue.Text = "Insertar venue" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.btn_insertVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -328,9 +353,10 @@ Partial Class Form1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(599, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(449, 10)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(357, 95)
+        Me.PictureBox1.Size = New System.Drawing.Size(268, 77)
         Me.PictureBox1.TabIndex = 25
         Me.PictureBox1.TabStop = False
         '
@@ -350,18 +376,20 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.txt_venueName)
         Me.Panel1.Controls.Add(Me.btn_insertVenue)
         Me.Panel1.Controls.Add(Me.txt_venueCountry)
-        Me.Panel1.Location = New System.Drawing.Point(499, 138)
+        Me.Panel1.Location = New System.Drawing.Point(374, 112)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(442, 294)
+        Me.Panel1.Size = New System.Drawing.Size(332, 239)
         Me.Panel1.TabIndex = 26
         '
         'PictureBox4
         '
         Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(28, 6)
+        Me.PictureBox4.Location = New System.Drawing.Point(21, 5)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(39, 38)
+        Me.PictureBox4.Size = New System.Drawing.Size(29, 31)
         Me.PictureBox4.TabIndex = 28
         Me.PictureBox4.TabStop = False
         '
@@ -369,9 +397,10 @@ Partial Class Form1
         '
         Me.cmb_venuesType.FormattingEnabled = True
         Me.cmb_venuesType.Items.AddRange(New Object() {"HALL", "PAVILION", "STADIUM", "FESTIVAL"})
-        Me.cmb_venuesType.Location = New System.Drawing.Point(218, 196)
+        Me.cmb_venuesType.Location = New System.Drawing.Point(164, 159)
+        Me.cmb_venuesType.Margin = New System.Windows.Forms.Padding(2)
         Me.cmb_venuesType.Name = "cmb_venuesType"
-        Me.cmb_venuesType.Size = New System.Drawing.Size(211, 24)
+        Me.cmb_venuesType.Size = New System.Drawing.Size(159, 21)
         Me.cmb_venuesType.TabIndex = 29
         '
         'btn_updateVenue
@@ -379,9 +408,10 @@ Partial Class Form1
         Me.btn_updateVenue.Enabled = False
         Me.btn_updateVenue.Image = CType(resources.GetObject("btn_updateVenue.Image"), System.Drawing.Image)
         Me.btn_updateVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_updateVenue.Location = New System.Drawing.Point(133, 236)
+        Me.btn_updateVenue.Location = New System.Drawing.Point(100, 192)
+        Me.btn_updateVenue.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_updateVenue.Name = "btn_updateVenue"
-        Me.btn_updateVenue.Size = New System.Drawing.Size(111, 44)
+        Me.btn_updateVenue.Size = New System.Drawing.Size(83, 36)
         Me.btn_updateVenue.TabIndex = 28
         Me.btn_updateVenue.Text = "Update venue"
         Me.btn_updateVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -392,9 +422,10 @@ Partial Class Form1
         Me.btn_deleteVenue.Enabled = False
         Me.btn_deleteVenue.Image = CType(resources.GetObject("btn_deleteVenue.Image"), System.Drawing.Image)
         Me.btn_deleteVenue.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteVenue.Location = New System.Drawing.Point(250, 236)
+        Me.btn_deleteVenue.Location = New System.Drawing.Point(188, 192)
+        Me.btn_deleteVenue.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_deleteVenue.Name = "btn_deleteVenue"
-        Me.btn_deleteVenue.Size = New System.Drawing.Size(120, 44)
+        Me.btn_deleteVenue.Size = New System.Drawing.Size(90, 36)
         Me.btn_deleteVenue.TabIndex = 26
         Me.btn_deleteVenue.Text = "Delete venue"
         Me.btn_deleteVenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -404,11 +435,12 @@ Partial Class Form1
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label9.Location = New System.Drawing.Point(212, 161)
+        Me.Label9.Location = New System.Drawing.Point(159, 131)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(78, 32)
+        Me.Label9.Size = New System.Drawing.Size(54, 23)
         Me.Label9.TabIndex = 25
         Me.Label9.Text = "Type"
         '
@@ -416,11 +448,12 @@ Partial Class Form1
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label8.Location = New System.Drawing.Point(212, 96)
+        Me.Label8.Location = New System.Drawing.Point(159, 78)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(123, 32)
+        Me.Label8.Size = New System.Drawing.Size(85, 23)
         Me.Label8.TabIndex = 20
         Me.Label8.Text = "Country"
         '
@@ -428,11 +461,12 @@ Partial Class Form1
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label7.Location = New System.Drawing.Point(212, 32)
+        Me.Label7.Location = New System.Drawing.Point(159, 26)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(93, 32)
+        Me.Label7.Size = New System.Drawing.Size(64, 23)
         Me.Label7.TabIndex = 20
         Me.Label7.Text = "Name"
         '
@@ -440,11 +474,12 @@ Partial Class Form1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(81, 10)
+        Me.Label1.Location = New System.Drawing.Point(61, 8)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(112, 32)
+        Me.Label1.Size = New System.Drawing.Size(78, 23)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Venues"
         '
@@ -460,18 +495,20 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.btn_update_country)
         Me.Panel2.Controls.Add(Me.btn_delete_country)
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Location = New System.Drawing.Point(25, 138)
+        Me.Panel2.Location = New System.Drawing.Point(19, 112)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(441, 294)
+        Me.Panel2.Size = New System.Drawing.Size(331, 239)
         Me.Panel2.TabIndex = 27
         '
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(30, 14)
+        Me.PictureBox2.Location = New System.Drawing.Point(22, 11)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(31, 33)
+        Me.PictureBox2.Size = New System.Drawing.Size(23, 27)
         Me.PictureBox2.TabIndex = 28
         Me.PictureBox2.TabStop = False
         '
@@ -489,18 +526,20 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.btn_deleteArtist)
         Me.Panel3.Controls.Add(Me.txt_artistName)
         Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Location = New System.Drawing.Point(25, 464)
+        Me.Panel3.Location = New System.Drawing.Point(19, 377)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(441, 294)
+        Me.Panel3.Size = New System.Drawing.Size(331, 239)
         Me.Panel3.TabIndex = 27
         '
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(30, 19)
+        Me.PictureBox3.Location = New System.Drawing.Point(22, 15)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(40, 31)
+        Me.PictureBox3.Size = New System.Drawing.Size(30, 25)
         Me.PictureBox3.TabIndex = 28
         Me.PictureBox3.TabStop = False
         '
@@ -508,11 +547,12 @@ Partial Class Form1
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(222, 137)
+        Me.Label4.Location = New System.Drawing.Point(166, 111)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(123, 32)
+        Me.Label4.Size = New System.Drawing.Size(85, 23)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Country"
         '
@@ -532,25 +572,28 @@ Partial Class Form1
         Me.Panel4.Controls.Add(Me.txt_albumName)
         Me.Panel4.Controls.Add(Me.btn_insertAlbum)
         Me.Panel4.Controls.Add(Me.txt_albumYear)
-        Me.Panel4.Location = New System.Drawing.Point(499, 464)
+        Me.Panel4.Location = New System.Drawing.Point(374, 377)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(442, 294)
+        Me.Panel4.Size = New System.Drawing.Size(332, 239)
         Me.Panel4.TabIndex = 30
         '
         'txt_albumArtist
         '
-        Me.txt_albumArtist.Location = New System.Drawing.Point(217, 196)
+        Me.txt_albumArtist.Location = New System.Drawing.Point(163, 148)
+        Me.txt_albumArtist.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_albumArtist.Name = "txt_albumArtist"
-        Me.txt_albumArtist.Size = New System.Drawing.Size(211, 22)
+        Me.txt_albumArtist.Size = New System.Drawing.Size(159, 20)
         Me.txt_albumArtist.TabIndex = 29
         '
         'PictureBox5
         '
         Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(28, 12)
+        Me.PictureBox5.Location = New System.Drawing.Point(21, 10)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(39, 38)
+        Me.PictureBox5.Size = New System.Drawing.Size(29, 31)
         Me.PictureBox5.TabIndex = 28
         Me.PictureBox5.TabStop = False
         '
@@ -559,9 +602,10 @@ Partial Class Form1
         Me.btn_updateAlbum.Enabled = False
         Me.btn_updateAlbum.Image = CType(resources.GetObject("btn_updateAlbum.Image"), System.Drawing.Image)
         Me.btn_updateAlbum.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_updateAlbum.Location = New System.Drawing.Point(133, 236)
+        Me.btn_updateAlbum.Location = New System.Drawing.Point(100, 183)
+        Me.btn_updateAlbum.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_updateAlbum.Name = "btn_updateAlbum"
-        Me.btn_updateAlbum.Size = New System.Drawing.Size(111, 44)
+        Me.btn_updateAlbum.Size = New System.Drawing.Size(83, 45)
         Me.btn_updateAlbum.TabIndex = 28
         Me.btn_updateAlbum.Text = "Update Album"
         Me.btn_updateAlbum.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -572,9 +616,10 @@ Partial Class Form1
         Me.btn_deleteAlbum.Enabled = False
         Me.btn_deleteAlbum.Image = CType(resources.GetObject("btn_deleteAlbum.Image"), System.Drawing.Image)
         Me.btn_deleteAlbum.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteAlbum.Location = New System.Drawing.Point(250, 236)
+        Me.btn_deleteAlbum.Location = New System.Drawing.Point(188, 184)
+        Me.btn_deleteAlbum.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_deleteAlbum.Name = "btn_deleteAlbum"
-        Me.btn_deleteAlbum.Size = New System.Drawing.Size(120, 44)
+        Me.btn_deleteAlbum.Size = New System.Drawing.Size(90, 44)
         Me.btn_deleteAlbum.TabIndex = 26
         Me.btn_deleteAlbum.Text = "Delete Album"
         Me.btn_deleteAlbum.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -584,11 +629,12 @@ Partial Class Form1
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label10.Location = New System.Drawing.Point(212, 161)
+        Me.Label10.Location = New System.Drawing.Point(159, 121)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(88, 32)
+        Me.Label10.Size = New System.Drawing.Size(61, 23)
         Me.Label10.TabIndex = 25
         Me.Label10.Text = "Artist"
         '
@@ -596,11 +642,12 @@ Partial Class Form1
         '
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(212, 96)
+        Me.Label11.Location = New System.Drawing.Point(160, 67)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(216, 32)
+        Me.Label11.Size = New System.Drawing.Size(152, 23)
         Me.Label11.TabIndex = 20
         Me.Label11.Text = "Year of Launch"
         '
@@ -608,11 +655,12 @@ Partial Class Form1
         '
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label12.Location = New System.Drawing.Point(212, 32)
+        Me.Label12.Location = New System.Drawing.Point(159, 10)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(188, 32)
+        Me.Label12.Size = New System.Drawing.Size(132, 23)
         Me.Label12.TabIndex = 20
         Me.Label12.Text = "Album Name"
         '
@@ -620,28 +668,30 @@ Partial Class Form1
         '
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label13.Location = New System.Drawing.Point(81, 10)
+        Me.Label13.Location = New System.Drawing.Point(61, 8)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(114, 32)
+        Me.Label13.Size = New System.Drawing.Size(81, 23)
         Me.Label13.TabIndex = 18
         Me.Label13.Text = "Albums"
         '
         'lst_albums
         '
         Me.lst_albums.FormattingEnabled = True
-        Me.lst_albums.ItemHeight = 16
-        Me.lst_albums.Location = New System.Drawing.Point(18, 50)
+        Me.lst_albums.Location = New System.Drawing.Point(14, 46)
+        Me.lst_albums.Margin = New System.Windows.Forms.Padding(2)
         Me.lst_albums.Name = "lst_albums"
-        Me.lst_albums.Size = New System.Drawing.Size(175, 164)
+        Me.lst_albums.Size = New System.Drawing.Size(132, 121)
         Me.lst_albums.TabIndex = 20
         '
         'txt_albumName
         '
-        Me.txt_albumName.Location = New System.Drawing.Point(218, 67)
+        Me.txt_albumName.Location = New System.Drawing.Point(163, 39)
+        Me.txt_albumName.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_albumName.Name = "txt_albumName"
-        Me.txt_albumName.Size = New System.Drawing.Size(211, 22)
+        Me.txt_albumName.Size = New System.Drawing.Size(159, 20)
         Me.txt_albumName.TabIndex = 21
         '
         'btn_insertAlbum
@@ -649,9 +699,10 @@ Partial Class Form1
         Me.btn_insertAlbum.Enabled = False
         Me.btn_insertAlbum.Image = CType(resources.GetObject("btn_insertAlbum.Image"), System.Drawing.Image)
         Me.btn_insertAlbum.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insertAlbum.Location = New System.Drawing.Point(18, 236)
+        Me.btn_insertAlbum.Location = New System.Drawing.Point(14, 184)
+        Me.btn_insertAlbum.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_insertAlbum.Name = "btn_insertAlbum"
-        Me.btn_insertAlbum.Size = New System.Drawing.Size(109, 44)
+        Me.btn_insertAlbum.Size = New System.Drawing.Size(82, 44)
         Me.btn_insertAlbum.TabIndex = 24
         Me.btn_insertAlbum.Text = "Insertar Album"
         Me.btn_insertAlbum.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -659,15 +710,20 @@ Partial Class Form1
         '
         'txt_albumYear
         '
-        Me.txt_albumYear.Location = New System.Drawing.Point(218, 129)
+        Me.txt_albumYear.Location = New System.Drawing.Point(163, 99)
+        Me.txt_albumYear.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_albumYear.Name = "txt_albumYear"
-        Me.txt_albumYear.Size = New System.Drawing.Size(211, 22)
+        Me.txt_albumYear.Size = New System.Drawing.Size(159, 20)
         Me.txt_albumYear.TabIndex = 22
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.Silver
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.Label19)
+        Me.Panel5.Controls.Add(Me.Label18)
+        Me.Panel5.Controls.Add(Me.Label16)
+        Me.Panel5.Controls.Add(Me.Label15)
         Me.Panel5.Controls.Add(Me.btn_deleteConcert)
         Me.Panel5.Controls.Add(Me.btn_updateConcert)
         Me.Panel5.Controls.Add(Me.btn_insertConcert)
@@ -677,19 +733,73 @@ Partial Class Form1
         Me.Panel5.Controls.Add(Me.lst_concerts)
         Me.Panel5.Controls.Add(Me.PictureBox6)
         Me.Panel5.Controls.Add(Me.Label17)
-        Me.Panel5.Location = New System.Drawing.Point(981, 138)
+        Me.Panel5.Location = New System.Drawing.Point(736, 112)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(440, 294)
+        Me.Panel5.Size = New System.Drawing.Size(330, 239)
         Me.Panel5.TabIndex = 31
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.BackColor = System.Drawing.Color.Transparent
+        Me.Label19.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label19.Location = New System.Drawing.Point(18, 48)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(122, 18)
+        Me.Label19.TabIndex = 35
+        Me.Label19.Text = "Artist - Venue"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.BackColor = System.Drawing.Color.Transparent
+        Me.Label18.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label18.Location = New System.Drawing.Point(151, 36)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(54, 23)
+        Me.Label18.TabIndex = 34
+        Me.Label18.Text = "Date"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
+        Me.Label16.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label16.Location = New System.Drawing.Point(151, 133)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(68, 23)
+        Me.Label16.TabIndex = 30
+        Me.Label16.Text = "Venue"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
+        Me.Label15.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label15.Location = New System.Drawing.Point(151, 82)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(61, 23)
+        Me.Label15.TabIndex = 30
+        Me.Label15.Text = "Artist"
         '
         'btn_deleteConcert
         '
         Me.btn_deleteConcert.Enabled = False
         Me.btn_deleteConcert.Image = CType(resources.GetObject("btn_deleteConcert.Image"), System.Drawing.Image)
         Me.btn_deleteConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteConcert.Location = New System.Drawing.Point(289, 236)
+        Me.btn_deleteConcert.Location = New System.Drawing.Point(217, 192)
+        Me.btn_deleteConcert.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_deleteConcert.Name = "btn_deleteConcert"
-        Me.btn_deleteConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_deleteConcert.Size = New System.Drawing.Size(92, 36)
         Me.btn_deleteConcert.TabIndex = 30
         Me.btn_deleteConcert.Text = "Delete concert"
         Me.btn_deleteConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -700,9 +810,10 @@ Partial Class Form1
         Me.btn_updateConcert.Enabled = False
         Me.btn_updateConcert.Image = CType(resources.GetObject("btn_updateConcert.Image"), System.Drawing.Image)
         Me.btn_updateConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_updateConcert.Location = New System.Drawing.Point(160, 236)
+        Me.btn_updateConcert.Location = New System.Drawing.Point(120, 192)
+        Me.btn_updateConcert.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_updateConcert.Name = "btn_updateConcert"
-        Me.btn_updateConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_updateConcert.Size = New System.Drawing.Size(92, 36)
         Me.btn_updateConcert.TabIndex = 30
         Me.btn_updateConcert.Text = "Update Concert"
         Me.btn_updateConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -713,9 +824,10 @@ Partial Class Form1
         Me.btn_insertConcert.Enabled = False
         Me.btn_insertConcert.Image = Global.SetList.My.Resources.Resources.plus__1_
         Me.btn_insertConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insertConcert.Location = New System.Drawing.Point(31, 236)
+        Me.btn_insertConcert.Location = New System.Drawing.Point(23, 192)
+        Me.btn_insertConcert.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_insertConcert.Name = "btn_insertConcert"
-        Me.btn_insertConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_insertConcert.Size = New System.Drawing.Size(92, 36)
         Me.btn_insertConcert.TabIndex = 33
         Me.btn_insertConcert.Text = "Insert Concert"
         Me.btn_insertConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -723,41 +835,45 @@ Partial Class Form1
         '
         'txt_dateConcert
         '
-        Me.txt_dateConcert.Location = New System.Drawing.Point(196, 69)
+        Me.txt_dateConcert.Location = New System.Drawing.Point(154, 62)
+        Me.txt_dateConcert.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_dateConcert.Name = "txt_dateConcert"
-        Me.txt_dateConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_dateConcert.Size = New System.Drawing.Size(156, 20)
         Me.txt_dateConcert.TabIndex = 32
         '
         'txt_venueConcert
         '
-        Me.txt_venueConcert.Location = New System.Drawing.Point(196, 129)
+        Me.txt_venueConcert.Location = New System.Drawing.Point(154, 158)
+        Me.txt_venueConcert.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_venueConcert.Name = "txt_venueConcert"
-        Me.txt_venueConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_venueConcert.Size = New System.Drawing.Size(156, 20)
         Me.txt_venueConcert.TabIndex = 31
         '
         'txt_artistConcert
         '
-        Me.txt_artistConcert.Location = New System.Drawing.Point(196, 198)
+        Me.txt_artistConcert.Location = New System.Drawing.Point(154, 108)
+        Me.txt_artistConcert.Margin = New System.Windows.Forms.Padding(2)
         Me.txt_artistConcert.Name = "txt_artistConcert"
-        Me.txt_artistConcert.Size = New System.Drawing.Size(206, 22)
+        Me.txt_artistConcert.Size = New System.Drawing.Size(156, 20)
         Me.txt_artistConcert.TabIndex = 30
         '
         'lst_concerts
         '
         Me.lst_concerts.FormattingEnabled = True
-        Me.lst_concerts.ItemHeight = 16
-        Me.lst_concerts.Location = New System.Drawing.Point(31, 69)
+        Me.lst_concerts.Location = New System.Drawing.Point(23, 69)
+        Me.lst_concerts.Margin = New System.Windows.Forms.Padding(2)
         Me.lst_concerts.Name = "lst_concerts"
-        Me.lst_concerts.Size = New System.Drawing.Size(151, 148)
+        Me.lst_concerts.Size = New System.Drawing.Size(114, 108)
         Me.lst_concerts.TabIndex = 29
         '
         'PictureBox6
         '
         Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(28, 12)
+        Me.PictureBox6.Location = New System.Drawing.Point(21, 10)
+        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(39, 38)
+        Me.PictureBox6.Size = New System.Drawing.Size(29, 31)
         Me.PictureBox6.TabIndex = 28
         Me.PictureBox6.TabStop = False
         '
@@ -765,11 +881,12 @@ Partial Class Form1
         '
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label17.Location = New System.Drawing.Point(81, 10)
+        Me.Label17.Location = New System.Drawing.Point(55, 11)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(134, 32)
+        Me.Label17.Size = New System.Drawing.Size(93, 23)
         Me.Label17.TabIndex = 18
         Me.Label17.Text = "Concerts"
         '
@@ -777,29 +894,118 @@ Partial Class Form1
         '
         Me.Panel6.BackColor = System.Drawing.Color.Silver
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel6.Controls.Add(Me.txt_songOrder)
+        Me.Panel6.Controls.Add(Me.Label23)
+        Me.Panel6.Controls.Add(Me.txt_songAlbum)
+        Me.Panel6.Controls.Add(Me.Label22)
         Me.Panel6.Controls.Add(Me.txt_songLength)
+        Me.Panel6.Controls.Add(Me.Label21)
+        Me.Panel6.Controls.Add(Me.Label20)
         Me.Panel6.Controls.Add(Me.txt_songName)
         Me.Panel6.Controls.Add(Me.btn_deleteSong)
         Me.Panel6.Controls.Add(Me.btn_updateSong)
         Me.Panel6.Controls.Add(Me.btn_insertSong)
-        Me.Panel6.Controls.Add(Me.txt_songAlbum)
-        Me.Panel6.Controls.Add(Me.txt_songOrder)
         Me.Panel6.Controls.Add(Me.lst_songs)
         Me.Panel6.Controls.Add(Me.PictureBox7)
         Me.Panel6.Controls.Add(Me.Label14)
-        Me.Panel6.Location = New System.Drawing.Point(981, 464)
+        Me.Panel6.Location = New System.Drawing.Point(736, 377)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(440, 294)
+        Me.Panel6.Size = New System.Drawing.Size(330, 239)
         Me.Panel6.TabIndex = 34
+        '
+        'txt_songOrder
+        '
+        Me.txt_songOrder.Location = New System.Drawing.Point(154, 159)
+        Me.txt_songOrder.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_songOrder.Name = "txt_songOrder"
+        Me.txt_songOrder.Size = New System.Drawing.Size(156, 20)
+        Me.txt_songOrder.TabIndex = 30
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.BackColor = System.Drawing.Color.Transparent
+        Me.Label23.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label23.Location = New System.Drawing.Point(155, 141)
+        Me.Label23.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(64, 46)
+        Me.Label23.TabIndex = 39
+        Me.Label23.Text = "Order" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'txt_songAlbum
+        '
+        Me.txt_songAlbum.Location = New System.Drawing.Point(154, 120)
+        Me.txt_songAlbum.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_songAlbum.Name = "txt_songAlbum"
+        Me.txt_songAlbum.Size = New System.Drawing.Size(156, 20)
+        Me.txt_songAlbum.TabIndex = 31
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.BackColor = System.Drawing.Color.Transparent
+        Me.Label22.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label22.Location = New System.Drawing.Point(155, 99)
+        Me.Label22.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(71, 69)
+        Me.Label22.TabIndex = 38
+        Me.Label22.Text = "Album" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'txt_songLength
+        '
+        Me.txt_songLength.Location = New System.Drawing.Point(154, 78)
+        Me.txt_songLength.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_songLength.Name = "txt_songLength"
+        Me.txt_songLength.Size = New System.Drawing.Size(156, 20)
+        Me.txt_songLength.TabIndex = 35
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.BackColor = System.Drawing.Color.Transparent
+        Me.Label21.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label21.Location = New System.Drawing.Point(155, 56)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(75, 46)
+        Me.Label21.TabIndex = 37
+        Me.Label21.Text = "Length" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.BackColor = System.Drawing.Color.Transparent
+        Me.Label20.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label20.Location = New System.Drawing.Point(155, 10)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(64, 23)
+        Me.Label20.TabIndex = 36
+        Me.Label20.Text = "Name" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'txt_songName
+        '
+        Me.txt_songName.Location = New System.Drawing.Point(154, 34)
+        Me.txt_songName.Margin = New System.Windows.Forms.Padding(2)
+        Me.txt_songName.Name = "txt_songName"
+        Me.txt_songName.Size = New System.Drawing.Size(156, 20)
+        Me.txt_songName.TabIndex = 34
         '
         'btn_deleteSong
         '
         Me.btn_deleteSong.Enabled = False
         Me.btn_deleteSong.Image = CType(resources.GetObject("btn_deleteSong.Image"), System.Drawing.Image)
         Me.btn_deleteSong.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteSong.Location = New System.Drawing.Point(289, 236)
+        Me.btn_deleteSong.Location = New System.Drawing.Point(217, 192)
+        Me.btn_deleteSong.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_deleteSong.Name = "btn_deleteSong"
-        Me.btn_deleteSong.Size = New System.Drawing.Size(123, 44)
+        Me.btn_deleteSong.Size = New System.Drawing.Size(92, 36)
         Me.btn_deleteSong.TabIndex = 30
         Me.btn_deleteSong.Text = "Delete Song"
         Me.btn_deleteSong.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -810,9 +1016,10 @@ Partial Class Form1
         Me.btn_updateSong.Enabled = False
         Me.btn_updateSong.Image = CType(resources.GetObject("btn_updateSong.Image"), System.Drawing.Image)
         Me.btn_updateSong.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_updateSong.Location = New System.Drawing.Point(160, 236)
+        Me.btn_updateSong.Location = New System.Drawing.Point(120, 192)
+        Me.btn_updateSong.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_updateSong.Name = "btn_updateSong"
-        Me.btn_updateSong.Size = New System.Drawing.Size(123, 44)
+        Me.btn_updateSong.Size = New System.Drawing.Size(92, 36)
         Me.btn_updateSong.TabIndex = 30
         Me.btn_updateSong.Text = "Update Song"
         Me.btn_updateSong.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -823,44 +1030,32 @@ Partial Class Form1
         Me.btn_insertSong.Enabled = False
         Me.btn_insertSong.Image = Global.SetList.My.Resources.Resources.plus__1_
         Me.btn_insertSong.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insertSong.Location = New System.Drawing.Point(31, 236)
+        Me.btn_insertSong.Location = New System.Drawing.Point(23, 192)
+        Me.btn_insertSong.Margin = New System.Windows.Forms.Padding(2)
         Me.btn_insertSong.Name = "btn_insertSong"
-        Me.btn_insertSong.Size = New System.Drawing.Size(123, 44)
+        Me.btn_insertSong.Size = New System.Drawing.Size(92, 36)
         Me.btn_insertSong.TabIndex = 33
         Me.btn_insertSong.Text = "Insert Song"
         Me.btn_insertSong.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insertSong.UseVisualStyleBackColor = True
         '
-        'txt_songAlbum
-        '
-        Me.txt_songAlbum.Location = New System.Drawing.Point(206, 148)
-        Me.txt_songAlbum.Name = "txt_songAlbum"
-        Me.txt_songAlbum.Size = New System.Drawing.Size(206, 22)
-        Me.txt_songAlbum.TabIndex = 31
-        '
-        'txt_songOrder
-        '
-        Me.txt_songOrder.Location = New System.Drawing.Point(206, 196)
-        Me.txt_songOrder.Name = "txt_songOrder"
-        Me.txt_songOrder.Size = New System.Drawing.Size(206, 22)
-        Me.txt_songOrder.TabIndex = 30
-        '
         'lst_songs
         '
         Me.lst_songs.FormattingEnabled = True
-        Me.lst_songs.ItemHeight = 16
-        Me.lst_songs.Location = New System.Drawing.Point(31, 69)
+        Me.lst_songs.Location = New System.Drawing.Point(23, 56)
+        Me.lst_songs.Margin = New System.Windows.Forms.Padding(2)
         Me.lst_songs.Name = "lst_songs"
-        Me.lst_songs.Size = New System.Drawing.Size(151, 148)
+        Me.lst_songs.Size = New System.Drawing.Size(114, 121)
         Me.lst_songs.TabIndex = 29
         '
         'PictureBox7
         '
         Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(28, 12)
+        Me.PictureBox7.Image = Global.SetList.My.Resources.Resources.music
+        Me.PictureBox7.Location = New System.Drawing.Point(23, 15)
+        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(39, 38)
+        Me.PictureBox7.Size = New System.Drawing.Size(29, 31)
         Me.PictureBox7.TabIndex = 28
         Me.PictureBox7.TabStop = False
         '
@@ -868,36 +1063,43 @@ Partial Class Form1
         '
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label14.Location = New System.Drawing.Point(81, 10)
+        Me.Label14.Location = New System.Drawing.Point(61, 15)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(97, 32)
+        Me.Label14.Size = New System.Drawing.Size(69, 23)
         Me.Label14.TabIndex = 18
         Me.Label14.Text = "Songs"
         '
-        'txt_songName
+        'btn_setlist
         '
-        Me.txt_songName.Location = New System.Drawing.Point(206, 48)
-        Me.txt_songName.Name = "txt_songName"
-        Me.txt_songName.Size = New System.Drawing.Size(206, 22)
-        Me.txt_songName.TabIndex = 34
+        Me.btn_setlist.Location = New System.Drawing.Point(374, 630)
+        Me.btn_setlist.Name = "btn_setlist"
+        Me.btn_setlist.Size = New System.Drawing.Size(331, 44)
+        Me.btn_setlist.TabIndex = 35
+        Me.btn_setlist.Text = "setlist" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btn_setlist.UseVisualStyleBackColor = True
         '
-        'txt_songLength
+        'btn_Statistics
         '
-        Me.txt_songLength.Location = New System.Drawing.Point(206, 96)
-        Me.txt_songLength.Name = "txt_songLength"
-        Me.txt_songLength.Size = New System.Drawing.Size(206, 22)
-        Me.txt_songLength.TabIndex = 35
+        Me.btn_Statistics.Location = New System.Drawing.Point(19, 630)
+        Me.btn_Statistics.Name = "btn_Statistics"
+        Me.btn_Statistics.Size = New System.Drawing.Size(331, 44)
+        Me.btn_Statistics.TabIndex = 36
+        Me.btn_Statistics.Text = "Statistics" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btn_Statistics.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1924, 953)
+        Me.ClientSize = New System.Drawing.Size(1086, 687)
+        Me.Controls.Add(Me.btn_Statistics)
+        Me.Controls.Add(Me.btn_setlist)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
@@ -906,7 +1108,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btn_connection)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
@@ -1003,4 +1204,14 @@ Partial Class Form1
     Friend WithEvents lst_songs As ListBox
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents Label14 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents btn_setlist As Button
+    Friend WithEvents btn_Statistics As Button
 End Class

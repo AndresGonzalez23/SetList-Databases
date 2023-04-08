@@ -274,6 +274,7 @@ Public Class Form1
         Dim countryNew As New Country
         Dim thirdChar As String
         Dim auxCountryName As String
+
         If txtName.Text <> String.Empty Then
             countryNew = New Country
             countryNew.countryName = txtName.Text
@@ -289,6 +290,7 @@ Public Class Form1
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
             lst_Countries.Items.Add(countryNew.countryName)
+
 
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
@@ -309,6 +311,7 @@ Public Class Form1
                 Try
                     CountryUpdate.UpdateCountry()
                     MsgBox("Country Updated succesfully")
+
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
@@ -760,5 +763,11 @@ Public Class Form1
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If
+    End Sub
+
+    Private Sub btn_setlist_Click(sender As Object, e As EventArgs) Handles btn_setlist.Click
+        Dim main As New Main() 'Crea una nueva instancia del formulario 2
+        main.Show() 'Muestra el formulario 2
+        Me.Hide() 'Oculta el formulario actual
     End Sub
 End Class
