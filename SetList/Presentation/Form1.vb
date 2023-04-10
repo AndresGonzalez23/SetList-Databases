@@ -51,11 +51,9 @@ Public Class Form1
             Me.lst_Countries.Items.Add(cAux.countryName)
         Next
         For Each aAux In Me.artist.artistsDAO.Artists
-
             Me.lst_artits.Items.Add(aAux.artistName)
         Next
         For Each vAux In Me.Venue.vDao.Venues
-
             Me.lst_venues.Items.Add(vAux.venueName)
         Next
         For Each albAux In Me.album.albDAO.Albums
@@ -300,6 +298,7 @@ Public Class Form1
     Private Sub btn_update_country_Click(sender As Object, e As EventArgs) Handles btn_update_country.Click
         Me.country = New Country
         Dim CountryUpdate = New Country
+        Dim cAux As Country
         If MessageBox.Show("Are you sure? Do you want to update this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
@@ -315,6 +314,12 @@ Public Class Form1
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
+
+                lst_Countries.Items.Clear()
+                For Each cAux In Me.country.counDAO.Countries
+                    Me.lst_Countries.Items.Add(cAux.countryName)
+                Next
+
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If
@@ -377,7 +382,7 @@ Public Class Form1
 
     Private Sub btn_updateArtist_Click(sender As Object, e As EventArgs) Handles btn_updateArtist.Click
         Me.artist = New Artist
-        Dim UpdateArtist = New Artist : Dim countryNameNew As String
+        Dim UpdateArtist = New Artist : Dim countryNameNew As String : Dim aAux As Artist
 
         If MessageBox.Show("Are you sure? Do you want to update this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
@@ -396,6 +401,12 @@ Public Class Form1
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
+
+                lst_artits.Items.Clear()
+                For Each aAux In Me.artist.artistsDAO.Artists
+                    Me.lst_artits.Items.Add(aAux.artistName)
+                Next
+
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If
@@ -454,7 +465,7 @@ Public Class Form1
 
     Private Sub btn_updateVenue_Click(sender As Object, e As EventArgs) Handles btn_updateVenue.Click
         Me.Venue = New Venue
-        Dim UpdateVenue = New Venue : Dim countryNameNew As String
+        Dim UpdateVenue = New Venue : Dim countryNameNew As String : Dim vAux As Venue
 
         If MessageBox.Show("Are you sure? Do you want to update this venue?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
@@ -475,6 +486,12 @@ Public Class Form1
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
+
+                lst_venues.Items.Clear()
+                For Each vAux In Me.Venue.vDao.Venues
+                    Me.lst_venues.Items.Add(vAux.venueName)
+                Next
+
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If
@@ -535,6 +552,7 @@ Public Class Form1
     Private Sub btn_updateAlbum_Click(sender As Object, e As EventArgs) Handles btn_updateAlbum.Click
         Me.album = New Album
         Dim UpdateAlbum = New Album
+        Dim albAux As Album
 
         If MessageBox.Show("Are you sure? Do you want to update this album?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
@@ -554,6 +572,11 @@ Public Class Form1
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
+                lst_albums.Items.Clear()
+                For Each albAux In Me.album.albDAO.Albums
+                    Me.lst_albums.Items.Add(albAux.albumName)
+                Next
+
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If
@@ -619,7 +642,7 @@ Public Class Form1
 
     Private Sub btn_updateConcert_Click(sender As Object, e As EventArgs) Handles btn_updateConcert.Click
         Me.concert = New Concert
-        Dim UpdateConcert = New Concert
+        Dim UpdateConcert = New Concert : Dim coAux As Concert
         Me.artist = New Artist
         Me.Venue = New Venue
 
@@ -645,6 +668,17 @@ Public Class Form1
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
+                lst_concerts.Items.Clear()
+                For Each coAux In Me.concert.cDao.Concerts
+                    Me.artist = New Artist
+                    Me.Venue = New Venue
+                    artist.IdArtist = coAux.ArtistName
+                    artist.ReadArtist()
+                    Venue.idVenue = coAux.VenueName
+                    Venue.ReadVenue()
+                    Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
+                Next
+
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If
@@ -710,7 +744,7 @@ Public Class Form1
 
     Private Sub btn_updateSong_Click(sender As Object, e As EventArgs) Handles btn_updateSong.Click
         Me.song = New Song
-        Dim UpdateSong = New Song
+        Dim UpdateSong = New Song : Dim sonAux As Song
 
         If MessageBox.Show("Are you sure? Do you want to update this song?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
@@ -730,6 +764,11 @@ Public Class Form1
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
+                lst_songs.Items.Clear()
+                For Each sonAux In Me.song.sonDAO.Songs
+                    Me.lst_songs.Items.Add(sonAux.songName)
+                Next
+
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If
