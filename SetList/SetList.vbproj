@@ -90,6 +90,7 @@
     <Compile Include="Domain\Country.vb" />
     <Compile Include="Domain\CountryDAO.vb" />
     <Compile Include="Domain\Setlist.vb" />
+    <Compile Include="Domain\SetlistDAO.vb" />
     <Compile Include="Domain\Song.vb" />
     <Compile Include="Domain\SongDAO.vb" />
     <Compile Include="Domain\Venue.vb" />

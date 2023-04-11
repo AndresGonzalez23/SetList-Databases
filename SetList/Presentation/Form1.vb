@@ -16,6 +16,7 @@ Public Class Form1
     Private concert As Concert
     Private previousConcert As Concert
     Public album As Album
+    Public setlist As Setlist
     Public albumArtist As Integer
     Public songAlbum As Integer
     Public idVenue As Integer
@@ -90,6 +91,7 @@ Public Class Form1
         btn_insertSong.Enabled = True
         btn_updateSong.Enabled = True
         btn_deleteSong.Enabled = True
+        btn_insertSongInSetlist.Enabled = True
     End Sub
 
 
@@ -211,6 +213,7 @@ Public Class Form1
             Me.concert = New Concert
             Me.artist = New Artist
             Me.Venue = New Venue
+            Me.song = New Song
             data = lst_concerts.SelectedItem.ToString()
             separatedData = data.Split("-"c)
             artist.artistName = separatedData(0)
@@ -239,6 +242,15 @@ Public Class Form1
             previousConcert.ArtistName = artist.IdArtist
             previousConcert.VenueName = Venue.idVenue
             previousConcert.ReadConcertbyArtistAndVenue()
+
+            'esto no funciona por que no se cargan en la setlist todos los elementos que tienen ligados'
+
+            For Each setlist As Setlist In concert.SetList
+                song.idSong = setlist.setlistSongs
+                song.ReadSong()
+                lst_concertSetlist.Items.Add(setlist.setlistSongs)
+            Next
+
 
         End If
     End Sub
@@ -642,7 +654,7 @@ Public Class Form1
 
     Private Sub btn_updateConcert_Click(sender As Object, e As EventArgs) Handles btn_updateConcert.Click
         Me.concert = New Concert
-        Dim UpdateConcert = New Concert : Dim coAux As Concert
+        Dim UpdateConcert As New Concert : Dim coAux As Concert
         Me.artist = New Artist
         Me.Venue = New Venue
 
@@ -808,5 +820,24 @@ Public Class Form1
         Dim main As New Main() 'Crea una nueva instancia del formulario 2
         main.Show() 'Muestra el formulario 2
         Me.Hide() 'Oculta el formulario actual
+    End Sub
+
+    Private Sub btn_insertSongInSetlist_Click(sender As Object, e As EventArgs) Handles btn_insertSongInSetlist.Click
+        Dim setListItem As New Setlist : Dim setlistConcert As New Concert
+
+        If lst_concerts.SelectedIndex <> -1 Then
+            setListItem.setlistConcerts = previousConcert.idConcert
+            setlistConcert.idConcert = previousConcert.idConcert
+            setlistConcert.ArtistName = previousConcert.ArtistName
+            setlistConcert.VenueName = previousConcert.VenueName
+            setlistConcert.concertDate = previousConcert.concertDate
+            setListItem.setlistSongs = previousSong.idSong
+            setListItem.OrderInSetlist = Convert.ToInt32(txt_setlistOrder.Text)
+            setlistConcert.SetList.Add(setListItem)
+            setListItem.InsertSetlist()
+            lst_concertSetlist.Items.Add(previousSong.songName)
+        End If
+
+
     End Sub
 End Class
