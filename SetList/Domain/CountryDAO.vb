@@ -24,16 +24,25 @@
         Next
     End Sub
 
+    Public Sub ReadCountryByName(ByRef country As Country)
+        Dim col As Collection : Dim aux As Collection
+        col = DBBroker.GetBroker.Read("SELECT * FROM Country WHERE CountryName='" & country.countryName & "';")
+        For Each aux In col
+            country.SetIdCountry(aux(1).ToString)
+            country.SetCountryName(aux(2).ToString)
+        Next
+    End Sub
+
     Public Function Insert(ByVal country As Country) As Integer
         Return DBBroker.GetBroker.Change("INSERT INTO Country (idCountry,countryName) VALUES ('" & country.GetIdCountry() & "','" & country.GetCountryName() & "');")
     End Function
 
     Public Function Update(ByVal country As Country) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Country SET idCountry='" & country.GetIdCountry() & "' ,countryName='" & country.GetCountryName() & "'WHERE idCountry='" & country.GetIdCountry() & "';")
+        Return DBBroker.GetBroker.Change("UPDATE Country SET idCountry='" & country.countryName.Substring(0, 3) & "' ,countryName='" & country.countryName & "'WHERE idCountry='" & country.GetIdCountry() & "';")
     End Function
 
     Public Function Delete(ByVal country As Country) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Country WHERE CountryName='" & country.countryName() & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Country WHERE idCountry='" & country.idCountry & "';")
     End Function
 
 

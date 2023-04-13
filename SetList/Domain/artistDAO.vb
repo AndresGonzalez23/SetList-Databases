@@ -47,7 +47,7 @@
     End Function
 
     Public Function Delete(ByVal ar As Artist) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Artists WHERE ArtistName='" & ar.artistName() & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Artists WHERE idArtist=" & ar.IdArtist & ";")
     End Function
 
 End Class

@@ -89,13 +89,35 @@
     <Compile Include="Domain\concertDAO.vb" />
     <Compile Include="Domain\Country.vb" />
     <Compile Include="Domain\CountryDAO.vb" />
-    <Compile Include="Domain\Setlist.vb" />
-    <Compile Include="Domain\SetlistDAO.vb" />
     <Compile Include="Domain\Song.vb" />
     <Compile Include="Domain\SongDAO.vb" />
     <Compile Include="Domain\Venue.vb" />
     <Compile Include="Domain\VenueDAO.vb" />
     <Compile Include="Persistence\DBBroker.vb" />
+    <Compile Include="Presentation\AlbumForm.Designer.vb">
+      <DependentUpon>AlbumForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\AlbumForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ArtistForm.Designer.vb">
+      <DependentUpon>ArtistForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ArtistForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ConcertsForm.Designer.vb">
+      <DependentUpon>ConcertsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ConcertsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\CountryForm.Designer.vb">
+      <DependentUpon>CountryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\CountryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentation\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +146,18 @@
     <Compile Include="Presentation\Main.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentation\SongsForm.Designer.vb">
+      <DependentUpon>SongsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\SongsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\VenueForm.Designer.vb">
+      <DependentUpon>VenueForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\VenueForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -132,11 +166,29 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\AlbumForm.resx">
+      <DependentUpon>AlbumForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ArtistForm.resx">
+      <DependentUpon>ArtistForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ConcertsForm.resx">
+      <DependentUpon>ConcertsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\CountryForm.resx">
+      <DependentUpon>CountryForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\SongsForm.resx">
+      <DependentUpon>SongsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\VenueForm.resx">
+      <DependentUpon>VenueForm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

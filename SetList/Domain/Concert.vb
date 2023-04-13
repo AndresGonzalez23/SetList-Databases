@@ -3,7 +3,7 @@
     Public Property concertDate As Date
     Public Property ArtistName As Integer
     Public Property VenueName As Integer
-    Public Property SetList As New List(Of Setlist)
+    Public Property SetList As New Collection()
 
     Public ReadOnly Property cDao As ConcertDAO
 

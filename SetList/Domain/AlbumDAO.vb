@@ -50,7 +50,7 @@
     End Function
 
     Public Function Delete(ByVal ar As Album) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Albums WHERE AlbumName='" & ar.GetAlbumName() & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Albums WHERE idAlbum='" & ar.idAlbum & "';")
     End Function
 
 End Class

@@ -44,6 +44,6 @@
         Return DBBroker.GetBroker.Change("UPDATE Venues SET venueName='" & v.GetVenueName() & "' , venueCountry='" & v.GetVenueCountry() & "' ,venueType='" & v.GetVenueType() & "'WHERE idVenue=" & v.GetidVenue & ";")
     End Function
     Public Function Delete(ByVal v As Venue) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Venues WHERE VenueName='" & v.GetVenueName() & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Venues WHERE idVenue='" & v.idVenue & "';")
     End Function
 End Class

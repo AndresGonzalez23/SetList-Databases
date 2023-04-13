@@ -37,6 +37,10 @@
         Me.counDAO.Read(Me)
     End Sub
 
+    Public Sub ReadCountryByName()
+        Me.counDAO.ReadCountryByName(Me)
+    End Sub
+
     Public Function InsertCountry() As Integer
         Return Me.counDAO.Insert(Me)
     End Function
