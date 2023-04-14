@@ -52,9 +52,14 @@
         Return Me.albDAO.ReadAll()
     End Function
 
+    Public Function ReadAllAlbumsArtist() As Object
+        Return Me.albDAO.ReadAllArtistAlbums(Me)
+    End Function
+
     Public Sub ReadAlbum()
         Me.albDAO.Read(Me)
     End Sub
+
     Public Sub ReadAlbumByName()
         Me.albDAO.ReadByName(Me)
     End Sub

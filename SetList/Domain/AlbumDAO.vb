@@ -19,9 +19,23 @@
         Return Albums
     End Function
 
+    Public Function ReadAllArtistAlbums(ByRef album As Album) As Object
+        Dim ar As Album
+        Dim col, aux As Collection
+        col = DBBroker.GetBroker().Read("SELECT * FROM albums WHERE Artist=" & album.albumArtist & ";")
+        For Each aux In col
+            ar = New Album(Convert.ToInt32(aux(1).ToString))
+            ar.SetAlbumName(aux(2).ToString)
+            ar.albumYear = Convert.ToInt32(aux(3).ToString)
+            ar.albumArtist = Convert.ToInt32(aux(1).ToString)
+            Me.Albums.Add(ar)
+        Next
+        Return Albums
+    End Function
+
     Public Sub Read(ByRef ar As Album)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Albums WHERE idAlbum='" & ar.GetIdAlbum() & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Albums WHERE idAlbum=" & ar.GetIdAlbum() & ";")
         For Each aux In col
             ar.SetAlbumName(aux(2).ToString)
             ar.albumYear = Convert.ToInt32(aux(3).ToString)

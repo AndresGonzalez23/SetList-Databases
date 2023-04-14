@@ -78,6 +78,7 @@ Partial Class ConcertsForm
         '
         'btn_removeSong
         '
+        Me.btn_removeSong.Enabled = False
         Me.btn_removeSong.Image = Global.SetList.My.Resources.Resources.flecha_izquierda
         Me.btn_removeSong.Location = New System.Drawing.Point(651, 224)
         Me.btn_removeSong.Name = "btn_removeSong"
@@ -87,6 +88,7 @@ Partial Class ConcertsForm
         '
         'btn_addSong
         '
+        Me.btn_addSong.Enabled = False
         Me.btn_addSong.Image = Global.SetList.My.Resources.Resources.flecha_correcta
         Me.btn_addSong.Location = New System.Drawing.Point(651, 111)
         Me.btn_addSong.Name = "btn_addSong"
@@ -100,7 +102,7 @@ Partial Class ConcertsForm
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(713, 44)
+        Me.Label2.Location = New System.Drawing.Point(440, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(150, 29)
         Me.Label2.TabIndex = 48
@@ -112,7 +114,7 @@ Partial Class ConcertsForm
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(440, 44)
+        Me.Label1.Location = New System.Drawing.Point(713, 45)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(187, 29)
         Me.Label1.TabIndex = 47
@@ -122,7 +124,7 @@ Partial Class ConcertsForm
         '
         Me.lst_songs.FormattingEnabled = True
         Me.lst_songs.ItemHeight = 16
-        Me.lst_songs.Location = New System.Drawing.Point(718, 76)
+        Me.lst_songs.Location = New System.Drawing.Point(445, 76)
         Me.lst_songs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_songs.Name = "lst_songs"
         Me.lst_songs.Size = New System.Drawing.Size(182, 260)
@@ -152,7 +154,7 @@ Partial Class ConcertsForm
         '
         Me.lst_concertSetlist.FormattingEnabled = True
         Me.lst_concertSetlist.ItemHeight = 16
-        Me.lst_concertSetlist.Location = New System.Drawing.Point(445, 76)
+        Me.lst_concertSetlist.Location = New System.Drawing.Point(718, 76)
         Me.lst_concertSetlist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_concertSetlist.Name = "lst_concertSetlist"
         Me.lst_concertSetlist.Size = New System.Drawing.Size(182, 260)

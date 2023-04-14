@@ -4,6 +4,9 @@
     Private Venue As Venue
     Private concert As Concert
     Private previousConcert As Concert
+    Private song As Song
+    Private album As Album
+
 
     Public Sub LoadInfo()
         Dim coAux As Concert
@@ -87,6 +90,62 @@
             previousConcert.ReadConcertbyArtistAndVenue()
 
         End If
+    End Sub
+
+    Private Sub lst_songs_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_songs.SelectedIndexChanged
+        btn_addSong.Enabled = True
+        btn_removeSong.Enabled = False
+    End Sub
+
+    Private Sub lst_concertSetlist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_concertSetlist.SelectedIndexChanged
+        btn_removeSong.Enabled = True
+    End Sub
+
+    Private Sub lst_artists_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_artists.SelectedIndexChanged
+        Dim albAux As Album
+        Dim sonAux As Song
+
+        Me.artist = New Artist
+        Me.album = New Album
+        Me.song = New Song
+
+        btn_addSong.Enabled = False
+        lst_concertSetlist.Items.Clear()
+        lst_songs.Items.Clear()
+        artist.artistName = lst_artists.SelectedItem.ToString
+        artist.ReadArtistByName()
+
+        Try
+            album.albumArtist = artist.IdArtist
+            album.ReadAllAlbumsArtist()
+
+            For Each albAux In Me.album.albDAO.Albums
+                song.songAlbum = albAux.idAlbum
+                song.ReadAllAlbumSongs()
+                For Each sonAux In Me.song.sonDAO.Songs
+                    song.songName = sonAux.songName
+                    Me.lst_songs.Items.Add(song.songName)
+                Next
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+
+        EliminateDuplicateSongs(Me.lst_songs)
+
+    End Sub
+
+    Public Sub EliminateDuplicateSongs(ByRef listbox As ListBox)
+        Dim items As New List(Of String)
+        For Each item As String In listbox.Items
+            items.Add(item)
+        Next
+
+        For i As Integer = items.Count - 1 To 0 Step -1
+            If listbox.Items.IndexOf(items(i)) <> i Then
+                listbox.Items.RemoveAt(i)
+            End If
+        Next
     End Sub
 
     Private Sub btn_insertConcert_Click(sender As Object, e As EventArgs) Handles btn_insertConcert.Click
@@ -198,6 +257,20 @@
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If
+    End Sub
+
+    Private Sub btn_addSong_Click(sender As Object, e As EventArgs) Handles btn_addSong.Click
+
+        If Not lst_concertSetlist.Items.Contains(lst_songs.SelectedItem.ToString) Then
+            lst_concertSetlist.Items.Add(lst_songs.SelectedItem.ToString)
+        Else
+            MsgBox("This song is already on the list")
+        End If
+
+    End Sub
+
+    Private Sub btn_removeSong_Click(sender As Object, e As EventArgs) Handles btn_removeSong.Click
+        lst_concertSetlist.Items.Remove(lst_concertSetlist.SelectedItem.ToString)
     End Sub
 
 End Class

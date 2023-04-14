@@ -61,9 +61,14 @@
         Return Me.sonDAO.ReadAll()
     End Function
 
+    Public Function ReadAllAlbumSongs() As Object
+        Return Me.sonDAO.ReadAllAlbumSongs(Me)
+    End Function
+
     Public Sub ReadSong()
         Me.sonDAO.Read(Me)
     End Sub
+
     Public Sub ReadSongByName()
         Me.sonDAO.ReadByName(Me)
     End Sub

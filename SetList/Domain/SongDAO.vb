@@ -13,7 +13,22 @@
             so = New Song(Convert.ToInt32(aux(1).ToString))
             so.SetSongName(aux(2).ToString)
             so.songLength = Convert.ToInt32(aux(3).ToString)
-            so.songAlbum = Convert.ToInt32(aux(1).ToString)
+            so.songAlbum = Convert.ToInt32(aux(4).ToString)
+            so.songOrder = Convert.ToInt32(aux(5).ToString)
+            Me.Songs.Add(so)
+        Next
+        Return Songs
+    End Function
+
+    Public Function ReadAllAlbumSongs(ByRef song As Song) As Object
+        Dim so As Song
+        Dim col, aux As Collection
+        col = DBBroker.GetBroker().Read("SELECT * FROM Songs WHERE Album='" & song.songAlbum & "';")
+        For Each aux In col
+            so = New Song(Convert.ToInt32(aux(1).ToString))
+            so.SetSongName(aux(2).ToString)
+            so.songLength = Convert.ToInt32(aux(3).ToString)
+            so.songAlbum = Convert.ToInt32(aux(4).ToString)
             so.songOrder = Convert.ToInt32(aux(5).ToString)
             Me.Songs.Add(so)
         Next
@@ -22,7 +37,7 @@
 
     Public Sub Read(ByRef so As Song)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Songs WHERE idSong='" & so.GetIdSong() & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Songs WHERE idSong=" & so.GetIdSong() & ";")
         For Each aux In col
             so.SetSongName(aux(2).ToString)
             so.songLength = Convert.ToInt32(aux(3).ToString)
