@@ -24,6 +24,8 @@ Partial Class ConcertsForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConcertsForm))
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btn_removeSong = New System.Windows.Forms.Button()
+        Me.btn_addSong = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lst_songs = New System.Windows.Forms.ListBox()
@@ -49,6 +51,8 @@ Partial Class ConcertsForm
         '
         Me.Panel5.BackColor = System.Drawing.Color.Silver
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.btn_removeSong)
+        Me.Panel5.Controls.Add(Me.btn_addSong)
         Me.Panel5.Controls.Add(Me.Label2)
         Me.Panel5.Controls.Add(Me.Label1)
         Me.Panel5.Controls.Add(Me.lst_songs)
@@ -72,13 +76,31 @@ Partial Class ConcertsForm
         Me.Panel5.Size = New System.Drawing.Size(929, 519)
         Me.Panel5.TabIndex = 32
         '
+        'btn_removeSong
+        '
+        Me.btn_removeSong.Image = Global.SetList.My.Resources.Resources.flecha_izquierda
+        Me.btn_removeSong.Location = New System.Drawing.Point(651, 224)
+        Me.btn_removeSong.Name = "btn_removeSong"
+        Me.btn_removeSong.Size = New System.Drawing.Size(47, 43)
+        Me.btn_removeSong.TabIndex = 50
+        Me.btn_removeSong.UseVisualStyleBackColor = True
+        '
+        'btn_addSong
+        '
+        Me.btn_addSong.Image = Global.SetList.My.Resources.Resources.flecha_correcta
+        Me.btn_addSong.Location = New System.Drawing.Point(651, 111)
+        Me.btn_addSong.Name = "btn_addSong"
+        Me.btn_addSong.Size = New System.Drawing.Size(47, 43)
+        Me.btn_addSong.TabIndex = 49
+        Me.btn_addSong.UseVisualStyleBackColor = True
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(671, 44)
+        Me.Label2.Location = New System.Drawing.Point(713, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(150, 29)
         Me.Label2.TabIndex = 48
@@ -100,7 +122,7 @@ Partial Class ConcertsForm
         '
         Me.lst_songs.FormattingEnabled = True
         Me.lst_songs.ItemHeight = 16
-        Me.lst_songs.Location = New System.Drawing.Point(676, 76)
+        Me.lst_songs.Location = New System.Drawing.Point(718, 76)
         Me.lst_songs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_songs.Name = "lst_songs"
         Me.lst_songs.Size = New System.Drawing.Size(182, 260)
@@ -301,4 +323,6 @@ Partial Class ConcertsForm
     Friend WithEvents Label1 As Label
     Friend WithEvents lst_songs As ListBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents btn_removeSong As Button
+    Friend WithEvents btn_addSong As Button
 End Class
