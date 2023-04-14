@@ -43,36 +43,36 @@ Partial Class ArtistForm
         Me.Panel3.BackColor = System.Drawing.Color.Silver
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.lst_Countries)
-        Me.Panel3.Controls.Add(Me.PictureBox3)
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.lst_artists)
         Me.Panel3.Controls.Add(Me.btn_insertArtist)
         Me.Panel3.Controls.Add(Me.btn_updateArtist)
-        Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.btn_deleteArtist)
         Me.Panel3.Controls.Add(Me.txt_artistName)
         Me.Panel3.Controls.Add(Me.Label6)
-        Me.Panel3.Location = New System.Drawing.Point(80, 72)
+        Me.Panel3.Location = New System.Drawing.Point(108, 66)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(646, 294)
+        Me.Panel3.Size = New System.Drawing.Size(568, 354)
         Me.Panel3.TabIndex = 28
         '
         'lst_Countries
         '
+        Me.lst_Countries.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_Countries.FormattingEnabled = True
-        Me.lst_Countries.ItemHeight = 16
-        Me.lst_Countries.Location = New System.Drawing.Point(417, 91)
+        Me.lst_Countries.ItemHeight = 25
+        Me.lst_Countries.Location = New System.Drawing.Point(200, 136)
         Me.lst_Countries.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_Countries.Name = "lst_Countries"
-        Me.lst_Countries.Size = New System.Drawing.Size(175, 132)
+        Me.lst_Countries.Size = New System.Drawing.Size(175, 179)
         Me.lst_Countries.TabIndex = 29
         '
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(29, 18)
+        Me.PictureBox3.Location = New System.Drawing.Point(309, 19)
         Me.PictureBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(40, 31)
@@ -85,7 +85,7 @@ Partial Class ArtistForm
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(285, 91)
+        Me.Label4.Location = New System.Drawing.Point(195, 104)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(108, 29)
         Me.Label4.TabIndex = 19
@@ -93,39 +93,42 @@ Partial Class ArtistForm
         '
         'lst_artists
         '
+        Me.lst_artists.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_artists.FormattingEnabled = True
-        Me.lst_artists.ItemHeight = 16
-        Me.lst_artists.Location = New System.Drawing.Point(19, 57)
+        Me.lst_artists.ItemHeight = 25
+        Me.lst_artists.Location = New System.Drawing.Point(19, 25)
         Me.lst_artists.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artists.Name = "lst_artists"
-        Me.lst_artists.Size = New System.Drawing.Size(175, 148)
+        Me.lst_artists.Size = New System.Drawing.Size(150, 304)
         Me.lst_artists.TabIndex = 9
         '
         'btn_insertArtist
         '
         Me.btn_insertArtist.Enabled = False
+        Me.btn_insertArtist.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_insertArtist.Image = CType(resources.GetObject("btn_insertArtist.Image"), System.Drawing.Image)
         Me.btn_insertArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insertArtist.Location = New System.Drawing.Point(109, 236)
+        Me.btn_insertArtist.Location = New System.Drawing.Point(418, 25)
         Me.btn_insertArtist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_insertArtist.Name = "btn_insertArtist"
-        Me.btn_insertArtist.Size = New System.Drawing.Size(107, 49)
+        Me.btn_insertArtist.Size = New System.Drawing.Size(90, 55)
         Me.btn_insertArtist.TabIndex = 12
-        Me.btn_insertArtist.Text = "Insert artist"
+        Me.btn_insertArtist.Text = "ADD"
         Me.btn_insertArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insertArtist.UseVisualStyleBackColor = True
         '
         'btn_updateArtist
         '
         Me.btn_updateArtist.Enabled = False
+        Me.btn_updateArtist.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_updateArtist.Image = CType(resources.GetObject("btn_updateArtist.Image"), System.Drawing.Image)
         Me.btn_updateArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_updateArtist.Location = New System.Drawing.Point(268, 236)
+        Me.btn_updateArtist.Location = New System.Drawing.Point(418, 104)
         Me.btn_updateArtist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_updateArtist.Name = "btn_updateArtist"
-        Me.btn_updateArtist.Size = New System.Drawing.Size(125, 49)
+        Me.btn_updateArtist.Size = New System.Drawing.Size(90, 55)
         Me.btn_updateArtist.TabIndex = 13
-        Me.btn_updateArtist.Text = "Update Artist"
+        Me.btn_updateArtist.Text = "UPDATE"
         Me.btn_updateArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_updateArtist.UseVisualStyleBackColor = True
         '
@@ -133,34 +136,36 @@ Partial Class ArtistForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(91, 18)
+        Me.Label3.Location = New System.Drawing.Point(357, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 29)
+        Me.Label3.Size = New System.Drawing.Size(127, 41)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Artists"
         '
         'btn_deleteArtist
         '
         Me.btn_deleteArtist.Enabled = False
+        Me.btn_deleteArtist.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_deleteArtist.Image = CType(resources.GetObject("btn_deleteArtist.Image"), System.Drawing.Image)
         Me.btn_deleteArtist.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteArtist.Location = New System.Drawing.Point(442, 236)
+        Me.btn_deleteArtist.Location = New System.Drawing.Point(418, 197)
         Me.btn_deleteArtist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_deleteArtist.Name = "btn_deleteArtist"
-        Me.btn_deleteArtist.Size = New System.Drawing.Size(132, 49)
+        Me.btn_deleteArtist.Size = New System.Drawing.Size(90, 55)
         Me.btn_deleteArtist.TabIndex = 14
-        Me.btn_deleteArtist.Text = "Delete Artist"
+        Me.btn_deleteArtist.Text = "DELETE"
         Me.btn_deleteArtist.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_deleteArtist.UseVisualStyleBackColor = True
         '
         'txt_artistName
         '
-        Me.txt_artistName.Location = New System.Drawing.Point(417, 57)
+        Me.txt_artistName.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_artistName.Location = New System.Drawing.Point(200, 62)
         Me.txt_artistName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_artistName.Name = "txt_artistName"
-        Me.txt_artistName.Size = New System.Drawing.Size(175, 22)
+        Me.txt_artistName.Size = New System.Drawing.Size(175, 32)
         Me.txt_artistName.TabIndex = 10
         '
         'Label6
@@ -169,7 +174,7 @@ Partial Class ArtistForm
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(311, 50)
+        Me.Label6.Location = New System.Drawing.Point(195, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(82, 29)
         Me.Label6.TabIndex = 18
@@ -182,12 +187,15 @@ Partial Class ArtistForm
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Panel3)
+        Me.Controls.Add(Me.PictureBox3)
+        Me.Controls.Add(Me.Label3)
         Me.Name = "ArtistForm"
         Me.Text = "ArtistForm"
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

@@ -124,4 +124,6 @@
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If
     End Sub
+
+
 End Class
