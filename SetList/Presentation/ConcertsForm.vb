@@ -152,6 +152,7 @@
         Dim concertNew As Concert
         Me.artist = New Artist
         Me.Venue = New Venue
+        Me.song = New Song
 
         If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty Then
             concertNew = New Concert
@@ -163,6 +164,12 @@
             concertNew.VenueName = Venue.idVenue
             concertNew.concertDate = txt_dateConcert.Value.Date
 
+            For Each cancion As String In lst_concertSetlist.Items
+                song.songName = cancion
+                song.ReadSongByName()
+                concertNew.SetList.Add(song.idSong)
+            Next
+
             Try
                 If concertNew.InsertConcert() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
@@ -170,6 +177,8 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
+            concertNew.ReadConcertbyArtistAndVenue()
+            concertNew.InsertConcertSetlist()
             lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)

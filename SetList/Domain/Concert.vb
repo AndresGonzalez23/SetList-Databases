@@ -66,6 +66,10 @@
         Return Me.cDao.Insert(Me)
     End Function
 
+    Public Function InsertConcertSetlist() As Integer
+        Return Me.cDao.InsertSetlist(Me)
+    End Function
+
     Public Function DeleteConcert() As Integer
         Return Me.cDao.Delete(Me)
     End Function

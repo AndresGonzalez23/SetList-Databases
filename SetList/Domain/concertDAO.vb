@@ -41,6 +41,12 @@
     Public Function Insert(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("INSERT INTO Concerts (Artist, Venue, ConcertDate) VALUES (" & concert.GetArtist() & " ," & concert.GetVenue & ",'" & concert.GetDate.ToString("yyyy/MM/dd") & "');")
     End Function
+    Public Function InsertSetlist(ByVal concert As Concert) As Integer
+        For i As Integer = 1 To concert.SetList.Count
+            Dim songToInsert As Integer = Convert.ToInt32(concert.SetList.Item(i))
+            DBBroker.GetBroker.Change("INSERT INTO setlists (Concert,Song,OrderInSetlist) VALUES (" & concert.idConcert & "," & songToInsert & "," & i & ");")
+        Next
+    End Function
     Public Function Update(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("UPDATE Concerts SET ConcertDate='" & concert.GetDate.ToString("yyyy/MM/dd") & "' ,Artist='" & concert.GetArtist() & "' ,Venue='" & concert.GetVenue() & "'WHERE idConcert=" & concert.GetConcert() & ";")
     End Function
