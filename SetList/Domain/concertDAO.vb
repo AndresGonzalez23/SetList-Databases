@@ -60,8 +60,19 @@
         Return DBBroker.GetBroker.Change("UPDATE Concerts SET ConcertDate='" & concert.GetDate.ToString("yyyy/MM/dd") & "' ,Artist='" & concert.GetArtist() & "' ,Venue='" & concert.GetVenue() & "'WHERE idConcert=" & concert.GetConcert() & ";")
     End Function
 
+    Public Function UpdateSetlist(ByVal concert As Concert) As Integer
+        For i As Integer = 1 To concert.SetList.Count
+            Dim songToInsert As Integer = Convert.ToInt32(concert.SetList.Item(i))
+            DBBroker.GetBroker.Change("UPDATE setlists SET Song=" & songToInsert & " ,Concert=" & concert.idConcert & "WHERE OrderInSetlist=" & i & ";")
+        Next
+    End Function
+
     Public Function Delete(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idConcert=" & concert.GetConcert() & ";")
+    End Function
+
+    Public Function DeteleSetlist(ByVal concert As Concert) As Integer
+        Return DBBroker.GetBroker.Change("DELETE FROM setlists WHERE Concert=" & concert.idConcert & ";")
     End Function
 End Class
 

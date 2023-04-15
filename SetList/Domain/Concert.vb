@@ -78,7 +78,15 @@
         Return Me.cDao.Delete(Me)
     End Function
 
+    Public Function DeleteConcertSetlist() As Integer
+        Return Me.cDao.DeteleSetlist(Me)
+    End Function
+
     Public Function UpdateConcert() As Integer
         Return Me.cDao.Update(Me)
+    End Function
+
+    Public Function UpdateConcertSetlist() As Integer
+        Return Me.cDao.UpdateSetlist(Me)
     End Function
 End Class

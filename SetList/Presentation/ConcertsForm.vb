@@ -218,6 +218,12 @@
             UpdateConcert.VenueName = Venue.idVenue
             UpdateConcert.idConcert = previousConcert.idConcert
 
+            For Each cancion As String In lst_concertSetlist.Items
+                song.songName = cancion
+                song.ReadSongByName()
+                UpdateConcert.SetList.Add(song.idSong)
+            Next
+
             If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty Then
                 Try
                     UpdateConcert.UpdateConcert()
@@ -225,6 +231,7 @@
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
+
                 lst_concerts.Items.Clear()
                 concert.ReadAllConcert()
                 For Each coAux In Me.concert.cDao.Concerts
@@ -235,6 +242,15 @@
                     Venue.idVenue = coAux.VenueName
                     Venue.ReadVenue()
                     Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
+                Next
+
+                lst_concertSetlist.Items.Clear()
+                UpdateConcert.UpdateConcertSetlist()
+                UpdateConcert.ReadSetlist()
+                For Each setlistSong As Integer In UpdateConcert.SetList
+                    song.idSong = setlistSong
+                    song.ReadSong()
+                    lst_concertSetlist.Items.Add(song.songName)
                 Next
 
             Else
@@ -261,6 +277,9 @@
             Venue.ReadVenueByName()
             concert.VenueName = Venue.idVenue
             concert.ReadConcertbyArtistAndVenue()
+
+            concert.DeleteConcertSetlist()
+            lst_concertSetlist.Items.Clear()
 
             If artist.artistName <> lst_artists.SelectedItem.ToString And Venue.venueName <> lst_venues.SelectedItem.ToString Then
                 MessageBox.Show("This is not the same concert", "Custom Error", MessageBoxButtons.OK)
