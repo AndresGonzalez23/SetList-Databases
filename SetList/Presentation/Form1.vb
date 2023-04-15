@@ -10,7 +10,7 @@ Imports SetList.ConcertsForm
 
 Public Class Form1
 
-    Private Sub btn_setlist_Click(sender As Object, e As EventArgs) Handles btn_setlist.Click
+    Private Sub btn_setlist_Click(sender As Object, e As EventArgs) 
         Dim main As New Main() 'Crea una nueva instancia del formulario 2
         main.Show() 'Muestra el formulario 2
         Me.Hide() 'Oculta el formulario actual

@@ -152,5 +152,10 @@
         End If
     End Sub
 
+    Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
+        txt_songLength.Clear()
+        txt_songName.Clear()
+        txt_songOrder.Clear()
 
+    End Sub
 End Class

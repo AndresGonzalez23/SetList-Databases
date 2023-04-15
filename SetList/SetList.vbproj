@@ -251,5 +251,20 @@
   <ItemGroup>
     <None Include="Resources\flecha-correcta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escoba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escoba %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escoba %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lineas-verticales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grafico.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

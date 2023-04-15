@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ConcertsForm
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,11 @@ Partial Class ConcertsForm
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConcertsForm))
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.btn_clean = New System.Windows.Forms.Button()
         Me.btn_removeSong = New System.Windows.Forms.Button()
         Me.btn_addSong = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -51,6 +52,7 @@ Partial Class ConcertsForm
         '
         Me.Panel5.BackColor = System.Drawing.Color.Silver
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel5.Controls.Add(Me.btn_clean)
         Me.Panel5.Controls.Add(Me.btn_removeSong)
         Me.Panel5.Controls.Add(Me.btn_addSong)
         Me.Panel5.Controls.Add(Me.Label2)
@@ -68,19 +70,30 @@ Partial Class ConcertsForm
         Me.Panel5.Controls.Add(Me.btn_insertConcert)
         Me.Panel5.Controls.Add(Me.txt_dateConcert)
         Me.Panel5.Controls.Add(Me.lst_concerts)
-        Me.Panel5.Controls.Add(Me.PictureBox6)
-        Me.Panel5.Controls.Add(Me.Label17)
-        Me.Panel5.Location = New System.Drawing.Point(22, 11)
+        Me.Panel5.Location = New System.Drawing.Point(26, 74)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(929, 519)
+        Me.Panel5.Size = New System.Drawing.Size(929, 433)
         Me.Panel5.TabIndex = 32
+        '
+        'btn_clean
+        '
+        Me.btn_clean.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_clean.Image = Global.SetList.My.Resources.Resources.escoba__2_
+        Me.btn_clean.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_clean.Location = New System.Drawing.Point(800, 365)
+        Me.btn_clean.Name = "btn_clean"
+        Me.btn_clean.Size = New System.Drawing.Size(92, 55)
+        Me.btn_clean.TabIndex = 51
+        Me.btn_clean.Text = "CLEAN"
+        Me.btn_clean.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_clean.UseVisualStyleBackColor = True
         '
         'btn_removeSong
         '
         Me.btn_removeSong.Enabled = False
         Me.btn_removeSong.Image = Global.SetList.My.Resources.Resources.flecha_izquierda
-        Me.btn_removeSong.Location = New System.Drawing.Point(651, 224)
+        Me.btn_removeSong.Location = New System.Drawing.Point(665, 223)
         Me.btn_removeSong.Name = "btn_removeSong"
         Me.btn_removeSong.Size = New System.Drawing.Size(47, 43)
         Me.btn_removeSong.TabIndex = 50
@@ -90,7 +103,7 @@ Partial Class ConcertsForm
         '
         Me.btn_addSong.Enabled = False
         Me.btn_addSong.Image = Global.SetList.My.Resources.Resources.flecha_correcta
-        Me.btn_addSong.Location = New System.Drawing.Point(651, 111)
+        Me.btn_addSong.Location = New System.Drawing.Point(665, 154)
         Me.btn_addSong.Name = "btn_addSong"
         Me.btn_addSong.Size = New System.Drawing.Size(47, 43)
         Me.btn_addSong.TabIndex = 49
@@ -102,11 +115,11 @@ Partial Class ConcertsForm
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(440, 44)
+        Me.Label2.Location = New System.Drawing.Point(489, 13)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(150, 29)
+        Me.Label2.Size = New System.Drawing.Size(87, 29)
         Me.Label2.TabIndex = 48
-        Me.Label2.Text = "ArtistSongs"
+        Me.Label2.Text = "Songs"
         '
         'Label1
         '
@@ -114,50 +127,54 @@ Partial Class ConcertsForm
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(713, 45)
+        Me.Label1.Location = New System.Drawing.Point(735, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(187, 29)
+        Me.Label1.Size = New System.Drawing.Size(86, 29)
         Me.Label1.TabIndex = 47
-        Me.Label1.Text = "Concert Setlist"
+        Me.Label1.Text = "Setlist"
         '
         'lst_songs
         '
+        Me.lst_songs.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_songs.FormattingEnabled = True
-        Me.lst_songs.ItemHeight = 16
-        Me.lst_songs.Location = New System.Drawing.Point(445, 76)
+        Me.lst_songs.ItemHeight = 20
+        Me.lst_songs.Location = New System.Drawing.Point(481, 47)
         Me.lst_songs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_songs.Name = "lst_songs"
-        Me.lst_songs.Size = New System.Drawing.Size(182, 260)
+        Me.lst_songs.Size = New System.Drawing.Size(150, 304)
         Me.lst_songs.TabIndex = 46
         '
         'lst_venues
         '
+        Me.lst_venues.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_venues.FormattingEnabled = True
-        Me.lst_venues.ItemHeight = 16
-        Me.lst_venues.Location = New System.Drawing.Point(206, 325)
+        Me.lst_venues.ItemHeight = 20
+        Me.lst_venues.Location = New System.Drawing.Point(237, 284)
         Me.lst_venues.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_venues.Name = "lst_venues"
-        Me.lst_venues.Size = New System.Drawing.Size(175, 164)
+        Me.lst_venues.Size = New System.Drawing.Size(207, 124)
         Me.lst_venues.TabIndex = 45
         '
         'lst_artists
         '
+        Me.lst_artists.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_artists.FormattingEnabled = True
-        Me.lst_artists.ItemHeight = 16
-        Me.lst_artists.Location = New System.Drawing.Point(206, 142)
+        Me.lst_artists.ItemHeight = 20
+        Me.lst_artists.Location = New System.Drawing.Point(237, 120)
         Me.lst_artists.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artists.Name = "lst_artists"
-        Me.lst_artists.Size = New System.Drawing.Size(175, 148)
+        Me.lst_artists.Size = New System.Drawing.Size(207, 124)
         Me.lst_artists.TabIndex = 44
         '
         'lst_concertSetlist
         '
+        Me.lst_concertSetlist.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_concertSetlist.FormattingEnabled = True
-        Me.lst_concertSetlist.ItemHeight = 16
-        Me.lst_concertSetlist.Location = New System.Drawing.Point(718, 76)
+        Me.lst_concertSetlist.ItemHeight = 20
+        Me.lst_concertSetlist.Location = New System.Drawing.Point(740, 44)
         Me.lst_concertSetlist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_concertSetlist.Name = "lst_concertSetlist"
-        Me.lst_concertSetlist.Size = New System.Drawing.Size(182, 260)
+        Me.lst_concertSetlist.Size = New System.Drawing.Size(150, 304)
         Me.lst_concertSetlist.TabIndex = 36
         '
         'Label19
@@ -166,7 +183,7 @@ Partial Class ConcertsForm
         Me.Label19.BackColor = System.Drawing.Color.Transparent
         Me.Label19.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label19.Location = New System.Drawing.Point(24, 59)
+        Me.Label19.Location = New System.Drawing.Point(26, 18)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(153, 25)
         Me.Label19.TabIndex = 35
@@ -178,7 +195,7 @@ Partial Class ConcertsForm
         Me.Label18.BackColor = System.Drawing.Color.Transparent
         Me.Label18.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label18.Location = New System.Drawing.Point(201, 44)
+        Me.Label18.Location = New System.Drawing.Point(232, 18)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(69, 29)
         Me.Label18.TabIndex = 34
@@ -190,7 +207,7 @@ Partial Class ConcertsForm
         Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label16.Location = New System.Drawing.Point(201, 294)
+        Me.Label16.Location = New System.Drawing.Point(232, 256)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(86, 29)
         Me.Label16.TabIndex = 30
@@ -202,7 +219,7 @@ Partial Class ConcertsForm
         Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label15.Location = New System.Drawing.Point(201, 111)
+        Me.Label15.Location = New System.Drawing.Point(232, 90)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(76, 29)
         Me.Label15.TabIndex = 30
@@ -211,68 +228,74 @@ Partial Class ConcertsForm
         'btn_deleteConcert
         '
         Me.btn_deleteConcert.Enabled = False
+        Me.btn_deleteConcert.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_deleteConcert.Image = CType(resources.GetObject("btn_deleteConcert.Image"), System.Drawing.Image)
         Me.btn_deleteConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_deleteConcert.Location = New System.Drawing.Point(727, 445)
+        Me.btn_deleteConcert.Location = New System.Drawing.Point(694, 365)
         Me.btn_deleteConcert.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_deleteConcert.Name = "btn_deleteConcert"
-        Me.btn_deleteConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_deleteConcert.Size = New System.Drawing.Size(92, 55)
         Me.btn_deleteConcert.TabIndex = 30
-        Me.btn_deleteConcert.Text = "Delete concert"
+        Me.btn_deleteConcert.Text = "DELETE"
         Me.btn_deleteConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_deleteConcert.UseVisualStyleBackColor = True
         '
         'btn_updateConcert
         '
         Me.btn_updateConcert.Enabled = False
+        Me.btn_updateConcert.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_updateConcert.Image = CType(resources.GetObject("btn_updateConcert.Image"), System.Drawing.Image)
         Me.btn_updateConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_updateConcert.Location = New System.Drawing.Point(585, 445)
+        Me.btn_updateConcert.Location = New System.Drawing.Point(587, 365)
         Me.btn_updateConcert.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_updateConcert.Name = "btn_updateConcert"
-        Me.btn_updateConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_updateConcert.Size = New System.Drawing.Size(92, 55)
         Me.btn_updateConcert.TabIndex = 30
-        Me.btn_updateConcert.Text = "Update Concert"
+        Me.btn_updateConcert.Text = "UPDATE"
         Me.btn_updateConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_updateConcert.UseVisualStyleBackColor = True
         '
         'btn_insertConcert
         '
         Me.btn_insertConcert.Enabled = False
+        Me.btn_insertConcert.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_insertConcert.Image = Global.SetList.My.Resources.Resources.plus__1_
         Me.btn_insertConcert.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_insertConcert.Location = New System.Drawing.Point(445, 445)
+        Me.btn_insertConcert.Location = New System.Drawing.Point(481, 365)
         Me.btn_insertConcert.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_insertConcert.Name = "btn_insertConcert"
-        Me.btn_insertConcert.Size = New System.Drawing.Size(123, 44)
+        Me.btn_insertConcert.Size = New System.Drawing.Size(92, 55)
         Me.btn_insertConcert.TabIndex = 33
-        Me.btn_insertConcert.Text = "Insert Concert"
+        Me.btn_insertConcert.Text = "ADD"
         Me.btn_insertConcert.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insertConcert.UseVisualStyleBackColor = True
         '
         'txt_dateConcert
         '
-        Me.txt_dateConcert.Location = New System.Drawing.Point(205, 76)
+        Me.txt_dateConcert.CalendarFont = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_dateConcert.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_dateConcert.Location = New System.Drawing.Point(237, 49)
         Me.txt_dateConcert.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_dateConcert.Name = "txt_dateConcert"
-        Me.txt_dateConcert.Size = New System.Drawing.Size(207, 22)
+        Me.txt_dateConcert.Size = New System.Drawing.Size(207, 28)
         Me.txt_dateConcert.TabIndex = 32
         '
         'lst_concerts
         '
+        Me.lst_concerts.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_concerts.FormattingEnabled = True
-        Me.lst_concerts.ItemHeight = 16
-        Me.lst_concerts.Location = New System.Drawing.Point(31, 85)
+        Me.lst_concerts.ItemHeight = 20
+        Me.lst_concerts.Location = New System.Drawing.Point(28, 45)
         Me.lst_concerts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_concerts.Name = "lst_concerts"
-        Me.lst_concerts.Size = New System.Drawing.Size(151, 404)
+        Me.lst_concerts.Size = New System.Drawing.Size(191, 364)
         Me.lst_concerts.TabIndex = 29
         '
         'PictureBox6
         '
         Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(28, 12)
+        Me.PictureBox6.Location = New System.Drawing.Point(396, 20)
         Me.PictureBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(39, 38)
@@ -283,11 +306,11 @@ Partial Class ConcertsForm
         '
         Me.Label17.AutoSize = True
         Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label17.Location = New System.Drawing.Point(73, 14)
+        Me.Label17.Location = New System.Drawing.Point(456, 17)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(119, 29)
+        Me.Label17.Size = New System.Drawing.Size(185, 41)
         Me.Label17.TabIndex = 18
         Me.Label17.Text = "Concerts"
         '
@@ -298,6 +321,8 @@ Partial Class ConcertsForm
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.ClientSize = New System.Drawing.Size(982, 553)
         Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.PictureBox6)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ConcertsForm"
         Me.Text = "Concerts"
@@ -305,6 +330,7 @@ Partial Class ConcertsForm
         Me.Panel5.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -328,4 +354,5 @@ Partial Class ConcertsForm
     Friend WithEvents Label2 As Label
     Friend WithEvents btn_removeSong As Button
     Friend WithEvents btn_addSong As Button
+    Friend WithEvents btn_clean As Button
 End Class

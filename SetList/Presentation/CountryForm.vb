@@ -45,7 +45,8 @@
             countryNew.countryName = txtName.Text
             auxCountryName = txtName.Text
             thirdChar = auxCountryName.Substring(0, 3)
-            countryNew.idCountry = thirdChar
+            countryNew.idCountry = thirdChar.ToUpper
+
             Try
                 If countryNew.InsertCountry() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
@@ -125,5 +126,9 @@
         End If
     End Sub
 
+    Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
+        txtName.Clear()
 
+
+    End Sub
 End Class

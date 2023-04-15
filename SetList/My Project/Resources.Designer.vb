@@ -113,6 +113,36 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property escoba() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("escoba", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property escoba__1_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("escoba (1)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property escoba__2_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("escoba (2)", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property etapa() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("etapa", resourceCulture)
@@ -146,6 +176,26 @@ Namespace My.Resources
         Friend ReadOnly Property flecha_izquierda() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("flecha-izquierda", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property grafico() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("grafico", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property lineas_verticales() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("lineas-verticales", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

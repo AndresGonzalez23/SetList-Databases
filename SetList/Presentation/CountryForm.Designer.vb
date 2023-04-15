@@ -24,6 +24,7 @@ Partial Class CountryForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CountryForm))
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btn_clean = New System.Windows.Forms.Button()
         Me.lst_Countries = New System.Windows.Forms.ListBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
@@ -40,6 +41,7 @@ Partial Class CountryForm
         '
         Me.Panel2.BackColor = System.Drawing.Color.Silver
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.btn_clean)
         Me.Panel2.Controls.Add(Me.lst_Countries)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.txtName)
@@ -52,14 +54,28 @@ Partial Class CountryForm
         Me.Panel2.Size = New System.Drawing.Size(568, 354)
         Me.Panel2.TabIndex = 28
         '
+        'btn_clean
+        '
+        Me.btn_clean.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_clean.Image = Global.SetList.My.Resources.Resources.escoba__2_
+        Me.btn_clean.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_clean.Location = New System.Drawing.Point(333, 193)
+        Me.btn_clean.Name = "btn_clean"
+        Me.btn_clean.Size = New System.Drawing.Size(92, 55)
+        Me.btn_clean.TabIndex = 52
+        Me.btn_clean.Text = "CLEAN"
+        Me.btn_clean.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_clean.UseVisualStyleBackColor = True
+        '
         'lst_Countries
         '
+        Me.lst_Countries.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_Countries.FormattingEnabled = True
-        Me.lst_Countries.ItemHeight = 16
+        Me.lst_Countries.ItemHeight = 20
         Me.lst_Countries.Location = New System.Drawing.Point(19, 18)
         Me.lst_Countries.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_Countries.Name = "lst_Countries"
-        Me.lst_Countries.Size = New System.Drawing.Size(175, 308)
+        Me.lst_Countries.Size = New System.Drawing.Size(175, 304)
         Me.lst_Countries.TabIndex = 5
         '
         'Label5
@@ -86,13 +102,13 @@ Partial Class CountryForm
         'btn_insert_country
         '
         Me.btn_insert_country.Enabled = False
-        Me.btn_insert_country.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_insert_country.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_insert_country.Image = CType(resources.GetObject("btn_insert_country.Image"), System.Drawing.Image)
         Me.btn_insert_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_insert_country.Location = New System.Drawing.Point(219, 112)
         Me.btn_insert_country.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_insert_country.Name = "btn_insert_country"
-        Me.btn_insert_country.Size = New System.Drawing.Size(90, 55)
+        Me.btn_insert_country.Size = New System.Drawing.Size(92, 55)
         Me.btn_insert_country.TabIndex = 3
         Me.btn_insert_country.Text = "ADD"
         Me.btn_insert_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -101,13 +117,13 @@ Partial Class CountryForm
         'btn_update_country
         '
         Me.btn_update_country.Enabled = False
-        Me.btn_update_country.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_update_country.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_update_country.Image = CType(resources.GetObject("btn_update_country.Image"), System.Drawing.Image)
         Me.btn_update_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_update_country.Location = New System.Drawing.Point(333, 112)
         Me.btn_update_country.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_update_country.Name = "btn_update_country"
-        Me.btn_update_country.Size = New System.Drawing.Size(90, 55)
+        Me.btn_update_country.Size = New System.Drawing.Size(92, 55)
         Me.btn_update_country.TabIndex = 6
         Me.btn_update_country.Text = "UPDATE"
         Me.btn_update_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -116,13 +132,13 @@ Partial Class CountryForm
         'btn_delete_country
         '
         Me.btn_delete_country.Enabled = False
-        Me.btn_delete_country.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_delete_country.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_delete_country.Image = CType(resources.GetObject("btn_delete_country.Image"), System.Drawing.Image)
         Me.btn_delete_country.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_delete_country.Location = New System.Drawing.Point(222, 193)
         Me.btn_delete_country.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_delete_country.Name = "btn_delete_country"
-        Me.btn_delete_country.Size = New System.Drawing.Size(90, 55)
+        Me.btn_delete_country.Size = New System.Drawing.Size(92, 55)
         Me.btn_delete_country.TabIndex = 7
         Me.btn_delete_country.Text = "DELETE"
         Me.btn_delete_country.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -132,7 +148,7 @@ Partial Class CountryForm
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(305, 17)
+        Me.PictureBox2.Location = New System.Drawing.Point(305, 11)
         Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(31, 33)
@@ -180,4 +196,5 @@ Partial Class CountryForm
     Friend WithEvents btn_update_country As Button
     Friend WithEvents btn_delete_country As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents btn_clean As Button
 End Class

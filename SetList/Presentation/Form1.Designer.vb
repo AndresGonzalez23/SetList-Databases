@@ -25,7 +25,6 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.btn_setlist = New System.Windows.Forms.Button()
         Me.btn_Statistics = New System.Windows.Forms.Button()
         Me.btn_openCountries = New System.Windows.Forms.Button()
         Me.btn_openArtists = New System.Windows.Forms.Button()
@@ -47,24 +46,17 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 25
         Me.PictureBox1.TabStop = False
         '
-        'btn_setlist
-        '
-        Me.btn_setlist.Location = New System.Drawing.Point(306, 354)
-        Me.btn_setlist.Margin = New System.Windows.Forms.Padding(4)
-        Me.btn_setlist.Name = "btn_setlist"
-        Me.btn_setlist.Size = New System.Drawing.Size(219, 54)
-        Me.btn_setlist.TabIndex = 35
-        Me.btn_setlist.Text = "setlist" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.btn_setlist.UseVisualStyleBackColor = True
-        '
         'btn_Statistics
         '
-        Me.btn_Statistics.Location = New System.Drawing.Point(38, 354)
+        Me.btn_Statistics.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Statistics.Image = Global.SetList.My.Resources.Resources.grafico
+        Me.btn_Statistics.Location = New System.Drawing.Point(306, 355)
         Me.btn_Statistics.Margin = New System.Windows.Forms.Padding(4)
         Me.btn_Statistics.Name = "btn_Statistics"
         Me.btn_Statistics.Size = New System.Drawing.Size(219, 54)
         Me.btn_Statistics.TabIndex = 36
         Me.btn_Statistics.Text = "Statistics" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btn_Statistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_Statistics.UseVisualStyleBackColor = True
         '
         'btn_openCountries
@@ -154,7 +146,6 @@ Partial Class Form1
         Me.Controls.Add(Me.btn_openArtists)
         Me.Controls.Add(Me.btn_openCountries)
         Me.Controls.Add(Me.btn_Statistics)
-        Me.Controls.Add(Me.btn_setlist)
         Me.Controls.Add(Me.PictureBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -171,7 +162,6 @@ Partial Class Form1
     End Sub
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents btn_setlist As Button
     Friend WithEvents btn_Statistics As Button
     Friend WithEvents btn_openCountries As Button
     Friend WithEvents btn_openArtists As Button
