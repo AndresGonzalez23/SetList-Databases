@@ -166,7 +166,7 @@
         Me.Venue = New Venue
         Me.song = New Song
 
-        If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty Then
+        If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty And lst_concertSetlist.Items.Count > 0 Then
             concertNew = New Concert
             artist.artistName = lst_artists.SelectedItem.ToString
             artist.ReadArtistByName()
@@ -193,7 +193,7 @@
             concertNew.InsertConcertSetlist()
             lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
         Else
-            MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+            MessageBox.Show("Artist, Venue or Setlist is not selected or fulfilled, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
     End Sub
 
@@ -202,6 +202,7 @@
         Dim UpdateConcert As New Concert : Dim coAux As Concert
         Me.artist = New Artist
         Me.Venue = New Venue
+        Me.song = New Song
 
         If MessageBox.Show("Are you sure? Do you want to update this concert?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
@@ -217,12 +218,6 @@
             Venue.ReadVenueByName()
             UpdateConcert.VenueName = Venue.idVenue
             UpdateConcert.idConcert = previousConcert.idConcert
-
-            For Each cancion As String In lst_concertSetlist.Items
-                song.songName = cancion
-                song.ReadSongByName()
-                UpdateConcert.SetList.Add(song.idSong)
-            Next
 
             If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty Then
                 Try
@@ -244,9 +239,16 @@
                     Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
                 Next
 
-                lst_concertSetlist.Items.Clear()
-                UpdateConcert.UpdateConcertSetlist()
+                UpdateConcert.DeleteConcertSetlist()
+                For Each cancion As String In lst_concertSetlist.Items
+                    song.songName = cancion
+                    song.ReadSongByName()
+                    UpdateConcert.SetList.Add(song.idSong)
+                Next
+                UpdateConcert.InsertConcertSetlist()
                 UpdateConcert.ReadSetlist()
+                lst_concertSetlist.Items.Clear()
+
                 For Each setlistSong As Integer In UpdateConcert.SetList
                     song.idSong = setlistSong
                     song.ReadSong()
