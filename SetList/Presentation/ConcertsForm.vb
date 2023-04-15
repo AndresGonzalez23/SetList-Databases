@@ -45,14 +45,18 @@
     End Sub
 
     Private Sub lst_concerts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_concerts.SelectedIndexChanged
+        Dim data As String : Dim separatedData() As String
+
         btn_updateConcert.Enabled = True
         btn_deleteConcert.Enabled = True
-        Dim data As String : Dim separatedData() As String
+        lst_concertSetlist.Items.Clear()
 
         If lst_concerts.SelectedItem IsNot Nothing Then
             Me.concert = New Concert
             Me.artist = New Artist
             Me.Venue = New Venue
+            Me.song = New Song
+
             data = lst_concerts.SelectedItem.ToString()
             separatedData = data.Split("-"c)
             artist.artistName = separatedData(0)
@@ -77,6 +81,14 @@
                     Exit For
                 End If
             Next
+
+            concert.ReadSetlist()
+            For Each setlistSong As Integer In concert.SetList
+                song.idSong = setlistSong
+                song.ReadSong()
+                lst_concertSetlist.Items.Add(song.songName)
+            Next
+
 
             Me.previousConcert = New Concert
             data = lst_concerts.SelectedItem.ToString()

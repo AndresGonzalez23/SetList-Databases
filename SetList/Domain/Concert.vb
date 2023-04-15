@@ -58,6 +58,10 @@
         Return Me.cDao.ReadAll()
     End Function
 
+    Public Sub ReadSetlist()
+        Me.cDao.ReadSetlist(Me)
+    End Sub
+
     Public Sub ReadConcertbyArtistAndVenue()
         Me.cDao.ReadByArtistAndVenue(Me)
     End Sub

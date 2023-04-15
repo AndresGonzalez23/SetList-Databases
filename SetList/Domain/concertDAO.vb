@@ -26,6 +26,14 @@
         Next
     End Sub
 
+    Public Sub ReadSetlist(ByRef concert As Concert)
+        Dim col As Collection : Dim aux As Collection
+        col = DBBroker.GetBroker.Read("SELECT * FROM setlists WHERE Concert=" & concert.idConcert & " ORDER BY OrderInSetlist;")
+        For Each aux In col
+            concert.SetList.Add(Convert.ToInt32(aux(2).ToString))
+        Next
+    End Sub
+
     Public Sub ReadByArtistAndVenue(ByRef concert As Concert)
         Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT * FROM Concerts WHERE Artist='" & concert.GetArtist() & "' AND Venue= '" & concert.GetVenue() & "';")
@@ -34,22 +42,24 @@
             concert.SetArtist(Convert.ToInt32(aux(2).ToString))
             concert.SetVenue(Convert.ToInt32(aux(3).ToString))
             concert.SetDate(CDate(aux(4).ToString))
-
         Next
     End Sub
 
     Public Function Insert(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("INSERT INTO Concerts (Artist, Venue, ConcertDate) VALUES (" & concert.GetArtist() & " ," & concert.GetVenue & ",'" & concert.GetDate.ToString("yyyy/MM/dd") & "');")
     End Function
+
     Public Function InsertSetlist(ByVal concert As Concert) As Integer
         For i As Integer = 1 To concert.SetList.Count
             Dim songToInsert As Integer = Convert.ToInt32(concert.SetList.Item(i))
             DBBroker.GetBroker.Change("INSERT INTO setlists (Concert,Song,OrderInSetlist) VALUES (" & concert.idConcert & "," & songToInsert & "," & i & ");")
         Next
     End Function
+
     Public Function Update(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("UPDATE Concerts SET ConcertDate='" & concert.GetDate.ToString("yyyy/MM/dd") & "' ,Artist='" & concert.GetArtist() & "' ,Venue='" & concert.GetVenue() & "'WHERE idConcert=" & concert.GetConcert() & ";")
     End Function
+
     Public Function Delete(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM Concerts WHERE idConcert=" & concert.GetConcert() & ";")
     End Function
