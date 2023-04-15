@@ -189,8 +189,9 @@ Partial Class ArtistForm
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.Label3)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ArtistForm"
-        Me.Text = "ArtistForm"
+        Me.Text = "Artist"
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()

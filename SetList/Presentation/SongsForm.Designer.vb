@@ -231,8 +231,9 @@ Partial Class SongsForm
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.PictureBox7)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "SongsForm"
-        Me.Text = "SongsForm"
+        Me.Text = "Songs"
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()

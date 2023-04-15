@@ -131,7 +131,7 @@ Partial Class AlbumForm
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Location = New System.Drawing.Point(349, 100)
+        Me.Label11.Location = New System.Drawing.Point(349, 107)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(161, 25)
         Me.Label11.TabIndex = 20
@@ -163,7 +163,7 @@ Partial Class AlbumForm
         'txt_albumName
         '
         Me.txt_albumName.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_albumName.Location = New System.Drawing.Point(354, 57)
+        Me.txt_albumName.Location = New System.Drawing.Point(354, 52)
         Me.txt_albumName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_albumName.Name = "txt_albumName"
         Me.txt_albumName.Size = New System.Drawing.Size(186, 32)
@@ -199,7 +199,7 @@ Partial Class AlbumForm
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Verdana", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label13.Location = New System.Drawing.Point(309, 9)
+        Me.Label13.Location = New System.Drawing.Point(325, 9)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(140, 40)
         Me.Label13.TabIndex = 18
@@ -213,8 +213,9 @@ Partial Class AlbumForm
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Label13)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "AlbumForm"
-        Me.Text = "AlbumForm"
+        Me.Text = "Album"
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.ResumeLayout(False)

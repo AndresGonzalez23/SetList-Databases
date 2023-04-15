@@ -71,78 +71,72 @@ Partial Class Form1
         '
         Me.btn_openCountries.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_openCountries.Image = Global.SetList.My.Resources.Resources.countries
-        Me.btn_openCountries.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_openCountries.Location = New System.Drawing.Point(38, 176)
         Me.btn_openCountries.Name = "btn_openCountries"
         Me.btn_openCountries.Size = New System.Drawing.Size(219, 63)
         Me.btn_openCountries.TabIndex = 37
         Me.btn_openCountries.Text = "Countries"
-        Me.btn_openCountries.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_openCountries.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_openCountries.UseVisualStyleBackColor = True
         '
         'btn_openArtists
         '
         Me.btn_openArtists.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_openArtists.Image = Global.SetList.My.Resources.Resources.cantante
-        Me.btn_openArtists.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_openArtists.Location = New System.Drawing.Point(306, 176)
         Me.btn_openArtists.Name = "btn_openArtists"
         Me.btn_openArtists.Size = New System.Drawing.Size(219, 63)
         Me.btn_openArtists.TabIndex = 38
         Me.btn_openArtists.Text = "Artist"
-        Me.btn_openArtists.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_openArtists.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_openArtists.UseVisualStyleBackColor = True
         '
         'btn_openVenues
         '
         Me.btn_openVenues.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_openVenues.Image = Global.SetList.My.Resources.Resources.puntero_del_mapa
-        Me.btn_openVenues.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_openVenues.Location = New System.Drawing.Point(577, 176)
         Me.btn_openVenues.Name = "btn_openVenues"
         Me.btn_openVenues.Size = New System.Drawing.Size(219, 63)
         Me.btn_openVenues.TabIndex = 39
         Me.btn_openVenues.Text = "Venues"
-        Me.btn_openVenues.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_openVenues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_openVenues.UseVisualStyleBackColor = True
         '
         'btn_openSongs
         '
         Me.btn_openSongs.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_openSongs.Image = Global.SetList.My.Resources.Resources.music
-        Me.btn_openSongs.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_openSongs.Location = New System.Drawing.Point(306, 261)
         Me.btn_openSongs.Name = "btn_openSongs"
         Me.btn_openSongs.Size = New System.Drawing.Size(219, 63)
         Me.btn_openSongs.TabIndex = 40
         Me.btn_openSongs.Text = "Songs"
-        Me.btn_openSongs.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_openSongs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_openSongs.UseVisualStyleBackColor = True
         '
         'btn_openAlbums
         '
         Me.btn_openAlbums.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_openAlbums.Image = Global.SetList.My.Resources.Resources.album
-        Me.btn_openAlbums.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_openAlbums.Location = New System.Drawing.Point(38, 261)
         Me.btn_openAlbums.Name = "btn_openAlbums"
         Me.btn_openAlbums.Size = New System.Drawing.Size(219, 63)
         Me.btn_openAlbums.TabIndex = 41
         Me.btn_openAlbums.Text = "Albums"
-        Me.btn_openAlbums.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_openAlbums.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_openAlbums.UseVisualStyleBackColor = True
         '
         'btn_openConcerts
         '
         Me.btn_openConcerts.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_openConcerts.Image = Global.SetList.My.Resources.Resources.concierto
-        Me.btn_openConcerts.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btn_openConcerts.Location = New System.Drawing.Point(577, 261)
         Me.btn_openConcerts.Name = "btn_openConcerts"
         Me.btn_openConcerts.Size = New System.Drawing.Size(219, 63)
         Me.btn_openConcerts.TabIndex = 42
         Me.btn_openConcerts.Text = "Concerts"
-        Me.btn_openConcerts.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_openConcerts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_openConcerts.UseVisualStyleBackColor = True
         '
         'Form1
@@ -162,6 +156,7 @@ Partial Class Form1
         Me.Controls.Add(Me.btn_Statistics)
         Me.Controls.Add(Me.btn_setlist)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(900, 500)
@@ -169,7 +164,7 @@ Partial Class Form1
         Me.MinimumSize = New System.Drawing.Size(900, 500)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Setlist"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

@@ -79,7 +79,16 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_albums.Items.Add(albumNew.GetAlbumName)
+            Try
+                If albumNew.GetAlbumName <> album.GetAlbumName Then
+                    lst_albums.Items.Add(albumNew.GetAlbumName)
+                End If
+
+            Catch ex As Exception
+                MessageBox.Show("This album just exists", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+
+
         Else
             MessageBox.Show("Name, year or artist are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
