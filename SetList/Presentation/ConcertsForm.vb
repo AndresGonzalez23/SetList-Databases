@@ -317,10 +317,9 @@
     End Sub
 
     Private Sub btn_orderBy_Click(sender As Object, e As EventArgs) Handles btn_orderBy.Click
-
         Dim main As New Main() 'Crea una nueva instancia del formulario 2
+        main.LoadInfo()
         main.Show() 'Muestra el formulario 2
-        Me.Hide() 'Oculta el formulario actual
     End Sub
 
 End Class

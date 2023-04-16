@@ -26,6 +26,34 @@
         Next
     End Sub
 
+    Public Function ReadAllArtistConcerts(ByRef concert As Concert) As Object
+        Dim co As Concert
+        Dim col, aux As Collection
+        col = DBBroker.GetBroker().Read("SELECT * FROM Concerts WHERE Artist=" & concert.ArtistName & ";")
+        For Each aux In col
+            co = New Concert(Convert.ToInt32(aux(1).ToString))
+            co.ArtistName = Convert.ToInt32(aux(2).ToString)
+            co.VenueName = Convert.ToInt32(aux(3).ToString)
+            co.concertDate = CDate(aux(4).ToString)
+            Me.Concerts.Add(co)
+        Next
+        Return Concerts
+    End Function
+
+    Public Function ReadAllVenueConcerts(ByRef concert As Concert) As Object
+        Dim co As Concert
+        Dim col, aux As Collection
+        col = DBBroker.GetBroker().Read("SELECT * FROM Concerts WHERE Venue=" & concert.VenueName & ";")
+        For Each aux In col
+            co = New Concert(Convert.ToInt32(aux(1).ToString))
+            co.ArtistName = Convert.ToInt32(aux(2).ToString)
+            co.VenueName = Convert.ToInt32(aux(3).ToString)
+            co.concertDate = CDate(aux(4).ToString)
+            Me.Concerts.Add(co)
+        Next
+        Return Concerts
+    End Function
+
     Public Sub ReadSetlist(ByRef concert As Concert)
         Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT * FROM setlists WHERE Concert=" & concert.idConcert & " ORDER BY OrderInSetlist;")

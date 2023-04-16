@@ -66,6 +66,14 @@
         Me.cDao.ReadByArtistAndVenue(Me)
     End Sub
 
+    Public Function ReadAllArtistsConcerts() As Object
+        Return Me.cDao.ReadAllArtistConcerts(Me)
+    End Function
+
+    Public Function ReadAllVenueConcerts() As Object
+        Return Me.cDao.ReadAllVenueConcerts(Me)
+    End Function
+
     Public Function InsertConcert() As Integer
         Return Me.cDao.Insert(Me)
     End Function
