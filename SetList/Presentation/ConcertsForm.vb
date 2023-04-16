@@ -315,5 +315,11 @@
         lst_concertSetlist.Items.Remove(lst_concertSetlist.SelectedItem.ToString)
     End Sub
 
+    Private Sub btn_orderBy_Click(sender As Object, e As EventArgs) Handles btn_orderBy.Click
+
+        Dim main As New Main() 'Crea una nueva instancia del formulario 2
+        main.Show() 'Muestra el formulario 2
+        Me.Hide() 'Oculta el formulario actual
+    End Sub
 
 End Class

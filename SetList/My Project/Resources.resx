@@ -121,6 +121,9 @@
   <data name="lineas-verticales" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lineas-verticales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="grafico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grafico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="escoba (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\escoba (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,7 +187,7 @@
   <data name="flecha-correcta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flecha-correcta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="grafico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grafico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sort-by-alphabet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sort-by-alphabet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

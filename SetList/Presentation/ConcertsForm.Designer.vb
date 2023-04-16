@@ -44,6 +44,7 @@ Partial Class ConcertsForm
         Me.lst_concerts = New System.Windows.Forms.ListBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.btn_orderBy = New System.Windows.Forms.Button()
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -310,9 +311,18 @@ Partial Class ConcertsForm
         Me.Label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label17.Location = New System.Drawing.Point(456, 17)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(185, 41)
+        Me.Label17.Size = New System.Drawing.Size(180, 40)
         Me.Label17.TabIndex = 18
         Me.Label17.Text = "Concerts"
+        '
+        'btn_orderBy
+        '
+        Me.btn_orderBy.Location = New System.Drawing.Point(815, 12)
+        Me.btn_orderBy.Name = "btn_orderBy"
+        Me.btn_orderBy.Size = New System.Drawing.Size(140, 55)
+        Me.btn_orderBy.TabIndex = 33
+        Me.btn_orderBy.Text = "Order by"
+        Me.btn_orderBy.UseVisualStyleBackColor = True
         '
         'ConcertsForm
         '
@@ -320,6 +330,7 @@ Partial Class ConcertsForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.ClientSize = New System.Drawing.Size(982, 553)
+        Me.Controls.Add(Me.btn_orderBy)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.PictureBox6)
@@ -355,4 +366,5 @@ Partial Class ConcertsForm
     Friend WithEvents btn_removeSong As Button
     Friend WithEvents btn_addSong As Button
     Friend WithEvents btn_clean As Button
+    Friend WithEvents btn_orderBy As Button
 End Class
