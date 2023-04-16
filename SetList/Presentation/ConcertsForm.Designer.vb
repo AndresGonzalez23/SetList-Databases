@@ -317,11 +317,14 @@ Partial Class ConcertsForm
         '
         'btn_orderBy
         '
+        Me.btn_orderBy.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_orderBy.Image = Global.SetList.My.Resources.Resources.sort_by_alphabet
         Me.btn_orderBy.Location = New System.Drawing.Point(815, 12)
         Me.btn_orderBy.Name = "btn_orderBy"
         Me.btn_orderBy.Size = New System.Drawing.Size(140, 55)
         Me.btn_orderBy.TabIndex = 33
         Me.btn_orderBy.Text = "Order by"
+        Me.btn_orderBy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_orderBy.UseVisualStyleBackColor = True
         '
         'ConcertsForm

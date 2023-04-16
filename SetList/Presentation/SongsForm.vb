@@ -80,6 +80,9 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
             lst_songs.Items.Add(songNew.GetSongName)
+            txt_songLength.Clear()
+            txt_songName.Clear()
+            txt_songOrder.Clear()
         Else
             MessageBox.Show("name, length, album or order is empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If

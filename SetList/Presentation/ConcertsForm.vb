@@ -192,6 +192,7 @@
             concertNew.ReadConcertbyArtistAndVenue()
             concertNew.InsertConcertSetlist()
             lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
+
         Else
             MessageBox.Show("Artist, Venue or Setlist is not selected or fulfilled, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If

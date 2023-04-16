@@ -82,6 +82,8 @@
             Try
                 If albumNew.GetAlbumName <> album.GetAlbumName Then
                     lst_albums.Items.Add(albumNew.GetAlbumName)
+                    txt_albumName.Clear()
+                    txt_albumYear.Clear()
                 End If
 
             Catch ex As Exception

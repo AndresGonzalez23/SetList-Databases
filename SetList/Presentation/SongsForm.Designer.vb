@@ -24,9 +24,11 @@ Partial Class SongsForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SongsForm))
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.btn_clean = New System.Windows.Forms.Button()
         Me.lst_albums = New System.Windows.Forms.ListBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.txt_songOrder = New System.Windows.Forms.TextBox()
+        Me.lst_songs = New System.Windows.Forms.ListBox()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.txt_songLength = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -35,10 +37,8 @@ Partial Class SongsForm
         Me.btn_deleteSong = New System.Windows.Forms.Button()
         Me.btn_updateSong = New System.Windows.Forms.Button()
         Me.btn_insertSong = New System.Windows.Forms.Button()
-        Me.lst_songs = New System.Windows.Forms.ListBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.btn_clean = New System.Windows.Forms.Button()
         Me.Panel6.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -66,12 +66,25 @@ Partial Class SongsForm
         Me.Panel6.Size = New System.Drawing.Size(568, 354)
         Me.Panel6.TabIndex = 35
         '
+        'btn_clean
+        '
+        Me.btn_clean.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_clean.Image = Global.SetList.My.Resources.Resources.escoba__2_
+        Me.btn_clean.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_clean.Location = New System.Drawing.Point(450, 283)
+        Me.btn_clean.Name = "btn_clean"
+        Me.btn_clean.Size = New System.Drawing.Size(92, 55)
+        Me.btn_clean.TabIndex = 53
+        Me.btn_clean.Text = "CLEAN"
+        Me.btn_clean.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_clean.UseVisualStyleBackColor = True
+        '
         'lst_albums
         '
         Me.lst_albums.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_albums.FormattingEnabled = True
         Me.lst_albums.ItemHeight = 20
-        Me.lst_albums.Location = New System.Drawing.Point(14, 50)
+        Me.lst_albums.Location = New System.Drawing.Point(376, 50)
         Me.lst_albums.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_albums.Name = "lst_albums"
         Me.lst_albums.Size = New System.Drawing.Size(150, 224)
@@ -83,7 +96,7 @@ Partial Class SongsForm
         Me.Label22.BackColor = System.Drawing.Color.Transparent
         Me.Label22.Font = New System.Drawing.Font("Verdana", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label22.Location = New System.Drawing.Point(9, 19)
+        Me.Label22.Location = New System.Drawing.Point(371, 19)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(88, 29)
         Me.Label22.TabIndex = 38
@@ -97,6 +110,17 @@ Partial Class SongsForm
         Me.txt_songOrder.Name = "txt_songOrder"
         Me.txt_songOrder.Size = New System.Drawing.Size(149, 28)
         Me.txt_songOrder.TabIndex = 30
+        '
+        'lst_songs
+        '
+        Me.lst_songs.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_songs.FormattingEnabled = True
+        Me.lst_songs.ItemHeight = 20
+        Me.lst_songs.Location = New System.Drawing.Point(25, 50)
+        Me.lst_songs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_songs.Name = "lst_songs"
+        Me.lst_songs.Size = New System.Drawing.Size(151, 224)
+        Me.lst_songs.TabIndex = 29
         '
         'Label23
         '
@@ -198,17 +222,6 @@ Partial Class SongsForm
         Me.btn_insertSong.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btn_insertSong.UseVisualStyleBackColor = True
         '
-        'lst_songs
-        '
-        Me.lst_songs.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lst_songs.FormattingEnabled = True
-        Me.lst_songs.ItemHeight = 20
-        Me.lst_songs.Location = New System.Drawing.Point(389, 50)
-        Me.lst_songs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lst_songs.Name = "lst_songs"
-        Me.lst_songs.Size = New System.Drawing.Size(151, 224)
-        Me.lst_songs.TabIndex = 29
-        '
         'PictureBox7
         '
         Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
@@ -228,22 +241,9 @@ Partial Class SongsForm
         Me.Label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label14.Location = New System.Drawing.Point(351, 11)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(133, 41)
+        Me.Label14.Size = New System.Drawing.Size(130, 40)
         Me.Label14.TabIndex = 18
         Me.Label14.Text = "Songs"
-        '
-        'btn_clean
-        '
-        Me.btn_clean.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_clean.Image = Global.SetList.My.Resources.Resources.escoba__2_
-        Me.btn_clean.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_clean.Location = New System.Drawing.Point(450, 283)
-        Me.btn_clean.Name = "btn_clean"
-        Me.btn_clean.Size = New System.Drawing.Size(92, 55)
-        Me.btn_clean.TabIndex = 53
-        Me.btn_clean.Text = "CLEAN"
-        Me.btn_clean.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_clean.UseVisualStyleBackColor = True
         '
         'SongsForm
         '

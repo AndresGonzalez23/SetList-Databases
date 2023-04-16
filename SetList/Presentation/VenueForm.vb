@@ -80,6 +80,8 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
             lst_venues.Items.Add(venueNew.GetVenueName)
+            txt_venueName.Clear()
+
         Else
             MessageBox.Show("Name, country or type are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If

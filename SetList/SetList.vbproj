@@ -266,5 +266,8 @@
   <ItemGroup>
     <None Include="Resources\grafico.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort-by-alphabet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
