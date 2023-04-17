@@ -67,8 +67,4 @@
         Return Me.artistsDAO.Delete(Me)
     End Function
 
-    Public Function Query1() As Object
-        Return Me.artistsDAO.Query1()
-    End Function
-
 End Class

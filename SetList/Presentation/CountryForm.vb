@@ -71,12 +71,16 @@
             Exit Sub
         End If
         Try
-            country.countryName = txtName.Text
+            Me.country = New Country
+            country.countryName = lst_Countries.SelectedItem.ToString
+            country.ReadCountryByName()
+
             If txtName.Text <> String.Empty Then
-                CountryUpdate.SetIdCountry(Country.countryName.Substring(0, 3))
-                CountryUpdate.SetCountryName(Country.GetCountryName)
+                CountryUpdate.idCountry = txtName.Text.Substring(0, 3)
+                CountryUpdate.countryName = txtName.Text
                 Try
-                    CountryUpdate.UpdateCountry()
+                    country.DeleteCountry()
+                    CountryUpdate.InsertCountry()
                     MsgBox("Country Updated succesfully")
 
                 Catch ex As Exception
@@ -84,6 +88,8 @@
                 End Try
 
                 lst_Countries.Items.Clear()
+                country.ReadAllCountries()
+
                 For Each cAux In Me.country.counDAO.Countries
                     Me.lst_Countries.Items.Add(cAux.countryName)
                 Next
