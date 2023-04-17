@@ -84,7 +84,7 @@
                     MsgBox("Country Updated succesfully")
 
                 Catch ex As Exception
-                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    MessageBox.Show("This country is part of a concert and cannot be updated")
                 End Try
 
                 lst_Countries.Items.Clear()
@@ -99,7 +99,7 @@
             End If
 
         Catch ex As Exception
-
+            MessageBox.Show("This country is part of a concert and cannot be updated")
         End Try
 
     End Sub
