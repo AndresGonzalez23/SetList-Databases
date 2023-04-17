@@ -80,7 +80,12 @@
     Public Function UpdateSong() As Integer
         Return Me.sonDAO.Update(Me)
     End Function
+
     Public Function DeleteSong() As Integer
         Return Me.sonDAO.Delete(Me)
+    End Function
+
+    Public Function Query4() As Object
+        Return Me.sonDAO.Query4(Me)
     End Function
 End Class

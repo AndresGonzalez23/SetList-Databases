@@ -71,4 +71,16 @@
         Return DBBroker.GetBroker.Change("DELETE FROM Songs WHERE idSong='" & so.idSong & "';")
     End Function
 
+    Public Function Query4(song As Song) As Object
+        Dim nameSong As String
+        Dim songOnConcert As New Collection : Dim aux As Collection
+        Dim col As Collection = DBBroker.GetBroker().Read("SELECT s.songName , COUNT(st.Song) as max_repro FROM songs s, setlists st WHERE(st.Song = s.idSong) GROUP BY s.SongName ORDER BY max_repro DESC;")
+
+        For Each aux In col
+            nameSong = aux(1).ToString
+            songOnConcert.Add(nameSong)
+        Next
+        Return songOnConcert
+    End Function
+
 End Class
