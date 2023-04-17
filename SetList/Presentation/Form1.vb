@@ -7,6 +7,7 @@ Imports SetList.VenueForm
 Imports SetList.SongsForm
 Imports SetList.AlbumForm
 Imports SetList.ConcertsForm
+Imports SetList.StatisticsForm
 
 Public Class Form1
 
@@ -50,5 +51,12 @@ Public Class Form1
 
         concertsForm.LoadInfo()
         concertsForm.Show()
+    End Sub
+
+    Private Sub btn_Statistics_Click(sender As Object, e As EventArgs) Handles btn_Statistics.Click
+        Dim statisticsForm As New StatisticsForm
+
+        statisticsForm.Show()
+
     End Sub
 End Class
