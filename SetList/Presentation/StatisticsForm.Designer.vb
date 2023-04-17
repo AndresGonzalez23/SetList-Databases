@@ -23,7 +23,7 @@ Partial Class StatisticsForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lst_artists = New System.Windows.Forms.ListBox()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.lst_moreSinged = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_searchSql1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -39,14 +39,14 @@ Partial Class StatisticsForm
         Me.lst_artists.Size = New System.Drawing.Size(150, 124)
         Me.lst_artists.TabIndex = 10
         '
-        'ListBox1
+        'lst_moreSinged
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 16
-        Me.ListBox1.Location = New System.Drawing.Point(619, 11)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(150, 132)
-        Me.ListBox1.TabIndex = 11
+        Me.lst_moreSinged.FormattingEnabled = True
+        Me.lst_moreSinged.ItemHeight = 16
+        Me.lst_moreSinged.Location = New System.Drawing.Point(619, 11)
+        Me.lst_moreSinged.Name = "lst_moreSinged"
+        Me.lst_moreSinged.Size = New System.Drawing.Size(150, 132)
+        Me.lst_moreSinged.TabIndex = 11
         '
         'Label1
         '
@@ -75,7 +75,7 @@ Partial Class StatisticsForm
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btn_searchSql1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.lst_moreSinged)
         Me.Controls.Add(Me.lst_artists)
         Me.Name = "StatisticsForm"
         Me.Text = "StatisticsForm"
@@ -85,7 +85,7 @@ Partial Class StatisticsForm
     End Sub
 
     Friend WithEvents lst_artists As ListBox
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents lst_moreSinged As ListBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btn_searchSql1 As Button
 End Class

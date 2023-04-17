@@ -135,6 +135,5 @@
     Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
         txtName.Clear()
 
-
     End Sub
 End Class

@@ -255,7 +255,7 @@
                     song.ReadSong()
                     lst_concertSetlist.Items.Add(song.songName)
                 Next
-
+                EliminateDuplicateSongs(Me.lst_concertSetlist)
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If

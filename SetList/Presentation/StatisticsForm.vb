@@ -23,6 +23,20 @@
     End Sub
 
     Private Sub btn_searchSql1_Click(sender As Object, e As EventArgs) Handles btn_searchSql1.Click
+        Dim list As New Collection
+
+        Me.artist = New Artist
+        If lst_artists.SelectedItem IsNot Nothing Then
+            artist.artistName = lst_artists.SelectedItem.ToString
+            artist.ReadArtistByName()
+
+            list = CType(artist.Query1(), Collection)
+
+            For Each songName In list
+                lst_moreSinged.Items.Add(songName)
+            Next
+
+        End If
 
     End Sub
 End Class

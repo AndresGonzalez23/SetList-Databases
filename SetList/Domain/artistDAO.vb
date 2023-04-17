@@ -50,4 +50,17 @@
         Return DBBroker.GetBroker.Change("DELETE FROM Artists WHERE idArtist=" & ar.IdArtist & ";")
     End Function
 
+    Public Function Query1(artist As Artist) As Object
+        Dim nameSong As String
+        Dim songOnConcert As New Collection : Dim aux As Collection
+        Dim col As Collection = DBBroker.GetBroker().Read("SELECT DISTINCT s.SongName , COUNT(st.Song) as mas_sonada FROM concerts c, setlists st, songs s 
+                                                            WHERE(c.Artist = " & artist.IdArtist & " AND c.idConcert = st.Concert AND s.idSong = st.Song) GROUP BY s.SongName ORDER BY mas_sonada DESC;")
+
+        For Each aux In col
+            nameSong = aux(1).ToString
+            songOnConcert.Add(nameSong)
+        Next
+        Return songOnConcert
+    End Function
+
 End Class
