@@ -21,6 +21,7 @@
 
         For Each aAux In Me.artist.artistsDAO.Artists
             Me.lst_artists.Items.Add(aAux.artistName)
+            Me.lst_artistsAlbum.Items.Add(aAux.artistName)
         Next
 
     End Sub
@@ -59,6 +60,26 @@
 
             lst_songs.Items.Add("ID: " & sonAux.idSong & " Name: " & sonAux.songName & " Length: " & sonAux.songLength & " Album: " & album.albumName & " Song Order: " & sonAux.songOrder)
         Next
+
+    End Sub
+
+    Private Sub btn_searchSql2_Click(sender As Object, e As EventArgs) Handles btn_searchSql2.Click
+        Dim list As New Collection
+        Dim albAux As New Album
+        Me.artist = New Artist
+
+        If lst_artists.SelectedItem IsNot Nothing Then
+            artist.artistName = lst_artists.SelectedItem.ToString
+            artist.ReadArtistByName()
+
+            list = CType(artist.Query2(), Collection)
+
+            For Each albName In list
+                lst_moreSinged.Items.Add(albName)
+            Next
+
+        End If
+
 
     End Sub
 End Class

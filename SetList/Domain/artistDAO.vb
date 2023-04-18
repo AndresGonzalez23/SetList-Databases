@@ -63,4 +63,23 @@
         Return songOnConcert
     End Function
 
+    Public Function Query2(artist As Artist) As Object
+        Dim nameAlbum As String
+        Dim albumsOnConcert As New Collection : Dim aux As Collection
+        Dim col As Collection = DBBroker.GetBroker().Read("SELECT albums.AlbumName, COUNT(*) AS total FROM artists
+                                                           JOIN albums ON " & artist.IdArtist & " = álbums.Artist
+                                                           JOIN songs ON albums.idAlbum = songs.Album
+                                                           JOIN setlists ON songs.idSong = setlists.Song
+                                                           JOIN concerts ON setlists.Concert = concerts.idConcert
+                                                           WHERE artists.ArtistName = '" & artist.artistName & "'
+                                                           GROUP BY albums.AlbumName
+                                                           ORDER BY total DESC;")
+
+        For Each aux In col
+            nameAlbum = aux(1).ToString
+            albumsOnConcert.Add(nameAlbum)
+        Next
+        Return albumsOnConcert
+    End Function
+
 End Class

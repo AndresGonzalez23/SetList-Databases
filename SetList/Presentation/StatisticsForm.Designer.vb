@@ -29,6 +29,9 @@ Partial Class StatisticsForm
         Me.lst_songs = New System.Windows.Forms.ListBox()
         Me.btn_Query4 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.lst_artistsAlbum = New System.Windows.Forms.ListBox()
+        Me.lst_albums = New System.Windows.Forms.ListBox()
+        Me.btn_searchSql2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lst_artists
@@ -107,6 +110,37 @@ Partial Class StatisticsForm
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Complete Information of the songs " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "that have been performed the most times"
         '
+        'lst_artistsAlbum
+        '
+        Me.lst_artistsAlbum.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_artistsAlbum.FormattingEnabled = True
+        Me.lst_artistsAlbum.ItemHeight = 20
+        Me.lst_artistsAlbum.Location = New System.Drawing.Point(218, 330)
+        Me.lst_artistsAlbum.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_artistsAlbum.Name = "lst_artistsAlbum"
+        Me.lst_artistsAlbum.Size = New System.Drawing.Size(150, 124)
+        Me.lst_artistsAlbum.TabIndex = 17
+        '
+        'lst_albums
+        '
+        Me.lst_albums.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_albums.FormattingEnabled = True
+        Me.lst_albums.ItemHeight = 20
+        Me.lst_albums.Location = New System.Drawing.Point(387, 330)
+        Me.lst_albums.Name = "lst_albums"
+        Me.lst_albums.Size = New System.Drawing.Size(150, 124)
+        Me.lst_albums.TabIndex = 18
+        '
+        'btn_searchSql2
+        '
+        Me.btn_searchSql2.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_searchSql2.Location = New System.Drawing.Point(57, 403)
+        Me.btn_searchSql2.Name = "btn_searchSql2"
+        Me.btn_searchSql2.Size = New System.Drawing.Size(114, 41)
+        Me.btn_searchSql2.TabIndex = 19
+        Me.btn_searchSql2.Text = "Search"
+        Me.btn_searchSql2.UseVisualStyleBackColor = True
+        '
         'StatisticsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -114,6 +148,9 @@ Partial Class StatisticsForm
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1382, 753)
+        Me.Controls.Add(Me.btn_searchSql2)
+        Me.Controls.Add(Me.lst_albums)
+        Me.Controls.Add(Me.lst_artistsAlbum)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btn_Query4)
         Me.Controls.Add(Me.lst_songs)
@@ -135,4 +172,7 @@ Partial Class StatisticsForm
     Friend WithEvents lst_songs As ListBox
     Friend WithEvents btn_Query4 As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents lst_artistsAlbum As ListBox
+    Friend WithEvents lst_albums As ListBox
+    Friend WithEvents btn_searchSql2 As Button
 End Class

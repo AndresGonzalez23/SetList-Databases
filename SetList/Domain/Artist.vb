@@ -71,4 +71,8 @@
         Return Me.artistsDAO.Query1(Me)
     End Function
 
+    Public Function Query2() As Object
+        Return Me.artistsDAO.Query2(Me)
+    End Function
+
 End Class
