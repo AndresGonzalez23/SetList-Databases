@@ -68,14 +68,14 @@
         Dim albAux As New Album
         Me.artist = New Artist
 
-        If lst_artists.SelectedItem IsNot Nothing Then
-            artist.artistName = lst_artists.SelectedItem.ToString
+        If lst_artistsAlbum.SelectedItem IsNot Nothing Then
+            artist.artistName = lst_artistsAlbum.SelectedItem.ToString
             artist.ReadArtistByName()
 
             list = CType(artist.Query2(), Collection)
 
             For Each albName In list
-                lst_moreSinged.Items.Add(albName)
+                lst_albums.Items.Add(albName)
             Next
 
         End If
