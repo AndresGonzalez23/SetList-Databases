@@ -3,6 +3,7 @@
     Private song As Song
     Private previousArtist As Artist
     Private country As Country
+    Private concert As Concert
     Private album As Album
     Private artistCountry As Country
     Public albumArtist As Integer
@@ -80,6 +81,41 @@
 
         End If
 
+    End Sub
 
+    Private Sub btn_Query3_Click(sender As Object, e As EventArgs) Handles btn_Query3.Click
+        Dim coAux As Concert
+        Dim concertAuxiliar As New Concert
+        Dim count As Integer
+
+        Me.concert = New Concert
+
+        concert.ReadAllConcert()
+        For Each coAux In Me.concert.cDao.Concerts
+            concertAuxiliar.idConcert = coAux.idConcert
+            concertAuxiliar.ReadConcert()
+            concertAuxiliar.ReadSetlist()
+            count = concertAuxiliar.SetList.Count
+
+
+
+        Next
+    End Sub
+
+    Private Sub btn_Query5_Click(sender As Object, e As EventArgs) Handles btn_Query5.Click
+        Dim list As Collection
+        Dim startDate As Date : Dim endDate As Date
+        Me.artist = New Artist
+
+        If txt_StartDate.Value.ToString <> String.Empty And txt_endDate.Value.ToString <> String.Empty Then
+            startDate = txt_StartDate.Value.Date
+            endDate = txt_endDate.Value.Date
+
+            list = CType(artist.Query5(startDate, endDate), Collection)
+
+            For Each artistName In list
+                lst_artistDates.Items.Add(artistName)
+            Next
+        End If
     End Sub
 End Class

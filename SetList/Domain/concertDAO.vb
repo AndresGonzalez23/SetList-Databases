@@ -18,7 +18,7 @@
 
     Public Sub Read(ByRef concert As Concert)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Concerts WHERE idConcert='" & concert.GetConcert() & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Concerts WHERE idConcert='" & concert.idConcert & "';")
         For Each aux In col
             concert.SetArtist(Convert.ToInt32(aux(2).ToString))
             concert.SetVenue(Convert.ToInt32(aux(3).ToString))
@@ -94,6 +94,19 @@
 
     Public Function DeteleSetlist(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("DELETE FROM setlists WHERE Concert=" & concert.idConcert & ";")
+    End Function
+
+    Public Function Query3(count As Integer) As Object
+        Dim nameAlbum As String
+        Dim albumsOnConcert As New Collection : Dim aux As Collection
+        Dim col As Collection = DBBroker.GetBroker().Read("SELECT DISTINCT ar.ArtistName FROM artists ar, albums al, songs s, setlists st, concerts c 
+                                                           WHERE(al.Artist = ar.idArtist AND al.idAlbum = s.Album AND st.Song = s.idSong AND st.Concert = c.idConcert AND " & count & " = (SELECT COUNT(*) FROM songs WHERE al.idAlbum = s.idAlbum);")
+
+        For Each aux In col
+            nameAlbum = aux(1).ToString
+            albumsOnConcert.Add(nameAlbum)
+        Next
+        Return albumsOnConcert
     End Function
 
 End Class

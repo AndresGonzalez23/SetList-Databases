@@ -62,6 +62,10 @@
         Me.cDao.ReadSetlist(Me)
     End Sub
 
+    Public Sub ReadConcert()
+        Me.cDao.Read(Me)
+    End Sub
+
     Public Sub ReadConcertbyArtistAndVenue()
         Me.cDao.ReadByArtistAndVenue(Me)
     End Sub

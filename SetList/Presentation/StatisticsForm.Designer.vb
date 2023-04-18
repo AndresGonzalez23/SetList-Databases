@@ -32,6 +32,12 @@ Partial Class StatisticsForm
         Me.lst_artistsAlbum = New System.Windows.Forms.ListBox()
         Me.lst_albums = New System.Windows.Forms.ListBox()
         Me.btn_searchSql2 = New System.Windows.Forms.Button()
+        Me.btn_Query3 = New System.Windows.Forms.Button()
+        Me.lst_Query3 = New System.Windows.Forms.ListBox()
+        Me.txt_StartDate = New System.Windows.Forms.DateTimePicker()
+        Me.txt_endDate = New System.Windows.Forms.DateTimePicker()
+        Me.lst_artistDates = New System.Windows.Forms.ListBox()
+        Me.btn_Query5 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lst_artists
@@ -141,6 +147,68 @@ Partial Class StatisticsForm
         Me.btn_searchSql2.Text = "Search"
         Me.btn_searchSql2.UseVisualStyleBackColor = True
         '
+        'btn_Query3
+        '
+        Me.btn_Query3.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Query3.Location = New System.Drawing.Point(57, 594)
+        Me.btn_Query3.Name = "btn_Query3"
+        Me.btn_Query3.Size = New System.Drawing.Size(114, 41)
+        Me.btn_Query3.TabIndex = 20
+        Me.btn_Query3.Text = "Search"
+        Me.btn_Query3.UseVisualStyleBackColor = True
+        '
+        'lst_Query3
+        '
+        Me.lst_Query3.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_Query3.FormattingEnabled = True
+        Me.lst_Query3.ItemHeight = 20
+        Me.lst_Query3.Location = New System.Drawing.Point(218, 553)
+        Me.lst_Query3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_Query3.Name = "lst_Query3"
+        Me.lst_Query3.Size = New System.Drawing.Size(319, 124)
+        Me.lst_Query3.TabIndex = 21
+        '
+        'txt_StartDate
+        '
+        Me.txt_StartDate.CalendarFont = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_StartDate.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_StartDate.Location = New System.Drawing.Point(701, 330)
+        Me.txt_StartDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_StartDate.Name = "txt_StartDate"
+        Me.txt_StartDate.Size = New System.Drawing.Size(207, 28)
+        Me.txt_StartDate.TabIndex = 33
+        '
+        'txt_endDate
+        '
+        Me.txt_endDate.CalendarFont = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_endDate.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_endDate.Location = New System.Drawing.Point(701, 389)
+        Me.txt_endDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_endDate.Name = "txt_endDate"
+        Me.txt_endDate.Size = New System.Drawing.Size(207, 28)
+        Me.txt_endDate.TabIndex = 34
+        '
+        'lst_artistDates
+        '
+        Me.lst_artistDates.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_artistDates.FormattingEnabled = True
+        Me.lst_artistDates.ItemHeight = 20
+        Me.lst_artistDates.Location = New System.Drawing.Point(966, 320)
+        Me.lst_artistDates.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_artistDates.Name = "lst_artistDates"
+        Me.lst_artistDates.Size = New System.Drawing.Size(150, 124)
+        Me.lst_artistDates.TabIndex = 35
+        '
+        'btn_Query5
+        '
+        Me.btn_Query5.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Query5.Location = New System.Drawing.Point(744, 445)
+        Me.btn_Query5.Name = "btn_Query5"
+        Me.btn_Query5.Size = New System.Drawing.Size(114, 41)
+        Me.btn_Query5.TabIndex = 36
+        Me.btn_Query5.Text = "Search"
+        Me.btn_Query5.UseVisualStyleBackColor = True
+        '
         'StatisticsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -148,6 +216,12 @@ Partial Class StatisticsForm
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1382, 753)
+        Me.Controls.Add(Me.btn_Query5)
+        Me.Controls.Add(Me.lst_artistDates)
+        Me.Controls.Add(Me.txt_endDate)
+        Me.Controls.Add(Me.txt_StartDate)
+        Me.Controls.Add(Me.lst_Query3)
+        Me.Controls.Add(Me.btn_Query3)
         Me.Controls.Add(Me.btn_searchSql2)
         Me.Controls.Add(Me.lst_albums)
         Me.Controls.Add(Me.lst_artistsAlbum)
@@ -175,4 +249,10 @@ Partial Class StatisticsForm
     Friend WithEvents lst_artistsAlbum As ListBox
     Friend WithEvents lst_albums As ListBox
     Friend WithEvents btn_searchSql2 As Button
+    Friend WithEvents btn_Query3 As Button
+    Friend WithEvents lst_Query3 As ListBox
+    Friend WithEvents txt_StartDate As DateTimePicker
+    Friend WithEvents txt_endDate As DateTimePicker
+    Friend WithEvents lst_artistDates As ListBox
+    Friend WithEvents btn_Query5 As Button
 End Class

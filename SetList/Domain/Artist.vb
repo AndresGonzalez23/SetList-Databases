@@ -75,4 +75,8 @@
         Return Me.artistsDAO.Query2(Me)
     End Function
 
+    Public Function Query5(startDate As Date, endDate As Date) As Object
+        Return Me.artistsDAO.Query5(startDate, endDate)
+    End Function
+
 End Class
