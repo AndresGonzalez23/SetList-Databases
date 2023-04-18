@@ -150,6 +150,9 @@
             End Try
 
             Me.lst_songs.Items.Remove(song.songName)
+            txt_songLength.Clear()
+            txt_songName.Clear()
+            txt_songOrder.Clear()
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If

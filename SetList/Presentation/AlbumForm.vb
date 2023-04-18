@@ -159,6 +159,8 @@
             End Try
 
             Me.lst_albums.Items.Remove(album.albumName)
+            txt_albumName.Clear()
+            txt_albumYear.Clear()
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If

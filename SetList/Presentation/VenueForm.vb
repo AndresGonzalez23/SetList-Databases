@@ -147,6 +147,8 @@
             End Try
 
             Me.lst_venues.Items.Remove(Venue.venueName)
+            txt_venueName.Clear()
+
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If

@@ -125,7 +125,8 @@
             Catch ex As Exception
                 MessageBox.Show("Country deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
-            Me.lst_Countries.Items.Remove(Country.countryName)
+            Me.lst_Countries.Items.Remove(country.countryName)
+            txtName.Clear()
 
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
