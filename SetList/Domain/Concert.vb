@@ -98,6 +98,4 @@
         Return Me.cDao.Update(Me)
     End Function
 
-
-
 End Class

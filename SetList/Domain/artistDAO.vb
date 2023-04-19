@@ -76,6 +76,20 @@
         Return albumsOnConcert
     End Function
 
+    Public Function Query3() As Object
+        Dim nameArtist As String
+        Dim albumsOnConcert As New Collection : Dim aux As Collection
+        Dim col As Collection = DBBroker.GetBroker().Read("SELECT DISTINCT ar.ArtistName 
+                                                           FROM artists ar, albums al, songs_of_album_per_concert sc, songs_per_album_view sa
+                                                           WHERE ar.idArtist = al.Artist AND al.idAlbum = sc.album AND al.idAlbum = sa.idAlbum AND sc.total_concert = sa.total_album;")
+
+        For Each aux In col
+            nameArtist = aux(1).ToString
+            albumsOnConcert.Add(nameArtist)
+        Next
+        Return albumsOnConcert
+    End Function
+
     Public Function Query5(ByRef startDate As Date, ByRef endDate As Date) As Object
         Dim nameArtist As String
         Dim artistMorePerformances As New Collection : Dim aux As Collection

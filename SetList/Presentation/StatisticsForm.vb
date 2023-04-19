@@ -91,6 +91,16 @@
     End Sub
 
     Private Sub btn_Query3_Click(sender As Object, e As EventArgs) Handles btn_Query3.Click
+        Dim list As New Collection
+
+        Me.artist = New Artist
+        lst_Query3.Items.Clear()
+
+        list = CType(artist.Query3(), Collection)
+
+        For Each artistName In list
+            lst_Query3.Items.Add(artistName)
+        Next
 
     End Sub
 
