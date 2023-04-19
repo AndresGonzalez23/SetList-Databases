@@ -31,6 +31,9 @@
         Dim list As New Collection
 
         Me.artist = New Artist
+
+        lst_moreSinged.Items.Clear()
+
         If lst_artists.SelectedItem IsNot Nothing Then
             artist.artistName = lst_artists.SelectedItem.ToString
             artist.ReadArtistByName()
@@ -51,6 +54,8 @@
         Me.song = New Song
         Me.album = New Album
 
+        lst_songs.Items.Clear()
+
         list = CType(song.Query4(), Collection)
 
         For Each songName In list
@@ -69,6 +74,8 @@
         Dim albAux As New Album
         Me.artist = New Artist
 
+        lst_albums.Items.Clear()
+
         If lst_artistsAlbum.SelectedItem IsNot Nothing Then
             artist.artistName = lst_artistsAlbum.SelectedItem.ToString
             artist.ReadArtistByName()
@@ -84,28 +91,15 @@
     End Sub
 
     Private Sub btn_Query3_Click(sender As Object, e As EventArgs) Handles btn_Query3.Click
-        Dim coAux As Concert
-        Dim concertAuxiliar As New Concert
-        Dim count As Integer
 
-        Me.concert = New Concert
-
-        concert.ReadAllConcert()
-        For Each coAux In Me.concert.cDao.Concerts
-            concertAuxiliar.idConcert = coAux.idConcert
-            concertAuxiliar.ReadConcert()
-            concertAuxiliar.ReadSetlist()
-            count = concertAuxiliar.SetList.Count
-
-
-
-        Next
     End Sub
 
     Private Sub btn_Query5_Click(sender As Object, e As EventArgs) Handles btn_Query5.Click
         Dim list As Collection
         Dim startDate As Date : Dim endDate As Date
         Me.artist = New Artist
+
+        lst_artistDates.Items.Clear()
 
         If txt_StartDate.Value.ToString <> String.Empty And txt_endDate.Value.ToString <> String.Empty Then
             startDate = txt_StartDate.Value.Date
@@ -123,6 +117,8 @@
         Dim list As Collection
         Dim startDate As Date : Dim endDate As Date
         Me.country = New Country
+
+        lst_countries.Items.Clear()
 
         If txt_startDateQ6.Value.ToString <> String.Empty And txt_endDateQ6.Value.ToString <> String.Empty Then
             startDate = txt_startDateQ6.Value.Date

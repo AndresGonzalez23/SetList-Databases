@@ -97,14 +97,14 @@
     End Function
 
     Public Function Query3(count As Integer) As Object
-        Dim nameAlbum As String
+        Dim nameArtist As String
         Dim albumsOnConcert As New Collection : Dim aux As Collection
         Dim col As Collection = DBBroker.GetBroker().Read("SELECT DISTINCT ar.ArtistName FROM artists ar, albums al, songs s, setlists st, concerts c 
                                                            WHERE(al.Artist = ar.idArtist AND al.idAlbum = s.Album AND st.Song = s.idSong AND st.Concert = c.idConcert AND " & count & " = (SELECT COUNT(*) FROM songs WHERE al.idAlbum = s.idAlbum);")
 
         For Each aux In col
-            nameAlbum = aux(1).ToString
-            albumsOnConcert.Add(nameAlbum)
+            nameArtist = aux(1).ToString
+            albumsOnConcert.Add(nameArtist)
         Next
         Return albumsOnConcert
     End Function
