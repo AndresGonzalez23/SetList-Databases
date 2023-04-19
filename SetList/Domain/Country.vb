@@ -51,4 +51,9 @@
     Public Function DeleteCountry() As Integer
         Return Me.counDAO.Delete(Me)
     End Function
+
+    Public Function Query6(startDate As Date, endDate As Date) As Object
+        Return Me.counDAO.Query6(startDate, endDate)
+    End Function
+
 End Class

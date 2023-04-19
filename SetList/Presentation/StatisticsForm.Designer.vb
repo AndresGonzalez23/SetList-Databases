@@ -38,6 +38,10 @@ Partial Class StatisticsForm
         Me.txt_endDate = New System.Windows.Forms.DateTimePicker()
         Me.lst_artistDates = New System.Windows.Forms.ListBox()
         Me.btn_Query5 = New System.Windows.Forms.Button()
+        Me.txt_startDateQ6 = New System.Windows.Forms.DateTimePicker()
+        Me.txt_endDateQ6 = New System.Windows.Forms.DateTimePicker()
+        Me.lst_countries = New System.Windows.Forms.ListBox()
+        Me.btn_Query6 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lst_artists
@@ -209,6 +213,47 @@ Partial Class StatisticsForm
         Me.btn_Query5.Text = "Search"
         Me.btn_Query5.UseVisualStyleBackColor = True
         '
+        'txt_startDateQ6
+        '
+        Me.txt_startDateQ6.CalendarFont = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_startDateQ6.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_startDateQ6.Location = New System.Drawing.Point(701, 553)
+        Me.txt_startDateQ6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_startDateQ6.Name = "txt_startDateQ6"
+        Me.txt_startDateQ6.Size = New System.Drawing.Size(207, 28)
+        Me.txt_startDateQ6.TabIndex = 37
+        '
+        'txt_endDateQ6
+        '
+        Me.txt_endDateQ6.CalendarFont = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_endDateQ6.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_endDateQ6.Location = New System.Drawing.Point(701, 629)
+        Me.txt_endDateQ6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_endDateQ6.Name = "txt_endDateQ6"
+        Me.txt_endDateQ6.Size = New System.Drawing.Size(207, 28)
+        Me.txt_endDateQ6.TabIndex = 38
+        '
+        'lst_countries
+        '
+        Me.lst_countries.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_countries.FormattingEnabled = True
+        Me.lst_countries.ItemHeight = 20
+        Me.lst_countries.Location = New System.Drawing.Point(966, 553)
+        Me.lst_countries.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_countries.Name = "lst_countries"
+        Me.lst_countries.Size = New System.Drawing.Size(232, 124)
+        Me.lst_countries.TabIndex = 39
+        '
+        'btn_Query6
+        '
+        Me.btn_Query6.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Query6.Location = New System.Drawing.Point(744, 677)
+        Me.btn_Query6.Name = "btn_Query6"
+        Me.btn_Query6.Size = New System.Drawing.Size(114, 41)
+        Me.btn_Query6.TabIndex = 40
+        Me.btn_Query6.Text = "Search"
+        Me.btn_Query6.UseVisualStyleBackColor = True
+        '
         'StatisticsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -216,6 +261,10 @@ Partial Class StatisticsForm
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1382, 753)
+        Me.Controls.Add(Me.btn_Query6)
+        Me.Controls.Add(Me.lst_countries)
+        Me.Controls.Add(Me.txt_endDateQ6)
+        Me.Controls.Add(Me.txt_startDateQ6)
         Me.Controls.Add(Me.btn_Query5)
         Me.Controls.Add(Me.lst_artistDates)
         Me.Controls.Add(Me.txt_endDate)
@@ -255,4 +304,8 @@ Partial Class StatisticsForm
     Friend WithEvents txt_endDate As DateTimePicker
     Friend WithEvents lst_artistDates As ListBox
     Friend WithEvents btn_Query5 As Button
+    Friend WithEvents txt_startDateQ6 As DateTimePicker
+    Friend WithEvents txt_endDateQ6 As DateTimePicker
+    Friend WithEvents lst_countries As ListBox
+    Friend WithEvents btn_Query6 As Button
 End Class

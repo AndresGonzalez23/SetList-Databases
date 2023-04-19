@@ -45,5 +45,18 @@
         Return DBBroker.GetBroker.Change("DELETE FROM Country WHERE idCountry='" & country.idCountry & "';")
     End Function
 
+    Public Function Query6(ByRef startDate As Date, ByRef endDate As Date) As Object
+        Dim nameCountry As String
+        Dim countriesPerformed As New Collection : Dim aux As Collection
+        Dim col As Collection = DBBroker.GetBroker().Read("SELECT c.CountryName, COUNT(con.idConcert) AS total_conciertos FROM venues v, concerts con, country c 
+                                                           WHERE c.idCountry = v.VenueCountry AND con.Venue = v.idVenue and con.ConcertDate BETWEEN '" & startDate.ToString("yyyy/MM/dd") & "' AND '" & endDate.ToString("yyyy/MM/dd") & "' 
+                                                           GROUP BY c.CountryName ORDER BY total_conciertos DESC;")
+
+        For Each aux In col
+            nameCountry = aux(1).ToString
+            countriesPerformed.Add(nameCountry)
+        Next
+        Return countriesPerformed
+    End Function
 
 End Class

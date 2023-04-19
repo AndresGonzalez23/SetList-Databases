@@ -80,9 +80,8 @@
         Dim nameArtist As String
         Dim artistMorePerformances As New Collection : Dim aux As Collection
         Dim col As Collection = DBBroker.GetBroker().Read("SELECT a.ArtistName, COUNT(DISTINCT c.idConcert) AS total_conciertos FROM artists a, concerts c 
-                                                           WHERE(a.idArtist = c.Artist AND c.ConcertDate BETWEEN '" & startDate.ToString("yyyy/MM/dd") & "' AND '" & endDate.ToString("yyyy/MM/dd") & "') 
-                                                           GROUP BY a.ArtistName ORDER BY total_conciertos DESC;")
-
+                                                               WHERE(a.idArtist = c.Artist AND c.ConcertDate BETWEEN '" & startDate.ToString("yyyy/MM/dd") & "' AND '" & endDate.ToString("yyyy/MM/dd") & "') 
+                                                               GROUP BY a.ArtistName ORDER BY total_conciertos DESC;")
         For Each aux In col
             nameArtist = aux(1).ToString
             artistMorePerformances.Add(nameArtist)
