@@ -16,6 +16,7 @@ Public Class Form1
 
         countryForm.LoadInfo()
         countryForm.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btn_openArtists_Click(sender As Object, e As EventArgs) Handles btn_openArtists.Click
@@ -23,6 +24,7 @@ Public Class Form1
 
         artistForm.LoadInfo()
         artistForm.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btn_openVenues_Click(sender As Object, e As EventArgs) Handles btn_openVenues.Click
@@ -30,6 +32,7 @@ Public Class Form1
 
         venueForm.LoadInfo()
         venueForm.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btn_openAlbums_Click(sender As Object, e As EventArgs) Handles btn_openAlbums.Click
@@ -37,6 +40,7 @@ Public Class Form1
 
         albumForm.LoadInfo()
         albumForm.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btn_openSongs_Click(sender As Object, e As EventArgs) Handles btn_openSongs.Click
@@ -44,6 +48,7 @@ Public Class Form1
 
         songsForm.LoadInfo()
         songsForm.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btn_openConcerts_Click(sender As Object, e As EventArgs) Handles btn_openConcerts.Click
@@ -51,12 +56,14 @@ Public Class Form1
 
         concertsForm.LoadInfo()
         concertsForm.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btn_Statistics_Click(sender As Object, e As EventArgs) Handles btn_Statistics.Click
         Dim statisticsForm As New StatisticsForm
         statisticsForm.LoadInfo()
         statisticsForm.Show()
+        Me.Hide()
 
     End Sub
 End Class

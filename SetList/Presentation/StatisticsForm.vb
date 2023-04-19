@@ -105,7 +105,7 @@
     End Sub
 
     Private Sub btn_Query5_Click(sender As Object, e As EventArgs) Handles btn_Query5.Click
-        Dim list As Collection
+        Dim list As New Collection
         Dim startDate As Date : Dim endDate As Date
         Me.artist = New Artist
 
@@ -115,16 +115,26 @@
             startDate = txt_StartDate.Value.Date
             endDate = txt_endDate.Value.Date
 
-            list = CType(artist.Query5(startDate, endDate), Collection)
+            Try
+                If startDate < endDate Then
+                    list = CType(artist.Query5(startDate, endDate), Collection)
+                    For Each artistName In list
+                        lst_artistDates.Items.Add(artistName)
+                    Next
+                Else
+                    Throw New Exception("Invalid date range")
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Date error", MessageBoxButtons.OK)
+            End Try
 
-            For Each artistName In list
-                lst_artistDates.Items.Add(artistName)
-            Next
+
+
         End If
     End Sub
 
     Private Sub btn_Query6_Click(sender As Object, e As EventArgs) Handles btn_Query6.Click
-        Dim list As Collection
+        Dim list As New Collection
         Dim startDate As Date : Dim endDate As Date
         Me.country = New Country
 
@@ -133,12 +143,26 @@
         If txt_startDateQ6.Value.ToString <> String.Empty And txt_endDateQ6.Value.ToString <> String.Empty Then
             startDate = txt_startDateQ6.Value.Date
             endDate = txt_endDateQ6.Value.Date
+            Try
+                If startDate < endDate Then
+                    list = CType(country.Query6(startDate, endDate), Collection)
+                    For Each countryName In list
+                        lst_countries.Items.Add(countryName)
+                    Next
+                Else
+                    Throw New Exception("Invalid date range")
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Date error", MessageBoxButtons.OK)
+            End Try
 
-            list = CType(country.Query6(startDate, endDate), Collection)
 
-            For Each countryName In list
-                lst_countries.Items.Add(countryName)
-            Next
         End If
+    End Sub
+
+    Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click
+        Dim Form1 As New Form1
+        Form1.Show()
+        Me.Hide()
     End Sub
 End Class

@@ -137,4 +137,10 @@
         txtName.Clear()
 
     End Sub
+
+    Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click
+        Dim Form1 As New Form1
+        Form1.Show()
+        Me.Hide()
+    End Sub
 End Class

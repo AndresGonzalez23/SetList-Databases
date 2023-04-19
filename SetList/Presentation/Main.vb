@@ -111,4 +111,9 @@
         End If
     End Sub
 
+    Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click
+        Dim ConcertsForm As New ConcertsForm
+        ConcertsForm.Show()
+        Me.Hide()
+    End Sub
 End Class
