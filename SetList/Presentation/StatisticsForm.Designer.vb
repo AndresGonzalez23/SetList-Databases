@@ -260,7 +260,7 @@ Partial Class StatisticsForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1382, 753)
+        Me.ClientSize = New System.Drawing.Size(1432, 753)
         Me.Controls.Add(Me.btn_Query6)
         Me.Controls.Add(Me.lst_countries)
         Me.Controls.Add(Me.txt_endDateQ6)

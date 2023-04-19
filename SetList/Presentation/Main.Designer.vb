@@ -29,20 +29,20 @@ Partial Class Main
         Me.lst_setlist = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lst_concerts = New System.Windows.Forms.ListBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lst_artist = New System.Windows.Forms.ListBox()
         Me.lst_venues = New System.Windows.Forms.ListBox()
+        Me.lst_artist = New System.Windows.Forms.ListBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label17
@@ -122,6 +122,28 @@ Partial Class Main
         Me.Panel1.Size = New System.Drawing.Size(480, 418)
         Me.Panel1.TabIndex = 38
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = Global.SetList.My.Resources.Resources.flecha_correcta
+        Me.PictureBox3.Location = New System.Drawing.Point(230, 261)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox3.TabIndex = 37
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.SetList.My.Resources.Resources.flecha_correcta
+        Me.PictureBox2.Location = New System.Drawing.Point(230, 163)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox2.TabIndex = 36
+        Me.PictureBox2.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -169,16 +191,6 @@ Partial Class Main
         Me.Panel3.Size = New System.Drawing.Size(268, 418)
         Me.Panel3.TabIndex = 38
         '
-        'lst_artist
-        '
-        Me.lst_artist.FormattingEnabled = True
-        Me.lst_artist.ItemHeight = 16
-        Me.lst_artist.Location = New System.Drawing.Point(25, 45)
-        Me.lst_artist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lst_artist.Name = "lst_artist"
-        Me.lst_artist.Size = New System.Drawing.Size(221, 148)
-        Me.lst_artist.TabIndex = 29
-        '
         'lst_venues
         '
         Me.lst_venues.FormattingEnabled = True
@@ -188,6 +200,16 @@ Partial Class Main
         Me.lst_venues.Name = "lst_venues"
         Me.lst_venues.Size = New System.Drawing.Size(221, 148)
         Me.lst_venues.TabIndex = 29
+        '
+        'lst_artist
+        '
+        Me.lst_artist.FormattingEnabled = True
+        Me.lst_artist.ItemHeight = 16
+        Me.lst_artist.Location = New System.Drawing.Point(25, 45)
+        Me.lst_artist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_artist.Name = "lst_artist"
+        Me.lst_artist.Size = New System.Drawing.Size(221, 148)
+        Me.lst_artist.TabIndex = 29
         '
         'Label7
         '
@@ -201,35 +223,13 @@ Partial Class Main
         Me.Label7.TabIndex = 18
         Me.Label7.Text = "Venues"
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.SetList.My.Resources.Resources.flecha_correcta
-        Me.PictureBox2.Location = New System.Drawing.Point(230, 163)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(30, 30)
-        Me.PictureBox2.TabIndex = 36
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.Image = Global.SetList.My.Resources.Resources.flecha_correcta
-        Me.PictureBox3.Location = New System.Drawing.Point(230, 261)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(30, 30)
-        Me.PictureBox3.TabIndex = 37
-        Me.PictureBox3.TabStop = False
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1432, 753)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -237,11 +237,11 @@ Partial Class Main
         Me.Text = "Main"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

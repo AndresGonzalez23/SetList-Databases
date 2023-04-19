@@ -218,7 +218,7 @@ Partial Class AlbumForm
         Me.Label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label13.Location = New System.Drawing.Point(348, 9)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(160, 41)
+        Me.Label13.Size = New System.Drawing.Size(156, 40)
         Me.Label13.TabIndex = 18
         Me.Label13.Text = "Albums"
         '
@@ -237,7 +237,7 @@ Partial Class AlbumForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1432, 753)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Label13)

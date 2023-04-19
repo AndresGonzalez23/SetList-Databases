@@ -191,7 +191,7 @@ Partial Class ArtistForm
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label3.Location = New System.Drawing.Point(351, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(143, 41)
+        Me.Label3.Size = New System.Drawing.Size(140, 40)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Artists"
         '
@@ -200,7 +200,7 @@ Partial Class ArtistForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1432, 753)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.Label3)

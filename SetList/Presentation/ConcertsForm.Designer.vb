@@ -332,7 +332,7 @@ Partial Class ConcertsForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
-        Me.ClientSize = New System.Drawing.Size(982, 553)
+        Me.ClientSize = New System.Drawing.Size(1432, 753)
         Me.Controls.Add(Me.btn_orderBy)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Label17)

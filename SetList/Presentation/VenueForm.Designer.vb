@@ -24,6 +24,7 @@ Partial Class VenueForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VenueForm))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btn_clean = New System.Windows.Forms.Button()
         Me.lst_Countries = New System.Windows.Forms.ListBox()
         Me.cmb_venuesType = New System.Windows.Forms.ComboBox()
         Me.btn_updateVenue = New System.Windows.Forms.Button()
@@ -36,7 +37,6 @@ Partial Class VenueForm
         Me.btn_insertVenue = New System.Windows.Forms.Button()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btn_clean = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -61,6 +61,19 @@ Partial Class VenueForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(614, 352)
         Me.Panel1.TabIndex = 27
+        '
+        'btn_clean
+        '
+        Me.btn_clean.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_clean.Image = Global.SetList.My.Resources.Resources.escoba__2_
+        Me.btn_clean.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btn_clean.Location = New System.Drawing.Point(313, 271)
+        Me.btn_clean.Name = "btn_clean"
+        Me.btn_clean.Size = New System.Drawing.Size(92, 55)
+        Me.btn_clean.TabIndex = 54
+        Me.btn_clean.Text = "CLEAN"
+        Me.btn_clean.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_clean.UseVisualStyleBackColor = True
         '
         'lst_Countries
         '
@@ -208,25 +221,12 @@ Partial Class VenueForm
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Venues"
         '
-        'btn_clean
-        '
-        Me.btn_clean.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_clean.Image = Global.SetList.My.Resources.Resources.escoba__2_
-        Me.btn_clean.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btn_clean.Location = New System.Drawing.Point(313, 271)
-        Me.btn_clean.Name = "btn_clean"
-        Me.btn_clean.Size = New System.Drawing.Size(92, 55)
-        Me.btn_clean.TabIndex = 54
-        Me.btn_clean.Text = "CLEAN"
-        Me.btn_clean.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btn_clean.UseVisualStyleBackColor = True
-        '
         'VenueForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1432, 753)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.Label1)

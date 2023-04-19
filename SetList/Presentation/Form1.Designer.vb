@@ -138,7 +138,7 @@ Partial Class Form1
         Me.AutoSize = True
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(882, 453)
+        Me.ClientSize = New System.Drawing.Size(1432, 753)
         Me.Controls.Add(Me.btn_openConcerts)
         Me.Controls.Add(Me.btn_openAlbums)
         Me.Controls.Add(Me.btn_openSongs)
@@ -150,9 +150,9 @@ Partial Class Form1
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(900, 500)
+        Me.MaximumSize = New System.Drawing.Size(1450, 800)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(900, 500)
+        Me.MinimumSize = New System.Drawing.Size(1450, 800)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Setlist"
