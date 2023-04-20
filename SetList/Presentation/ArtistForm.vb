@@ -137,12 +137,14 @@
             Try
                 If artist.DeleteArtist() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                Else
+                    Me.lst_artists.Items.Remove(artist.artistName)
+                    txt_artistName.Clear()
                 End If
             Catch ex As Exception
-                MessageBox.Show("Artist deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
-            Me.lst_artists.Items.Remove(artist.artistName)
-            txt_artistName.Clear()
+
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If

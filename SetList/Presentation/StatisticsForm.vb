@@ -10,7 +10,7 @@
 
     Public Function LoadInfo() As Boolean
         Dim aAux As Artist
-        Dim couAux As Country
+
 
         Me.artist = New Artist
         Me.country = New Country
