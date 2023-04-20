@@ -65,7 +65,7 @@
 
     Private Sub btn_insertAlbum_Click(sender As Object, e As EventArgs) Handles btn_insertAlbum.Click
         Dim albumNew As Album
-        If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty Then
+        If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty And lst_artists.SelectedIndex <> -1 Then
             albumNew = New Album
             albumNew.albumName = txt_albumName.Text
             albumNew.albumYear = Convert.ToInt32(txt_albumYear.Text)
@@ -76,22 +76,17 @@
 
             Try
                 If albumNew.InsertAlbum() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                    MessageBox.Show("INSERT <> 1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                Else
+                    If albumNew.GetAlbumName <> album.GetAlbumName Then
+                        lst_albums.Items.Add(albumNew.GetAlbumName)
+                        txt_albumName.Clear()
+                        txt_albumYear.Clear()
+                    End If
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            Try
-                If albumNew.GetAlbumName <> album.GetAlbumName Then
-                    lst_albums.Items.Add(albumNew.GetAlbumName)
-                    txt_albumName.Clear()
-                    txt_albumYear.Clear()
-                End If
-
-            Catch ex As Exception
-                MessageBox.Show("This album just exists", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            End Try
-
 
         Else
             MessageBox.Show("Name, year or artist are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
@@ -117,18 +112,22 @@
             UpdateAlbum.idAlbum = previousAlbum.GetIdAlbum()
 
 
-            If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty Then
+            If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty And lst_artists.SelectedIndex <> -1 Then
                 Try
-                    UpdateAlbum.UpdateAlbum()
-                    MsgBox("Album Update Succesfully")
+                    If UpdateAlbum.UpdateAlbum() <> 1 Then
+                        MessageBox.Show("UPDATE <> 1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                    Else
+                        lst_albums.Items.Clear()
+                        album.ReadAllAlbums()
+                        For Each albAux In Me.album.albDAO.Albums
+                            Me.lst_albums.Items.Add(albAux.albumName)
+                        Next
+                        MsgBox("Album Update Succesfully")
+                    End If
+
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
-                lst_albums.Items.Clear()
-                album.ReadAllAlbums()
-                For Each albAux In Me.album.albDAO.Albums
-                    Me.lst_albums.Items.Add(albAux.albumName)
-                Next
 
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -139,30 +138,36 @@
     End Sub
 
     Private Sub btn_deleteAlbum_Click(sender As Object, e As EventArgs) Handles btn_deleteAlbum.Click
+
+        Me.artist = New Artist
+        Me.album = New Album
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this album?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
 
-        If txt_albumName.Text <> String.Empty Then
+        If txt_albumName.Text <> String.Empty And txt_albumYear.Text <> String.Empty And lst_artists.SelectedIndex <> -1 Then
 
-            album.albumName = txt_albumName.Text
+            album.albumName = lst_albums.SelectedItem.ToString
             album.ReadAlbumByName()
+            artist.artistName = lst_artists.SelectedItem.ToString
+            artist.ReadArtistByName()
 
-            If album.albumName <> txt_albumName.Text.Trim() Then
-                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+            If album.albumName <> txt_albumName.Text.Trim() Or artist.IdArtist <> album.albumArtist Or album.albumYear <> Convert.ToInt32(txt_albumYear.Text) Then
+                MessageBox.Show("This is not the same album that you have selected in the album list, please check the data", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
             End If
             Try
                 If album.DeleteAlbum() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                    MessageBox.Show("INSERT <> 1", "Custom Error", MessageBoxButtons.OK)
+                Else
+                    Me.lst_albums.Items.Remove(album.albumName)
+                    txt_albumName.Clear()
+                    txt_albumYear.Clear()
                 End If
             Catch ex As Exception
                 MessageBox.Show("Album deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
 
-            Me.lst_albums.Items.Remove(album.albumName)
-            txt_albumName.Clear()
-            txt_albumYear.Clear()
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If
@@ -171,6 +176,8 @@
     Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
         txt_albumName.Clear()
         txt_albumYear.Clear()
+        lst_albums.ClearSelected()
+        lst_artists.ClearSelected()
 
     End Sub
 

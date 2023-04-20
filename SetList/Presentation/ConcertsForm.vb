@@ -70,6 +70,8 @@
             concert.ReadConcertbyArtistAndVenue()
             txt_dateConcert.Value = concert.GetDate()
 
+
+
             For Each artista As String In lst_artists.Items
                 If artista.Contains(artist.artistName) Then
                     lst_artists.SelectedItem = artista
@@ -122,30 +124,30 @@
         Me.artist = New Artist
         Me.album = New Album
         Me.song = New Song
+        If lst_artists.SelectedIndex <> -1 Then
+            btn_addSong.Enabled = False
+            lst_concertSetlist.Items.Clear()
+            lst_songs.Items.Clear()
+            artist.artistName = lst_artists.SelectedItem.ToString
+            artist.ReadArtistByName()
 
-        btn_addSong.Enabled = False
-        lst_concertSetlist.Items.Clear()
-        lst_songs.Items.Clear()
-        artist.artistName = lst_artists.SelectedItem.ToString
-        artist.ReadArtistByName()
+            Try
+                album.albumArtist = artist.IdArtist
+                album.ReadAllAlbumsArtist()
 
-        Try
-            album.albumArtist = artist.IdArtist
-            album.ReadAllAlbumsArtist()
-
-            For Each albAux In Me.album.albDAO.Albums
-                song.songAlbum = albAux.idAlbum
-                song.ReadAllAlbumSongs()
-                For Each sonAux In Me.song.sonDAO.Songs
-                    song.songName = sonAux.songName
-                    Me.lst_songs.Items.Add(song.songName)
+                For Each albAux In Me.album.albDAO.Albums
+                    song.songAlbum = albAux.idAlbum
+                    song.ReadAllAlbumSongs()
+                    For Each sonAux In Me.song.sonDAO.Songs
+                        song.songName = sonAux.songName
+                        Me.lst_songs.Items.Add(song.songName)
+                    Next
                 Next
-            Next
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End Try
-
-        EliminateDuplicateSongs(Me.lst_songs)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            End Try
+            EliminateDuplicateSongs(Me.lst_songs)
+        End If
 
     End Sub
 
@@ -187,14 +189,14 @@
             Try
                 If concertNew.InsertConcert() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                Else
+                    concertNew.ReadConcertbyArtistAndVenue()
+                    concertNew.InsertConcertSetlist()
+                    lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            concertNew.ReadConcertbyArtistAndVenue()
-            concertNew.InsertConcertSetlist()
-            lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
-
         Else
             MessageBox.Show("Artist, Venue or Setlist is not selected or fulfilled, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
         End If
@@ -222,42 +224,45 @@
             UpdateConcert.VenueName = Venue.idVenue
             UpdateConcert.idConcert = previousConcert.idConcert
 
-            If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty Then
+            If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty And lst_concertSetlist.Items.Count > 0 Then
                 Try
-                    UpdateConcert.UpdateConcert()
-                    MsgBox("Album Update Succesfully")
+                    If UpdateConcert.UpdateConcert() <> 1 Then
+                        MessageBox.Show("UPDATE <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                    Else
+                        lst_concerts.Items.Clear()
+                        concert.ReadAllConcert()
+                        For Each coAux In Me.concert.cDao.Concerts
+                            Me.artist = New Artist
+                            Me.Venue = New Venue
+                            artist.IdArtist = coAux.ArtistName
+                            artist.ReadArtist()
+                            Venue.idVenue = coAux.VenueName
+                            Venue.ReadVenue()
+                            Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
+                        Next
+
+                        UpdateConcert.DeleteConcertSetlist()
+                        For Each cancion As String In lst_concertSetlist.Items
+                            song.songName = cancion
+                            song.ReadSongByName()
+                            UpdateConcert.SetList.Add(song.idSong)
+                        Next
+                        UpdateConcert.InsertConcertSetlist()
+                        UpdateConcert.ReadSetlist()
+                        lst_concertSetlist.Items.Clear()
+
+                        For Each setlistSong As Integer In UpdateConcert.SetList
+                            song.idSong = setlistSong
+                            song.ReadSong()
+                            lst_concertSetlist.Items.Add(song.songName)
+                        Next
+                        EliminateDuplicateSongs(Me.lst_concertSetlist)
+                        MsgBox("Album Update Succesfully")
+                    End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
 
-                lst_concerts.Items.Clear()
-                concert.ReadAllConcert()
-                For Each coAux In Me.concert.cDao.Concerts
-                    Me.artist = New Artist
-                    Me.Venue = New Venue
-                    artist.IdArtist = coAux.ArtistName
-                    artist.ReadArtist()
-                    Venue.idVenue = coAux.VenueName
-                    Venue.ReadVenue()
-                    Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
-                Next
-
-                UpdateConcert.DeleteConcertSetlist()
-                For Each cancion As String In lst_concertSetlist.Items
-                    song.songName = cancion
-                    song.ReadSongByName()
-                    UpdateConcert.SetList.Add(song.idSong)
-                Next
-                UpdateConcert.InsertConcertSetlist()
-                UpdateConcert.ReadSetlist()
-                lst_concertSetlist.Items.Clear()
-
-                For Each setlistSong As Integer In UpdateConcert.SetList
-                    song.idSong = setlistSong
-                    song.ReadSong()
-                    lst_concertSetlist.Items.Add(song.songName)
-                Next
-                EliminateDuplicateSongs(Me.lst_concertSetlist)
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
             End If
@@ -267,21 +272,49 @@
     End Sub
 
     Private Sub btn_deleteConcert_Click(sender As Object, e As EventArgs) Handles btn_deleteConcert.Click
+        Dim data As String : Dim separatedData() As String
+        Dim setlistInBox As New Collection
+        Dim correctSetlist As New Boolean
+
         Me.concert = New Concert
         Me.artist = New Artist
         Me.Venue = New Venue
+        Me.song = New Song
 
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this concert?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
-        If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty Then
-            artist.artistName = lst_artists.SelectedItem.ToString
+
+        If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty And lst_concertSetlist.Items.Count > 0 Then
+            data = lst_concerts.SelectedItem.ToString()
+            separatedData = data.Split("-"c)
+            artist.artistName = separatedData(0)
             artist.ReadArtistByName()
-            concert.ArtistName = artist.IdArtist
-            Venue.venueName = lst_venues.SelectedItem.ToString
+            Venue.venueName = separatedData(1)
             Venue.ReadVenueByName()
+            concert.ArtistName = artist.IdArtist
             concert.VenueName = Venue.idVenue
             concert.ReadConcertbyArtistAndVenue()
+            txt_dateConcert.Value = concert.GetDate()
+
+            For Each cancion As String In lst_concertSetlist.Items
+                song.songName = cancion
+                song.ReadSongByName()
+                setlistInBox.Add(song.idSong)
+            Next
+
+            If artist.artistName <> lst_artists.SelectedItem.ToString Or Venue.venueName <> lst_venues.SelectedItem.ToString Or concert.GetDate <> txt_dateConcert.Value Or Not concert.SetList.Cast(Of Integer)().SequenceEqual(setlistInBox.Cast(Of Integer)()) Then
+                MessageBox.Show("This is not the same concert you have selected in the setlist list, please check the data", "Custom Error", MessageBoxButtons.OK)
+                Exit Sub
+            End If
+
+            'artist.artistName = lst_artists.SelectedItem.ToString
+            ' artist.ReadArtistByName()
+            'concert.ArtistName = artist.IdArtist
+            'Venue.venueName = lst_venues.SelectedItem.ToString
+            ' Venue.ReadVenueByName()
+            'concert.VenueName = Venue.idVenue
+            'concert.ReadConcertbyArtistAndVenue()
 
             concert.DeleteConcertSetlist()
             lst_concertSetlist.Items.Clear()
@@ -293,12 +326,14 @@
             Try
                 If concert.DeleteConcert() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                Else
+                    Me.lst_concerts.Items.Remove(artist.artistName & "-" & Venue.venueName)
+                    MessageBox.Show("Album Deleted")
                 End If
             Catch ex As Exception
-                MessageBox.Show("Concert deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
 
-            Me.lst_concerts.Items.Remove(artist.artistName & "-" & Venue.venueName)
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
         End If
@@ -335,5 +370,14 @@
         Dim Form1 As New Main
         Form1.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
+
+        lst_concerts.ClearSelected()
+        lst_songs.Items.Clear()
+        lst_artists.ClearSelected()
+
+        lst_venues.ClearSelected()
     End Sub
 End Class

@@ -68,7 +68,7 @@
 
     Private Sub btn_venueInsertar_Click(sender As Object, e As EventArgs) Handles btn_insertVenue.Click
         Dim venueNew As Venue
-        If txt_venueName.Text <> String.Empty And cmb_venuesType.SelectedItem.ToString <> String.Empty Then
+        If txt_venueName.Text <> String.Empty And cmb_venuesType.SelectedItem IsNot Nothing And lst_Countries.SelectedIndex <> -1 Then
             venueNew = New Venue
             venueNew.venueName = txt_venueName.Text
             venueNew.venueCountry = lst_Countries.SelectedItem.ToString.Substring(0, 3)
@@ -76,13 +76,14 @@
 
             Try
                 If venueNew.InsertVenue() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                    MessageBox.Show("INSERT <> 1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                Else
+                    lst_venues.Items.Add(venueNew.GetVenueName)
+                    txt_venueName.Clear()
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_venues.Items.Add(venueNew.GetVenueName)
-            txt_venueName.Clear()
 
         Else
             MessageBox.Show("Name, country or type are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
@@ -97,59 +98,74 @@
             Exit Sub
         End If
 
-        Try
-            UpdateVenue.venueName = txt_venueName.Text
-            UpdateVenue.venueCountry = lst_Countries.SelectedItem.ToString.Substring(0, 3)
-            UpdateVenue.venueType = cmb_venuesType.SelectedItem.ToString
-            UpdateVenue.idVenue = previousVenue.GetidVenue()
+        If txt_venueName.Text <> String.Empty And cmb_venuesType.SelectedItem IsNot Nothing And lst_Countries.SelectedIndex <> -1 Then
+            Try
+                UpdateVenue.venueName = txt_venueName.Text
+                UpdateVenue.venueCountry = lst_Countries.SelectedItem.ToString.Substring(0, 3)
+                UpdateVenue.venueType = cmb_venuesType.SelectedItem.ToString
+                UpdateVenue.idVenue = previousVenue.GetidVenue()
+
+                If txt_venueName.Text <> String.Empty Then
+                    Try
+                        If UpdateVenue.UpdateVenue() <> 1 Then
+
+                        Else
+                            lst_venues.Items.Clear()
+                            Venue.ReadAllVenues()
+                            For Each vAux In Me.Venue.vDao.Venues
+                                Me.lst_venues.Items.Add(vAux.venueName)
+                            Next
+                            MsgBox("Venue Update Succesfully")
+                        End If
+
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    End Try
+
+                Else
+                    MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
+                End If
+            Catch ex As Exception
+
+            End Try
+        Else
+            MessageBox.Show("Name, country or type are empty please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+        End If
 
 
-            If txt_venueName.Text <> String.Empty Then
-                Try
-                    UpdateVenue.UpdateVenue()
-                    MsgBox("Venue Update Succesfully")
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                End Try
-
-                lst_venues.Items.Clear()
-                Venue.ReadAllVenues()
-                For Each vAux In Me.Venue.vDao.Venues
-                    Me.lst_venues.Items.Add(vAux.venueName)
-                Next
-
-            Else
-                MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
-            End If
-        Catch ex As Exception
-
-        End Try
 
     End Sub
 
     Private Sub btn_deleteVenue_Click(sender As Object, e As EventArgs) Handles btn_deleteVenue.Click
+        Me.Venue = New Venue
+        Me.country = New Country
 
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
-        If txt_venueName.Text <> String.Empty Then
 
-            Venue.venueName = txt_venueName.Text
+        If txt_venueName.Text <> String.Empty And cmb_venuesType.SelectedItem IsNot Nothing And lst_Countries.SelectedIndex <> -1 Then
+
+            Venue.venueName = lst_venues.SelectedItem.ToString
             Venue.ReadVenueByName()
-            If Venue.venueName <> txt_venueName.Text.Trim() Then
-                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+            country.idCountry = Venue.venueCountry
+            country.ReadCountry()
+
+            If Venue.venueName <> txt_venueName.Text.Trim() Or country.countryName <> lst_Countries.SelectedItem.ToString Or Venue.venueType <> cmb_venuesType.SelectedItem.ToString.Trim Then
+                MessageBox.Show("This is not the same venue you have selected, please check the data", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
             End If
             Try
                 If Venue.DeleteVenue() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                    MessageBox.Show("DELETE <> 1", "Custom Error", MessageBoxButtons.OK)
+                Else
+                    Me.lst_venues.Items.Remove(Venue.venueName)
+                    txt_venueName.Clear()
+                    MsgBox("Venue Deleted")
                 End If
             Catch ex As Exception
-                MessageBox.Show("Venue deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-
-            Me.lst_venues.Items.Remove(Venue.venueName)
-            txt_venueName.Clear()
 
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -158,7 +174,9 @@
 
     Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
         txt_venueName.Clear()
-
+        lst_Countries.ClearSelected()
+        lst_venues.ClearSelected()
+        cmb_venuesType.SelectedItem = Nothing
     End Sub
 
     Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click

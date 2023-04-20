@@ -71,13 +71,14 @@
 
             Try
                 If artistNew.InsertArtist() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                    MessageBox.Show("INSERT <> 1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                Else
+                    lst_artists.Items.Add(artistNew.GetName)
+                    txt_artistName.Clear()
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_artists.Items.Add(artistNew.GetName)
-            txt_artistName.Clear()
 
         Else
             MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
@@ -98,19 +99,22 @@
             UpdateArtist.artistCountry = lst_Countries.SelectedItem.ToString.Substring(0, 3)
             UpdateArtist.IdArtist = previousArtist.GetIdArtist()
 
-            If txt_artistName.Text <> String.Empty Then
+            If txt_artistName.Text <> String.Empty And lst_Countries.SelectedIndex <> -1 Then
                 Try
-                    UpdateArtist.UpdateArtist()
-                    MsgBox("Artist Update Succesfully")
+                    If UpdateArtist.UpdateArtist() <> 1 Then
+                        MessageBox.Show("UPDATE <> 1", "Custom Error", MessageBoxButtons.OK)
+                    Else
+                        lst_artists.Items.Clear()
+                        artist.ReadAllArtists()
+                        For Each aAux In Me.artist.artistsDAO.Artists
+                            Me.lst_artists.Items.Add(aAux.artistName)
+                        Next
+                        MsgBox("Artist Update Succesfully")
+                    End If
+
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End Try
-
-                lst_artists.Items.Clear()
-                artist.ReadAllArtists()
-                For Each aAux In Me.artist.artistsDAO.Artists
-                    Me.lst_artists.Items.Add(aAux.artistName)
-                Next
 
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -126,20 +130,25 @@
             Exit Sub
         End If
 
-        If txt_artistName.Text <> String.Empty Then
+        If txt_artistName.Text <> String.Empty And lst_Countries.SelectedIndex <> -1 Then
             Me.artist = New Artist
-            artist.artistName = txt_artistName.Text
+            Me.country = New Country
+            artist.artistName = lst_artists.SelectedItem.ToString
             artist.ReadArtistByName()
-            If artist.artistName <> txt_artistName.Text.Trim() Then
-                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+            country.idCountry = artist.artistCountry
+            country.ReadCountry()
+
+            If artist.artistName <> txt_artistName.Text.Trim() Or country.countryName <> lst_Countries.SelectedItem.ToString Then
+                MessageBox.Show("This is not the same artist that you have selected in the artist list, please check the data", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
             End If
             Try
                 If artist.DeleteArtist() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                    MessageBox.Show("INSERT <> 1", "Custom Error", MessageBoxButtons.OK)
                 Else
                     Me.lst_artists.Items.Remove(artist.artistName)
                     txt_artistName.Clear()
+                    MessageBox.Show("Artist Deleted")
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -152,8 +161,8 @@
 
     Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
         txt_artistName.Clear()
-
-
+        lst_artists.ClearSelected()
+        lst_Countries.ClearSelected()
     End Sub
 
     Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click

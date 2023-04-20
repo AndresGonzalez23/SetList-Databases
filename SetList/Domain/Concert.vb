@@ -70,6 +70,10 @@
         Me.cDao.ReadByArtistAndVenue(Me)
     End Sub
 
+    Public Sub ReadConcertbyArtistAndVenueAndDate()
+        Me.cDao.ReadByArtistAndVenueAndDate(Me)
+    End Sub
+
     Public Function ReadAllArtistsConcerts() As Object
         Return Me.cDao.ReadAllArtistConcerts(Me)
     End Function

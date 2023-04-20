@@ -50,17 +50,17 @@
 
             Try
                 If countryNew.InsertCountry() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                    MessageBox.Show("INSERT <> 1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                Else
+                    lst_Countries.Items.Add(countryNew.countryName)
+                    txtName.Clear()
                 End If
-
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            lst_Countries.Items.Add(countryNew.countryName)
-            txtName.Clear()
 
         Else
-            MessageBox.Show("Id and Name were empty, please fill those spaces", "Custom Error", MessageBoxButtons.OK)
+            MessageBox.Show("Name is empty, please fill that spaces", "Custom Error", MessageBoxButtons.OK)
         End If
     End Sub
 
@@ -68,9 +68,11 @@
         Me.country = New Country
         Dim CountryUpdate = New Country
         Dim cAux As Country
+
         If MessageBox.Show("Are you sure? Do you want to update this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
+
         Try
             Me.country = New Country
             country.countryName = lst_Countries.SelectedItem.ToString
@@ -80,20 +82,21 @@
                 CountryUpdate.idCountry = txtName.Text.Substring(0, 3)
                 CountryUpdate.countryName = txtName.Text
                 Try
-                    country.DeleteCountry()
-                    CountryUpdate.InsertCountry()
-                    MsgBox("Country Updated succesfully")
+                    If country.DeleteCountry() <> 1 Then
+                        MessageBox.Show("UPDATE <> 1", "CUSTOM ERROR", MessageBoxButtons.OK)
+                    Else
+                        CountryUpdate.InsertCountry()
+                        lst_Countries.Items.Clear()
+                        country.ReadAllCountries()
+                        For Each cAux In Me.country.counDAO.Countries
+                            Me.lst_Countries.Items.Add(cAux.countryName)
+                        Next
+                        MsgBox("Country Updated succesfully")
+                    End If
 
                 Catch ex As Exception
                     MessageBox.Show("This country is part of a concert and cannot be updated")
                 End Try
-
-                lst_Countries.Items.Clear()
-                country.ReadAllCountries()
-
-                For Each cAux In Me.country.counDAO.Countries
-                    Me.lst_Countries.Items.Add(cAux.countryName)
-                Next
 
             Else
                 MessageBox.Show("Unable to update information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -110,24 +113,26 @@
         If MessageBox.Show("Are you sure? Do you want to delete permanetly this country?", "Custom Error", MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
+
         If txtName.Text <> String.Empty Then
             Me.country = New Country
 
-            Country.countryName = txtName.Text
+            country.countryName = lst_Countries.SelectedItem.ToString
             country.ReadCountryByName()
             If Country.countryName <> txtName.Text.Trim() Then
-                MessageBox.Show("This is not the same name", "Custom Error", MessageBoxButtons.OK)
+                MessageBox.Show("This is not the same country you have selected, please check the data", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
             End If
             Try
                 If Country.DeleteCountry() <> 1 Then
-                    MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
+                    MessageBox.Show("DELETE <> 1", "Custom Error", MessageBoxButtons.OK)
+                Else
+                    Me.lst_Countries.Items.Remove(country.countryName)
+                    txtName.Clear()
                 End If
             Catch ex As Exception
-                MessageBox.Show("Country deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
-            Me.lst_Countries.Items.Remove(country.countryName)
-            txtName.Clear()
 
         Else
             MessageBox.Show("Unable to delete information, all needed fields must be filled", "Custom Error", MessageBoxButtons.OK)
@@ -136,7 +141,7 @@
 
     Private Sub btn_clean_Click(sender As Object, e As EventArgs) Handles btn_clean.Click
         txtName.Clear()
-
+        lst_Countries.ClearSelected()
     End Sub
 
     Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click

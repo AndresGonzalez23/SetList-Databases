@@ -73,6 +73,17 @@
         Next
     End Sub
 
+    Public Sub ReadByArtistAndVenueAndDate(ByRef concert As Concert)
+        Dim col As Collection : Dim aux As Collection
+        col = DBBroker.GetBroker.Read("SELECT * FROM Concerts WHERE Artist='" & concert.GetArtist() & "' AND Venue= '" & concert.GetVenue() & "' AND ConcertDate =' " & concert.GetDate.ToString("yyyy/MM/dd") & " ';")
+        For Each aux In col
+            concert.SetIdConcert(Convert.ToInt32(aux(1).ToString))
+            concert.SetArtist(Convert.ToInt32(aux(2).ToString))
+            concert.SetVenue(Convert.ToInt32(aux(3).ToString))
+            concert.SetDate(CDate(aux(4).ToString))
+        Next
+    End Sub
+
     Public Function Insert(ByVal concert As Concert) As Integer
         Return DBBroker.GetBroker.Change("INSERT INTO Concerts (Artist, Venue, ConcertDate) VALUES (" & concert.GetArtist() & " ," & concert.GetVenue & ",'" & concert.GetDate.ToString("yyyy/MM/dd") & "');")
     End Function
