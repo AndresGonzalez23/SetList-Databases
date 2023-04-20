@@ -317,7 +317,7 @@
     End Sub
 
     Private Sub btn_orderBy_Click(sender As Object, e As EventArgs) Handles btn_orderBy.Click
-        Dim main As New Main() 'Crea una nueva instancia del formulario 2
+        Dim main As New OrderByForm() 'Crea una nueva instancia del formulario 2
         main.LoadInfo()
         main.Show() 'Muestra el formulario 2
         Me.Hide()
@@ -325,7 +325,7 @@
     End Sub
 
     Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click
-        Dim Form1 As New Form1
+        Dim Form1 As New Main
         Form1.Show()
         Me.Hide()
     End Sub

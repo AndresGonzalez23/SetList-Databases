@@ -22,256 +22,155 @@ Partial Class Main
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lst_setlist = New System.Windows.Forms.ListBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lst_concerts = New System.Windows.Forms.ListBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.lst_venues = New System.Windows.Forms.ListBox()
-        Me.lst_artist = New System.Windows.Forms.ListBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.btn_back = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.btn_Statistics = New System.Windows.Forms.Button()
+        Me.btn_openCountries = New System.Windows.Forms.Button()
+        Me.btn_openArtists = New System.Windows.Forms.Button()
+        Me.btn_openVenues = New System.Windows.Forms.Button()
+        Me.btn_openSongs = New System.Windows.Forms.Button()
+        Me.btn_openAlbums = New System.Windows.Forms.Button()
+        Me.btn_openConcerts = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.BackColor = System.Drawing.Color.Transparent
-        Me.Label17.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label17.Location = New System.Drawing.Point(33, 30)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(102, 32)
-        Me.Label17.TabIndex = 18
-        Me.Label17.Text = "Artists"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(85, 22)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(0, 32)
-        Me.Label2.TabIndex = 18
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(393, 30)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(97, 32)
-        Me.Label3.TabIndex = 35
-        Me.Label3.Text = "Songs"
-        '
-        'lst_setlist
-        '
-        Me.lst_setlist.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lst_setlist.FormattingEnabled = True
-        Me.lst_setlist.ItemHeight = 32
-        Me.lst_setlist.Location = New System.Drawing.Point(400, 70)
-        Me.lst_setlist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lst_setlist.Name = "lst_setlist"
-        Me.lst_setlist.Size = New System.Drawing.Size(328, 484)
-        Me.lst_setlist.TabIndex = 29
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Verdana", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(611, 9)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(220, 73)
-        Me.Label4.TabIndex = 18
-        Me.Label4.Text = "Setlist"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.Silver
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.PictureBox2)
-        Me.Panel1.Controls.Add(Me.lst_setlist)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.lst_concerts)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(624, 84)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(761, 614)
-        Me.Panel1.TabIndex = 38
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox2.Image = Global.SetList.My.Resources.Resources.right_arrow
-        Me.PictureBox2.Location = New System.Drawing.Point(349, 159)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(45, 44)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox2.TabIndex = 36
-        Me.PictureBox2.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(8, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(203, 32)
-        Me.Label1.TabIndex = 35
-        Me.Label1.Text = "Artist - Venue"
-        '
-        'lst_concerts
-        '
-        Me.lst_concerts.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lst_concerts.FormattingEnabled = True
-        Me.lst_concerts.ItemHeight = 32
-        Me.lst_concerts.Location = New System.Drawing.Point(15, 70)
-        Me.lst_concerts.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lst_concerts.Name = "lst_concerts"
-        Me.lst_concerts.Size = New System.Drawing.Size(328, 484)
-        Me.lst_concerts.TabIndex = 29
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.Silver
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.lst_venues)
-        Me.Panel3.Controls.Add(Me.lst_artist)
-        Me.Panel3.Controls.Add(Me.Label7)
-        Me.Panel3.Controls.Add(Me.Label17)
-        Me.Panel3.Location = New System.Drawing.Point(59, 84)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(537, 614)
-        Me.Panel3.TabIndex = 38
-        '
-        'lst_venues
-        '
-        Me.lst_venues.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lst_venues.FormattingEnabled = True
-        Me.lst_venues.ItemHeight = 32
-        Me.lst_venues.Location = New System.Drawing.Point(40, 347)
-        Me.lst_venues.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lst_venues.Name = "lst_venues"
-        Me.lst_venues.Size = New System.Drawing.Size(451, 196)
-        Me.lst_venues.TabIndex = 29
-        '
-        'lst_artist
-        '
-        Me.lst_artist.CausesValidation = False
-        Me.lst_artist.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lst_artist.FormattingEnabled = True
-        Me.lst_artist.ItemHeight = 32
-        Me.lst_artist.Location = New System.Drawing.Point(40, 70)
-        Me.lst_artist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lst_artist.Name = "lst_artist"
-        Me.lst_artist.Size = New System.Drawing.Size(451, 196)
-        Me.lst_artist.TabIndex = 29
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label7.Location = New System.Drawing.Point(33, 314)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(112, 32)
-        Me.Label7.TabIndex = 18
-        Me.Label7.Text = "Venues"
-        '
-        'btn_back
-        '
-        Me.btn_back.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_back.Image = Global.SetList.My.Resources.Resources.volver__1_
-        Me.btn_back.Location = New System.Drawing.Point(59, 9)
-        Me.btn_back.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btn_back.Name = "btn_back"
-        Me.btn_back.Size = New System.Drawing.Size(181, 68)
-        Me.btn_back.TabIndex = 36
-        Me.btn_back.Text = "BACK"
-        Me.btn_back.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btn_back.UseVisualStyleBackColor = True
-        '
         'PictureBox1
         '
-        Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.right_arrow
-        Me.PictureBox1.Location = New System.Drawing.Point(349, 413)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(412, 18)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(45, 44)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 37
+        Me.PictureBox1.Size = New System.Drawing.Size(348, 77)
+        Me.PictureBox1.TabIndex = 25
         Me.PictureBox1.TabStop = False
         '
-        'Main
+        'btn_Statistics
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.btn_Statistics.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_Statistics.Image = Global.SetList.My.Resources.Resources.grafico
+        Me.btn_Statistics.Location = New System.Drawing.Point(412, 510)
+        Me.btn_Statistics.Name = "btn_Statistics"
+        Me.btn_Statistics.Size = New System.Drawing.Size(235, 71)
+        Me.btn_Statistics.TabIndex = 36
+        Me.btn_Statistics.Text = "Statistics" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btn_Statistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_Statistics.UseVisualStyleBackColor = True
+        '
+        'btn_openCountries
+        '
+        Me.btn_openCountries.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_openCountries.Image = Global.SetList.My.Resources.Resources.countries
+        Me.btn_openCountries.Location = New System.Drawing.Point(70, 183)
+        Me.btn_openCountries.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_openCountries.Name = "btn_openCountries"
+        Me.btn_openCountries.Size = New System.Drawing.Size(235, 71)
+        Me.btn_openCountries.TabIndex = 37
+        Me.btn_openCountries.Text = "Countries"
+        Me.btn_openCountries.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_openCountries.UseVisualStyleBackColor = True
+        '
+        'btn_openArtists
+        '
+        Me.btn_openArtists.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_openArtists.Image = Global.SetList.My.Resources.Resources.cantante
+        Me.btn_openArtists.Location = New System.Drawing.Point(412, 183)
+        Me.btn_openArtists.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_openArtists.Name = "btn_openArtists"
+        Me.btn_openArtists.Size = New System.Drawing.Size(235, 71)
+        Me.btn_openArtists.TabIndex = 38
+        Me.btn_openArtists.Text = "Artist"
+        Me.btn_openArtists.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_openArtists.UseVisualStyleBackColor = True
+        '
+        'btn_openVenues
+        '
+        Me.btn_openVenues.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_openVenues.Image = Global.SetList.My.Resources.Resources.puntero_del_mapa
+        Me.btn_openVenues.Location = New System.Drawing.Point(752, 183)
+        Me.btn_openVenues.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_openVenues.Name = "btn_openVenues"
+        Me.btn_openVenues.Size = New System.Drawing.Size(235, 71)
+        Me.btn_openVenues.TabIndex = 39
+        Me.btn_openVenues.Text = "Venues"
+        Me.btn_openVenues.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_openVenues.UseVisualStyleBackColor = True
+        '
+        'btn_openSongs
+        '
+        Me.btn_openSongs.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_openSongs.Image = Global.SetList.My.Resources.Resources.music
+        Me.btn_openSongs.Location = New System.Drawing.Point(412, 339)
+        Me.btn_openSongs.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_openSongs.Name = "btn_openSongs"
+        Me.btn_openSongs.Size = New System.Drawing.Size(235, 71)
+        Me.btn_openSongs.TabIndex = 40
+        Me.btn_openSongs.Text = "Songs"
+        Me.btn_openSongs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_openSongs.UseVisualStyleBackColor = True
+        '
+        'btn_openAlbums
+        '
+        Me.btn_openAlbums.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_openAlbums.Image = Global.SetList.My.Resources.Resources.album
+        Me.btn_openAlbums.Location = New System.Drawing.Point(70, 339)
+        Me.btn_openAlbums.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_openAlbums.Name = "btn_openAlbums"
+        Me.btn_openAlbums.Size = New System.Drawing.Size(235, 71)
+        Me.btn_openAlbums.TabIndex = 41
+        Me.btn_openAlbums.Text = "Albums"
+        Me.btn_openAlbums.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_openAlbums.UseVisualStyleBackColor = True
+        '
+        'btn_openConcerts
+        '
+        Me.btn_openConcerts.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_openConcerts.Image = Global.SetList.My.Resources.Resources.concierto
+        Me.btn_openConcerts.Location = New System.Drawing.Point(752, 339)
+        Me.btn_openConcerts.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btn_openConcerts.Name = "btn_openConcerts"
+        Me.btn_openConcerts.Size = New System.Drawing.Size(235, 71)
+        Me.btn_openConcerts.TabIndex = 42
+        Me.btn_openConcerts.Text = "Concerts"
+        Me.btn_openConcerts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_openConcerts.UseVisualStyleBackColor = True
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.SetList.My.Resources.Resources.Five_Simple_Editing_Tips_That_Will_Make_Your_Photos_Stand_Out
+        Me.AutoSize = True
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1432, 753)
-        Me.Controls.Add(Me.btn_back)
-        Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Label4)
-        Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "Main"
-        Me.Text = "Main"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
+        Me.ClientSize = New System.Drawing.Size(1076, 618)
+        Me.Controls.Add(Me.btn_openConcerts)
+        Me.Controls.Add(Me.btn_openAlbums)
+        Me.Controls.Add(Me.btn_openSongs)
+        Me.Controls.Add(Me.btn_openVenues)
+        Me.Controls.Add(Me.btn_openArtists)
+        Me.Controls.Add(Me.btn_openCountries)
+        Me.Controls.Add(Me.btn_Statistics)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(1092, 657)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(1092, 657)
+        Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Setlist"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents lst_setlist As ListBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents lst_concerts As ListBox
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents lst_artist As ListBox
-    Friend WithEvents lst_venues As ListBox
-    Friend WithEvents Label7 As Label
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents btn_back As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents btn_Statistics As Button
+    Friend WithEvents btn_openCountries As Button
+    Friend WithEvents btn_openArtists As Button
+    Friend WithEvents btn_openVenues As Button
+    Friend WithEvents btn_openSongs As Button
+    Friend WithEvents btn_openAlbums As Button
+    Friend WithEvents btn_openConcerts As Button
 End Class

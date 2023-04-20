@@ -118,11 +118,11 @@
     <Compile Include="Presentation\CountryForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Form1.vb">
+    <Compile Include="Presentation\Main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Presentation\Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -140,10 +140,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Presentation\Main.Designer.vb">
-      <DependentUpon>Main.vb</DependentUpon>
+    <Compile Include="Presentation\OrderByForm.Designer.vb">
+      <DependentUpon>OrderByForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Main.vb">
+    <Compile Include="Presentation\OrderByForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\SongsForm.Designer.vb">
@@ -184,11 +184,11 @@
     <EmbeddedResource Include="Presentation\CountryForm.resx">
       <DependentUpon>CountryForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\OrderByForm.resx">
+      <DependentUpon>OrderByForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\SongsForm.resx">
       <DependentUpon>SongsForm.vb</DependentUpon>
