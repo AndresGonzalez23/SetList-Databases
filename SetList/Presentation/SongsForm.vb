@@ -4,7 +4,7 @@
     Private previousSong As Song
     Private album As Album
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim albAux As Album
         Dim sonAux As Song
 
@@ -15,6 +15,7 @@
             Me.song.ReadAllSongs()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each albAux In Me.album.albDAO.Albums
@@ -25,7 +26,8 @@
         Next
 
         btn_insertSong.Enabled = True
-    End Sub
+        Return True
+    End Function
 
     Private Sub lst_songs_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_songs.SelectedIndexChanged
         btn_deleteSong.Enabled = True

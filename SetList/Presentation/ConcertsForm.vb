@@ -8,7 +8,7 @@
     Private album As Album
 
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim coAux As Concert
         Dim aAux As Artist
         Dim vAux As Venue
@@ -23,6 +23,7 @@
             Me.concert.ReadAllConcert()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each aAux In Me.artist.artistsDAO.Artists
@@ -42,7 +43,8 @@
         Next
 
         btn_insertConcert.Enabled = True
-    End Sub
+        Return True
+    End Function
 
     Private Sub lst_concerts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_concerts.SelectedIndexChanged
         Dim data As String : Dim separatedData() As String
@@ -317,10 +319,15 @@
     End Sub
 
     Private Sub btn_orderBy_Click(sender As Object, e As EventArgs) Handles btn_orderBy.Click
-        Dim main As New OrderByForm() 'Crea una nueva instancia del formulario 2
-        main.LoadInfo()
-        main.Show() 'Muestra el formulario 2
-        Me.Hide()
+        Dim OrderByForm As New OrderByForm() 'Crea una nueva instancia del formulario 2
+        Dim infoCargada As Boolean = False
+
+        infoCargada = OrderByForm.LoadInfo()
+
+        If infoCargada Then
+            OrderByForm.Show()
+            Me.Hide()
+        End If
 
     End Sub
 

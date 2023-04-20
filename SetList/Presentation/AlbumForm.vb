@@ -6,7 +6,7 @@
 
     Private albumArtist As Integer
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim albAux As Album
         Dim aAux As Artist
 
@@ -17,6 +17,7 @@
             Me.artist.ReadAllArtists()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each albAux In Me.album.albDAO.Albums
@@ -27,7 +28,8 @@
         Next
 
         btn_insertAlbum.Enabled = True
-    End Sub
+        Return True
+    End Function
 
     Private Sub lst_albums_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_albums.SelectedIndexChanged
         btn_deleteAlbum.Enabled = True

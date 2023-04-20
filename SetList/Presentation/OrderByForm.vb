@@ -5,7 +5,7 @@
     Private concert As Concert
     Private song As Song
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim aAux As Artist
         Dim vAux As Venue
 
@@ -18,6 +18,7 @@
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each aAux In Me.artist.artistsDAO.Artists
@@ -26,8 +27,8 @@
         For Each vAux In Me.Venue.vDao.Venues
             Me.lst_venues.Items.Add(vAux.venueName)
         Next
-
-    End Sub
+        Return True
+    End Function
 
     Private Sub lst_artist_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_artist.SelectedIndexChanged
         Dim coAux As Concert

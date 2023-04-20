@@ -7,7 +7,7 @@
 
     Public idVenue As Integer
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim vAux As Venue
         Dim couAux As Country
 
@@ -18,6 +18,7 @@
             Me.country.ReadAllCountries()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each vAux In Me.Venue.vDao.Venues
@@ -28,7 +29,8 @@
         Next
 
         btn_insertVenue.Enabled = True
-    End Sub
+        Return True
+    End Function
 
     Private Sub lst_venues_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_venues.SelectedIndexChanged
         btn_deleteVenue.Enabled = True

@@ -3,21 +3,22 @@
     Private country As Country
 
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim cAux As Country
         Me.country = New Country
         Try
             Me.country.ReadAllCountries()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each cAux In Me.country.counDAO.Countries
             Me.lst_Countries.Items.Add(cAux.countryName)
         Next
         btn_insert_country.Enabled = True
-
-    End Sub
+        Return True
+    End Function
 
     Private Sub lst_Countries_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_Countries.SelectedIndexChanged
         btn_delete_country.Enabled = True

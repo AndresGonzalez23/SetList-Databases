@@ -8,7 +8,7 @@
     Private artistCountry As Country
     Public albumArtist As Integer
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim aAux As Artist
         Dim couAux As Country
 
@@ -18,6 +18,7 @@
             Me.artist.ReadAllArtists()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each aAux In Me.artist.artistsDAO.Artists
@@ -25,7 +26,8 @@
             Me.lst_artistsAlbum.Items.Add(aAux.artistName)
         Next
 
-    End Sub
+        Return True
+    End Function
 
     Private Sub btn_searchSql1_Click(sender As Object, e As EventArgs) Handles btn_searchSql1.Click
         Dim list As New Collection

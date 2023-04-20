@@ -6,7 +6,7 @@
     Private artistCountry As Country
     Public albumArtist As Integer
 
-    Public Sub LoadInfo()
+    Public Function LoadInfo() As Boolean
         Dim aAux As Artist
         Dim couAux As Country
 
@@ -17,6 +17,7 @@
             Me.country.ReadAllCountries()
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            Return False
         End Try
 
         For Each aAux In Me.artist.artistsDAO.Artists
@@ -27,7 +28,8 @@
         Next
 
         btn_insertArtist.Enabled = True
-    End Sub
+        Return True
+    End Function
 
     Private Sub lst_artists_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_artists.SelectedIndexChanged
         btn_deleteArtist.Enabled = True
