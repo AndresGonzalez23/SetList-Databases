@@ -189,6 +189,7 @@ Partial Class AlbumForm
         Me.txt_albumYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_albumYear.Location = New System.Drawing.Point(691, 250)
         Me.txt_albumYear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_albumYear.MaxLength = 4
         Me.txt_albumYear.Name = "txt_albumYear"
         Me.txt_albumYear.Size = New System.Drawing.Size(365, 37)
         Me.txt_albumYear.TabIndex = 22

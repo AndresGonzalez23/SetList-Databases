@@ -144,4 +144,10 @@
         Form1.Show()
         Me.Hide()
     End Sub
+
+    Private Sub txtName_Keypress(sender As Object, e As KeyPressEventArgs) Handles txtName.KeyPress
+        If Not Char.IsLetter(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

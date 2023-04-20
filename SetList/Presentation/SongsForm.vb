@@ -172,4 +172,17 @@
         Form1.Show()
         Me.Hide()
     End Sub
+
+    Private Sub txt_songLength_TextChanged(sender As Object, e As KeyPressEventArgs) Handles txt_songLength.KeyPress
+
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txt_songOrder_TextChanged(sender As Object, e As KeyPressEventArgs) Handles txt_songOrder.KeyPress
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

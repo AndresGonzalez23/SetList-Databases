@@ -123,6 +123,7 @@ Partial Class SongsForm
         Me.txt_songOrder.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_songOrder.Location = New System.Drawing.Point(345, 348)
         Me.txt_songOrder.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_songOrder.MaxLength = 2
         Me.txt_songOrder.Name = "txt_songOrder"
         Me.txt_songOrder.Size = New System.Drawing.Size(361, 39)
         Me.txt_songOrder.TabIndex = 30
@@ -155,6 +156,7 @@ Partial Class SongsForm
         Me.txt_songLength.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_songLength.Location = New System.Drawing.Point(347, 210)
         Me.txt_songLength.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_songLength.MaxLength = 4
         Me.txt_songLength.Name = "txt_songLength"
         Me.txt_songLength.Size = New System.Drawing.Size(361, 39)
         Me.txt_songLength.TabIndex = 35

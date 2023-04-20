@@ -179,4 +179,10 @@
         Form1.Show()
         Me.Hide()
     End Sub
+
+    Private Sub txt_albumYear_TextChanged(sender As Object, e As KeyPressEventArgs) Handles txt_albumYear.KeyPress
+        If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class
