@@ -146,7 +146,7 @@
         If txt_songName.Text <> String.Empty And txt_songLength.Text <> String.Empty And txt_songOrder.Text <> String.Empty And lst_albums.SelectedIndex <> -1 Then
             song.songName = lst_songs.SelectedItem.ToString
             song.ReadSongByName()
-            album.idAlbum = song.idSong
+            album.idAlbum = song.songAlbum
             album.ReadAlbum()
 
             If song.songName <> txt_songName.Text.Trim() Or song.songLength <> Convert.ToInt32(txt_songLength.Text) Or song.songOrder <> Convert.ToInt32(txt_songOrder.Text) Or album.albumName <> lst_albums.SelectedItem.ToString Then

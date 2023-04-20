@@ -163,9 +163,10 @@
                     Me.lst_albums.Items.Remove(album.albumName)
                     txt_albumName.Clear()
                     txt_albumYear.Clear()
+                    MsgBox("Album Deleted")
                 End If
             Catch ex As Exception
-                MessageBox.Show("Album deleted", ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End Try
 
         Else
