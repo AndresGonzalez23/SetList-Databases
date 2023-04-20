@@ -35,6 +35,9 @@
         Dim artistAuxiliar As New Artist
         Dim venueAuxiliar As New Venue
 
+        lst_concerts.Items.Clear()
+        lst_setlist.Items.Clear()
+
         If lst_artist.SelectedItem IsNot Nothing Then
             Me.artist = New Artist
             Me.concert = New Concert
@@ -61,6 +64,9 @@
         Dim artistAuxiliar As New Artist
         Dim venueAuxiliar As New Venue
 
+        lst_concerts.Items.Clear()
+        lst_setlist.Items.Clear()
+
         If lst_venues.SelectedItem IsNot Nothing Then
             Me.Venue = New Venue
             Me.concert = New Concert
@@ -85,6 +91,8 @@
 
     Private Sub lst_concerts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_concerts.SelectedIndexChanged
         Dim data As String : Dim separatedData() As String
+
+
 
         If lst_concerts.SelectedItem IsNot Nothing Then
             Me.concert = New Concert
@@ -115,6 +123,7 @@
     Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click
         Dim ConcertsForm As New ConcertsForm
         ConcertsForm.Show()
+        ConcertsForm.LoadInfo()
         Me.Hide()
     End Sub
 End Class
