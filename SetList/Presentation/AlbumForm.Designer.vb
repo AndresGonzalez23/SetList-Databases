@@ -107,13 +107,13 @@ Partial Class AlbumForm
         '
         'lst_artists
         '
-        Me.lst_artists.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_artists.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_artists.FormattingEnabled = True
-        Me.lst_artists.ItemHeight = 30
+        Me.lst_artists.ItemHeight = 25
         Me.lst_artists.Location = New System.Drawing.Point(323, 85)
         Me.lst_artists.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artists.Name = "lst_artists"
-        Me.lst_artists.Size = New System.Drawing.Size(247, 424)
+        Me.lst_artists.Size = New System.Drawing.Size(247, 429)
         Me.lst_artists.TabIndex = 29
         '
         'btn_deleteAlbum
@@ -160,13 +160,13 @@ Partial Class AlbumForm
         '
         'lst_albums
         '
-        Me.lst_albums.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_albums.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_albums.FormattingEnabled = True
-        Me.lst_albums.ItemHeight = 30
+        Me.lst_albums.ItemHeight = 25
         Me.lst_albums.Location = New System.Drawing.Point(41, 85)
         Me.lst_albums.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_albums.Name = "lst_albums"
-        Me.lst_albums.Size = New System.Drawing.Size(247, 424)
+        Me.lst_albums.Size = New System.Drawing.Size(247, 429)
         Me.lst_albums.TabIndex = 20
         '
         'btn_insertAlbum
