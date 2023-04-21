@@ -296,6 +296,7 @@
             concert.VenueName = Venue.idVenue
             concert.ReadConcertbyArtistAndVenue()
             txt_dateConcert.Value = concert.GetDate()
+            concert.ReadSetlist()
 
             For Each cancion As String In lst_concertSetlist.Items
                 song.songName = cancion
