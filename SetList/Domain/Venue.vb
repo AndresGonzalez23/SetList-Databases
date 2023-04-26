@@ -53,6 +53,10 @@
         Return Me.vDao.ReadAll()
     End Function
 
+    Public Function ReadAllVenuesCountry(country As Country) As Object
+        Return Me.vDao.ReadAllCountryVenues(country)
+    End Function
+
     Public Sub ReadVenue()
         Me.vDao.Read(Me)
     End Sub

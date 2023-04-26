@@ -39,7 +39,7 @@
             artist.ReadArtist()
             Venue.idVenue = coAux.VenueName
             Venue.ReadVenue()
-            Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
+            Me.lst_concerts.Items.Add(coAux.idConcert & "-" & artist.artistName & "-" & Venue.venueName)
         Next
 
         btn_insertConcert.Enabled = True
@@ -61,13 +61,14 @@
 
             data = lst_concerts.SelectedItem.ToString()
             separatedData = data.Split("-"c)
-            artist.artistName = separatedData(0)
+            concert.idConcert = Convert.ToInt32(separatedData(0))
+            artist.artistName = separatedData(1)
             artist.ReadArtistByName()
-            Venue.venueName = separatedData(1)
+            Venue.venueName = separatedData(2)
             Venue.ReadVenueByName()
             concert.ArtistName = artist.IdArtist
             concert.VenueName = Venue.idVenue
-            concert.ReadConcertbyArtistAndVenue()
+            concert.ReadConcert()
             txt_dateConcert.Value = concert.GetDate()
 
 
@@ -97,13 +98,14 @@
             Me.previousConcert = New Concert
             data = lst_concerts.SelectedItem.ToString()
             separatedData = data.Split("-"c)
-            artist.artistName = separatedData(0)
+            previousConcert.idConcert = Convert.ToInt32(separatedData(0))
+            artist.artistName = separatedData(1)
             artist.ReadArtistByName()
-            Venue.venueName = separatedData(1)
+            Venue.venueName = separatedData(2)
             Venue.ReadVenueByName()
             previousConcert.ArtistName = artist.IdArtist
             previousConcert.VenueName = Venue.idVenue
-            previousConcert.ReadConcertbyArtistAndVenue()
+            previousConcert.ReadConcert()
 
         End If
     End Sub
@@ -192,7 +194,7 @@
                 Else
                     concertNew.ReadConcertbyArtistAndVenue()
                     concertNew.InsertConcertSetlist()
-                    lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
+                    lst_concerts.Items.Add(concertNew.idConcert & "-" & artist.artistName & "-" & Venue.venueName)
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -238,7 +240,7 @@
                             artist.ReadArtist()
                             Venue.idVenue = coAux.VenueName
                             Venue.ReadVenue()
-                            Me.lst_concerts.Items.Add(artist.artistName & "-" & Venue.venueName)
+                            Me.lst_concerts.Items.Add(coAux.idConcert & "-" & artist.artistName & "-" & Venue.venueName)
                         Next
 
                         UpdateConcert.DeleteConcertSetlist()
@@ -288,13 +290,14 @@
         If lst_artists.SelectedIndex <> -1 And lst_venues.SelectedIndex <> -1 And txt_dateConcert.Value.ToString <> String.Empty And lst_concertSetlist.Items.Count > 0 Then
             data = lst_concerts.SelectedItem.ToString()
             separatedData = data.Split("-"c)
-            artist.artistName = separatedData(0)
+            concert.idConcert = Convert.ToInt32(separatedData(0))
+            artist.artistName = separatedData(1)
             artist.ReadArtistByName()
-            Venue.venueName = separatedData(1)
+            Venue.venueName = separatedData(2)
             Venue.ReadVenueByName()
             concert.ArtistName = artist.IdArtist
             concert.VenueName = Venue.idVenue
-            concert.ReadConcertbyArtistAndVenue()
+            concert.ReadConcert()
             txt_dateConcert.Value = concert.GetDate()
             concert.ReadSetlist()
 
@@ -309,14 +312,6 @@
                 Exit Sub
             End If
 
-            'artist.artistName = lst_artists.SelectedItem.ToString
-            ' artist.ReadArtistByName()
-            'concert.ArtistName = artist.IdArtist
-            'Venue.venueName = lst_venues.SelectedItem.ToString
-            ' Venue.ReadVenueByName()
-            'concert.VenueName = Venue.idVenue
-            'concert.ReadConcertbyArtistAndVenue()
-
             concert.DeleteConcertSetlist()
             lst_concertSetlist.Items.Clear()
 
@@ -328,7 +323,7 @@
                 If concert.DeleteConcert() <> 1 Then
                     MessageBox.Show("INSERT <> -1", "Custom Error", MessageBoxButtons.OK)
                 Else
-                    Me.lst_concerts.Items.Remove(artist.artistName & "-" & Venue.venueName)
+                    Me.lst_concerts.Items.Remove(concert.idConcert & "-" & artist.artistName & "-" & Venue.venueName)
                     MessageBox.Show("Album Deleted")
                 End If
             Catch ex As Exception

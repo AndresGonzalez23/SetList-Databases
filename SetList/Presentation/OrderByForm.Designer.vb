@@ -28,6 +28,7 @@ Partial Class OrderByForm
         Me.lst_setlist = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lst_concerts = New System.Windows.Forms.ListBox()
@@ -36,11 +37,12 @@ Partial Class OrderByForm
         Me.lst_artist = New System.Windows.Forms.ListBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btn_back = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lst_countries = New System.Windows.Forms.ListBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label17
@@ -118,6 +120,22 @@ Partial Class OrderByForm
         Me.Panel1.Size = New System.Drawing.Size(761, 614)
         Me.Panel1.TabIndex = 38
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.right_arrow
+        Me.PictureBox1.Location = New System.Drawing.Point(349, 413)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(45, 44)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 37
+        Me.PictureBox1.TabStop = False
+        '
         'PictureBox2
         '
         Me.PictureBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -161,6 +179,8 @@ Partial Class OrderByForm
         '
         Me.Panel3.BackColor = System.Drawing.Color.Silver
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.lst_countries)
         Me.Panel3.Controls.Add(Me.lst_venues)
         Me.Panel3.Controls.Add(Me.lst_artist)
         Me.Panel3.Controls.Add(Me.Label7)
@@ -191,7 +211,7 @@ Partial Class OrderByForm
         Me.lst_artist.Location = New System.Drawing.Point(40, 70)
         Me.lst_artist.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artist.Name = "lst_artist"
-        Me.lst_artist.Size = New System.Drawing.Size(451, 196)
+        Me.lst_artist.Size = New System.Drawing.Size(191, 196)
         Me.lst_artist.TabIndex = 29
         '
         'Label7
@@ -219,23 +239,31 @@ Partial Class OrderByForm
         Me.btn_back.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_back.UseVisualStyleBackColor = True
         '
-        'PictureBox1
+        'lst_countries
         '
-        Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.right_arrow
-        Me.PictureBox1.Location = New System.Drawing.Point(349, 413)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(45, 44)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 37
-        Me.PictureBox1.TabStop = False
+        Me.lst_countries.CausesValidation = False
+        Me.lst_countries.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_countries.FormattingEnabled = True
+        Me.lst_countries.ItemHeight = 32
+        Me.lst_countries.Location = New System.Drawing.Point(300, 70)
+        Me.lst_countries.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_countries.Name = "lst_countries"
+        Me.lst_countries.Size = New System.Drawing.Size(191, 196)
+        Me.lst_countries.TabIndex = 30
         '
-        'Main
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Location = New System.Drawing.Point(294, 36)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(144, 32)
+        Me.Label5.TabIndex = 31
+        Me.Label5.Text = "Countries"
+        '
+        'OrderByForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -247,14 +275,14 @@ Partial Class OrderByForm
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "Main"
+        Me.Name = "OrderByForm"
         Me.Text = "Main"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -274,4 +302,6 @@ Partial Class OrderByForm
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents btn_back As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lst_countries As ListBox
+    Friend WithEvents Label5 As Label
 End Class

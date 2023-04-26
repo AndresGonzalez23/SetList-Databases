@@ -4,6 +4,7 @@
     Private Venue As Venue
     Private concert As Concert
     Private song As Song
+    Private country As Country
 
     Public Function LoadInfo() As Boolean
         Dim aAux As Artist
@@ -34,6 +35,7 @@
         Dim coAux As Concert
         Dim artistAuxiliar As New Artist
         Dim venueAuxiliar As New Venue
+        Dim countryAuxiliar As New Country
 
         lst_concerts.Items.Clear()
         lst_setlist.Items.Clear()
@@ -54,9 +56,26 @@
                 artistAuxiliar.ReadArtist()
                 venueAuxiliar.idVenue = coAux.VenueName
                 venueAuxiliar.ReadVenue()
-                Me.lst_concerts.Items.Add(artistAuxiliar.artistName & "-" & venueAuxiliar.venueName)
+                countryAuxiliar.idCountry = venueAuxiliar.venueCountry
+                countryAuxiliar.ReadCountry()
+                Me.lst_countries.Items.Add(countryAuxiliar.countryName)
+                Me.lst_concerts.Items.Add(coAux.idConcert & "-" & artistAuxiliar.artistName & "-" & venueAuxiliar.venueName)
             Next
+            EliminateDuplicateCountries(Me.lst_countries)
         End If
+    End Sub
+
+    Public Sub EliminateDuplicateCountries(ByRef listbox As ListBox)
+        Dim items As New List(Of String)
+        For Each item As String In listbox.Items
+            items.Add(item)
+        Next
+
+        For i As Integer = items.Count - 1 To 0 Step -1
+            If listbox.Items.IndexOf(items(i)) <> i Then
+                listbox.Items.RemoveAt(i)
+            End If
+        Next
     End Sub
 
     Private Sub lst_venues_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_venues.SelectedIndexChanged
@@ -64,8 +83,10 @@
         Dim artistAuxiliar As New Artist
         Dim venueAuxiliar As New Venue
 
+        lst_artist.ClearSelected()
         lst_concerts.Items.Clear()
         lst_setlist.Items.Clear()
+
 
         If lst_venues.SelectedItem IsNot Nothing Then
             Me.Venue = New Venue
@@ -83,7 +104,7 @@
                 artistAuxiliar.ReadArtist()
                 venueAuxiliar.idVenue = coAux.VenueName
                 venueAuxiliar.ReadVenue()
-                Me.lst_concerts.Items.Add(artistAuxiliar.artistName & "-" & venueAuxiliar.venueName)
+                Me.lst_concerts.Items.Add(coAux.idConcert & "-" & artistAuxiliar.artistName & "-" & venueAuxiliar.venueName)
             Next
         End If
 
@@ -91,8 +112,6 @@
 
     Private Sub lst_concerts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_concerts.SelectedIndexChanged
         Dim data As String : Dim separatedData() As String
-
-
 
         If lst_concerts.SelectedItem IsNot Nothing Then
             Me.concert = New Concert
@@ -102,14 +121,15 @@
 
             lst_setlist.Items.Clear()
             data = lst_concerts.SelectedItem.ToString()
-            separatedData = Data.Split("-"c)
-            artist.artistName = separatedData(0)
+            separatedData = data.Split("-"c)
+            concert.idConcert = Convert.ToInt32(separatedData(0))
+            artist.artistName = separatedData(1)
             artist.ReadArtistByName()
-            Venue.venueName = separatedData(1)
+            Venue.venueName = separatedData(2)
             Venue.ReadVenueByName()
             concert.ArtistName = artist.IdArtist
             concert.VenueName = Venue.idVenue
-            concert.ReadConcertbyArtistAndVenue()
+            concert.ReadConcert()
 
             concert.ReadSetlist()
             For Each setlistSong As Integer In concert.SetList
@@ -120,10 +140,54 @@
         End If
     End Sub
 
+    Private Sub lst_countries_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_countries.SelectedIndexChanged
+        Dim coAux As Concert
+        Dim vAux As Venue
+        Dim artistAuxiliar As New Artist
+        Dim venueAuxiliar As New Venue
+        Dim countryAuxiliar As New Country
+        Me.country = New Country
+        Me.artist = New Artist
+        Me.concert = New Concert
+        Me.Venue = New Venue
+
+        lst_concerts.Items.Clear()
+
+        artist.artistName = lst_artist.SelectedItem.ToString
+        artist.ReadArtistByName()
+        concert.ArtistName = artist.IdArtist
+        concert.ReadAllArtistsConcerts()
+        country.countryName = lst_countries.SelectedItem.ToString
+        country.ReadCountryByName()
+        Venue.ReadAllVenuesCountry(country)
+
+        For Each vAux In Me.Venue.vDao.Venues
+            For Each coAux In Me.concert.cDao.Concerts
+                artistAuxiliar.IdArtist = coAux.ArtistName
+                artistAuxiliar.ReadArtist()
+                venueAuxiliar.idVenue = coAux.VenueName
+                venueAuxiliar.ReadVenue()
+                countryAuxiliar.idCountry = venueAuxiliar.venueCountry
+                countryAuxiliar.ReadCountry()
+
+                If coAux.VenueName = vAux.idVenue Then
+                    Me.lst_concerts.Items.Add(coAux.idConcert & "-" & artistAuxiliar.artistName & "-" & venueAuxiliar.venueName)
+                End If
+            Next
+        Next
+
+
+
+
+
+    End Sub
+
     Private Sub btn_back_Click(sender As Object, e As EventArgs) Handles btn_back.Click
         Dim ConcertsForm As New ConcertsForm
         ConcertsForm.Show()
         ConcertsForm.LoadInfo()
         Me.Hide()
     End Sub
+
+
 End Class

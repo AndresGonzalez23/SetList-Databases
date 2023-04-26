@@ -36,6 +36,17 @@
         Next
     End Sub
 
+    Public Function ReadAllCountryVenues(ByRef country As Country) As Object
+        Dim ve As Venue
+        Dim col, aux As Collection
+        col = DBBroker.GetBroker().Read("SELECT * FROM Venues WHERE VenueCountry='" & country.idCountry & "';")
+        For Each aux In col
+            ve = New Venue(Convert.ToInt32(aux(1).ToString), aux(2).ToString, aux(3).ToString, aux(4).ToString)
+            Me.Venues.Add(ve)
+        Next
+        Return Venues
+    End Function
+
     Public Function Insert(ByVal v As Venue) As Integer
         Return DBBroker.GetBroker.Change("INSERT INTO venues (VenueName, VenueCountry, VenueType) VALUES ('" & v.GetVenueName() & "', (SELECT idCountry FROM Country WHERE idCountry='" & v.GetVenueCountry() & "'), '" & v.GetVenueType() & "');")
     End Function
