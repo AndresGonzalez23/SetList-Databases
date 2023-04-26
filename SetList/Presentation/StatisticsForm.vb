@@ -66,7 +66,7 @@
             album.idAlbum = sonAux.songAlbum
             album.ReadAlbum()
 
-            lst_songs.Items.Add("ID: " & sonAux.idSong & " Name: " & sonAux.songName & " Length: " & sonAux.songLength & " Album: " & album.albumName & " Song Order: " & sonAux.songOrder)
+            lst_songs.Items.Add("Name: " & sonAux.songName & " Length: " & sonAux.songLength & " Album: " & album.albumName & " Song Order: " & sonAux.songOrder)
         Next
 
     End Sub
