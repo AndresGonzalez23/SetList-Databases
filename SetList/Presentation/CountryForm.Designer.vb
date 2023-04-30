@@ -165,10 +165,10 @@ Partial Class CountryForm
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox2.Image = Global.SetList.My.Resources.Resources.countries1
-        Me.PictureBox2.Location = New System.Drawing.Point(570, 14)
+        Me.PictureBox2.Location = New System.Drawing.Point(545, 2)
         Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(76, 73)
+        Me.PictureBox2.Size = New System.Drawing.Size(101, 85)
         Me.PictureBox2.TabIndex = 28
         Me.PictureBox2.TabStop = False
         '

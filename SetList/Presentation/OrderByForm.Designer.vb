@@ -22,6 +22,7 @@ Partial Class OrderByForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OrderByForm))
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -33,12 +34,12 @@ Partial Class OrderByForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lst_concerts = New System.Windows.Forms.ListBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lst_countries = New System.Windows.Forms.ListBox()
         Me.lst_venues = New System.Windows.Forms.ListBox()
         Me.lst_artist = New System.Windows.Forms.ListBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btn_back = New System.Windows.Forms.Button()
-        Me.lst_countries = New System.Windows.Forms.ListBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -191,6 +192,30 @@ Partial Class OrderByForm
         Me.Panel3.Size = New System.Drawing.Size(537, 614)
         Me.Panel3.TabIndex = 38
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Location = New System.Drawing.Point(294, 36)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(144, 32)
+        Me.Label5.TabIndex = 31
+        Me.Label5.Text = "Countries"
+        '
+        'lst_countries
+        '
+        Me.lst_countries.CausesValidation = False
+        Me.lst_countries.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_countries.FormattingEnabled = True
+        Me.lst_countries.ItemHeight = 32
+        Me.lst_countries.Location = New System.Drawing.Point(300, 70)
+        Me.lst_countries.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lst_countries.Name = "lst_countries"
+        Me.lst_countries.Size = New System.Drawing.Size(191, 196)
+        Me.lst_countries.TabIndex = 30
+        '
         'lst_venues
         '
         Me.lst_venues.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -239,30 +264,6 @@ Partial Class OrderByForm
         Me.btn_back.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_back.UseVisualStyleBackColor = True
         '
-        'lst_countries
-        '
-        Me.lst_countries.CausesValidation = False
-        Me.lst_countries.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lst_countries.FormattingEnabled = True
-        Me.lst_countries.ItemHeight = 32
-        Me.lst_countries.Location = New System.Drawing.Point(300, 70)
-        Me.lst_countries.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lst_countries.Name = "lst_countries"
-        Me.lst_countries.Size = New System.Drawing.Size(191, 196)
-        Me.lst_countries.TabIndex = 30
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(294, 36)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(144, 32)
-        Me.Label5.TabIndex = 31
-        Me.Label5.Text = "Countries"
-        '
         'OrderByForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -274,9 +275,10 @@ Partial Class OrderByForm
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label4)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "OrderByForm"
-        Me.Text = "Main"
+        Me.Text = "Order by"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

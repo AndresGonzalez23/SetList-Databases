@@ -24,6 +24,8 @@ Partial Class VenueForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(VenueForm))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btn_back = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.btn_clean = New System.Windows.Forms.Button()
         Me.lst_Countries = New System.Windows.Forms.ListBox()
         Me.cmb_venuesType = New System.Windows.Forms.ComboBox()
@@ -37,8 +39,6 @@ Partial Class VenueForm
         Me.btn_insertVenue = New System.Windows.Forms.Button()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.btn_back = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -66,6 +66,31 @@ Partial Class VenueForm
         Me.Panel1.Size = New System.Drawing.Size(1185, 608)
         Me.Panel1.TabIndex = 27
         '
+        'btn_back
+        '
+        Me.btn_back.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_back.Image = Global.SetList.My.Resources.Resources.volver__1_
+        Me.btn_back.Location = New System.Drawing.Point(33, 496)
+        Me.btn_back.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btn_back.Name = "btn_back"
+        Me.btn_back.Size = New System.Drawing.Size(181, 68)
+        Me.btn_back.TabIndex = 56
+        Me.btn_back.Text = "BACK"
+        Me.btn_back.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_back.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label2.Location = New System.Drawing.Point(34, 27)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(118, 34)
+        Me.Label2.TabIndex = 55
+        Me.Label2.Text = "Venues"
+        '
         'btn_clean
         '
         Me.btn_clean.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -81,13 +106,13 @@ Partial Class VenueForm
         '
         'lst_Countries
         '
-        Me.lst_Countries.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_Countries.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_Countries.FormattingEnabled = True
-        Me.lst_Countries.ItemHeight = 32
-        Me.lst_Countries.Location = New System.Drawing.Point(736, 71)
+        Me.lst_Countries.ItemHeight = 25
+        Me.lst_Countries.Location = New System.Drawing.Point(827, 71)
         Me.lst_Countries.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_Countries.Name = "lst_Countries"
-        Me.lst_Countries.Size = New System.Drawing.Size(411, 292)
+        Me.lst_Countries.Size = New System.Drawing.Size(320, 304)
         Me.lst_Countries.TabIndex = 30
         '
         'cmb_venuesType
@@ -95,7 +120,7 @@ Partial Class VenueForm
         Me.cmb_venuesType.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_venuesType.FormattingEnabled = True
         Me.cmb_venuesType.Items.AddRange(New Object() {"HALL", "PAVILION", "STADIUM", "FESTIVAL"})
-        Me.cmb_venuesType.Location = New System.Drawing.Point(364, 236)
+        Me.cmb_venuesType.Location = New System.Drawing.Point(467, 227)
         Me.cmb_venuesType.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cmb_venuesType.Name = "cmb_venuesType"
         Me.cmb_venuesType.Size = New System.Drawing.Size(337, 40)
@@ -137,7 +162,7 @@ Partial Class VenueForm
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label9.Location = New System.Drawing.Point(358, 200)
+        Me.Label9.Location = New System.Drawing.Point(461, 191)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(80, 34)
         Me.Label9.TabIndex = 25
@@ -149,7 +174,7 @@ Partial Class VenueForm
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label8.Location = New System.Drawing.Point(730, 27)
+        Me.Label8.Location = New System.Drawing.Point(821, 27)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(128, 34)
         Me.Label8.TabIndex = 20
@@ -161,7 +186,7 @@ Partial Class VenueForm
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label7.Location = New System.Drawing.Point(358, 71)
+        Me.Label7.Location = New System.Drawing.Point(461, 62)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(97, 34)
         Me.Label7.TabIndex = 20
@@ -169,19 +194,19 @@ Partial Class VenueForm
         '
         'lst_venues
         '
-        Me.lst_venues.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_venues.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_venues.FormattingEnabled = True
-        Me.lst_venues.ItemHeight = 32
+        Me.lst_venues.ItemHeight = 25
         Me.lst_venues.Location = New System.Drawing.Point(33, 71)
         Me.lst_venues.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_venues.Name = "lst_venues"
-        Me.lst_venues.Size = New System.Drawing.Size(296, 388)
+        Me.lst_venues.Size = New System.Drawing.Size(422, 404)
         Me.lst_venues.TabIndex = 20
         '
         'txt_venueName
         '
         Me.txt_venueName.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_venueName.Location = New System.Drawing.Point(364, 107)
+        Me.txt_venueName.Location = New System.Drawing.Point(467, 98)
         Me.txt_venueName.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_venueName.Name = "txt_venueName"
         Me.txt_venueName.Size = New System.Drawing.Size(337, 40)
@@ -224,31 +249,6 @@ Partial Class VenueForm
         Me.Label1.Size = New System.Drawing.Size(280, 73)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Venues"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(38, 27)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(118, 34)
-        Me.Label2.TabIndex = 55
-        Me.Label2.Text = "Venues"
-        '
-        'btn_back
-        '
-        Me.btn_back.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_back.Image = Global.SetList.My.Resources.Resources.volver__1_
-        Me.btn_back.Location = New System.Drawing.Point(33, 496)
-        Me.btn_back.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btn_back.Name = "btn_back"
-        Me.btn_back.Size = New System.Drawing.Size(181, 68)
-        Me.btn_back.TabIndex = 56
-        Me.btn_back.Text = "BACK"
-        Me.btn_back.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btn_back.UseVisualStyleBackColor = True
         '
         'VenueForm
         '

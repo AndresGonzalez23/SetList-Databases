@@ -192,10 +192,10 @@ Partial Class ArtistForm
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureBox3.Image = Global.SetList.My.Resources.Resources.singer
-        Me.PictureBox3.Location = New System.Drawing.Point(602, 18)
+        Me.PictureBox3.Location = New System.Drawing.Point(580, 11)
         Me.PictureBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(77, 69)
+        Me.PictureBox3.Size = New System.Drawing.Size(99, 76)
         Me.PictureBox3.TabIndex = 28
         Me.PictureBox3.TabStop = False
         '

@@ -110,10 +110,10 @@ Partial Class AlbumForm
         Me.lst_artists.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_artists.FormattingEnabled = True
         Me.lst_artists.ItemHeight = 25
-        Me.lst_artists.Location = New System.Drawing.Point(323, 85)
+        Me.lst_artists.Location = New System.Drawing.Point(354, 85)
         Me.lst_artists.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artists.Name = "lst_artists"
-        Me.lst_artists.Size = New System.Drawing.Size(247, 429)
+        Me.lst_artists.Size = New System.Drawing.Size(313, 429)
         Me.lst_artists.TabIndex = 29
         '
         'btn_deleteAlbum
@@ -137,7 +137,7 @@ Partial Class AlbumForm
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Verdana", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label10.Location = New System.Drawing.Point(317, 38)
+        Me.Label10.Location = New System.Drawing.Point(358, 38)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(109, 41)
         Me.Label10.TabIndex = 25
@@ -166,7 +166,7 @@ Partial Class AlbumForm
         Me.lst_albums.Location = New System.Drawing.Point(41, 85)
         Me.lst_albums.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_albums.Name = "lst_albums"
-        Me.lst_albums.Size = New System.Drawing.Size(247, 429)
+        Me.lst_albums.Size = New System.Drawing.Size(291, 429)
         Me.lst_albums.TabIndex = 20
         '
         'btn_insertAlbum
@@ -243,10 +243,10 @@ Partial Class AlbumForm
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.album1
-        Me.PictureBox1.Location = New System.Drawing.Point(583, 13)
+        Me.PictureBox1.Location = New System.Drawing.Point(555, 4)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(67, 74)
+        Me.PictureBox1.Size = New System.Drawing.Size(95, 80)
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '

@@ -40,6 +40,7 @@ Partial Class SongsForm
         Me.btn_insertSong = New System.Windows.Forms.Button()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel6.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -48,6 +49,7 @@ Partial Class SongsForm
         '
         Me.Panel6.BackColor = System.Drawing.Color.Silver
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel6.Controls.Add(Me.Label1)
         Me.Panel6.Controls.Add(Me.btn_back)
         Me.Panel6.Controls.Add(Me.btn_clean)
         Me.Panel6.Controls.Add(Me.lst_albums)
@@ -97,13 +99,13 @@ Partial Class SongsForm
         '
         'lst_albums
         '
-        Me.lst_albums.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_albums.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_albums.FormattingEnabled = True
-        Me.lst_albums.ItemHeight = 32
+        Me.lst_albums.ItemHeight = 25
         Me.lst_albums.Location = New System.Drawing.Point(748, 68)
         Me.lst_albums.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_albums.Name = "lst_albums"
-        Me.lst_albums.Size = New System.Drawing.Size(399, 324)
+        Me.lst_albums.Size = New System.Drawing.Size(399, 329)
         Me.lst_albums.TabIndex = 40
         '
         'Label22
@@ -130,13 +132,13 @@ Partial Class SongsForm
         '
         'lst_songs
         '
-        Me.lst_songs.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lst_songs.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_songs.FormattingEnabled = True
-        Me.lst_songs.ItemHeight = 32
-        Me.lst_songs.Location = New System.Drawing.Point(43, 39)
+        Me.lst_songs.ItemHeight = 25
+        Me.lst_songs.Location = New System.Drawing.Point(43, 71)
         Me.lst_songs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_songs.Name = "lst_songs"
-        Me.lst_songs.Size = New System.Drawing.Size(277, 452)
+        Me.lst_songs.Size = New System.Drawing.Size(277, 429)
         Me.lst_songs.TabIndex = 29
         '
         'Label23
@@ -244,10 +246,10 @@ Partial Class SongsForm
         '
         Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox7.Image = Global.SetList.My.Resources.Resources.music1
-        Me.PictureBox7.Location = New System.Drawing.Point(601, 14)
+        Me.PictureBox7.Location = New System.Drawing.Point(601, 9)
         Me.PictureBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(76, 73)
+        Me.PictureBox7.Size = New System.Drawing.Size(106, 78)
         Me.PictureBox7.TabIndex = 28
         Me.PictureBox7.TabStop = False
         '
@@ -262,6 +264,18 @@ Partial Class SongsForm
         Me.Label14.Size = New System.Drawing.Size(237, 73)
         Me.Label14.TabIndex = 18
         Me.Label14.Text = "Songs"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label1.Location = New System.Drawing.Point(42, 37)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(97, 32)
+        Me.Label1.TabIndex = 55
+        Me.Label1.Text = "Songs"
         '
         'SongsForm
         '
@@ -301,4 +315,5 @@ Partial Class SongsForm
     Friend WithEvents lst_albums As ListBox
     Friend WithEvents btn_clean As Button
     Friend WithEvents btn_back As Button
+    Friend WithEvents Label1 As Label
 End Class
