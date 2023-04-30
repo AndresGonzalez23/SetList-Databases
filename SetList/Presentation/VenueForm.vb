@@ -151,7 +151,7 @@
             country.idCountry = Venue.venueCountry
             country.ReadCountry()
 
-            If Venue.venueName <> txt_venueName.Text.Trim() Or country.countryName <> lst_Countries.SelectedItem.ToString Or Venue.venueType <> cmb_venuesType.SelectedItem.ToString.Trim Then
+            If Venue.venueName <> txt_venueName.Text.Trim() Or country.countryName <> lst_Countries.SelectedItem.ToString Or Not Venue.venueType.Equals(cmb_venuesType.SelectedItem.ToString, StringComparison.OrdinalIgnoreCase) Then
                 MessageBox.Show("This is not the same venue you have selected, please check the data", "Custom Error", MessageBoxButtons.OK)
                 Exit Sub
             End If
