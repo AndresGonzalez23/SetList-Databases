@@ -83,6 +83,7 @@
         Dim artistAuxiliar As New Artist
         Dim venueAuxiliar As New Venue
 
+        lst_countries.Items.Clear()
         lst_artist.ClearSelected()
         lst_concerts.Items.Clear()
         lst_setlist.Items.Clear()

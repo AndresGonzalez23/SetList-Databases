@@ -105,7 +105,7 @@
         Catch ex As Exception
             MessageBox.Show("This country is part of a concert and cannot be updated")
         End Try
-
+        btn_update_country.Enabled = False
     End Sub
 
     Private Sub btn_delete_country_Click(sender As Object, e As EventArgs) Handles btn_delete_country.Click
