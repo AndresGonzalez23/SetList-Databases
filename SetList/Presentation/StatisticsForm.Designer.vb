@@ -44,7 +44,9 @@ Partial Class StatisticsForm
         Me.lst_countries = New System.Windows.Forms.ListBox()
         Me.btn_Query6 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.btn_back = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -52,8 +54,14 @@ Partial Class StatisticsForm
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btn_back = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lst_artists
@@ -64,7 +72,7 @@ Partial Class StatisticsForm
         Me.lst_artists.Location = New System.Drawing.Point(44, 32)
         Me.lst_artists.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artists.Name = "lst_artists"
-        Me.lst_artists.Size = New System.Drawing.Size(191, 144)
+        Me.lst_artists.Size = New System.Drawing.Size(249, 144)
         Me.lst_artists.TabIndex = 10
         '
         'lst_moreSinged
@@ -72,10 +80,10 @@ Partial Class StatisticsForm
         Me.lst_moreSinged.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_moreSinged.FormattingEnabled = True
         Me.lst_moreSinged.ItemHeight = 20
-        Me.lst_moreSinged.Location = New System.Drawing.Point(265, 32)
+        Me.lst_moreSinged.Location = New System.Drawing.Point(307, 32)
         Me.lst_moreSinged.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_moreSinged.Name = "lst_moreSinged"
-        Me.lst_moreSinged.Size = New System.Drawing.Size(212, 144)
+        Me.lst_moreSinged.Size = New System.Drawing.Size(275, 144)
         Me.lst_moreSinged.TabIndex = 11
         '
         'Label1
@@ -94,7 +102,7 @@ Partial Class StatisticsForm
         '
         Me.btn_searchSql1.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_searchSql1.Image = CType(resources.GetObject("btn_searchSql1.Image"), System.Drawing.Image)
-        Me.btn_searchSql1.Location = New System.Drawing.Point(337, 179)
+        Me.btn_searchSql1.Location = New System.Drawing.Point(442, 182)
         Me.btn_searchSql1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_searchSql1.Name = "btn_searchSql1"
         Me.btn_searchSql1.Size = New System.Drawing.Size(140, 46)
@@ -111,14 +119,14 @@ Partial Class StatisticsForm
         Me.lst_songs.Location = New System.Drawing.Point(708, 32)
         Me.lst_songs.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_songs.Name = "lst_songs"
-        Me.lst_songs.Size = New System.Drawing.Size(663, 164)
+        Me.lst_songs.Size = New System.Drawing.Size(663, 144)
         Me.lst_songs.TabIndex = 14
         '
         'btn_Query4
         '
         Me.btn_Query4.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Query4.Image = CType(resources.GetObject("btn_Query4.Image"), System.Drawing.Image)
-        Me.btn_Query4.Location = New System.Drawing.Point(1231, 200)
+        Me.btn_Query4.Location = New System.Drawing.Point(1231, 183)
         Me.btn_Query4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Query4.Name = "btn_Query4"
         Me.btn_Query4.Size = New System.Drawing.Size(140, 46)
@@ -147,7 +155,7 @@ Partial Class StatisticsForm
         Me.lst_artistsAlbum.Location = New System.Drawing.Point(44, 251)
         Me.lst_artistsAlbum.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artistsAlbum.Name = "lst_artistsAlbum"
-        Me.lst_artistsAlbum.Size = New System.Drawing.Size(191, 144)
+        Me.lst_artistsAlbum.Size = New System.Drawing.Size(249, 144)
         Me.lst_artistsAlbum.TabIndex = 17
         '
         'lst_albums
@@ -155,17 +163,17 @@ Partial Class StatisticsForm
         Me.lst_albums.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_albums.FormattingEnabled = True
         Me.lst_albums.ItemHeight = 20
-        Me.lst_albums.Location = New System.Drawing.Point(265, 251)
+        Me.lst_albums.Location = New System.Drawing.Point(307, 251)
         Me.lst_albums.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_albums.Name = "lst_albums"
-        Me.lst_albums.Size = New System.Drawing.Size(212, 144)
+        Me.lst_albums.Size = New System.Drawing.Size(275, 144)
         Me.lst_albums.TabIndex = 18
         '
         'btn_searchSql2
         '
         Me.btn_searchSql2.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_searchSql2.Image = CType(resources.GetObject("btn_searchSql2.Image"), System.Drawing.Image)
-        Me.btn_searchSql2.Location = New System.Drawing.Point(337, 399)
+        Me.btn_searchSql2.Location = New System.Drawing.Point(442, 402)
         Me.btn_searchSql2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_searchSql2.Name = "btn_searchSql2"
         Me.btn_searchSql2.Size = New System.Drawing.Size(140, 46)
@@ -178,7 +186,7 @@ Partial Class StatisticsForm
         '
         Me.btn_Query3.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_Query3.Image = CType(resources.GetObject("btn_Query3.Image"), System.Drawing.Image)
-        Me.btn_Query3.Location = New System.Drawing.Point(337, 647)
+        Me.btn_Query3.Location = New System.Drawing.Point(442, 647)
         Me.btn_Query3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_Query3.Name = "btn_Query3"
         Me.btn_Query3.Size = New System.Drawing.Size(140, 46)
@@ -195,14 +203,14 @@ Partial Class StatisticsForm
         Me.lst_Query3.Location = New System.Drawing.Point(47, 492)
         Me.lst_Query3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_Query3.Name = "lst_Query3"
-        Me.lst_Query3.Size = New System.Drawing.Size(433, 144)
+        Me.lst_Query3.Size = New System.Drawing.Size(535, 144)
         Me.lst_Query3.TabIndex = 21
         '
         'txt_StartDate
         '
         Me.txt_StartDate.CalendarFont = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_StartDate.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_StartDate.Location = New System.Drawing.Point(708, 285)
+        Me.txt_StartDate.Location = New System.Drawing.Point(708, 277)
         Me.txt_StartDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_StartDate.Name = "txt_StartDate"
         Me.txt_StartDate.Size = New System.Drawing.Size(314, 24)
@@ -212,7 +220,7 @@ Partial Class StatisticsForm
         '
         Me.txt_endDate.CalendarFont = New System.Drawing.Font("Verdana", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_endDate.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_endDate.Location = New System.Drawing.Point(1055, 283)
+        Me.txt_endDate.Location = New System.Drawing.Point(1055, 275)
         Me.txt_endDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_endDate.Name = "txt_endDate"
         Me.txt_endDate.Size = New System.Drawing.Size(316, 24)
@@ -223,10 +231,10 @@ Partial Class StatisticsForm
         Me.lst_artistDates.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lst_artistDates.FormattingEnabled = True
         Me.lst_artistDates.ItemHeight = 17
-        Me.lst_artistDates.Location = New System.Drawing.Point(708, 318)
+        Me.lst_artistDates.Location = New System.Drawing.Point(708, 301)
         Me.lst_artistDates.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lst_artistDates.Name = "lst_artistDates"
-        Me.lst_artistDates.Size = New System.Drawing.Size(663, 89)
+        Me.lst_artistDates.Size = New System.Drawing.Size(663, 106)
         Me.lst_artistDates.TabIndex = 35
         '
         'btn_Query5
@@ -288,6 +296,10 @@ Partial Class StatisticsForm
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.PictureBox4)
+        Me.Panel1.Controls.Add(Me.PictureBox3)
+        Me.Panel1.Controls.Add(Me.PictureBox2)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.btn_back)
         Me.Panel1.Controls.Add(Me.Label9)
@@ -324,6 +336,16 @@ Partial Class StatisticsForm
         Me.Panel1.Size = New System.Drawing.Size(1406, 727)
         Me.Panel1.TabIndex = 41
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.SetList.My.Resources.Resources.calendario__1_
+        Me.PictureBox1.Location = New System.Drawing.Point(708, 254)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(25, 19)
+        Me.PictureBox1.TabIndex = 56
+        Me.PictureBox1.TabStop = False
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -335,6 +357,19 @@ Partial Class StatisticsForm
         Me.Label10.Size = New System.Drawing.Size(86, 20)
         Me.Label10.TabIndex = 48
         Me.Label10.Text = "End date" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'btn_back
+        '
+        Me.btn_back.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_back.Image = Global.SetList.My.Resources.Resources.volver__1_
+        Me.btn_back.Location = New System.Drawing.Point(47, 647)
+        Me.btn_back.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btn_back.Name = "btn_back"
+        Me.btn_back.Size = New System.Drawing.Size(167, 68)
+        Me.btn_back.TabIndex = 55
+        Me.btn_back.Text = "BACK"
+        Me.btn_back.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_back.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -366,7 +401,7 @@ Partial Class StatisticsForm
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label7.Location = New System.Drawing.Point(704, 233)
+        Me.Label7.Location = New System.Drawing.Point(704, 229)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(228, 20)
         Me.Label7.TabIndex = 45
@@ -378,7 +413,7 @@ Partial Class StatisticsForm
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label6.Location = New System.Drawing.Point(1078, 261)
+        Me.Label6.Location = New System.Drawing.Point(1078, 253)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(86, 20)
         Me.Label6.TabIndex = 44
@@ -390,7 +425,7 @@ Partial Class StatisticsForm
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(729, 261)
+        Me.Label5.Location = New System.Drawing.Point(729, 253)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(96, 20)
         Me.Label5.TabIndex = 43
@@ -421,18 +456,35 @@ Partial Class StatisticsForm
         Me.Label3.TabIndex = 41
         Me.Label3.Text = "Albums performed the most times by an artist" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'btn_back
+        'PictureBox2
         '
-        Me.btn_back.Font = New System.Drawing.Font("Verdana", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_back.Image = Global.SetList.My.Resources.Resources.volver__1_
-        Me.btn_back.Location = New System.Drawing.Point(47, 647)
-        Me.btn_back.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btn_back.Name = "btn_back"
-        Me.btn_back.Size = New System.Drawing.Size(109, 68)
-        Me.btn_back.TabIndex = 55
-        Me.btn_back.Text = "BACK"
-        Me.btn_back.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btn_back.UseVisualStyleBackColor = True
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.SetList.My.Resources.Resources.calendario__1_
+        Me.PictureBox2.Location = New System.Drawing.Point(1055, 254)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(25, 19)
+        Me.PictureBox2.TabIndex = 57
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = Global.SetList.My.Resources.Resources.calendario__1_
+        Me.PictureBox3.Location = New System.Drawing.Point(708, 470)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(25, 19)
+        Me.PictureBox3.TabIndex = 58
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.Image = Global.SetList.My.Resources.Resources.calendario__1_
+        Me.PictureBox4.Location = New System.Drawing.Point(1055, 471)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(25, 19)
+        Me.PictureBox4.TabIndex = 59
+        Me.PictureBox4.TabStop = False
         '
         'StatisticsForm
         '
@@ -448,6 +500,10 @@ Partial Class StatisticsForm
         Me.Text = "Statistics"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -482,4 +538,8 @@ Partial Class StatisticsForm
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents btn_back As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
